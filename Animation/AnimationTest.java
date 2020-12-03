@@ -184,11 +184,12 @@ class CharaPNG extends Character {
 }
 
 class CharaGIF extends Character {
+  Image icon;
     public CharaGIF(int x,int y,int w,int h){
         super(x,y,w,h);
+        icon = new ImageIcon("./img/kuno.gif").getImage();
     }
     public void draw(Graphics g) {
-        Image icon = new ImageIcon("./img/kuno.gif").getImage();
         g.drawImage(icon,x,y,width,height,this);
     }
 }
