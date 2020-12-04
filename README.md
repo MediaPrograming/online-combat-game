@@ -15,5 +15,5 @@ gradle run
 
 ## ビルド
 ```
-gradle build
+gradle build 
 ```
