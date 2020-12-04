@@ -35,3 +35,6 @@ bin
 *.log
 *.swp
 *.bak
+
+#　libs
+!libs/*.jar
