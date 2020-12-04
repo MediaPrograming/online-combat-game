@@ -1,10 +1,7 @@
 plugins {
-    id 'java'
     id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
 }
-
-group 'org.example'
-version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -12,31 +9,65 @@ repositories {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    //compile 'com.google.code.gson:gson:2.2.4'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
-application{
-    mainClassName = 'util.Entry'
-}
-//
-//jar {
-//    manifest {
-//        attributes 'Main-Class': 'view.MainWindow.Entry'
-//    }
-//    from {
-//        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-//    }
-//}
-def defaultEncoding = 'UTF-8'
-compileJava {
-    options.encoding = defaultEncoding
-}
-compileTestJava {
-    options.encoding = defaultEncoding
+javafx {
+    version = "13"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
-javadoc {
-    options.charSet = defaultEncoding
-    options.encoding = defaultEncoding
-}
+mainClassName = "org.openjfx.MainApp"
+//plugins {
+//    id 'java'
+//    id 'application'
+//    id 'org.openjfx.javafxplugin' version '0.0.9'
+//    id 'org.beryx.jlink' version '2.12.0'
+//}
+//
+//group 'org.example'
+//version '1.0-SNAPSHOT'
+//
+//repositories {
+//    mavenCentral()
+//}
+//
+//dependencies {
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+//    //compile 'com.google.code.gson:gson:2.2.4'
+//    testCompile group: 'junit', name: 'junit', version: '4.12'
+//
+//    runtimeOnly "org.openjfx:javafx-base:$javafx.version:win"
+//    runtimeOnly "org.openjfx:javafx-base:$javafx.version:linux"
+//    runtimeOnly "org.openjfx:javafx-base:$javafx.version:mac"
+//    runtimeOnly "org.openjfx:javafx-controls:$javafx.version:win"
+//    runtimeOnly "org.openjfx:javafx-controls:$javafx.version:linux"
+//    runtimeOnly "org.openjfx:javafx-controls:$javafx.version:mac"
+//    runtimeOnly "org.openjfx:javafx-fxml:$javafx.version:win"
+//    runtimeOnly "org.openjfx:javafx-fxml:$javafx.version:linux"
+//    runtimeOnly "org.openjfx:javafx-fxml:$javafx.version:mac"
+//    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:win"
+//    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:linux"
+//    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:mac"
+//}
+//
+//application{
+//    mainClassName = 'util.HelloFX'
+//}
+//
+//javafx {
+//    version = "15.0.1"
+//    modules = [ 'javafx.controls' ]
+//}
+//def defaultEncoding = 'UTF-8'
+//compileJava {
+//    options.encoding = defaultEncoding
+//}
+//compileTestJava {
+//    options.encoding = defaultEncoding
+//}
+//
+//javadoc {
+//    options.charSet = defaultEncoding
+//    options.encoding = defaultEncoding
+//}
