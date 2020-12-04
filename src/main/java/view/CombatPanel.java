@@ -43,7 +43,7 @@ public class CombatPanel extends JPanel implements KeyListener {
     public void keyTyped(KeyEvent e) { InputManager.Instance.Register(e.getKeyCode()); }
 
     @Override
-    public void keyPressed(KeyEvent e) { System.out.plintln(e.getKeyCode());}
+    public void keyPressed(KeyEvent e) { }
 
     @Override
     public void keyReleased(KeyEvent e) { InputManager.Instance.Release(e.getKeyCode()); }
