@@ -41,7 +41,6 @@ public class InputManager extends Thread {
         one.Invoke(unit);
         two.Invoke(character);
         three.Invoke(character);
-
     }
 
     public void Release(int key){
