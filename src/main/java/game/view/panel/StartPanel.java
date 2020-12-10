@@ -1,7 +1,9 @@
 package game.view.panel;
 
-import game.view.dispatcher.MainContainer;
-import game.view.dispatcher.MainDispatch;
+import com.taku.util.flux.view.BasePanel;
+import game.view.container.ShowPanelContainer;
+import game.view.service.IShowPanel;
+import game.view.state.ShowPanelState;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -9,16 +11,20 @@ import javafx.scene.control.Button;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class StartPanel implements Initializable {
-    MainDispatch dispatcher = new MainContainer();
+public class StartPanel extends BasePanel<ShowPanelState, IShowPanel> implements Initializable{
+    ShowPanelContainer container;
     @FXML
     private Button b1, b2, b3;
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        b1.setOnAction(e -> dispatcher.ShowSelectionPanel());
-        b2.setOnAction(e -> System.out.println("クリックしたよ"));
-        b3.setOnAction(e -> dispatcher.ApplicationQuit());
+        container = new ShowPanelContainer(this);
+        this.state = new ShowPanelState();
+        //this.props.ChangeTextT1("hoge1");
+        //System.out.println(this.state.t1);
+        b1.setOnAction(e -> this.props.ShowStartPanel());
+        b2.setOnAction(e ->this.props.ShowSelectionPanel());
+        b3.setOnAction(e -> this.props.ShowCombatPanel());
         //b4.setOnAction(e -> MainApp);
     }
+
 }

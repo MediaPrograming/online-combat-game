@@ -1,6 +1,6 @@
 package game.model;
 
-import javax.swing.*;
+import java.awt.*;
 
 public class VCharacter extends Component{
 
@@ -8,17 +8,15 @@ public class VCharacter extends Component{
     //public Direction dir;
     //public IPhysics physics = new Physics(this); // Init
 
-    private final ImageIcon imageIcon;
+    //private final Image imageIcon;
     public enum Direction {
         left, right
     }
-    private VCharacter(ImageIcon icon){
-        this.imageIcon =icon;
-    }
-    public static VCharacter Create(Transform transform, ImageIcon imageIcon){
-        var character = new VCharacter(imageIcon);
+    public static VCharacter Create(String ImagePath){
+        //var character = new VCharacter(new Image(ImagePath));
 //        character.setIcon(imageIcon);
 //        character.setLocation(transform.x, transform.y);
+        var character = new VCharacter();
         return character;
     }
 
