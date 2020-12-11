@@ -17,11 +17,13 @@ public class SelectPanel extends BasePanel<ShowPanelState, IShowPanel> implement
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         new SelectPanelContainer(this);
+
+        var props = this.getProps();
         System.out.println("Initial");
         b1.setOnAction(e -> {});
         b2.setOnAction(e -> {});
         b3.setOnAction(e -> System.out.println("b3をクリックしました"));
         b4.setOnAction(e -> System.out.println("b4をクリックしました"));
-        b5.setOnAction(e -> this.props.ShowCombatPanel());
+        b5.setOnAction(e -> props.ShowCombatPanel());
     }
 }

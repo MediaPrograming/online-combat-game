@@ -14,15 +14,34 @@ import java.util.function.Function;
  * IDispatchProps そのUIが持つDispatcher
  */
 public abstract class BasePanel<IStateProps , IDispatchProps> implements IDispatcher<IStateProps> {
-    public IStateProps state;
-    public IDispatchProps props;
+    private IStateProps state;
+    private IDispatchProps props;
     private Function<IStateProps, IStateProps> mapStateToProps;
     private Function<IDispatcher, IDispatchProps> mapDispatchToProps;
 
-    public void connect(Function<IStateProps, IStateProps> mapState, Function<IDispatcher, IDispatchProps>  mapDispatch){
+    public void Initialize(IStateProps state){
+        this.state = state;
+    }
+
+    public IStateProps getState() {
+        return state;
+    }
+
+    public IDispatchProps getProps() {
+        return props;
+    }
+
+    /**
+     * @param init  初期値
+     * @param mapState Stateの処理関数
+     * @param mapDispatch Dispatchの処理関数
+     * @return the function result
+     */
+    public void connect(IStateProps init, Function<IStateProps, IStateProps> mapState, Function<IDispatcher, IDispatchProps>  mapDispatch){
         StoreManager.Instance.store.addView(this);
         this.mapStateToProps = mapState;
         this.mapDispatchToProps = mapDispatch;
+        state = init;
         props = mapDispatch.apply(this);
         dispatch(UIEvent.Init.Create(new Unit()));
     }

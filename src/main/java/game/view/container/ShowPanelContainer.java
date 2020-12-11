@@ -3,25 +3,18 @@ import com.taku.util.flux.service.IDispatcher;
 import com.taku.util.model.Unit;
 import game.view.action.UIEvent;
 import game.view.panel.SelectPanel;
-import game.view.reducer.ShowPanelReducer;
-import game.view.service.IChangeTextTest;
 import game.view.panel.StartPanel;
 import game.view.service.IShowPanel;
 import game.view.state.ShowPanelState;
-import game.view.state.StartState;
-import javafx.fxml.Initializable;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 import java.util.function.Function;
 
 public class ShowPanelContainer {
     public ShowPanelContainer(StartPanel panel){
-        panel.connect(mapState, mapDispatch);
+        panel.connect(new ShowPanelState(), mapState, mapDispatch);
     }
 
     public ShowPanelContainer(SelectPanel panel){
-        panel.connect(mapState, mapDispatch);
+        panel.connect(new ShowPanelState(), mapState, mapDispatch);
     }
     Unit unit = new Unit();
     Function<ShowPanelState, ShowPanelState> mapState = (state) -> state;
@@ -38,8 +31,6 @@ public class ShowPanelContainer {
                 }
 
                 @Override
-                public void ShowCombatPanel() {
-                    dispatch.dispatch(UIEvent.ShowCombatPanel.Create(unit));
-                }
+                public void ShowCombatPanel() { dispatch.dispatch(UIEvent.ShowCombatPanel.Create(unit)); }
             };
 }

@@ -18,13 +18,22 @@ public class StartPanel extends BasePanel<ShowPanelState, IShowPanel> implements
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         container = new ShowPanelContainer(this);
-        this.state = new ShowPanelState();
+
+        var props = this.getProps();
         //this.props.ChangeTextT1("hoge1");
         //System.out.println(this.state.t1);
-        b1.setOnAction(e -> this.props.ShowStartPanel());
-        b2.setOnAction(e ->this.props.ShowSelectionPanel());
-        b3.setOnAction(e -> this.props.ShowCombatPanel());
+        b1.setOnAction(e -> props.ShowStartPanel());
+        b2.setOnAction(e ->props.ShowSelectionPanel());
+        b3.setOnAction(e -> props.ShowCombatPanel());
         //b4.setOnAction(e -> MainApp);
     }
 
+
+    @Override
+    public void Update(ShowPanelState s) {
+        super.Update(s);
+        //ここにState
+
+
+    }
 }

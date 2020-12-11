@@ -5,65 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70123379-6b53-4415-9aeb-50505127dd0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/store/StoreManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.0/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.0/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.0/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.0/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.0/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.0/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.0/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Action/Action0.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Action/Action1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Action/Action2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Action/Action3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Action/Action4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Action/Action5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Linq.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/ui/Event.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/config/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/game/config/Config.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/model/Component.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/game/model/Component.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/model/Key.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/game/model/Key.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/model/Transform.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/model/VCharacter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/game/model/VCharacter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/store/Store.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/util/HelloFX.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/util/InputManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/game/util/InputManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/MainApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/game/view/MainApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/action/UIEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/game/view/action/UIEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/dispatcher/MainContainer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/dispatcher/MainDispatch.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/panel/CombatPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/game/view/panel/CombatPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/panel/SelectPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/game/view/panel/SelectPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/panel/StartPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/game/view/panel/StartPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/stage/MainStage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/game/view/stage/MainStage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Action/Action0.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer0.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Action/Action1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Action/Action2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Action/Action3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Action/Action4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Action/Action5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer5.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Linq.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/ui/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/model/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/Key.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Transform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/model/Vector2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/VCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/VCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/store/Store.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/util/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/util/InputManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/action/UIEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/action/UIEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/dispatcher/MainContainer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/dispatcher/MainDispatch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/CombatPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/CombatPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/view/BasePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/view/BasePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/SelectPanelContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/SelectPanelContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/ShowPanelContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/ShowPanelContainer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/SelectPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/SelectPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/StartPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/StartPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/stage/MainStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/stage/MainStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/state/CharacterState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/state/CharacterState.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +193,9 @@
       <workItem from="1607421517557" duration="1919000" />
       <workItem from="1607496716342" duration="28168000" />
       <workItem from="1607528150065" duration="6937000" />
-      <workItem from="1607581802360" duration="18546000" />
+      <workItem from="1607581802360" duration="19642000" />
+      <workItem from="1607659895800" duration="565000" />
+      <workItem from="1607660555219" duration="3479000" />
     </task>
     <servers />
   </component>
@@ -253,10 +203,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-3075" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1607602589032">
-      <screen x="-3840" y="0" width="1920" height="1040" />
+    <state x="-1155" y="233" key="#com.intellij.ide.util.MemberChooser" timestamp="1607663589545">
+      <screen x="-1920" y="7" width="1920" height="1040" />
     </state>
-    <state x="-1155" y="233" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607413449524" />
+    <state x="-1155" y="233" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607663589545" />
     <state x="-3075" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607602589032" />
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607248870142" />
     <state x="-3097" y="414" width="433" height="218" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1607604143814">
@@ -282,49 +232,49 @@
       <screen x="-1920" y="7" width="1920" height="1040" />
     </state>
     <state x="-1180" y="281" key="FileChooserDialogImpl/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607316511496" />
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1607611384322">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1607660888518">
+      <screen x="-1920" y="7" width="1920" height="1040" />
     </state>
-    <state width="1660" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607530707543" />
+    <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607660888518" />
     <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607605258768" />
     <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607611384322" />
-    <state width="1877" height="280" key="GridCell.Tab.0.center" timestamp="1607611384322">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="280" key="GridCell.Tab.0.center" timestamp="1607660888518">
+      <screen x="-1920" y="7" width="1920" height="1040" />
     </state>
-    <state width="1660" height="280" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607530707543" />
+    <state width="1877" height="280" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607660888518" />
     <state width="1877" height="280" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607605258768" />
     <state width="1877" height="280" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607611384322" />
-    <state width="1877" height="280" key="GridCell.Tab.0.left" timestamp="1607611384322">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="280" key="GridCell.Tab.0.left" timestamp="1607660888517">
+      <screen x="-1920" y="7" width="1920" height="1040" />
     </state>
-    <state width="1660" height="280" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607530707543" />
+    <state width="1877" height="280" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607660888517" />
     <state width="1877" height="280" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607605258768" />
     <state width="1877" height="280" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607611384322" />
-    <state width="1877" height="280" key="GridCell.Tab.0.right" timestamp="1607611384322">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="280" key="GridCell.Tab.0.right" timestamp="1607660888518">
+      <screen x="-1920" y="7" width="1920" height="1040" />
     </state>
-    <state width="1660" height="280" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607530707543" />
+    <state width="1877" height="280" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607660888518" />
     <state width="1877" height="280" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607605258768" />
     <state width="1877" height="280" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607611384322" />
-    <state width="1877" height="356" key="GridCell.Tab.1.bottom" timestamp="1607605228578">
-      <screen x="-3840" y="0" width="1920" height="1040" />
+    <state width="1877" height="356" key="GridCell.Tab.1.bottom" timestamp="1607623374305">
+      <screen x="-1920" y="7" width="1920" height="1040" />
     </state>
-    <state width="1352" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607417955856" />
+    <state width="1877" height="356" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607623374305" />
     <state width="1877" height="356" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607605228578" />
-    <state width="1877" height="356" key="GridCell.Tab.1.center" timestamp="1607605228578">
-      <screen x="-3840" y="0" width="1920" height="1040" />
+    <state width="1877" height="356" key="GridCell.Tab.1.center" timestamp="1607623374305">
+      <screen x="-1920" y="7" width="1920" height="1040" />
     </state>
-    <state width="1352" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607417955856" />
+    <state width="1877" height="356" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607623374305" />
     <state width="1877" height="356" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607605228578" />
-    <state width="1877" height="356" key="GridCell.Tab.1.left" timestamp="1607605228578">
-      <screen x="-3840" y="0" width="1920" height="1040" />
+    <state width="1877" height="356" key="GridCell.Tab.1.left" timestamp="1607623374305">
+      <screen x="-1920" y="7" width="1920" height="1040" />
     </state>
-    <state width="1352" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607417955856" />
+    <state width="1877" height="356" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607623374305" />
     <state width="1877" height="356" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607605228578" />
-    <state width="1877" height="356" key="GridCell.Tab.1.right" timestamp="1607605228578">
-      <screen x="-3840" y="0" width="1920" height="1040" />
+    <state width="1877" height="356" key="GridCell.Tab.1.right" timestamp="1607623374305">
+      <screen x="-1920" y="7" width="1920" height="1040" />
     </state>
-    <state width="1352" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607417955856" />
+    <state width="1877" height="356" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607623374305" />
     <state width="1877" height="356" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607605228578" />
     <state x="-3288" y="252" key="Vcs.Push.Dialog.v2" timestamp="1607603080390">
       <screen x="-3840" y="0" width="1920" height="1040" />
@@ -366,10 +316,10 @@
     <state x="-1304" y="247" key="run.anything.popup/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607414135243" />
     <state x="-3224" y="240" key="run.anything.popup/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607602153941" />
     <state x="-3224" y="240" key="run.anything.popup/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607391431213" />
-    <state x="-3217" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1607605280251">
-      <screen x="-3840" y="0" width="1920" height="1040" />
+    <state x="-1297" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1607664019223">
+      <screen x="-1920" y="7" width="1920" height="1040" />
     </state>
-    <state x="-1297" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607411805076" />
+    <state x="-1297" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607664019223" />
     <state x="-3217" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607605280251" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607249070129" />
   </component>
