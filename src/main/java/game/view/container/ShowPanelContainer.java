@@ -1,5 +1,6 @@
 package game.view.container;
 import com.taku.util.flux.service.IDispatcher;
+import com.taku.util.flux.view.BasePanel;
 import com.taku.util.model.Unit;
 import game.view.action.UIEvent;
 import game.view.panel.SelectPanel;
@@ -9,13 +10,10 @@ import game.view.state.ShowPanelState;
 import java.util.function.Function;
 
 public class ShowPanelContainer {
-    public ShowPanelContainer(StartPanel panel){
+    public ShowPanelContainer(BasePanel panel){
         panel.connect(new ShowPanelState(), mapState, mapDispatch);
     }
 
-    public ShowPanelContainer(SelectPanel panel){
-        panel.connect(new ShowPanelState(), mapState, mapDispatch);
-    }
     Unit unit = new Unit();
     Function<ShowPanelState, ShowPanelState> mapState = (state) -> state;
     Function<IDispatcher, IShowPanel> mapDispatch = dispatch ->
