@@ -1,3 +1,7 @@
 .label {
     -fx-text-fill: blue;
 }
+
+#ground {
+    -fx-background-image: "../img/ground.jpg";
+}

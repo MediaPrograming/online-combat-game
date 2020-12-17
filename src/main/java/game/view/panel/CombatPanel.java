@@ -10,5 +10,6 @@ import java.util.ResourceBundle;
 public class CombatPanel extends BasePanel<CharacterState, ICharacter> implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
     }
 }
