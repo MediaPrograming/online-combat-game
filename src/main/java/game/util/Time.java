@@ -1,20 +1,35 @@
 package game.util;
 
+import com.taku.util.flux.view.BasePanel;
+import game.service.IUpdate;
 import javafx.animation.AnimationTimer;
+import javafx.animation.Timeline;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public final class Time implements Runnable {
-    private static double totalTime;
-    private static double deltaTime;
-    public static double getTotalTime(){
-        return Time.totalTime;
+    private double totalTime;
+    private double deltaTime;
+    public double getTotalTime(){
+        return this.totalTime;
     }
-    AnimationTimer timer = new AnimationTimer() {
-        long offset = 0;
-        @Override    // frame 毎に呼び出されるメソッド handle(now) の実装
-        public void handle(long now) { // now (ナノ秒単位) から現在時刻を抽出
-            if( offset == 0 ) {   // start 直後の最初の呼び出し
-                offset = now;     // offset に最初の時刻を代入
-            } else {            // その後は経過時間 t（1/60秒単位）を変数として各種プロパティを計算
-                totalTime = (double)( now - offset ) / 1_000_000_000 * 60;
+    public double getDeltaTime() { return this.deltaTime; }
+
+    public static Time Instance = new Time();
+    private void Time(){
+    }
+    private List<IUpdate> updates = new ArrayList<>();
+    public void addListener(IUpdate update) {
+        updates.add(update);
+    }
+    private AnimationTimer timer = new AnimationTimer() {
+        @Override
+        public void handle(long now) {
+            for (IUpdate update : updates) {
+                deltaTime = (double) now - totalTime;
+                totalTime = (double)( now ) / 1_000_000_000 * 60;
+                update.EveryFrameUpdate();
             }
         }
     };
@@ -22,4 +37,5 @@ public final class Time implements Runnable {
     public void run() {
         timer.start();
     }
+
 }
