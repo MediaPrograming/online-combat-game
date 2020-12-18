@@ -3,6 +3,7 @@ package game.view;
 import com.taku.util.flux.model.Store;
 import com.taku.util.model.Unit;
 import game.store.StoreManager;
+import game.util.Time;
 import game.view.action.UIEvent;
 import game.view.panel.StartPanel;
 import game.view.reducer.ShowPanelReducer;
@@ -33,5 +34,10 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.close(); //このwindowは使わん
         StoreManager.Instance.InitLoad();
+
+        Thread thread = new Thread(Time.Instance);
+        thread.start();
+
     }
+
 }

@@ -1,8 +1,7 @@
 game/view/stage/MainStage.java
  game.view.stage.MainStage
-game/util/Time.java
- game.util.Time
- game.util.Time$1
+game/view/service/ICharacter.java
+ game.view.service.ICharacter
 com/taku/util/model/Vector2.java
  com.taku.util.model.Vector2
 game/config/Config.java
@@ -22,15 +21,14 @@ game/view/panel/CombatPanel.java
  game.view.panel.CombatPanel
 com/taku/util/model/Unit.java
  com.taku.util.model.Unit
-game/view/panel/SelectPanel.java
- game.view.panel.SelectPanel
+game/view/MainApp.java
+ game.view.MainApp
 game/view/state/CharacterState.java
  game.view.state.CharacterState
 com/taku/util/flux/service/IDispatchable.java
  com.taku.util.flux.service.IDispatchable
 game/model/VCharacter.java
  game.model.VCharacter
- game.model.VCharacter$Direction
 com/taku/util/function/Function/VoidFunction.java
  com.taku.util.function.Function.VoidFunction
 game/service/IUpdate.java
@@ -41,15 +39,15 @@ game/model/Component.java
  game.model.Component
 com/taku/util/function/Consumer/Consumer3.java
  com.taku.util.function.Consumer.Consumer3
-com/taku/util/flux/view/BasePanel.java
- com.taku.util.flux.view.BasePanel
-game/view/container/SelectPanelContainer.java
- game.view.container.SelectPanelContainer
- game.view.container.SelectPanelContainer$1
+com/taku/util/function/Consumer/Consumer2.java
+ com.taku.util.function.Consumer.Consumer2
+game/util/Time.java
+ game.util.Time
+ game.util.Time$1
 com/taku/util/function/Consumer/Consumer0.java
  com.taku.util.function.Consumer.Consumer0
-game/store/StoreManager.java
- game.store.StoreManager
+game/view/reducer/ShowPanelReducer.java
+ game.view.reducer.ShowPanelReducer
 game/view/state/ShowPanelState.java
  game.view.state.ShowPanelState
 com/taku/util/model/Vector3.java
@@ -68,8 +66,6 @@ com/taku/util/flux/service/IReducer.java
  com.taku.util.flux.service.IReducer
 com/taku/util/flux/view/ReducerBuilder.java
  com.taku.util.flux.view.ReducerBuilder
-game/util/CharacterContainer.java
- game.util.CharacterContainer
 game/util/InputManager.java
  game.util.InputManager
  game.util.InputManager$1
@@ -81,21 +77,25 @@ game/view/reducer/StartReducer.java
  game.view.reducer.StartReducer
 com/taku/util/function/Consumer/Consumer5.java
  com.taku.util.function.Consumer.Consumer5
-game/view/MainApp.java
- game.view.MainApp
+game/model/Key.java
+ game.model.Key
 game/view/reducer/CharacterReducer.java
  game.view.reducer.CharacterReducer
 com/taku/util/function/Function/Function2.java
  com.taku.util.function.Function.Function2
+game/view/container/CharacterContainer.java
+ game.view.container.CharacterContainer
+ game.view.container.CharacterContainer$1
 game/config/PATH.java
  game.config.PATH
 game/view/service/IShowPanel.java
  game.view.service.IShowPanel
-game/view/reducer/ShowPanelReducer.java
- game.view.reducer.ShowPanelReducer
-game/model/Key.java
- game.model.Key
-game/view/service/ICharacter.java
- game.view.service.ICharacter
-com/taku/util/function/Consumer/Consumer2.java
- com.taku.util.function.Consumer.Consumer2
+game/store/StoreManager.java
+ game.store.StoreManager
+com/taku/util/flux/view/BasePanel.java
+ com.taku.util.flux.view.BasePanel
+game/view/panel/SelectPanel.java
+ game.view.panel.SelectPanel
+game/view/container/SelectPanelContainer.java
+ game.view.container.SelectPanelContainer
+ game.view.container.SelectPanelContainer$1

@@ -6,25 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="70123379-6b53-4415-9aeb-50505127dd0c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/game/img/ground.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/game/view/combat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/game/view/combat.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/game/view/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/game/view/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/VCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/VCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/util/CharacterContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/CharacterContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/view/BasePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/view/BasePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/service/IUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/service/IUpdate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/util/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/util/Time.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/MainApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/action/ChEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/action/ChEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/ShowPanelContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/ShowPanelContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/CharacterContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/CharacterContainer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/CombatPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/CombatPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/SelectPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/SelectPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/StartPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/StartPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/service/ICharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/service/ICharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/state/CharacterState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/state/CharacterState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/game/view/combat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/view/combat.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/game/view/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/view/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +215,9 @@
       <workItem from="1608189053530" duration="121000" />
       <workItem from="1608189186017" duration="367000" />
       <workItem from="1608189865120" duration="1072000" />
-      <workItem from="1608191078374" duration="5299000" />
+      <workItem from="1608191078374" duration="8717000" />
+      <workItem from="1608213546358" duration="1487000" />
+      <workItem from="1608264827272" duration="3477000" />
     </task>
     <servers />
   </component>
