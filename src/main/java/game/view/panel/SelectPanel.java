@@ -1,6 +1,8 @@
 package game.view.panel;
 
 import com.taku.util.flux.view.BasePanel;
+import game.service.IUpdate;
+import game.util.Time;
 import game.view.container.SelectPanelContainer;
 import game.view.reducer.ShowPanelReducer;
 import game.view.service.IShowPanel;
@@ -25,5 +27,9 @@ public class SelectPanel extends BasePanel<ShowPanelState, IShowPanel> implement
         b3.setOnAction(e -> System.out.println("b3をクリックしました"));
         b4.setOnAction(e -> System.out.println("b4をクリックしました"));
         b5.setOnAction(e -> props.ShowCombatPanel());
+    }
+    @Override
+    public void EveryFrameUpdate() {
+        System.out.println("Total Time : " + Time.Instance.getTotalTime()+ "\n delta Time : " + Time.Instance.getDeltaTime());
     }
 }

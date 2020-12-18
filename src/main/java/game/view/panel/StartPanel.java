@@ -28,12 +28,9 @@ public class StartPanel extends BasePanel<ShowPanelState, IShowPanel> implements
         //b4.setOnAction(e -> MainApp);
     }
 
-
     @Override
     public void Update(ShowPanelState s) {
         super.Update(s);
         //ここにState
-
-
     }
 }
