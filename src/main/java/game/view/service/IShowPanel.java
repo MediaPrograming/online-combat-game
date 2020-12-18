@@ -5,4 +5,5 @@ public interface IShowPanel {
         void ShowStartPanel();
         void ShowSelectionPanel();
         void ShowCombatPanel();
+        void ShowUoPanel();
 }

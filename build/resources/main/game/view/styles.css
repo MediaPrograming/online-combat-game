@@ -7,6 +7,6 @@
     -fx-text-fill: yellow;
     -fx-underline: true;
     -fx-padding: 10px;
-    /*-fx-background-image: "@./ground.jpg";*/
+    -fx-background-image: url("../img/ground.jpg");
     -fx-font-family: consolas;
 }

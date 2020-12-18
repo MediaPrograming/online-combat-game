@@ -14,6 +14,7 @@ public final class UIEvent {
     private static final String ShowSelectPanelType = "ShowSelectionPanel";
     private static final String ShowStartPanelType = "ShowStartPanel";
     private static final String ShowCombatPanelType = "ShowCombatPanel";
+    private static final String ShowUoPanelType = "ShowUoPanel";
     private static final String SelectCharacterEventType = "SelectEvent";
 
 
@@ -23,6 +24,7 @@ public final class UIEvent {
     public static final ActionCreator<Unit> ShowSelectionPanel = new ActionCreator<>(ShowSelectPanelType);
     public static final ActionCreator<Unit> ShowStartPanel =  new ActionCreator<>(ShowStartPanelType);
     public static final  ActionCreator<Unit>  ShowCombatPanel = new ActionCreator<>(ShowCombatPanelType);
+    public static final  ActionCreator<Unit>  ShowUoPanel = new ActionCreator<>(ShowUoPanelType);
     public static final  ActionCreator<String> SelectCharacterEvent = new ActionCreator<>(SelectCharacterEventType);
 
 

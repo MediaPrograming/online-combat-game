@@ -9,10 +9,7 @@ repositories {
 
 dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
-<<<<<<< HEAD
-=======
     implementation 'org.jetbrains:annotations:19.0.0'
->>>>>>> origin/master
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
@@ -21,11 +18,8 @@ javafx {
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
-<<<<<<< HEAD
 mainClassName = 'org.openjfx.MainApp'
-=======
 mainClassName = 'game.view.MainApp'
->>>>>>> origin/master
 
 
 //文字コード

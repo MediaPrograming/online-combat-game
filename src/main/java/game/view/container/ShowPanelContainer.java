@@ -30,5 +30,10 @@ public class ShowPanelContainer {
 
                 @Override
                 public void ShowCombatPanel() { dispatch.dispatch(UIEvent.ShowCombatPanel.Create(unit)); }
+
+                @Override
+                public void ShowUoPanel() {
+                    dispatch.dispatch(UIEvent.ShowUoPanel.Create(unit));
+                }
             };
 }
