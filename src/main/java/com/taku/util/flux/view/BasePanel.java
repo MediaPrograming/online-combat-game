@@ -18,7 +18,7 @@ import java.util.function.Function;
  * IStateProps そのUIが持つState
  * IDispatchProps そのUIが持つDispatcher
  */
-public abstract class BasePanel<IStateProps , IDispatchProps> implements IDispatcher<IStateProps>, IUpdate {
+public abstract class BasePanel<IStateProps, IDispatchProps> implements IDispatcher<IStateProps>, IUpdate {
     private IStateProps state;
     private IDispatchProps props;
     private Function<IStateProps, IStateProps> mapStateToProps;

@@ -30,6 +30,6 @@ public class SelectPanel extends BasePanel<ShowPanelState, IShowPanel> implement
     }
     @Override
     public void EveryFrameUpdate() {
-        System.out.println("Total Time : " + Time.Instance.getTotalTime()+ "\n delta Time : " + Time.Instance.getDeltaTime());
+        //System.out.println("Total Time : " + Time.Instance.getTotalTime()+ "\n delta Time : " + Time.Instance.getDeltaTime());
     }
 }

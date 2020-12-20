@@ -26,7 +26,6 @@ public class Store implements IDispatchable {
     }
     @Override
     public <TState, TPayload> void Invoke(TState state, Action<TPayload> action) {
-        System.out.println(state);
         for (var pair : pairs) {
             if(pair.getKey() == state.getClass()){
                 var newState = pair.getValue().apply(action, state);
