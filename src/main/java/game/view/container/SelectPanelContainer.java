@@ -15,19 +15,19 @@ public class SelectPanelContainer  {
 
     Unit unit = new Unit();
     Function<ShowPanelState, ShowPanelState> mapState = (state) -> state;
-    Function<IDispatcher, IShowPanel> mapDispatch = dispatch ->
+    Function<IDispatcher, IShowPanel> mapDispatch = dispatcher ->
             new IShowPanel() {
                 @Override
                 public void ShowStartPanel() {
-                    dispatch.dispatch(UIEvent.ShowStartPanel.Create(unit));
+                    dispatcher.dispatch(UIEvent.ShowStartPanel.Create(unit));
                 }
 
                 @Override
                 public void ShowSelectionPanel() {
-                    dispatch.dispatch(UIEvent.ShowSelectionPanel.Create(unit));
+                    dispatcher.dispatch(UIEvent.ShowSelectionPanel.Create(unit));
                 }
 
                 @Override
-                public void ShowCombatPanel() { dispatch.dispatch(UIEvent.ShowCombatPanel.Create(unit)); }
+                public void ShowCombatPanel() { dispatcher.dispatch(UIEvent.ShowCombatPanel.Create(unit)); }
             };
 }

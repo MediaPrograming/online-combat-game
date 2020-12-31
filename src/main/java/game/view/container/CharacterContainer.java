@@ -8,7 +8,7 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class CharacterContainer {
     public CharacterContainer(BasePanel panel){
-        panel.connect(new CharacterState(), state -> state, dispatch ->
+        panel.connect(new CharacterState(), state -> state, dispatcher ->
                 new ICharacter() {
                     @Override
                     public void Move(GraphicsContext context, Vector2 transform) {

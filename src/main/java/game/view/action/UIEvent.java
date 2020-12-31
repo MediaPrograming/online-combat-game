@@ -22,8 +22,8 @@ public final class UIEvent {
     public static final ActionCreator<Unit> setFocus = new ActionCreator<>(SetFocusType);
     public static final ActionCreator<Unit> ShowSelectionPanel = new ActionCreator<>(ShowSelectPanelType);
     public static final ActionCreator<Unit> ShowStartPanel =  new ActionCreator<>(ShowStartPanelType);
-    public static final  ActionCreator<Unit>  ShowCombatPanel = new ActionCreator<>(ShowCombatPanelType);
-    public static final  ActionCreator<String> SelectCharacterEvent = new ActionCreator<>(SelectCharacterEventType);
+    public static final ActionCreator<Unit>  ShowCombatPanel = new ActionCreator<>(ShowCombatPanelType);
+    public static final ActionCreator<String> SelectCharacterEvent = new ActionCreator<>(SelectCharacterEventType);
 
 
     //Test
@@ -31,4 +31,6 @@ public final class UIEvent {
     private static final String ChangeTextTypeT2 = "ChangeText2";
     public static final ActionCreator<String> ChangeTextT1 = new ActionCreator<String>(ChangeTextTypeT1);
     public static final ActionCreator<String> ChangeTextT2 = new ActionCreator<String>(ChangeTextTypeT2);
+
+
 }
