@@ -17,7 +17,7 @@ public class Key {
         this.action = action;
     }
 
-    public void Invoke(){ this.action.apply(); }
+    public void Invoke(){ this.action.accept(); }
     public KeyCode getKeyCode(){
         return this.keyCode;
     }

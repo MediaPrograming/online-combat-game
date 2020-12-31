@@ -21,6 +21,7 @@ public class SelectPanel extends BasePanel<ShowPanelState, IShowPanel> implement
         new SelectPanelContainer(this);
 
         var props = this.getProps();
+
         System.out.println("Initial");
         b1.setOnAction(e -> {});
         b2.setOnAction(e -> {});

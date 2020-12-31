@@ -36,4 +36,10 @@ public final class StoreManager {
         }
     }
 
+    void Close(){
+        StoreManager.stage.close();
+        StoreManager.stage = null;
+        Instance = null;
+    }
+
 }
