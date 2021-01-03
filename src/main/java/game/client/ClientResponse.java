@@ -69,47 +69,4 @@ public class ClientResponse extends BasePanel<RoomState, IFetch> {
             }
         };
     }
-
-//    public static StreamObserver<Message> SendMessageResponse(){ return new StreamObserver<Message>() {
-//        @Override
-//        public void onNext(Response value) {
-//            System.out.println("[" + value.getUser().getName()+ "]" + value.getMessage());
-//        }
-//
-//        @Override
-//        public void onError(Throwable t) { }
-//
-//        @Override
-//        public void onCompleted() { }
-//    };}
-//
-//    public static StreamObserver<Response> JoinResponse(){ return new StreamObserver<Response>() {
-//        @Override
-//        public void onNext(Response value) {
-//            System.out.println(value.getUser().getName() + "さんが入室しました");
-//        }
-//
-//        @Override
-//        public void onError(Throwable t) { }
-//
-//        @Override
-//        public void onCompleted() { }
-//    };}
-//
-//    public static StreamObserver<User> LeaveResponse(){return new StreamObserver<User>() {
-//        @Override
-//        public void onNext(User value) {
-//            System.out.println(value.getName() + "さんが退室しました");
-//        }
-//
-//        @Override
-//        public void onError(Throwable t) {
-//
-//        }
-//
-//        @Override
-//        public void onCompleted() {
-//
-//        }
-//    };}
 }

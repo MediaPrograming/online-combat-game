@@ -1,5 +1,6 @@
 package game.store;
 
+import com.sun.tools.javac.Main;
 import com.taku.util.flux.model.Store;
 import game.client.GrpcClient;
 import game.view.MainApp;
@@ -15,12 +16,13 @@ import game.view.state.StartState;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 import javafx.util.Pair;
 
 
 public final class StoreManager {
-    public static StoreManager Instance = new StoreManager();
-    public static MainStage stage = new MainStage();
+    public static StoreManager Instance = new StoreManager();    //再代入不可
+    private MainStage stage = new MainStage();
     public GrpcClient client = new GrpcClient();
     public Store store = Store.CreateStore(
             new Pair<>(StartState.class, new StartReducer()),
@@ -30,7 +32,9 @@ public final class StoreManager {
 
     );
 
-    public void InitLoad(){
+    private StoreManager(){}
+
+    public void Init(){
         try {
             Parent start = FXMLLoader.load(MainApp.class.getResource("../view/start.fxml"));
             Scene StartPanel = new Scene(start);
@@ -42,9 +46,8 @@ public final class StoreManager {
     }
 
     void Close(){
-        StoreManager.stage.close();
-        StoreManager.stage = null;
+        stage.close();
+        stage = null;
         Instance = null;
     }
-
 }

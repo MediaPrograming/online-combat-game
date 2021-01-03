@@ -62,7 +62,9 @@ public class GrpcClientTest {
     }
 
     /**
-     * createRoomTestで作成したroomをそのまま活用するのでserverはTest実行前に起動し、CreateリクエストはTestプログラムで発行されるものだけにしなくてはいけない
+     * Room取得のテスト
+     * createRoomTestで作成したroomをそのまま活用するのでserverはTest実行前に起動し、
+     * CreateリクエストはTestプログラムで発行されるものだけにしなくてはいけない
      * @throws Exception
      */
     @Test
@@ -82,6 +84,36 @@ public class GrpcClientTest {
             @Override public void onCompleted() { }
         });
 
+        lock.await(2000, TimeUnit.MILLISECONDS);
+    }
+
+
+    /**
+     * Room削除のテスト
+     * 先にルームの作成が行われている必要がある
+     * @throws Exception
+     */
+    public void DeleteRoomTest() throws Exception{
+        CountDownLatch lock = new CountDownLatch(1);
+        GrpcClient client = new GrpcClient();
+        var deleteRequest = RoomMessage.newBuilder().setUser(testUser).setRoom(gRoom).build();
+        client.stub.deleteRoom(deleteRequest, new StreamObserver<>() {
+            @Override public void onNext(ResponseCode value) {
+                if(value.getCode() == 200){
+                    System.out.println("[SUCCESS]");
+                    lock.countDown();
+                }else{
+                    System.out.println("[FAIL]Response code is " + value.getCode());
+                    lock.countDown();
+                }
+                System.out.println("ResponseCode : " + "[" + value.getCode() +  "]");
+                assertThat(200, is(value.getCode()));
+            }
+            @Override public void onError(Throwable t) { System.out.println(t.toString()); }
+            @Override public void onCompleted() { }
+        });
+
+        //まあ2秒待てばいいっしょ
         lock.await(2000, TimeUnit.MILLISECONDS);
     }
 }
