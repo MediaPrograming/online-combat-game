@@ -20,7 +20,6 @@ public class CombatPanel extends BasePanel<CharacterState, ICharacter> implement
         new CharacterContainer(this);
         var props = this.getProps();
         var state = this.getState();
-
         var g = canvas.getGraphicsContext2D(); // Graphicsの取得
     }
 }

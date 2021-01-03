@@ -18,7 +18,7 @@ import java.util.function.Function;
  * IStateProps そのUIが持つState
  * IDispatchProps そのUIが持つDispatcher
  */
-public abstract class BasePanel<IStateProps, IDispatchProps> implements IDispatcher<IStateProps>, IUpdate {
+public abstract class BasePanel<IStateProps, IDispatchProps> implements IDispatcher, IUpdate {
     private IStateProps state;
     private IDispatchProps props;
     private Function<IStateProps, IStateProps> mapStateToProps;
@@ -42,7 +42,7 @@ public abstract class BasePanel<IStateProps, IDispatchProps> implements IDispatc
      * @param mapDispatch Dispatchの処理関数
      * @return the function result
      */
-    public void connect(IStateProps init, Function<IStateProps, IStateProps> mapState, Function<IDispatcher, IDispatchProps>  mapDispatch){
+    public void connect(IStateProps init, Function<IStateProps, IStateProps> mapState, Function<IDispatcher, IDispatchProps> mapDispatch){
         StoreManager.Instance.store.addView(this);
         this.mapStateToProps = mapState;
         this.mapDispatchToProps = mapDispatch;
@@ -55,7 +55,6 @@ public abstract class BasePanel<IStateProps, IDispatchProps> implements IDispatc
     /*
      * State更新時発行される
      */
-    @Override
     public void Update(IStateProps s) { state = mapStateToProps.apply(s); }
 
 

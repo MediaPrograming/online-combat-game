@@ -5,5 +5,4 @@ import com.taku.util.flux.view.ReducerBuilder;
 
 public interface IReducer<TState> {
     ReducerBuilder<TState> apply(Action<?> action, TState state);
-
 }
