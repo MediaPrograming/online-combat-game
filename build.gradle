@@ -76,7 +76,7 @@ test{
 
 jar {
     manifest {
-        attributes 'Main-Class': 'io.game.client.view.java'
+        attributes 'Main-Class': 'game.view.MainApp'
     }
 }
 //javafx
@@ -94,7 +94,7 @@ task GrpcServer(type: CreateStartScripts) {
 }
 
 task GrpcClient(type: CreateStartScripts) {
-    mainClassName = 'game.client.GrpcClient'
+    mainClassName = 'game.view.MainApp'
     applicationName = 'message-client'
     outputDir = new File(project.buildDir, 'tmp')
     classpath = startScripts.classpath

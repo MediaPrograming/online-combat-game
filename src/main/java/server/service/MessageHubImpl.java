@@ -14,7 +14,6 @@ import io.grpc.stub.StreamObserver;
  * Bind ServerBuilder in serve class.
  */
 public class MessageHubImpl extends MessageHubGrpc.MessageHubImplBase {
-
     /**
      * ルームの取得
      *
@@ -30,7 +29,10 @@ public class MessageHubImpl extends MessageHubGrpc.MessageHubImplBase {
         for (var set : rooms.entrySet()) {
             Room room = set.getValue();
             if (room.getCount() > room.getLimit()) continue;
-            var gRoom = GrpcRoom.newBuilder().setRoomName(set.getKey()).setHostName(room.getHostName()).build();
+            var gRoom = GrpcRoom.newBuilder()
+                    .setRoomName(set.getKey())
+                    .setHostName(room.getHostName())
+                    .build();
             builder.addRoom(gRoom);
         }
         responseObserver.onNext(builder.build());
@@ -44,16 +46,19 @@ public class MessageHubImpl extends MessageHubGrpc.MessageHubImplBase {
      */
     @Override
     public void createRoom(RoomMessage request, StreamObserver<ResponseCode> responseObserver) {
+        System.out.println("[test]" + request.getUser().getName());
+
         //null check
         var roomName = request.getRoom().getRoomName();
-        if (roomName == null || roomName.isEmpty()) {
+         if (roomName == null || roomName.isEmpty()) {
             responseObserver.onNext(ResponseCode.newBuilder().setCode(400).build()); //エラーのレスポンス
             return;
         }
-
         var hostName = request.getUser().getName();
         Room room = new Room(hostName, roomName, 4);
         RoomManager.Instance.pushRoom(room);
+
+        System.out.println("hostname = " + hostName + "name = " + roomName);
         responseObserver.onNext(ResponseCode.newBuilder().setCode(200).build()); //成功 200 OK
     }
 
@@ -84,6 +89,7 @@ public class MessageHubImpl extends MessageHubGrpc.MessageHubImplBase {
 
                 switch (value.getType()) {
                     case JOIN:
+                        System.out.println(roomName  + "に参加した");
                         roomName = value.getMessage();
                         room = RoomManager.Instance.getRoom(roomName);
                         room.putUser(id, responseObserver);

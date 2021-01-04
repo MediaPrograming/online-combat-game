@@ -2,9 +2,9 @@ package game.client;
 
 import game.config.Config;
 import io.game.hub.messageHub.*;
-import server.core.GrpcServer;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import server.core.GrpcServer;
 
 import java.util.logging.Logger;
 

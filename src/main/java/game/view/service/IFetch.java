@@ -2,6 +2,7 @@ package game.view.service;
 
 import io.game.hub.messageHub.GrpcRoom;
 import io.game.hub.messageHub.User;
+import io.grpc.Grpc;
 
 public interface IFetch {
     /**
@@ -19,9 +20,9 @@ public interface IFetch {
     /**
      * Join by StreamEvent
      * @param user
-     * @param roomName
+     * @param gRoom
      */
-    void Join(User user, String roomName);
+    void JoinRequest(User user, GrpcRoom gRoom);
 
     /**
      * Leave by StreamEvent

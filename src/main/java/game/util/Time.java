@@ -17,8 +17,7 @@ public final class Time implements Runnable {
     public double getDeltaTime() { return this.deltaTime; }
 
     public static Time Instance = new Time();
-    private void Time(){
-    }
+
     private List<IUpdate> updates = new ArrayList<>();
     public void addListener(IUpdate update) {
         updates.add(update);

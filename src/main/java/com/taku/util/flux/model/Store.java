@@ -12,7 +12,6 @@ public class Store implements IDispatchable {
     private Pair<Class<?>, IReducer>[] pairs;
     private final List<BasePanel> panels = new ArrayList<>();
 
-
     @SafeVarargs
     private Store(Pair<Class<? >, IReducer>... pairs){
         this.pairs = pairs;
@@ -36,10 +35,7 @@ public class Store implements IDispatchable {
 
         pairStream.forEach(newState -> {
             panels.stream()
-                    .filter(dispatcher -> {
-                        System.out.println("state : " + state + "\n dispatcher : "  + dispatcher.getState().getClass());
-                        return state == dispatcher.getState().getClass();
-                    })
+                    .filter(dispatcher -> state == dispatcher.getState().getClass())
                     .forEach(l-> l.Update(newState));
         });
     }

@@ -1,26 +1,17 @@
 package game.view.container;
 
-import com.taku.util.flux.model.Action;
 import com.taku.util.flux.service.IDispatcher;
-import com.taku.util.flux.view.BasePanel;
 import com.taku.util.model.Unit;
-import game.client.ClientResponse;
-import game.client.GrpcClient;
 import game.store.StoreManager;
 import game.view.action.ClientEvent;
 import game.view.action.UIEvent;
 import game.view.panel.SelectPanel;
 import game.view.service.IFetch;
-import game.view.service.IShowPanel;
 import game.view.state.RoomState;
-import game.view.state.ShowPanelState;
 import io.game.hub.messageHub.*;
-import io.grpc.Grpc;
 import io.grpc.stub.StreamObserver;
 
-import java.util.function.Consumer;
 import java.util.function.Function;
-import java.util.stream.Stream;
 
 public class FetchContainer {
     public FetchContainer(SelectPanel panel){
@@ -30,6 +21,7 @@ public class FetchContainer {
 
     //unit
     Unit unit = new Unit();
+
     UnitRequest unitRequest = UnitRequest.newBuilder().build();
     Function<IDispatcher, IFetch> mapDispatch = dispatcher ->
             new IFetch() {
@@ -75,8 +67,8 @@ public class FetchContainer {
                 }
 
                 @Override
-                public void Join(User user, String roomName){
-                    var request = Message.newBuilder().setType(Type.JOIN).setMessage(roomName).setUser(user).build();
+                public void JoinRequest(User user, GrpcRoom gRoom){
+                    var request = Message.newBuilder().setType(Type.JOIN).setMessage(gRoom.getRoomName()).setUser(user).build();
                     var observer = streamEventCreator.apply(dispatcher);
                     observer.onNext(request);
                 }
@@ -87,14 +79,9 @@ public class FetchContainer {
                     var observer = streamEventCreator.apply(dispatcher);
                     observer.onNext(request);
                 }
-                @Override
-                public void ShowStartPanel() { dispatcher.dispatch(UIEvent.ShowStartPanel.Create(unit)); }
-
-                @Override
-                public void ShowSelectionPanel() { dispatcher.dispatch(UIEvent.ShowSelectionPanel.Create(unit)); }
-
-                @Override
-                public void ShowCombatPanel() { dispatcher.dispatch(UIEvent.ShowCombatPanel.Create(unit)); }
+                @Override public void ShowStartPanel() { dispatcher.dispatch(UIEvent.ShowStartPanel.Create(unit)); }
+                @Override public void ShowSelectionPanel() { dispatcher.dispatch(UIEvent.ShowSelectionPanel.Create(unit)); }
+                @Override public void ShowCombatPanel() { dispatcher.dispatch(UIEvent.ShowCombatPanel.Create(unit)); }
             };
 
       Function<IDispatcher, StreamObserver<Message>> streamEventCreator = (dispatcher) ->  stub.streamEvent(new StreamObserver<Message>() {

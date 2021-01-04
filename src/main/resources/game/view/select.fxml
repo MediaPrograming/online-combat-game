@@ -9,6 +9,7 @@
          <children>
             <Button fx:id="updateButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="22.0" prefWidth="52.0" text="更新" />
             <TextField fx:id="usernameField" layoutY="100.0" promptText="ユーザ名を入力してください" />
+            <Button fx:id="joinButton" layoutY="53.0" mnemonicParsing="false" text="参加する" />
          </children></Pane>
       <ListView fx:id="listView" prefHeight="321.0" prefWidth="456.0" />
    </children>
