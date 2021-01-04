@@ -5,37 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70123379-6b53-4415-9aeb-50505127dd0c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/model/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/model/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/client/ClientResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/client/Entry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/client/GrpcClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/client/GrpcClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/client/view/java/Start.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/service/IUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/service/IUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/store/StoreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/store/StoreManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/util/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/util/Time.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/FetchContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/FetchContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/CombatPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/CombatPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/SelectPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/SelectPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/reducer/FetchReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/reducer/FetchReducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/reducer/ShowPanelReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/reducer/ShowPanelReducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/service/IFetch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/service/IFetch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/core/GrpcServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/core/GrpcServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/service/MessageHubImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/service/MessageHubImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/game/view/select.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/view/select.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/game/server/GrpcClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/game/server/GrpcClientTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -305,7 +276,7 @@
       <workItem from="1609600345225" duration="2574000" />
       <workItem from="1609656499882" duration="13294000" />
       <workItem from="1609729774570" duration="5043000" />
-      <workItem from="1609734838415" duration="8654000" />
+      <workItem from="1609734838415" duration="9602000" />
     </task>
     <servers />
   </component>
