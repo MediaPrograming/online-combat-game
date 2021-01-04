@@ -1,7 +1,7 @@
 package server.core;
 /**
- * @author Takuya Isaki
- * @version 0.0.1
+ * @author Takuya Isaki on 2021/01/05
+ * @project online-combat-game
  */
 import io.grpc.Server;
 import io.grpc.ServerBuilder;

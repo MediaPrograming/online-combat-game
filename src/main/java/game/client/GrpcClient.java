@@ -1,5 +1,8 @@
 package game.client;
-
+/**
+ * @author Takuya Isaki on 2021/01/05
+ * @project online-combat-game
+ */
 import game.config.Config;
 import io.game.hub.messageHub.*;
 import io.grpc.ManagedChannel;

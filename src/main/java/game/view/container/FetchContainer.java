@@ -1,5 +1,8 @@
 package game.view.container;
-
+/**
+ * @author Takuya Isaki on 2021/01/05
+ * @project online-combat-game
+ */
 import com.taku.util.flux.service.IDispatcher;
 import com.taku.util.model.Unit;
 import game.store.StoreManager;
@@ -79,9 +82,9 @@ public class FetchContainer {
                     var observer = streamEventCreator.apply(dispatcher);
                     observer.onNext(request);
                 }
-                @Override public void ShowStartPanel() { dispatcher.dispatch(UIEvent.ShowStartPanel.Create(unit)); }
-                @Override public void ShowSelectionPanel() { dispatcher.dispatch(UIEvent.ShowSelectionPanel.Create(unit)); }
-                @Override public void ShowCombatPanel() { dispatcher.dispatch(UIEvent.ShowCombatPanel.Create(unit)); }
+                @Override public void ShowStartPanel() { dispatcher.dispatch(UIEvent.SHOW_START_PANEL.Create(unit)); }
+                @Override public void ShowSelectionPanel() { dispatcher.dispatch(UIEvent.SHOW_SELECTION_PANEL.Create(unit)); }
+                @Override public void ShowCombatPanel() { dispatcher.dispatch(UIEvent.SHOW_COMBAT_PANEL.Create(unit)); }
             };
 
       Function<IDispatcher, StreamObserver<Message>> streamEventCreator = (dispatcher) ->  stub.streamEvent(new StreamObserver<Message>() {

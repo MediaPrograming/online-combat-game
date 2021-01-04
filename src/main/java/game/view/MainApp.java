@@ -1,6 +1,8 @@
 package game.view;
-
-import com.taku.util.flux.model.Store;
+/**
+ * @author Takuya Isaki on 2021/01/05
+ * @project online-combat-game
+ */
 import game.store.StoreManager;
 import game.util.Time;
 import javafx.application.Application;

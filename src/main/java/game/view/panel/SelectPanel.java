@@ -1,5 +1,8 @@
 package game.view.panel;
-
+/**
+ * @author Takuya Isaki on 2021/01/05
+ * @project online-combat-game
+ */
 import com.taku.util.flux.view.BasePanel;
 import game.view.container.FetchContainer;
 import game.view.service.IFetch;
@@ -51,18 +54,10 @@ public class SelectPanel extends BasePanel<RoomState, IFetch> implements Initial
 
         if(!list.equals(roomList)){
             roomList = list;
-            for (GrpcRoom grpcRoom : roomList) {
-                var roomName = grpcRoom.getRoomName();
-                var hostName = grpcRoom.getHostName();
-                Button button = new Button();
-                button.setText(roomName);
-                button.setOnAction(e -> {System.out.println("Join");});
-                var roomNames = roomList.stream().map(GrpcRoom::getRoomName);
-                ObservableList<String> lm = FXCollections.observableArrayList();
-                roomNames.forEach(lm::add);
-
-                listView.setItems(lm);
-            }
+            ObservableList<String> observableList = FXCollections.observableArrayList();;
+            var roomNames = roomList.stream().map(GrpcRoom::getRoomName);
+            roomNames.forEach(observableList::add);
+            listView.setItems(observableList);
         }
     }
 }

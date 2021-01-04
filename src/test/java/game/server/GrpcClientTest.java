@@ -1,5 +1,8 @@
 package game.server;
-
+/**
+ * @author Takuya Isaki on 2021/01/05
+ * @project online-combat-game
+ */
 import game.client.GrpcClient;
 import io.game.hub.messageHub.*;
 
@@ -16,7 +19,6 @@ import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * RESTAPI確認用のTestプログラム

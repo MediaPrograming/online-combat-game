@@ -1,5 +1,8 @@
 package com.taku.util.flux.model;
-
+/**
+ * @author Takuya Isaki on 2021/01/05
+ * @project online-combat-game
+ */
 import com.taku.util.flux.service.IDispatchable;
 import com.taku.util.flux.service.IReducer;
 import com.taku.util.flux.view.BasePanel;

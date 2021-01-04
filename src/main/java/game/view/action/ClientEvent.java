@@ -1,5 +1,8 @@
 package game.view.action;
-
+/**
+ * @author Takuya Isaki on 2021/01/05
+ * @project online-combat-game
+ */
 import com.taku.util.flux.model.Action;
 import com.taku.util.flux.model.ActionCreator;
 import com.taku.util.model.Unit;

@@ -1,3 +1,7 @@
+/**
+ * @author Takuya Isaki on 2021/01/05
+ * @project online-combat-game
+ */
 syntax = "proto3";
 
 option java_multiple_files = true;

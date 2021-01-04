@@ -1,4 +1,8 @@
 package game.view.panel;
+/**
+ * @author Takuya Isaki on 2021/01/05
+ * @project online-combat-game
+ */
 import com.taku.util.flux.view.BasePanel;
 import game.view.container.CharacterContainer;
 import game.view.service.ICharacter;

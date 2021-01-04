@@ -10,11 +10,11 @@ public class StartReducer implements IReducer<StartState> {
     @Override
     public ReducerBuilder apply(Action<?> action, StartState startState) {
         return ReducerBuilder.Create(action, startState)
-                .Case(UIEvent.Init, (state, payload) ->{
+                .Case(UIEvent.INIT, (state, payload) ->{
                    return new StartState();
-                }).Case(UIEvent.ShowCombatPanel, (state, payload) ->{
+                }).Case(UIEvent.SHOW_COMBAT_PANEL, (state, payload) ->{
                     return new StartState();
-                }).Case(UIEvent.ShowSelectionPanel, (state, payload) ->{
+                }).Case(UIEvent.SHOW_SELECTION_PANEL, (state, payload) ->{
                     return new StartState();
                 });
     }

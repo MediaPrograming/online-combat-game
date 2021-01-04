@@ -1,5 +1,8 @@
 package game.view.container;
-
+/**
+ * @author Takuya Isaki on 2021/01/05
+ * @project online-combat-game
+ */
 import com.taku.util.flux.service.IDispatcher;
 import com.taku.util.flux.view.BasePanel;
 import com.taku.util.model.Vector2;
