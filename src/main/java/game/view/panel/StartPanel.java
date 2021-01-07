@@ -8,7 +8,6 @@ import com.taku.util.model.Unit;
 import game.util.Time;
 import game.view.container.ShowPanelContainer;
 import game.view.service.IShowPanel;
-import game.view.state.ShowPanelState;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;

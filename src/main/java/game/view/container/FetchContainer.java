@@ -82,9 +82,9 @@ public class FetchContainer {
                     var observer = streamEventCreator.apply(dispatcher);
                     observer.onNext(request);
                 }
-                @Override public void ShowStartPanel() { dispatcher.dispatch(UIEvent.SHOW_START_PANEL.Create(unit)); }
-                @Override public void ShowSelectionPanel() { dispatcher.dispatch(UIEvent.SHOW_SELECTION_PANEL.Create(unit)); }
-                @Override public void ShowCombatPanel() { dispatcher.dispatch(UIEvent.SHOW_COMBAT_PANEL.Create(unit)); }
+                @Override public void ShowStartPanel() { StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_START_PANEL.Create(unit)); }
+                @Override public void ShowSelectionPanel() { StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_SELECTION_PANEL.Create(unit));}
+                @Override public void ShowCombatPanel() { StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_COMBAT_PANEL.Create(unit));}
             };
 
       Function<IDispatcher, StreamObserver<Message>> streamEventCreator = (dispatcher) ->  stub.streamEvent(new StreamObserver<Message>() {

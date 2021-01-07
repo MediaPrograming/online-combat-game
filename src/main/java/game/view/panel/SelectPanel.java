@@ -27,7 +27,7 @@ import java.util.UUID;
 public class SelectPanel extends BasePanel<RoomState, IFetch> implements Initializable {
     List<GrpcRoom> roomList = new ArrayList<>();
     @FXML private ListView listView;
-    @FXML private Button updateButton, joinButton;
+    @FXML private Button updateButton, joinButton, backButton;
     @FXML private TextField usernameField;
 
     @Override
@@ -35,6 +35,7 @@ public class SelectPanel extends BasePanel<RoomState, IFetch> implements Initial
         new FetchContainer(this);
         updateButton.setOnAction(e -> this.getProps().GetRoomRequest());
         joinButton.setOnAction(e -> Join());
+        backButton.setOnAction(e -> getProps().ShowStartPanel());
     }
     public void Join(){
         var index = listView.getSelectionModel().getSelectedIndex();

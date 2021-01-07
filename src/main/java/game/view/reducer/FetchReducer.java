@@ -1,5 +1,5 @@
 package game.view.reducer;
-/**
+/*
  * @author Takuya Isaki on 2021/01/05
  * @project online-combat-game
  */
@@ -11,13 +11,10 @@ import game.store.StoreManager;
 import game.view.action.ClientEvent;
 import game.view.action.UIEvent;
 import game.view.state.RoomState;
-import game.view.state.ShowPanelState;
 import io.game.hub.messageHub.Type;
 import io.game.hub.messageHub.UnitRequest;
 
-import java.awt.color.ICC_ColorSpace;
-
-public class FetchReducer  implements IReducer<RoomState> {
+public class FetchReducer implements IReducer<RoomState> {
     static Type type = Type.JOIN;
     @Override
     public ReducerBuilder<RoomState> apply(Action<?> action, RoomState init) {
@@ -40,7 +37,7 @@ public class FetchReducer  implements IReducer<RoomState> {
                         case JOIN:
                             System.out.println(message.getUser().getName() + "さんが入室しました");
                             state.joined = true; //入室できなかった場合Errorが返ってくるように実装する
-                            StoreManager.Instance.store.Invoke(new ShowPanelState(), UIEvent.SHOW_COMBAT_PANEL.Create(unit));
+                            StoreManager.Instance.store.Invoke(new Unit(), UIEvent.SHOW_COMBAT_PANEL.Create(unit));
                             break;
                         case LEAVE:
                             System.out.println(message.getUser().getName() + "さんが退室しました");

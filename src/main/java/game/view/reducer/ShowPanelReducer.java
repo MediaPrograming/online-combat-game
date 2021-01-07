@@ -9,10 +9,9 @@ import com.taku.util.flux.view.ReducerBuilder;
 import com.taku.util.model.Unit;
 import game.store.StoreManager;
 import game.util.Time;
-import game.view.action.ClientEvent;
+import game.view.action.RoomEvent;
 import game.view.action.UIEvent;
-import game.view.state.RoomState;
-import game.view.state.ShowPanelState;
+import game.view.state.WaitRoomState;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -86,7 +85,7 @@ public class ShowPanelReducer implements IReducer<Unit> {
                             StoreManager.stage.setScene(StartPanel);
                             StoreManager.stage.show();
 
-                            //StoreManager.Instance.store.Invoke(new RoomState(), ClientEvent.);
+                            StoreManager.Instance.store.Invoke(new WaitRoomState(), RoomEvent.UPDATE_ROOM.Create(payload));
                         } catch (Exception err) {
                             System.out.println("[ERROR]" + err.toString());
                         }

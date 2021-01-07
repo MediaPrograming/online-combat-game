@@ -7,7 +7,6 @@ import com.taku.util.model.Unit;
 import game.view.action.UIEvent;
 import game.view.panel.StartPanel;
 import game.view.service.IShowPanel;
-import game.view.state.ShowPanelState;
 
 public class SelectPanelContainer  {
     Unit unit = new Unit();

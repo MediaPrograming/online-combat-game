@@ -4,7 +4,6 @@ package game.view.state;
  * @project online-combat-game
  */
 import io.game.hub.messageHub.GrpcRoomInfo;
-import io.game.hub.messageHub.ResponseCode;
 
 public class RoomState {
     public boolean joined;

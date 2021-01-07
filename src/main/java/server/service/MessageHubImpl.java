@@ -1,9 +1,8 @@
+package server.service;
 /**
  * @author Takuya Isaki
- * @version 0.0.1
+ * @project online-combat-game
  */
-package server.service;
-
 import io.game.hub.messageHub.*;
 import server.core.RoomManager;
 import server.room.Room;
@@ -46,8 +45,6 @@ public class MessageHubImpl extends MessageHubGrpc.MessageHubImplBase {
      */
     @Override
     public void createRoom(RoomMessage request, StreamObserver<ResponseCode> responseObserver) {
-        System.out.println("[test]" + request.getUser().getName());
-
         //null check
         var roomName = request.getRoom().getRoomName();
          if (roomName == null || roomName.isEmpty()) {
@@ -58,7 +55,7 @@ public class MessageHubImpl extends MessageHubGrpc.MessageHubImplBase {
         Room room = new Room(hostName, roomName, 4);
         RoomManager.Instance.pushRoom(room);
 
-        System.out.println("hostname = " + hostName + "name = " + roomName);
+        System.out.println("[Room Created]\nhostname = " + hostName + "\nname = " + roomName);
         responseObserver.onNext(ResponseCode.newBuilder().setCode(200).build()); //成功 200 OK
     }
 

@@ -12,5 +12,6 @@
             <Button fx:id="joinButton" layoutY="53.0" mnemonicParsing="false" text="参加する" />
          </children></Pane>
       <ListView fx:id="listView" prefHeight="321.0" prefWidth="456.0" />
+      <Button fx:id="backButton" layoutX="26.0" layoutY="352.0" mnemonicParsing="false" text="Back" />
    </children>
 </AnchorPane>

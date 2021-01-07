@@ -38,12 +38,8 @@ message GrpcRoomInfo{
 message GrpcRoom{
   string roomName = 1;
   string hostName = 2;
+  repeated User user = 3;
 }
-//
-//message RoomRequest{
-//  User user = 1;
-//  string roomName = 2;
-//}
 
 /**
  * 200 is OK
@@ -67,7 +63,4 @@ service MessageHub {
   rpc createRoom(RoomMessage) returns (ResponseCode);
   rpc deleteRoom(RoomMessage) returns (ResponseCode);
   rpc StreamEvent(stream Message) returns (stream Message);
-//  rpc Leave(stream RoomRequest) returns (stream Response);
-//  rpc SendMessage(stream Response) returns (stream Response);
-//  rpc Connect(stream User) returns (stream User);
 }

@@ -5,8 +5,8 @@ package game.view.panel;
  */
 import com.taku.util.flux.view.BasePanel;
 import com.taku.util.model.Unit;
+import game.view.container.CreateRoomContainer;
 import game.view.service.ICreateRoom;
-import game.view.service.IShowPanel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -17,15 +17,18 @@ import java.util.ResourceBundle;
 
 public class CreateRoomPanel extends BasePanel<Unit, ICreateRoom> implements Initializable {
     @FXML private TextField roomNameField, userNameField;
-    @FXML private Button createButton;
+    @FXML private Button createButton, backButton;
 
+    private CreateRoomContainer container;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        container = new CreateRoomContainer(this);
         var props = this.getProps();
         createButton.setOnAction(e -> {
             var roomName = roomNameField.getText();
             var userName = userNameField.getText();
-            props.CreateRoom(roomName, userName);
+            props.CreateRoomRequest(roomName, userName);
         });
+        backButton.setOnAction(e -> props.ShowStartPanel());
     }
 }

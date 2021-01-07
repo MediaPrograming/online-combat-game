@@ -1,6 +1,6 @@
 /**
  * @author Takuya Isaki
- * @version 0.0.1
+ * @project online-combat-game
  */
 package server.service;
 

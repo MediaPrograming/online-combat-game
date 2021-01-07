@@ -6,7 +6,7 @@ package com.taku.util.flux.view;
 import com.taku.util.flux.model.Action;
 import com.taku.util.flux.service.IDispatcher;
 import com.taku.util.model.Unit;
-import game.service.IUpdate;
+import com.taku.util.flux.service.IUpdate;
 import game.store.StoreManager;
 import game.util.Time;
 import game.view.action.UIEvent;
@@ -35,9 +35,9 @@ public abstract class BasePanel<IStateProps, IDispatchProps> implements IDispatc
     }
 
     /**
-     * @param init  初期値
-     * @param mapState Stateの処理関数
-     * @param mapDispatch Dispatchの処理関数
+     * @param init  initialize value
+     * @param mapState processing function of state
+     * @param mapDispatch processing function of dispatch
      * @return the function result
      */
     public void connect(IStateProps init, Function<IStateProps, IStateProps> mapState, Function<IDispatcher, IDispatchProps> mapDispatch){
@@ -51,10 +51,14 @@ public abstract class BasePanel<IStateProps, IDispatchProps> implements IDispatc
     }
 
     /*
-     * State更新時発行される
+     * This method is Updated when state is updated
      */
     public final void Update(IStateProps s) { state = mapStateToProps.apply(s); }
 
+    /*
+     * Virtual function for updating every frame
+     * if panel is inactive, this method don't listen. So, it only runs when active
+     */
     @Override
     public void EveryFrameUpdate(){}
 
@@ -63,5 +67,4 @@ public abstract class BasePanel<IStateProps, IDispatchProps> implements IDispatc
     public <T> void dispatch(Action<T> action) {
         if(state != null) StoreManager.Instance.store.Invoke(state, action);
     }
-    //@Override public <T, V> void dispatch(T t, Action<V> action) { if(t != null) StoreManager.Instance.store.Invoke(t, action); }
 }

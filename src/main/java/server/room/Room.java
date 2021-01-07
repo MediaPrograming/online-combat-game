@@ -1,6 +1,6 @@
 /**
- * @author Takuya Isaki
- * @version 0.0.1
+ * @author Takuya Isaki on 2021/01/05
+ * @project online-combat-game
  */
 package server.room;
 

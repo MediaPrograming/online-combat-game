@@ -7,10 +7,8 @@ package game.util;
  * @author Takuya Isaki on 2021/01/05
  * @project online-combat-game
  */
-import com.taku.util.flux.view.BasePanel;
-import game.service.IUpdate;
+import com.taku.util.flux.service.IUpdate;
 import javafx.animation.AnimationTimer;
-import javafx.animation.Timeline;
 
 import java.util.ArrayList;
 import java.util.List;
