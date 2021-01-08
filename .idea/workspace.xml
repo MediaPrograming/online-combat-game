@@ -5,113 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70123379-6b53-4415-9aeb-50505127dd0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/proto/messageHub/messageHub.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/proto/messageHub/positionHub.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/fileContent/fileContent.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.0/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/javaCompile/classAnalysis.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/javaCompile/jarAnalysis.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/javaCompile/javaCompile.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/javaCompile/taskHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/taskHistory/taskHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/taskHistory/taskHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/combat-game.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/model/Action.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/model/ActionCreator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/model/Store.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/service/IDispatchable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/service/IDispatcher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/service/IReducer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/view/BasePanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/view/ReducerBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Consumer/Consumer0.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Consumer/Consumer1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Consumer/Consumer2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Consumer/Consumer3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Consumer/Consumer4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Consumer/Consumer5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Function/Function2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Function/VoidFunction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Tuple.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/model/Unit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/model/Vector2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/model/Vector3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/config/Config.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/config/PATH.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/model/Component.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/model/Key.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/model/VCharacter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/service/IUpdate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/store/StoreManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/util/InputManager$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/util/InputManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/util/Time$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/util/Time.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/MainApp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/action/ChEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/action/UIEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/container/SelectPanelContainer$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/container/SelectPanelContainer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/container/ShowPanelContainer$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/container/ShowPanelContainer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/panel/CombatPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/panel/SelectPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/panel/StartPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/reducer/CharacterReducer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/reducer/ShowPanelReducer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/reducer/StartReducer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/service/IChangeTextTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/service/ICharacter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/service/IShowPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/stage/MainStage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/state/CharacterState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/state/ShowPanelState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/state/StartState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/online-combat-game.tar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/online-combat-game.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/online-combat-game.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/game/view/combat.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/game/view/select.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/game/view/start.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/game/view/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/online-combat-game" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/online-combat-game.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/model/Action.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/model/ActionCreator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/model/Store.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/service/IDispatchable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/service/IDispatcher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/service/IReducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/view/BasePanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/view/ReducerBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer0.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer5.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Function/Function2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Function/VoidFunction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Tuple.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/model/Unit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/model/Vector2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/model/Vector3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/model/Key.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/view/BasePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/view/BasePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/client/GrpcClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/client/GrpcClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Component.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/service/IUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/service/IUpdate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/store/StoreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/store/StoreManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/action/UIEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/action/UIEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/CharacterContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/CharacterContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/util/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/util/Time.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/action/ClientEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/action/ClientEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/CreateRoomContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/CreateRoomContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/FetchContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/FetchContainer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/SelectPanelContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/SelectPanelContainer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/ShowPanelContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/ShowPanelContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/CreateRoomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/CreateRoomPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/SelectPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/SelectPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/StartPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/StartPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/reducer/CharacterReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/reducer/CharacterReducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/reducer/CreateRoomReducer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/reducer/FetchReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/reducer/FetchReducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/reducer/ShowPanelReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/reducer/ShowPanelReducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/reducer/StartReducer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/service/IChangeTextTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/service/ICreateRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/service/ICreateRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/state/CharacterState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/state/CharacterState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/state/RoomState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/state/RoomState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/state/ShowPanelState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/state/StartState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/room/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/room/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/service/MessageHubImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/service/MessageHubImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/service/PositionHubImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/service/PositionHubImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/proto/messageHub/messageHub.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/messageHub/messageHub.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/game/view/createRoom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/view/createRoom.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/game/view/select.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/view/select.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/game/view/waitRoom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/view/waitRoom.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,6 +90,34 @@
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="application" type="c8890929:TasksNode$1" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="online-combat-game" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="online-combat-game" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build setup" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="online-combat-game" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="distribution" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="online-combat-game" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="online-combat-game" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -160,6 +128,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="FxmlFile" />
         <option value="Interface" />
         <option value="Class" />
@@ -168,6 +137,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -178,6 +155,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -185,31 +163,31 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/taku/util/function/Action1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../download/samples/IDE/IntelliJ/Modular/Gradle/hellofx" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\home\college\media\combat-game\src\main\resources\game\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\home\college\media\combat-game\src\main\java" />
       <recent name="F:\home\college\media\combat-game\src\main\proto\messageHub" />
       <recent name="F:\home\college\media\combat-game\src\main\resources\game\img" />
       <recent name="F:\home\college\media\combat-game\src\main\resources\game\view" />
       <recent name="F:\home\college\media\combat-game\src\main\resources\game\view\panel" />
-      <recent name="F:\home\college\media\combat-game\src\main\java\game" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="game" />
       <recent name="" />
+      <recent name="game" />
       <recent name="game.view" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.combat-game [run]">
+  <component name="RunManager" selected="Gradle.combat-game [jlink]">
     <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="game.view.MainApp" />
       <module name="online-combat-game.main" />
@@ -223,16 +201,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="GrpcClientTest.testCreateRoom" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;game.server.GrpcClientTest.testCreateRoom&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="combat-game [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -246,6 +234,27 @@
         <option name="taskNames">
           <list>
             <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="combat-game [jlink]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jlink" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -278,7 +287,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.combat-game [jlink]" />
         <item itemvalue="Gradle.combat-game [run]" />
+        <item itemvalue="Gradle.GrpcClientTest.testCreateRoom" />
         <item itemvalue="Gradle.combat-game [build]" />
         <item itemvalue="Application.MainApp" />
       </list>
@@ -323,6 +334,20 @@
       <workItem from="1609035595015" duration="625000" />
       <workItem from="1609082897705" duration="1426000" />
       <workItem from="1609434791271" duration="1070000" />
+      <workItem from="1609472589400" duration="15047000" />
+      <workItem from="1609560232008" duration="6457000" />
+      <workItem from="1609567010291" duration="2326000" />
+      <workItem from="1609600345225" duration="2574000" />
+      <workItem from="1609656499882" duration="13294000" />
+      <workItem from="1609729774570" duration="5043000" />
+      <workItem from="1609734838415" duration="23522000" />
+      <workItem from="1609778339147" duration="184000" />
+      <workItem from="1609778534928" duration="86000" />
+      <workItem from="1609847237028" duration="2277000" />
+      <workItem from="1609913410742" duration="4625000" />
+      <workItem from="1610002494700" duration="418000" />
+      <workItem from="1610003391810" duration="10408000" />
+      <workItem from="1610021023297" duration="2035000" />
     </task>
     <servers />
   </component>
@@ -340,20 +365,6 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/game/model/Key.java</url>
-          <line>22</line>
-          <properties class="game.model.Key">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

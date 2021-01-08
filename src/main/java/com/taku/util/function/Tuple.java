@@ -1,5 +1,8 @@
 package com.taku.util.function;
-
+/**
+ * @author Takuya Isaki on 2021/01/05
+ * @project online-combat-game
+ */
 public class Tuple<T, V> {
     private T t;
     private V v;
