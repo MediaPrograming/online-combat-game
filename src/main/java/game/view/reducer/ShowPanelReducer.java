@@ -92,7 +92,7 @@ public class ShowPanelReducer implements IReducer<Unit> {
                     });
                     return state;
                 })
-                .Case(UIEvent.ShowUoPanel, (state, payload) ->{
+                .Case(UIEvent.SHOW_UO_PANEL, (state, payload) ->{
                     try {
                         Parent uo = FXMLLoader.load(StoreManager.class.getResource("../view/uo.fxml"));
                         var uoPanel = new Scene(uo);

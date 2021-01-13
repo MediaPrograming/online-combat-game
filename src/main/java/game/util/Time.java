@@ -30,6 +30,8 @@ public final class Time implements Runnable {
     public void addListener(IUpdate update) {
         updates.add(update);
     }
+    public void remoteListener(IUpdate update){updates.remove(update);}
+    public void clearUpdates() { updates.clear();}
     private AnimationTimer timer = new AnimationTimer() {
         @Override
         public void handle(long now) {

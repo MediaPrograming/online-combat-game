@@ -76,11 +76,6 @@ public class UoPanel extends BasePanel<CharacterState, ICharacter> implements In
 
     }
 
-    @Override
-    public void Update(CharacterState s) {
-        super.Update(s);
-    }
-
     void draw(){
         gc.clearRect(0,0,canvas.getWidth(),canvas.getHeight());
 

@@ -23,159 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="642fded8-2610-4cc7-b289-0d0958fc3b0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/service/IUpdate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/client/GrpcClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/action/ClientEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/action/RoomEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/container/CreateRoomContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/container/FetchContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/container/WaitRoomContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/CreateRoomPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/WaitRoomPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/reducer/FetchReducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/reducer/RoomReducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/service/ICreateRoom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/service/IFetch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/service/IWaitRoom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/state/RoomState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/state/WaitRoomState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/config/ResponseCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/config/ServerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/core/GrpcServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/core/RoomManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/room/Room.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/service/MessageHubImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/service/PositionHubImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/proto/messageHub/messageHub.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/proto/messageHub/positionHub.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/game/view/createRoom.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/game/view/waitRoom.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/game/server/GrpcClientTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/combat-game.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/model/Action.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/model/ActionCreator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/model/Store.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/service/IDispatchable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/service/IDispatcher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/service/IReducer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/view/BasePanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/view/ReducerBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Consumer/Consumer0.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Consumer/Consumer1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Consumer/Consumer2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Consumer/Consumer3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Consumer/Consumer4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Consumer/Consumer5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Function/Function2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Function/VoidFunction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Tuple.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/model/Unit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/model/Vector2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/model/Vector3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/config/Config.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/config/PATH.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/model/Component.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/model/Key.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/model/VCharacter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/service/IUpdate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/store/StoreManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/util/InputManager$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/util/InputManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/util/Time$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/util/Time.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/MainApp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/action/ChEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/action/UIEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/container/SelectPanelContainer$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/container/SelectPanelContainer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/container/ShowPanelContainer$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/container/ShowPanelContainer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/panel/CombatPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/panel/SelectPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/panel/StartPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/reducer/CharacterReducer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/reducer/ShowPanelReducer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/reducer/StartReducer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/service/IChangeTextTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/service/ICharacter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/service/IShowPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/stage/MainStage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/state/CharacterState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/state/ShowPanelState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/state/StartState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/online-combat-game.tar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/online-combat-game.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/online-combat-game.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/game/view/combat.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/game/view/select.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/game/view/start.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/game/view/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/online-combat-game" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/online-combat-game.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/model/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/model/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/model/ActionCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/model/ActionCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/model/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/model/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/service/IDispatchable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/service/IDispatchable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/service/IDispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/service/IDispatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/service/IReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/service/IReducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/view/BasePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/view/BasePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/view/ReducerBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/view/ReducerBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer0.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer0.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer5.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Function/Function2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Function/Function2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Function/VoidFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Function/VoidFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Tuple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Tuple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/model/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/model/Unit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/model/Vector2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/model/Vector2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/model/Vector3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/model/Vector3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/config/PATH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/config/PATH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Component.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Key.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/VCharacter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/service/IUpdate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/store/StoreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/store/StoreManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/util/InputManager.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/util/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/util/Time.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/action/ChEvent.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/action/UIEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/action/UIEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/CharacterContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/CharacterContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/SelectPanelContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/SelectPanelContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/ShowPanelContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/ShowPanelContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/CombatPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/CombatPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/SelectPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/SelectPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/StartPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/StartPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/reducer/CharacterReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/reducer/CharacterReducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/UoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/UoPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/reducer/ShowPanelReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/reducer/ShowPanelReducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/reducer/StartReducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/service/IChangeTextTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/service/ICharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/service/ICharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/service/IShowPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/service/IShowPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/stage/MainStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/stage/MainStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/state/CharacterState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/state/CharacterState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/state/ShowPanelState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/state/StartState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/game/view/combat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/view/combat.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/game/view/select.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/view/select.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/game/view/start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/view/start.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/game/view/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/view/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -397,7 +250,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="70123379-6b53-4415-9aeb-50505127dd0c" name="Default Changelist" comment="" />
+      <changelist id="642fded8-2610-4cc7-b289-0d0958fc3b0c" name="Default Changelist" comment="" />
       <created>1607103206217</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -469,26 +322,26 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1610540490853">
+    <state width="1493" height="163" key="GridCell.Tab.0.bottom" timestamp="1610541877909">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1610075706119" />
-    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1610540490853" />
-    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1610540490853">
+    <state width="1493" height="163" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1610541877909" />
+    <state width="1493" height="163" key="GridCell.Tab.0.center" timestamp="1610541877908">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1610075706119" />
-    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1610540490853" />
-    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1610540490853">
+    <state width="1493" height="163" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1610541877908" />
+    <state width="1493" height="163" key="GridCell.Tab.0.left" timestamp="1610541877908">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1610075706119" />
-    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1610540490853" />
-    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1610540490853">
+    <state width="1493" height="163" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1610541877908" />
+    <state width="1493" height="163" key="GridCell.Tab.0.right" timestamp="1610541877908">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1610075706119" />
-    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1610540490853" />
+    <state width="1493" height="163" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1610541877908" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1610540490853">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -509,11 +362,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="157" y="241" width="1207" height="477" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1610540350928" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1610079321313">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1610541900219">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1610007658011" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1610079321313" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1610541900219" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -555,7 +408,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/game/view/panel/UoPanel.java</url>
-          <line>93</line>
+          <line>88</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
