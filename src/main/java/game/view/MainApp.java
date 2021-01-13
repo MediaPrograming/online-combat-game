@@ -3,7 +3,7 @@ package game.view;
  * @author Takuya Isaki
  * @project online-combat-game
  */
-import com.taku.util.flux.model.Store;
+
 import com.taku.util.model.Unit;
 import game.store.StoreManager;
 import game.util.Time;
@@ -31,6 +31,4 @@ public class MainApp extends Application {
         Thread thread = new Thread(Time.Instance);
         thread.start();
     }
-
-
 }

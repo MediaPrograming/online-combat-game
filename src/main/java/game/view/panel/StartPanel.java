@@ -27,4 +27,11 @@ public class StartPanel extends BasePanel<Unit, IShowPanel> implements Initializ
         showSelectionButton.setOnAction(e ->props.ShowSelectionPanel());
         quitButton.setOnAction(e -> System.exit(0));
     }
+
+
+    @Override
+    public void EveryFrameUpdate() {
+        System.out.println(Time.Instance.getDeltaTime());
+    }
+
 }
