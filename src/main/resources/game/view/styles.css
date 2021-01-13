@@ -2,7 +2,7 @@
     -fx-text-fill: blue;
 }
 
-.label {
+#ground{
     -fx-font-size: 25pt;
     -fx-text-fill: yellow;
     -fx-underline: true;

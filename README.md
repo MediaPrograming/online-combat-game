@@ -2,19 +2,38 @@
 
 メディアプログラミングの授業で作成するオンラインの格闘ゲーム
 
-## 環境構築
+### development guide
+Install idea and gradle from [Official site](https://gradle.org/) 
 
-[gradleの公式サイト](https://gradle.org/) からインストールする.
-環境変数　GRADLE_HOME と Pathに　%GRADLE_HOME%binの設定を行う.
+<br>`src/main/java` is the main program</br>
+<br>`src/test/java` is the test program</br>
+<br>`src/main/proto` is share Api written by IDL. It used `Protocol Buffers`</br>
+<br>`src/main/resouces` is the FXML files. FXML is often used as a GUI scriptable language in javafx</br>
 
 
-## 実行
+### How to Build
+```
+$ ./gradlew installDist
+```
+
+This creates the scripts `message-server`, `message-client`, etc. in the
+`build/install/combat-server/bin/` directory that run scripts.
+
+### Run server
+```
+$ ./build/install/combat-server/bin/message-server
+```
+
+### Run client
 
 ```
-./gradlew run
+$ ./gradlew run
 ```
 
-## ビルド
+or
+
 ```
-./gradlew build 
+$ ./build/install/combat-server/bin/message-client
 ```
+
+if you execute under, have to put jdk runtime component

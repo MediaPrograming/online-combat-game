@@ -9,12 +9,11 @@
 .classpath
 .settings
 
-# User-specific stuff
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/**/usage.statistics.xml
-.idea/**/dictionaries
-.idea/**/shelf
+# IntelliJ IDEA
+.idea
+*.iml
+*.ipr
+*.iws
 
 # OS
 Thumbs.db
@@ -22,7 +21,6 @@ Thumbs.db
 
 # Gradle
 .gradle
-!gradle-wrapper.jar
 
 # Maven
 target
@@ -39,3 +37,7 @@ bin
 
 #　libs
 !libs/*.jar
+
+# Emacs
+*~
+\#*\#

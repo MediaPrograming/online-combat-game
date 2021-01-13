@@ -3,7 +3,6 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
-<<<<<<< HEAD
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -23,34 +22,160 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70123379-6b53-4415-9aeb-50505127dd0c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/main/Animation/playAnimation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/Animation/playAnimation$1.class" afterDir="false" />
-=======
-  <component name="ChangeListManager">
-    <list default="true" id="70123379-6b53-4415-9aeb-50505127dd0c" name="Default Changelist" comment="">
+    <list default="true" id="642fded8-2610-4cc7-b289-0d0958fc3b0c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/service/IUpdate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/client/GrpcClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/action/ClientEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/action/RoomEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/container/CreateRoomContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/container/FetchContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/container/WaitRoomContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/CreateRoomPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/WaitRoomPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/reducer/FetchReducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/reducer/RoomReducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/service/ICreateRoom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/service/IFetch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/service/IWaitRoom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/state/RoomState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/view/state/WaitRoomState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/config/ResponseCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/config/ServerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/core/GrpcServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/core/RoomManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/room/Room.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/service/MessageHubImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/server/service/PositionHubImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/proto/messageHub/messageHub.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/proto/messageHub/positionHub.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/game/view/createRoom.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/game/view/waitRoom.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/game/server/GrpcClientTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/combat-game.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/model/Action.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/model/ActionCreator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/model/Store.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/service/IDispatchable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/service/IDispatcher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/service/IReducer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/view/BasePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/flux/view/ReducerBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Consumer/Consumer0.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Consumer/Consumer1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Consumer/Consumer2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Consumer/Consumer3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Consumer/Consumer4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Consumer/Consumer5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Function/Function2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Function/VoidFunction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/function/Tuple.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/model/Unit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/model/Vector2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/taku/util/model/Vector3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/config/Config.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/config/PATH.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/model/Component.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/model/Key.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/model/VCharacter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/service/IUpdate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/store/StoreManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/util/InputManager$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/util/InputManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/util/Time$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/util/Time.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/MainApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/action/ChEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/action/UIEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/container/SelectPanelContainer$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/container/SelectPanelContainer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/container/ShowPanelContainer$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/container/ShowPanelContainer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/panel/CombatPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/panel/SelectPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/panel/StartPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/reducer/CharacterReducer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/reducer/ShowPanelReducer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/reducer/StartReducer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/service/IChangeTextTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/service/ICharacter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/service/IShowPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/stage/MainStage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/state/CharacterState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/state/ShowPanelState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/game/view/state/StartState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/online-combat-game.tar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/online-combat-game.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/online-combat-game.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/game/view/combat.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/game/view/select.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/game/view/start.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/game/view/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scripts/online-combat-game" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scripts/online-combat-game.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/model/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/model/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/model/ActionCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/model/ActionCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/model/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/model/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/service/IDispatchable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/service/IDispatchable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/service/IDispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/service/IDispatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/service/IReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/service/IReducer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/view/BasePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/view/BasePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/service/IUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/service/IUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/view/ReducerBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/view/ReducerBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer0.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer0.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Consumer/Consumer5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Function/Function2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Function/Function2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Function/VoidFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Function/VoidFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Tuple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/function/Tuple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/model/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/model/Unit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/model/Vector2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/model/Vector2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/model/Vector3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/model/Vector3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/config/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/config/PATH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/config/PATH.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Component.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Key.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/VCharacter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/service/IUpdate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/store/StoreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/store/StoreManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/util/InputManager.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/util/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/util/Time.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/action/ChEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/action/ChEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/action/ChEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/action/UIEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/action/UIEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/CharacterContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/CharacterContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/SelectPanelContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/SelectPanelContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/ShowPanelContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/ShowPanelContainer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/CombatPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/CombatPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/SelectPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/SelectPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/StartPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/StartPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/reducer/CharacterReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/reducer/CharacterReducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/reducer/ShowPanelReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/reducer/ShowPanelReducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/reducer/StartReducer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/service/IChangeTextTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/service/ICharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/service/ICharacter.java" afterDir="false" />
-<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/service/IShowPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/service/IShowPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/stage/MainStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/stage/MainStage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/state/CharacterState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/state/CharacterState.java" afterDir="false" />
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/state/ShowPanelState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/state/StartState.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/game/view/combat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/view/combat.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/game/view/select.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/view/select.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/game/view/start.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/view/start.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/game/view/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/view/styles.css" afterDir="false" />
->>>>>>> origin/master
-=======
->>>>>>> ebc58c7ac151528655833b3d19d7b212daca62ca
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,18 +214,6 @@
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="application" type="c8890929:TasksNode$1" />
               </path>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="online-combat-game" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
->>>>>>> origin/master
-=======
->>>>>>> origin/master
             </expand>
             <select />
           </tree_state>
@@ -111,22 +224,23 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-<<<<<<< HEAD
-        <option value="Class" />
-        <option value="FxmlFile" />
-=======
+        <option value="HTML File" />
         <option value="FxmlFile" />
         <option value="Interface" />
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
         <option value="Class" />
->>>>>>> origin/master
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -137,47 +251,50 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-<<<<<<< HEAD
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-=======
->>>>>>> origin/master
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-<<<<<<< HEAD
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-=======
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/taku/util/function/Action1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/game/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../download/samples/IDE/IntelliJ/Modular/Gradle/hellofx" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="duplicates.index" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\home\college\media\combat-game\src\main\resources\game\img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\home\college\media\combat-game\src\main\java" />
+      <recent name="F:\home\college\media\combat-game\src\main\proto\messageHub" />
       <recent name="F:\home\college\media\combat-game\src\main\resources\game\img" />
       <recent name="F:\home\college\media\combat-game\src\main\resources\game\view" />
       <recent name="F:\home\college\media\combat-game\src\main\resources\game\view\panel" />
-      <recent name="F:\home\college\media\combat-game\src\main\java\game" />
-      <recent name="F:\home\college\media\combat-game\src\main\java" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="game" />
       <recent name="game.view" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\home\college\media\combat-game\src\main\resources\game\img" />
     </key>
   </component>
   <component name="RunManager" selected="Gradle.combat-game [run]">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="game.view.MainApp" />
       <module name="online-combat-game.main" />
@@ -191,26 +308,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
->>>>>>> origin/master
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-<<<<<<< HEAD
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-=======
-      <option name="TEST_OBJECT" value="class" />
->>>>>>> origin/master
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="GrpcClientTest.testCreateRoom" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;game.server.GrpcClientTest.testCreateRoom&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
     </configuration>
-<<<<<<< HEAD
-=======
     <configuration name="combat-game [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -227,12 +343,28 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
->>>>>>> origin/master
+    <configuration name="combat-game [jlink]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jlink" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="combat-game [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -249,19 +381,16 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.combat-game [run]" />
-<<<<<<< HEAD
-=======
         <item itemvalue="Gradle.combat-game [build]" />
+        <item itemvalue="Gradle.combat-game [jlink]" />
+        <item itemvalue="Gradle.GrpcClientTest.testCreateRoom" />
         <item itemvalue="Application.MainApp" />
->>>>>>> origin/master
       </list>
     </recent_temporary>
   </component>
@@ -274,9 +403,6 @@
       <option name="presentableId" value="Default" />
       <updated>1607103206217</updated>
       <workItem from="1607103207391" duration="141000" />
-<<<<<<< HEAD
-      <workItem from="1607103389618" duration="664000" />
-=======
       <workItem from="1607103389618" duration="2495000" />
       <workItem from="1607187735222" duration="1014000" />
       <workItem from="1607188895976" duration="1108000" />
@@ -289,10 +415,6 @@
       <workItem from="1607528150065" duration="6937000" />
       <workItem from="1607581802360" duration="19642000" />
       <workItem from="1607659895800" duration="565000" />
-<<<<<<< HEAD
-      <workItem from="1607660555219" duration="3479000" />
->>>>>>> origin/master
-=======
       <workItem from="1607660555219" duration="4450000" />
       <workItem from="1607692926411" duration="1659000" />
       <workItem from="1608187499168" duration="633000" />
@@ -300,24 +422,40 @@
       <workItem from="1608189053530" duration="121000" />
       <workItem from="1608189186017" duration="367000" />
       <workItem from="1608189865120" duration="1072000" />
-<<<<<<< HEAD
-      <workItem from="1608191078374" duration="5299000" />
->>>>>>> origin/master
-=======
       <workItem from="1608191078374" duration="8717000" />
       <workItem from="1608213546358" duration="1487000" />
-      <workItem from="1608264827272" duration="3477000" />
->>>>>>> ebc58c7ac151528655833b3d19d7b212daca62ca
+      <workItem from="1608264827272" duration="4671000" />
+      <workItem from="1608422794595" duration="1554000" />
+      <workItem from="1608432509519" duration="3155000" />
+      <workItem from="1608457972524" duration="2936000" />
+      <workItem from="1608462653219" duration="1298000" />
+      <workItem from="1608573055828" duration="610000" />
+      <workItem from="1609035595015" duration="625000" />
+      <workItem from="1609082897705" duration="1426000" />
+      <workItem from="1609434791271" duration="1070000" />
+      <workItem from="1609472589400" duration="15047000" />
+      <workItem from="1609560232008" duration="6457000" />
+      <workItem from="1609567010291" duration="2326000" />
+      <workItem from="1609600345225" duration="2574000" />
+      <workItem from="1609656499882" duration="13294000" />
+      <workItem from="1609729774570" duration="5043000" />
+      <workItem from="1609734838415" duration="23522000" />
+      <workItem from="1609778339147" duration="184000" />
+      <workItem from="1609778534928" duration="86000" />
+      <workItem from="1609847237028" duration="2277000" />
+      <workItem from="1609913410742" duration="4625000" />
+      <workItem from="1610002494700" duration="418000" />
+      <workItem from="1610003391810" duration="10408000" />
+      <workItem from="1610021023297" duration="2341000" />
+      <workItem from="1610070515276" duration="6288000" />
+      <workItem from="1610194320457" duration="4506000" />
+      <workItem from="1610340003759" duration="27000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/master
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -329,159 +467,96 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-<<<<<<< HEAD
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1607103881391">
-      <screen x="-1920" y="7" width="1920" height="1040" />
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1610540490853">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607103881391" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1607103881391">
-      <screen x="-1920" y="7" width="1920" height="1040" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1610075706119" />
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1610540490853" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1610540490853">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607103881391" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1607103881391">
-      <screen x="-1920" y="7" width="1920" height="1040" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1610075706119" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1610540490853" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1610540490853">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607103881391" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1607103881391">
-      <screen x="-1920" y="7" width="1920" height="1040" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1610075706119" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1610540490853" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1610540490853">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607103881391" />
-=======
-  <component name="WindowStateProjectService">
-    <state x="-1155" y="233" key="#com.intellij.ide.util.MemberChooser" timestamp="1607663589545">
-      <screen x="-1920" y="7" width="1920" height="1040" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1610075706119" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1610540490853" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1610540490853">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="-1155" y="233" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607663589545" />
-    <state x="-3075" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607602589032" />
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607248870142" />
-    <state x="-3097" y="414" width="433" height="218" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1607604143814">
-      <screen x="-3840" y="0" width="1920" height="1040" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1610540490853" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1610540490853">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="-3097" y="414" width="433" height="218" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607604143814" />
-    <state x="743" y="414" width="433" height="218" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607239851754" />
-    <state x="-3231" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1607602449833">
-      <screen x="-3840" y="0" width="1920" height="1040" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1610540490853" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1610540490853">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="-3231" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607602449833" />
-    <state x="609" y="138" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607392280522" />
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607248985628">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1610540490853" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1610540490853">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607248985628" />
-    <state width="438" height="466" key="DebuggerActiveHint" timestamp="1607416008687">
-      <screen x="-1920" y="7" width="1920" height="1040" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1610540490853" />
+    <state x="157" y="241" width="1207" height="477" key="MultipleFileMergeDialog" timestamp="1610540350928">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="438" height="466" key="DebuggerActiveHint/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607416008687" />
-    <state width="404" height="466" key="DebuggerActiveHint/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607322290614" />
-    <state x="-1180" y="281" key="FileChooserDialogImpl" timestamp="1607316511496">
-      <screen x="-1920" y="7" width="1920" height="1040" />
+    <state x="157" y="241" width="1207" height="477" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1610540350928" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1610079321313">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="-1180" y="281" key="FileChooserDialogImpl/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607316511496" />
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom" timestamp="1607660888518">
-      <screen x="-1920" y="7" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607660888518" />
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607605258768" />
-    <state width="1877" height="280" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607611384322" />
-    <state width="1877" height="280" key="GridCell.Tab.0.center" timestamp="1607660888518">
-      <screen x="-1920" y="7" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607660888518" />
-    <state width="1877" height="280" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607605258768" />
-    <state width="1877" height="280" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607611384322" />
-    <state width="1877" height="280" key="GridCell.Tab.0.left" timestamp="1607660888517">
-      <screen x="-1920" y="7" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607660888517" />
-    <state width="1877" height="280" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607605258768" />
-    <state width="1877" height="280" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607611384322" />
-    <state width="1877" height="280" key="GridCell.Tab.0.right" timestamp="1607660888518">
-      <screen x="-1920" y="7" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="280" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607660888518" />
-    <state width="1877" height="280" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607605258768" />
-    <state width="1877" height="280" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607611384322" />
-    <state width="1877" height="356" key="GridCell.Tab.1.bottom" timestamp="1607623374305">
-      <screen x="-1920" y="7" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="356" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607623374305" />
-    <state width="1877" height="356" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607605228578" />
-    <state width="1877" height="356" key="GridCell.Tab.1.center" timestamp="1607623374305">
-      <screen x="-1920" y="7" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="356" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607623374305" />
-    <state width="1877" height="356" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607605228578" />
-    <state width="1877" height="356" key="GridCell.Tab.1.left" timestamp="1607623374305">
-      <screen x="-1920" y="7" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="356" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607623374305" />
-    <state width="1877" height="356" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607605228578" />
-    <state width="1877" height="356" key="GridCell.Tab.1.right" timestamp="1607623374305">
-      <screen x="-1920" y="7" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="356" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607623374305" />
-    <state width="1877" height="356" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607605228578" />
-    <state x="-3288" y="252" key="Vcs.Push.Dialog.v2" timestamp="1607603080390">
-      <screen x="-3840" y="0" width="1920" height="1040" />
-    </state>
-    <state x="-3288" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607603080390" />
-    <state x="-3065" y="297" key="chooseDestDirectoryDialog" timestamp="1607332146431">
-      <screen x="-3840" y="0" width="1920" height="1040" />
-    </state>
-    <state x="-1145" y="304" key="chooseDestDirectoryDialog/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607317705462" />
-    <state x="-3065" y="297" key="chooseDestDirectoryDialog/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607332146431" />
-    <state x="-364" y="-8" width="1736" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1607524236399">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="-364" y="-8" width="1736" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607524236399" />
-    <state x="92" y="92" width="1736" height="856" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607391596543" />
-    <state x="-3109" y="333" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1607603470697">
-      <screen x="-3840" y="0" width="1920" height="1040" />
-    </state>
-    <state x="-3109" y="333" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607603470697" />
-    <state x="731" y="333" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607392043991" />
-    <state x="-1653" y="-1" width="1258" height="720" maximized="true" key="dock-window-1" timestamp="1607611386906">
-      <screen x="-1920" y="7" width="1920" height="1040" />
-    </state>
-    <state x="721" y="303" width="1069" height="809" key="dock-window-1/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607424312329" />
-    <state x="-1675" y="-5" width="1258" height="720" maximized="true" key="dock-window-1/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607600824210" />
-    <state x="-1653" y="-1" width="1258" height="720" maximized="true" key="dock-window-1/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607611386906" />
-    <state x="-1582" y="7" width="1031" height="644" key="dock-window-2" timestamp="1607516009100">
-      <screen x="-1920" y="7" width="1920" height="1040" />
-    </state>
-    <state x="-1582" y="7" width="1031" height="644" key="dock-window-2/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607516009100" />
-    <state x="-3104" y="278" key="refactoring.ChangeSignatureDialog" timestamp="1607594565753">
-      <screen x="-3840" y="0" width="1920" height="1040" />
-    </state>
-    <state x="-1184" y="285" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607412349659" />
-    <state x="-3104" y="278" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607594565753" />
-    <state x="-3224" y="240" key="run.anything.popup" timestamp="1607602153941">
-      <screen x="-3840" y="0" width="1920" height="1040" />
-    </state>
-    <state x="-1304" y="247" key="run.anything.popup/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607414135243" />
-    <state x="-3224" y="240" key="run.anything.popup/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607602153941" />
-    <state x="-3224" y="240" key="run.anything.popup/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607391431213" />
-    <state x="-1297" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1607664019223">
-      <screen x="-1920" y="7" width="1920" height="1040" />
-    </state>
-    <state x="-1297" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-1920.7.1920.1040" timestamp="1607664019223" />
-    <state x="-3217" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@-3840.0.1920.1040" timestamp="1607605280251" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.7.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1607249070129" />
-=======
->>>>>>> origin/master
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1610007658011" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1610079321313" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/game/model/Key.java</url>
-          <line>22</line>
-          <properties class="game.model.Key">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="33" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Animation/animationHolder.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Animation/animationHolder.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Animation/animationHolder.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Animation/animationHolder.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/game/view/panel/UoPanel.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/game/view/panel/UoPanel.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/game/view/panel/UoPanel.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/game/view/panel/UoPanel.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -492,6 +567,5 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/online_combat_game$combat_game__run_.ic" NAME="combat-game [run] Coverage Results" MODIFIED="1607412629136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
->>>>>>> origin/master
   </component>
 </project>

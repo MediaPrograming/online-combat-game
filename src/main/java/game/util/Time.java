@@ -1,7 +1,7 @@
 package game.util;
 
 import com.taku.util.flux.view.BasePanel;
-import game.service.IUpdate;
+import com.taku.util.flux.service.IUpdate;
 import javafx.animation.AnimationTimer;
 import javafx.animation.Timeline;
 
