@@ -23,9 +23,9 @@ public class getAnimationFromImg {
     protected Image[][] createAnimation(){
         Image MovingImg[][] = new Image[numX][numY];
 
-        for(int i = 0; i < numX; i++){
-            for(int j = 0; j < numY; j++){
-                MovingImg[i][j] = new WritableImage(Img.getPixelReader(),width * j , height * i, width, height);
+        for(int i = 0; i < numY; i++){
+            for(int j = 0; j < numX; j++){
+                MovingImg[j][i] = new WritableImage(Img.getPixelReader(),width * j,height * i , width, height);
             }
         }
         return MovingImg;
