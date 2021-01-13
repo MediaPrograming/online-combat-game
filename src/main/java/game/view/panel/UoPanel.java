@@ -2,8 +2,11 @@ package game.view.panel;
 import Animation.animationHolder;
 import Animation.animationKeyHolder;
 import com.taku.util.flux.view.BasePanel;
+import com.taku.util.model.Unit;
 import game.config.PATH;
+import game.store.StoreManager;
 import game.util.Time;
+import game.view.action.UIEvent;
 import game.view.container.CharacterContainer;
 import game.view.service.ICharacter;
 import game.view.state.CharacterState;
@@ -64,11 +67,11 @@ public class UoPanel extends BasePanel<CharacterState, ICharacter> implements In
 
 
 //        imgv = new ImageView(new File(PATH.Gura).toURI().toString());
-
-        Gura = new Image[5][2];
+//
+//        Gura = new Image[5][2];
 
         anim = new animationHolder();
-        anim.addAnimation(PATH.Gura,120,120,5,2,new String("gura"));
+        anim.addAnimation(PATH.Gura,128,128,2,1,new String("gura"));
         Gura = anim.getAnimation("gura");
 
 //        clip = new Image(new File(PATH.Gura).toURI().toString());
@@ -86,7 +89,7 @@ public class UoPanel extends BasePanel<CharacterState, ICharacter> implements In
         gc.strokeOval(uouo, 300, 50, 50);
 
 //        imgv.setImage(earth);
-        gc.drawImage(Gura[1][0], 100,500,100,100);
+        gc.drawImage(Gura[((int)Time.Instance.getTotalTime())%2][0], uouo,400,400,400);
 
         gc.setFill(Color.RED);
         gc.fillText(""+text, 300, 100);

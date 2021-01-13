@@ -15,6 +15,12 @@ public class SelectPanelContainer  {
             @Override public void ShowStartPanel() { dispatcher.dispatch(UIEvent.SHOW_START_PANEL.Create(unit)); }
             @Override public void ShowSelectionPanel() { dispatcher.dispatch(UIEvent.SHOW_SELECTION_PANEL.Create(unit)); }
             @Override public void ShowCombatPanel() { dispatcher.dispatch(UIEvent.SHOW_COMBAT_PANEL.Create(unit)); }
+
+            @Override
+            public void ShowUoPanel() {
+
+            }
+
             @Override public void ShowCreateRoomPanel() { dispatcher.dispatch(UIEvent.SHOW_CREATE_PANEL.Create(unit));}
         });
     }
