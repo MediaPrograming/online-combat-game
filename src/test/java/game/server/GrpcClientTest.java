@@ -41,10 +41,10 @@ public class GrpcClientTest {
      * @throws Exception
      */
     @Test
-    public void Test01_CreateRoomTest()throws Exception{
+    public void Test01_CreateRoomTest() throws Exception{
         CountDownLatch lock = new CountDownLatch(1);
         GrpcClient client = new GrpcClient();
-          var createRequest = RoomMessage.newBuilder().setUser(testUser).setRoom(gRoom).build();
+        var createRequest = RoomMessage.newBuilder().setUser(testUser).setRoom(gRoom).build();
         client.stub.createRoom(createRequest, new StreamObserver<>() {
             @Override public void onNext(ResponseCode value) {
                 if(value.getCode() == 200){

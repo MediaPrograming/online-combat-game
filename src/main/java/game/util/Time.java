@@ -33,8 +33,9 @@ public final class Time implements Runnable {
         @Override
         public void handle(long now) {
             for (IUpdate update : updates) {
-                deltaTime = (double) now;
-                totalTime += (double)( now ) / 1_000_000_000 * 60;
+                var buf = now / 1_000_000_000;
+                deltaTime = (buf - totalTime);
+                totalTime = buf;
                 update.EveryFrameUpdate();
             }
         }

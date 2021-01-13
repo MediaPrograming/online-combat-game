@@ -34,6 +34,5 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
 
         var room = state.room;
         var selectionModel = listView.getSelectionModel();
-
     }
 }

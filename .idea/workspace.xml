@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70123379-6b53-4415-9aeb-50505127dd0c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/5.0/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.0/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.0/gc.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -14,44 +17,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/view/BasePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/view/BasePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/client/GrpcClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/client/GrpcClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/model/Component.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/service/IUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/taku/util/flux/service/IUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/store/StoreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/store/StoreManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/util/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/util/Time.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/action/ClientEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/action/ClientEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/CreateRoomContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/CreateRoomContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/FetchContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/FetchContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/SelectPanelContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/SelectPanelContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/container/ShowPanelContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/container/ShowPanelContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/CreateRoomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/CreateRoomPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/SelectPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/SelectPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/StartPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/StartPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/reducer/CharacterReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/reducer/CharacterReducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/reducer/CreateRoomReducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/reducer/FetchReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/reducer/FetchReducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/reducer/ShowPanelReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/reducer/ShowPanelReducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/reducer/StartReducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/service/IChangeTextTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/service/ICreateRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/service/ICreateRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/state/CharacterState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/state/CharacterState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/state/RoomState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/state/RoomState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/state/ShowPanelState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/state/StartState.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/room/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/room/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/WaitRoomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/WaitRoomPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/service/MessageHubImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/service/MessageHubImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/service/PositionHubImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/service/PositionHubImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/proto/messageHub/messageHub.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/messageHub/messageHub.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/game/view/createRoom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/view/createRoom.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/game/view/select.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/view/select.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/game/view/waitRoom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/view/waitRoom.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/game/server/GrpcClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/game/server/GrpcClientTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +141,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
+    <property name="settings.editor.selected.configurable" value="duplicates.index" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -187,7 +160,7 @@
       <recent name="game.view" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.combat-game [jlink]">
+  <component name="RunManager" selected="Gradle.combat-game [run]">
     <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="game.view.MainApp" />
       <module name="online-combat-game.main" />
@@ -197,6 +170,17 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -287,10 +271,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.combat-game [jlink]" />
         <item itemvalue="Gradle.combat-game [run]" />
-        <item itemvalue="Gradle.GrpcClientTest.testCreateRoom" />
         <item itemvalue="Gradle.combat-game [build]" />
+        <item itemvalue="Gradle.combat-game [jlink]" />
+        <item itemvalue="Gradle.GrpcClientTest.testCreateRoom" />
         <item itemvalue="Application.MainApp" />
       </list>
     </recent_temporary>
@@ -347,7 +331,10 @@
       <workItem from="1609913410742" duration="4625000" />
       <workItem from="1610002494700" duration="418000" />
       <workItem from="1610003391810" duration="10408000" />
-      <workItem from="1610021023297" duration="2035000" />
+      <workItem from="1610021023297" duration="2341000" />
+      <workItem from="1610070515276" duration="6288000" />
+      <workItem from="1610194320457" duration="4506000" />
+      <workItem from="1610340003759" duration="27000" />
     </task>
     <servers />
   </component>
