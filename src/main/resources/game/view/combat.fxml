@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.canvas.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.panel.CombatPanel">
    <children>
-      <Label layoutX="204.0" layoutY="55.0" prefHeight="30.0" prefWidth="150.0" text="Combat" />
+      <Label fx:id="ground" layoutY="356.0" prefHeight="44.0" prefWidth="600.0" stylesheets="@styles.css" />
+      <Canvas height="416.0" layoutY="-1.0" width="600.0" />
    </children>
 </AnchorPane>

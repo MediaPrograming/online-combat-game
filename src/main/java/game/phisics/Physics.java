@@ -1,5 +1,4 @@
 package game.phisics;
-
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;

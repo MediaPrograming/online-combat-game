@@ -1,42 +1,46 @@
 package com.taku.util.flux.model;
-
+/**
+ * @author Takuya Isaki on 2021/01/05
+ * @project online-combat-game
+ */
 import com.taku.util.flux.service.IDispatchable;
-import com.taku.util.flux.service.IDispatcher;
 import com.taku.util.flux.service.IReducer;
+import com.taku.util.flux.view.BasePanel;
 import com.taku.util.flux.view.ReducerBuilder;
-import com.taku.util.function.Function.Function2;
 import javafx.util.Pair;
 
 import java.util.*;
-import java.util.function.Function;
 
 public class Store implements IDispatchable {
     private Pair<Class<?>, IReducer>[] pairs;
-    private List<IDispatcher> dispatchers = new ArrayList<>();
-    private Store(Pair<Class<? >, IReducer>... d){
-        this.pairs = d;
+    private final List<BasePanel> panels = new ArrayList<>();
+
+    @SafeVarargs
+    private Store(Pair<Class<? >, IReducer>... pairs){
+        this.pairs = pairs;
     }
 
-    public void addView(IDispatcher dispatcher){
-        dispatchers.add(dispatcher);
+    public void addView(BasePanel dispatcher){
+        panels.add(dispatcher);
     }
 
-    public static <T> Store CreateStore(Pair<Class<?>, IReducer>... pairs){
+    @SafeVarargs
+    public static Store CreateStore(Pair<Class<?>, IReducer>... pairs){
         return new Store(pairs);
     }
     @Override
     public <TState, TPayload> void Invoke(TState state, Action<TPayload> action) {
-        System.out.println(state);
-        for (var pair : pairs) {
-            if(pair.getKey() == state.getClass()){
-                var newState = pair.getValue().apply(action, state);
-                var list = dispatchers.stream()
-                        .filter(dispatcher -> state== dispatcher.getClass());
-                list.forEach(l-> {
-                    l.Update(newState.getState());
-                });
-            }
-        }
+        var pairStream= Arrays.stream(pairs)
+                .filter(pair -> pair.getKey() == state.getClass())
+                .map(p -> p.getValue().apply(action, state))
+                .map(ReducerBuilder::getState);
+
+
+        pairStream.forEach(newState -> {
+            panels.stream()
+                    .filter(dispatcher -> state == dispatcher.getState().getClass())
+                    .forEach(l-> l.Update(newState));
+        });
     }
 }
 

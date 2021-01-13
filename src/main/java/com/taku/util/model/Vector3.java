@@ -1,5 +1,8 @@
 package com.taku.util.model;
-
+/**
+ * @author Takuya Isaki on 2021/01/05
+ * @project online-combat-game
+ */
 public class Vector3 {
     public float x, y, z;
 

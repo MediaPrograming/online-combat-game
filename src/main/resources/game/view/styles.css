@@ -1,3 +1,12 @@
 .label {
     -fx-text-fill: blue;
 }
+
+#ground{
+    -fx-font-size: 25pt;
+    -fx-text-fill: yellow;
+    -fx-underline: true;
+    -fx-padding: 10px;
+    -fx-background-image: url("../img/ground.jpg");
+    -fx-font-family: consolas;
+}
