@@ -29,9 +29,4 @@ public class StartPanel extends BasePanel<Unit, IShowPanel> implements Initializ
     }
 
 
-    @Override
-    public void EveryFrameUpdate() {
-        System.out.println(Time.Instance.getDeltaTime());
-    }
-
 }

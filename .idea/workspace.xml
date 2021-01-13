@@ -3,28 +3,32 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="70123379-6b53-4415-9aeb-50505127dd0c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+    <list default="true" id="642fded8-2610-4cc7-b289-0d0958fc3b0c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/util/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/util/Time.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/action/UIEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/action/UIEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/StartPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/StartPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/WaitRoomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/WaitRoomPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/service/MessageHubImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/service/MessageHubImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/game/server/GrpcClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/game/server/GrpcClientTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/panel/UoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/panel/UoPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/view/reducer/ShowPanelReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/view/reducer/ShowPanelReducer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,34 +66,6 @@
                 <item name="online-combat-game" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="application" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="online-combat-game" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="online-combat-game" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build setup" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="online-combat-game" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="distribution" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="online-combat-game" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="online-combat-game" type="f1a62948:ProjectNode" />
-                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
             <select />
@@ -144,9 +120,6 @@
     <property name="settings.editor.selected.configurable" value="duplicates.index" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\home\college\media\combat-game\src\main\resources\game\img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\home\college\media\combat-game\src\main\java" />
       <recent name="F:\home\college\media\combat-game\src\main\proto\messageHub" />
@@ -159,8 +132,22 @@
       <recent name="game" />
       <recent name="game.view" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\home\college\media\combat-game\src\main\resources\game\img" />
+    </key>
   </component>
   <component name="RunManager" selected="Gradle.combat-game [run]">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="game.view.MainApp" />
       <module name="online-combat-game.main" />
@@ -170,17 +157,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -201,9 +177,7 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
     <configuration name="combat-game [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -222,9 +196,7 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
     <configuration name="combat-game [jlink]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -243,9 +215,7 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
     <configuration name="combat-game [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -264,9 +234,7 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -282,7 +250,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="70123379-6b53-4415-9aeb-50505127dd0c" name="Default Changelist" comment="" />
+      <changelist id="642fded8-2610-4cc7-b289-0d0958fc3b0c" name="Default Changelist" comment="" />
       <created>1607103206217</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -352,6 +320,99 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1493" height="163" key="GridCell.Tab.0.bottom" timestamp="1610541877909">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1610075706119" />
+    <state width="1493" height="163" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1610541877909" />
+    <state width="1493" height="163" key="GridCell.Tab.0.center" timestamp="1610541877908">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1610075706119" />
+    <state width="1493" height="163" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1610541877908" />
+    <state width="1493" height="163" key="GridCell.Tab.0.left" timestamp="1610541877908">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1610075706119" />
+    <state width="1493" height="163" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1610541877908" />
+    <state width="1493" height="163" key="GridCell.Tab.0.right" timestamp="1610541877908">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1610075706119" />
+    <state width="1493" height="163" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1610541877908" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1610540490853">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1610540490853" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1610540490853">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1610540490853" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1610540490853">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1610540490853" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1610540490853">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1610540490853" />
+    <state x="157" y="241" width="1207" height="477" key="MultipleFileMergeDialog" timestamp="1610540350928">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="157" y="241" width="1207" height="477" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1610540350928" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1610541900219">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1920.0.1280.680@0.0.1536.824" timestamp="1610007658011" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1610541900219" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Animation/animationHolder.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Animation/animationHolder.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Animation/animationHolder.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Animation/animationHolder.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/game/view/panel/UoPanel.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/game/view/panel/UoPanel.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/game/view/panel/UoPanel.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/game/view/panel/UoPanel.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
