@@ -1,6 +1,8 @@
 package com.taku.util.function.Function;
-
-import java.util.Objects;
+/**
+ * @author Takuya Isaki on 2021/01/05
+ * @project online-combat-game
+ */
 
 /**
  * Represents a function that accepts one argument and produces a result.
@@ -11,8 +13,6 @@ import java.util.Objects;
  * @param <T1> the type of the input to the function
  * @param <T2> the type of the input to the function
  * @param <R> the type of the result of the function
- *
- * @since 1.8
  */
 @FunctionalInterface
 public interface Function2<T1, T2, R> {

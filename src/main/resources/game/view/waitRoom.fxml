@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.panel.WaitRoomPanel">
+   <children>
+      <Button fx:id="showCombatButton" layoutX="493.0" layoutY="290.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="66.0" text="Start" />
+      <ListView fx:id="listView" layoutX="98.0" layoutY="58.0" prefHeight="284.0" prefWidth="328.0" />
+   </children>
+</AnchorPane>

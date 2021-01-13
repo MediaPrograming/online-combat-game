@@ -1,7 +1,8 @@
 package com.taku.util.function.Function;
-
-import java.util.Objects;
-import java.util.function.Function;
+/**
+ * @author Takuya Isaki on 2021/01/05
+ * @project online-combat-game
+ */
 
 /**
  * Represents a function that accepts one argument and produces a result.
@@ -11,7 +12,6 @@ import java.util.function.Function;
  *
  * @param <R> the type of the result of the function
  *
- * @since 1.8
  */
 @FunctionalInterface
 public interface VoidFunction<R> {

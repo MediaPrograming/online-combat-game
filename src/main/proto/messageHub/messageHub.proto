@@ -1,0 +1,66 @@
+/**
+ * @author Takuya Isaki on 2021/01/05
+ * @project online-combat-game
+ */
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.game.hub.messageHub";
+option java_outer_classname = "MessageHubProto";
+option objc_class_prefix = "HLW";
+
+package messageHub;
+
+message User{
+  int32 id = 1;           //ID: ユーザーごとに固有なものを設定する
+  string name = 2;        //Name : ユーザーネーム
+  GrpcRoom roomInfo = 3;  //roomInfo: 現在のルーム情報
+}
+
+message Message{
+  User user = 1;
+  Type type = 2;
+  string message = 3;
+}
+
+enum Type {
+  UNKNOWN = 0;
+  JOIN = 1;
+  LEAVE = 2;
+  MESSAGE = 3;
+  ERROR = 4;
+}
+
+message GrpcRoomInfo{
+  repeated GrpcRoom room = 1;
+}
+
+message GrpcRoom{
+  string roomName = 1;
+  string hostName = 2;
+  repeated User user = 3;
+}
+
+/**
+ * 200 is OK
+ * 400 is Bad
+ */
+message ResponseCode {
+  int32 code = 1;
+}
+
+message RoomMessage{
+  User user = 1;
+  GrpcRoom room = 2;
+}
+
+/**
+ * void is same
+ */
+message UnitRequest{}
+service MessageHub {
+  rpc getRooms(UnitRequest) returns (GrpcRoomInfo){};
+  rpc createRoom(RoomMessage) returns (ResponseCode);
+  rpc deleteRoom(RoomMessage) returns (ResponseCode);
+  rpc StreamEvent(stream Message) returns (stream Message);
+}

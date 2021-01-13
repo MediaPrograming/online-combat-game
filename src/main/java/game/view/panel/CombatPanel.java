@@ -1,4 +1,8 @@
 package game.view.panel;
+/**
+ * @author Takuya Isaki on 2021/01/05
+ * @project online-combat-game
+ */
 import com.taku.util.flux.view.BasePanel;
 import game.view.container.CharacterContainer;
 import game.view.service.ICharacter;
@@ -18,9 +22,8 @@ public class CombatPanel extends BasePanel<CharacterState, ICharacter> implement
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         new CharacterContainer(this);
-        var props = this.getProps();
-        var state = this.getState();
-
-        var g = canvas.getGraphicsContext2D(); // Graphicsの取得
+//        var props = this.getProps();
+//        var state = this.getState();
+//        var g = canvas.getGraphicsContext2D(); // Graphicsの取得
     }
 }
