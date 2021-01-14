@@ -9,6 +9,6 @@ public class playAnimation {
     animationHolder animations;
     public playAnimation(){
         animations = new animationHolder();
-    }
 
+    }
 }

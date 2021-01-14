@@ -9,7 +9,7 @@ import game.util.Time;
 import game.view.action.UIEvent;
 import game.view.container.CharacterContainer;
 import game.view.service.ICharacter;
-import game.view.state.CharacterState;
+import game.view.state.CharaState;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
@@ -27,7 +27,7 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
-public class UoPanel extends BasePanel<CharacterState, ICharacter> implements Initializable {
+public class UoPanel extends BasePanel<CharaState, ICharacter> implements Initializable {
     @FXML
     private Label ground;
     @FXML

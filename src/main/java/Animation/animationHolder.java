@@ -1,5 +1,6 @@
 package Animation;
 
+import game.config.PATH;
 import javafx.scene.image.Image;
 
 import java.util.ArrayList;
@@ -10,6 +11,11 @@ import java.util.Hashtable;
 public class animationHolder {
     private Hashtable<String,Image[][]> table = new Hashtable<>();
     public animationHolder(){
+        this.addAllAnimations();
+    }
+
+    private void addAllAnimations() {
+        this.addAnimation(PATH.Gura,128,128,2,1,new String("gura"));
     }
 
 //    public ArrayList<Image[][]> getAnimations(){

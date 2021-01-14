@@ -6,7 +6,7 @@ package game.view.panel;
 import com.taku.util.flux.view.BasePanel;
 import game.view.container.CharacterContainer;
 import game.view.service.ICharacter;
-import game.view.state.CharacterState;
+import game.view.state.CharaState;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
@@ -15,7 +15,7 @@ import javafx.scene.control.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CombatPanel extends BasePanel<CharacterState, ICharacter> implements Initializable {
+public class CombatPanel extends BasePanel<CharaState, ICharacter> implements Initializable {
     @FXML
     private Label ground;
     private Canvas canvas;
