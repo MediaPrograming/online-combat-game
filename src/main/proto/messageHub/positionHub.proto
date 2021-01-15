@@ -28,9 +28,14 @@ enum Direction{
 
 enum Behavior{
   NORMAL = 0;
-  ATTACK = 1;
-  DEFENCE = 2;
-  RUN = 3;
+  ATTACK1 = 1;
+  ATTACK2 = 2;
+  ATTACK3 = 3;
+  ATTACK4 = 4;
+  DEFENCE = 5;
+  DAMAGE = 6;
+  JUMP = 7;
+  SQUAT = 8;
 }
 
 message Input{
