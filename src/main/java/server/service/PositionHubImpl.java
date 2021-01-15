@@ -8,6 +8,9 @@ import game.phisics.Character;
 import game.phisics.PhysicsCalcUtil;
 import game.phisics.PhysicsObject;
 import io.game.hub.positionHub.*;
+import io.game.hub.positionHub.CharacterState;
+import io.game.hub.positionHub.Input;
+import io.game.hub.positionHub.PositionHubGrpc;
 import io.grpc.stub.StreamObserver;
 import server.core.RoomManager;
 
@@ -82,18 +85,18 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
                 //通知
                 float x = (float) self.getX();
                 float y = (float) self.getY();
-                State state;
-                if (self.getatk()) state = State.ATTACK;
-                else if (self.getRanded()) state = State.ATTACK;
-                else if (value.getA() || value.getD()) state = State.RUN;
-                else state = State.NORMAL;
+                Behavior behavior;
+                if (self.getatk()) behavior = Behavior.ATTACK1;
+                else if (self.getRanded()) behavior = Behavior.ATTACK1;
+                else if (value.getA() || value.getD()) behavior = Behavior.NORMAL;
+                else behavior = Behavior.NORMAL;
                 Direction direction = self.getVx() >= 0 ? Direction.RIGHT : Direction.LEFT; //後で治しましょう
                 var characterState = CharacterState
                                 .newBuilder()
                                 .setId(id)
                                 .setX(x)
                                 .setY(y)
-                                .setState(state)
+                                .setBehavior(behavior)
                                 .setDirection(direction)
                                 .build();
                 for(var observer : room.PositionObservers.values()){
