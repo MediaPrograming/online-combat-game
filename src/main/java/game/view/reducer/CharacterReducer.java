@@ -6,11 +6,11 @@ package game.view.reducer;
 import com.taku.util.flux.model.Action;
 import com.taku.util.flux.service.IReducer;
 import com.taku.util.flux.view.ReducerBuilder;
-import game.view.state.CharacterState;
+import game.view.state.CharaState;
 
-public class CharacterReducer implements IReducer<CharacterState> {
+public class CharacterReducer implements IReducer<CharaState> {
     @Override
-    public ReducerBuilder<CharacterState> apply(Action<?> action, CharacterState init) {
+    public ReducerBuilder<CharaState> apply(Action<?> action, CharaState init) {
         return ReducerBuilder.Create(action, init);
     }
 }
