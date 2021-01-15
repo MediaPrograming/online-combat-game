@@ -9,7 +9,6 @@ import game.phisics.PhysicsObject;
 import io.game.hub.messageHub.Message;
 import io.game.hub.messageHub.User;
 import io.game.hub.positionHub.CharacterState;
-import io.game.hub.positionHub.Position;
 import io.grpc.stub.StreamObserver;
 
 import java.util.*;
