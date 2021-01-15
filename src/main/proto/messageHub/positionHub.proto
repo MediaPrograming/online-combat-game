@@ -17,7 +17,7 @@ message CharacterState{
   int32 id = 1;
   float x = 2;
   float y = 3;
-  State state = 4;
+  Behavior behavior = 4;
   Direction direction= 5;
 }
 
@@ -26,7 +26,7 @@ enum Direction{
   RIGHT = 1;
 }
 
-enum State{
+enum Behavior{
   NORMAL = 0;
   ATTACK = 1;
   DEFENCE = 2;

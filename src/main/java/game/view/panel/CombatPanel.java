@@ -21,7 +21,7 @@ public class CombatPanel extends BasePanel<CharaState, ICharacter> implements In
     private Canvas canvas;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        new CharacterContainer(this);
+//        new CharacterContainer(this);
 //        var props = this.getProps();
 //        var state = this.getState();
 //        var g = canvas.getGraphicsContext2D(); // Graphicsの取得

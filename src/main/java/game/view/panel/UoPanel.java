@@ -1,8 +1,11 @@
 package game.view.panel;
 import Animation.animationHolder;
 import Animation.animationKeyHolder;
+import Animation.playAnimation;
 import com.taku.util.flux.view.BasePanel;
 import com.taku.util.model.Unit;
+import game.config.Action;
+import game.config.Character;
 import game.config.PATH;
 import game.store.StoreManager;
 import game.util.Time;
@@ -10,6 +13,8 @@ import game.view.action.UIEvent;
 import game.view.container.CharacterContainer;
 import game.view.service.ICharacter;
 import game.view.state.CharaState;
+import io.game.hub.positionHub.Behavior;
+import io.game.hub.positionHub.CharacterState;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
@@ -27,7 +32,7 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
-public class UoPanel extends BasePanel<CharaState, ICharacter> implements Initializable {
+public class UoPanel extends BasePanel<CharacterState, ICharacter> implements Initializable {
     @FXML
     private Label ground;
     @FXML
@@ -35,11 +40,16 @@ public class UoPanel extends BasePanel<CharaState, ICharacter> implements Initia
     GraphicsContext gc;
     double initTime;
 
+    CharacterState state;
+
     //test
     private int uouo;
     private Text text;
     private animationHolder anim;
-    private Image[][] Gura;
+
+    private playAnimation player1;
+
+    private Image[][] Gura,Kiara;
     @FXML
     private ImageView imgv;
 
@@ -53,7 +63,7 @@ public class UoPanel extends BasePanel<CharaState, ICharacter> implements Initia
         new CharacterContainer(this);
 
         var props = this.getProps();
-        var state = this.getState();
+        state = this.getState();
 
         gc = canvas.getGraphicsContext2D();
 
@@ -71,8 +81,12 @@ public class UoPanel extends BasePanel<CharaState, ICharacter> implements Initia
 //        Gura = new Image[5][2];
 
         anim = new animationHolder();
-        anim.addAnimation(PATH.Gura,128,128,2,1,new String("gura"));
-        Gura = anim.getAnimation("gura");
+        anim.addAnimation(Character.Gura, Behavior.NORMAL,PATH.Gura_Normal,128,128,2,1);
+        anim.addAnimation(Character.Kiara,Behavior.NORMAL,PATH.Kiara_Normal,200,200,5,5);
+        Gura = anim.getAnimation(Character.Gura,Behavior.NORMAL);
+        Kiara = anim.getAnimation(Character.Kiara,Behavior.NORMAL);
+
+        player1 = new playAnimation(1,Character.Gura);
 
 //        clip = new Image(new File(PATH.Gura).toURI().toString());
 //        Gura[0][0] = new WritableImage(clip.getPixelReader(),0,0 , 120, 120);
@@ -89,7 +103,10 @@ public class UoPanel extends BasePanel<CharaState, ICharacter> implements Initia
         gc.strokeOval(uouo, 300, 50, 50);
 
 //        imgv.setImage(earth);
-        gc.drawImage(Gura[((int)Time.Instance.getTotalTime())%2][0], uouo,400,400,400);
+//        gc.drawImage(Gura[((int)Time.Instance.getTotalTime())%2][0], uouo,400,250,250);
+        gc.drawImage(Kiara[((int)(Time.Instance.getTotalTime()*5))%5][((int)Time.Instance.getTotalTime())%5], uouo,200,400,400);
+
+        gc.drawImage(player1.playAnimation(state), uouo,400,250,250);
 
         gc.setFill(Color.RED);
         gc.fillText(""+text, 300, 100);
