@@ -15,5 +15,5 @@ public class ClientEvent {
     public static final ActionCreator<GrpcRoomInfo> GET_ROOMS = new ActionCreator("GETROOMS");
     public static final ActionCreator<Message> STREAM_EVENT = new ActionCreator<>("STREAM_EVENT");
 
-    public static final ActionCreator<CharacterState> MOVE = new ActionCreator<io.game.hub.positionHub.CharacterState>("MOVE_EVENT");
+
 }
