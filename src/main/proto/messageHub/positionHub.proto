@@ -30,7 +30,8 @@ enum State{
   NORMAL = 0;
   ATTACK = 1;
   DEFENCE = 2;
-  RUN = 3;
+  RANDED = 3;
+  RUN = 4;
 }
 
 message Input{
