@@ -20,7 +20,7 @@ public class FetchContainer {
     public FetchContainer(SelectPanel panel){
         panel.connect(new RoomState(), state -> state, mapDispatch);
     }
-    MessageHubGrpc.MessageHubStub stub = StoreManager.Instance.client.stub;
+    private MessageHubGrpc.MessageHubStub stub = StoreManager.Instance.client.stub;
 
     //unit
     Unit unit = new Unit();
