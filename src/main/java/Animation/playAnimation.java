@@ -12,6 +12,7 @@ public class playAnimation {
     private CharacterState nowState;
     private Double firstFrame;
     public playAnimation(Integer ID, String Character){
+        nowState = CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build();
         this.ID = ID;
         this.Chara = Character;
         nowAnim = animationHolder.getAnimation(Chara, Behavior.NORMAL);
@@ -20,7 +21,7 @@ public class playAnimation {
 
     public Image playAnimation(CharacterState state){
         /*stateが変更されたらAnimation入れ替え*/
-        if(nowState != state) {
+        if(nowState.getBehavior() != state.getBehavior()) {
             nowAnim = animationHolder.getAnimation(Chara, state.getBehavior());
             nowState = state;
             firstFrame = Time.Instance.getTotalTime();
