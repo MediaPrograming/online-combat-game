@@ -1,37 +1,32 @@
 package Animation;
 
-import game.config.Action;
+import game.util.Time;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
-import io.game.hub.positionHub.State;
-import javafx.animation.AnimationTimer;
 import javafx.scene.image.Image;
 
-import java.util.ArrayList;
-import java.util.Hashtable;
-
 public class playAnimation {
-    private animationHolder animations;
-//    private Hashtable<Integer,String> table;
     private Integer ID;
     private String Chara;
-    private Image[][] nowAnim;
+    private Animation nowAnim;
     private CharacterState nowState;
     private Double firstFrame;
     public playAnimation(Integer ID, String Character){
-        animations = new animationHolder();
         this.ID = ID;
         this.Chara = Character;
-        nowAnim = animations.getAnimation(Chara, Behavior.NORMAL);
+        nowAnim = animationHolder.getAnimation(Chara, Behavior.NORMAL);
+        firstFrame = Time.Instance.getTotalTime();
     }
 
-//    public void registerID(Integer ID, String Character){
-//        table.put(ID,Character);
-//    }
-
     public Image playAnimation(CharacterState state){
-        if(nowState != state) {nowAnim = animations.getAnimation(Chara, state.getBehavior()); nowState = state;}// 後でStateから参照させる
+        /*stateが変更されたらAnimation入れ替え*/
+        if(nowState != state) {
+            nowAnim = animationHolder.getAnimation(Chara, state.getBehavior());
+            nowState = state;
+            firstFrame = Time.Instance.getTotalTime();
+        }
 
-        return nowAnim[0][0];
+        var duration = Time.Instance.getTotalTime() - firstFrame;
+        return nowAnim.getAnim()[(int)(duration*nowAnim.getSpeed())%nowAnim.getAnim().length][(int)(duration/nowAnim.getAnim().length*nowAnim.getSpeed())%nowAnim.getAnim()[0].length];
     }
 }
