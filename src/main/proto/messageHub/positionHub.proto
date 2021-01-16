@@ -36,6 +36,7 @@ enum Behavior{
   DAMAGE = 6;
   JUMP = 7;
   SQUAT = 8;
+  RUN = 9;
 }
 
 message Input{

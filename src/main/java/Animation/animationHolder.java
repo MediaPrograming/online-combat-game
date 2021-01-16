@@ -24,7 +24,8 @@ public class animationHolder {
     }
 
     private static void addAllAnimations() {
-        animationHolder.addAnimation(Character.Gura, Behavior.NORMAL ,PATH.Gura_Normal,128,128,2,1,2,true);
+        animationHolder.addAnimation(Character.Gura, Behavior.NORMAL ,PATH.Gura_Normal,128,128,4,2,2,true);
+        animationHolder.addAnimation(Character.Gura, Behavior.RUN ,PATH.Gura_Run,128,128,4,2,4,true);
         animationHolder.addAnimation(Character.Kiara,Behavior.NORMAL,PATH.Kiara_Normal,200,200,5,5,3,true);
     }
 
