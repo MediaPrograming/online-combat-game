@@ -1,6 +1,7 @@
 package game.view.panel;
 import Animation.Animation;
-import Animation.animationHolder;
+import Animation.AnimationHolder;
+import Animation.EffectPlayer.*;
 import Animation.playAnimation;
 import com.taku.util.flux.view.BasePanel;
 import game.config.Character;
@@ -17,7 +18,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import java.awt.*;
 
-import javafx.scene.effect.*;
+//import javafx.scene.effect.*;
 import javafx.scene.image.Image;
 
 import java.io.File;
@@ -32,7 +33,7 @@ public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Init
     @FXML
     private Label ground;
     @FXML
-    private Canvas canvas;
+    private Canvas canvas1,canvas2;
     GraphicsContext gc;
     double initTime;
 
@@ -43,24 +44,28 @@ public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Init
     private Text text;
     private CharacterState state1;
 
-    ColorAdjust colorAdjust;
-    Bloom bloom;
-    DisplacementMap displacementMap;
-    FloatMap floatMap;
-    int width,height;
+    PlayColorAdjust colorAdjust;
+    PlayDisplacementMap displacementMap;
+    PlayBloom bloom;
+    PlayDropShadow dropShadow;
+    PlayMotionBlur motionBlur;
+    PlayGaussianBlur gaussianBlur;
+    double firstFrame = 0;
+
 
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+
         new CharacterContainer(this);
-        new animationHolder();
+        new AnimationHolder();
 
         var props = this.getProps();
         var state = this.getState();
 
-        gc = canvas.getGraphicsContext2D();
+        gc = canvas1.getGraphicsContext2D();
 
         Time.Instance.run();
         initTime = Time.Instance.getTotalTime();
@@ -76,58 +81,39 @@ public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Init
 
         state1 = CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build();
 
-//        colorAdjust = new ColorAdjust();
-//        bloom = new Bloom();
-//
-//        floatMap = new FloatMap();
-//        floatMap.setWidth(width);
-//        floatMap.setHeight(height);
-//        displacementMap = new DisplacementMap();
-//        width = (int)gc.getCanvas().getWidth();
-//        height = (int)gc.getCanvas().getHeight();
+        colorAdjust = new PlayColorAdjust();
+        displacementMap = new PlayDisplacementMap();
+        bloom = new PlayBloom();
+        dropShadow = new PlayDropShadow();
+        motionBlur = new PlayMotionBlur();
+        gaussianBlur = new PlayGaussianBlur();
 
 
     }
 
     void draw(){
-//        /*effect*/
-//
-//        colorAdjust.setContrast(0.1);
-//        colorAdjust.setHue(-0.05);
-//        colorAdjust.setBrightness(0.1);
-//        colorAdjust.setSaturation(0.2);
-//
-//        bloom.setThreshold(0.1);
-//
-//
-////        for (int i = 0; i < width; i++) {
-////            double v = 10;
-////            for (int j = 0; j < height; j++) {
-////                floatMap.setSamples(i, j, -0.1f, -0.1f);
-////            }
-////        }
-//
-//        floatMap.setSamples(100, 100, -0.1f, -0.1f);
-//
-//        displacementMap.setMapData(floatMap);
+        /*effect*/
+
+
 
 //        draw
-        gc.clearRect(0,0,canvas.getWidth(),canvas.getHeight());
+        gc.clearRect(0,0,canvas1.getWidth(),canvas1.getHeight());
 
-        Image earth = new Image(new File(PATH.Img3).toURI().toString());
-        gc.setFill(Color.RED);
-        gc.setStroke(Color.BLUE);
-        gc.fillRect(uouo, 50, 150, 150);
-        gc.strokeOval(uouo, 300, 50, 50);
+        gc.drawImage(player.get(1).play(CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build()), 700,300,400,400);
+        gc.drawImage(player.get(0).play(state1), 400,200,250,250);
 
-        gc.drawImage(player.get(1).playAnimation(CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build()), uouo,400,400,400);
-        gc.drawImage(player.get(0).playAnimation(state1), uouo,200,250,250);
+
 
         gc.setFill(Color.RED);
         gc.fillText(""+text, 300, 100);
 
-//        gc.applyEffect(displacementMap);
 
+//        displacementMap.play(gc,firstFrame,0,0.5f,0.5f);
+//        colorAdjust.play(gc,0,0,0,-0.1);
+//        bloom.play(gc,0.9,firstFrame,8);
+//        dropShadow.play(gc,0.5,10,10,Color.color(0.1,0.05,0.1,0.6));
+//        motionBlur.play(gc,firstFrame,6,30,0);
+        gaussianBlur.play(gc,firstFrame,10,gaussianBlur.exponentialDecay(gaussianBlur.getDuration(firstFrame),50,1.0));
     }
 
     @Override
@@ -138,6 +124,7 @@ public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Init
 
         text.setText(""+uouo+"init"+initTime);
         if(uouo > 200) state1 = CharacterState.newBuilder().setBehavior(Behavior.RUN).build();
+        if(uouo == 300) firstFrame = Time.Instance.getTotalTime();
         draw();
     }
 }

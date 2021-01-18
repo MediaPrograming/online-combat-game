@@ -7,14 +7,14 @@ import io.game.hub.positionHub.Behavior;
 import java.util.Hashtable;
 
 /*連番ImageをArrayListに保存しておくクラス*/
-public class animationHolder {
+public class AnimationHolder {
     private static Hashtable<String,Hashtable<Behavior,Animation>> table = new Hashtable<>();
     private static Hashtable<Behavior,Animation> gura = new Hashtable<>();
     private static Hashtable<Behavior,Animation> ame = new Hashtable<>();
     private static Hashtable<Behavior,Animation> ina = new Hashtable<>();
     private static Hashtable<Behavior,Animation> calli = new Hashtable<>();
     private static Hashtable<Behavior,Animation> kiara = new Hashtable<>();
-    public animationHolder(){
+    public AnimationHolder(){
         table.put(Character.Gura,gura);
         table.put(Character.Ame,ame);
         table.put(Character.Ina,ina);
@@ -24,9 +24,9 @@ public class animationHolder {
     }
 
     private static void addAllAnimations() {
-        animationHolder.addAnimation(Character.Gura, Behavior.NORMAL ,PATH.Gura_Normal,128,128,4,2,2,true);
-        animationHolder.addAnimation(Character.Gura, Behavior.RUN ,PATH.Gura_Run,128,128,4,2,4,true);
-        animationHolder.addAnimation(Character.Kiara,Behavior.NORMAL,PATH.Kiara_Normal,200,200,5,5,3,true);
+        AnimationHolder.addAnimation(Character.Gura, Behavior.NORMAL ,PATH.Gura_Normal,128,128,4,2,2,true);
+        AnimationHolder.addAnimation(Character.Gura, Behavior.RUN ,PATH.Gura_Run,128,128,4,2,4,true);
+        AnimationHolder.addAnimation(Character.Kiara,Behavior.NORMAL,PATH.Kiara_Normal,200,200,5,5,8,true);
     }
 
 //    public ArrayList<Image[][]> getAnimations(){
