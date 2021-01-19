@@ -33,8 +33,8 @@ public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Init
     @FXML
     private Label ground;
     @FXML
-    private Canvas canvas1,canvas2;
-    GraphicsContext gc;
+    private Canvas canvas1,canvas2,canvas3;
+    GraphicsContext gc1,gc2,gc3;
     double initTime;
 
     private ArrayList<playAnimation> player;
@@ -65,7 +65,9 @@ public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Init
         var props = this.getProps();
         var state = this.getState();
 
-        gc = canvas1.getGraphicsContext2D();
+        gc1 = canvas1.getGraphicsContext2D();
+        gc2 = canvas2.getGraphicsContext2D();
+        gc3 = canvas3.getGraphicsContext2D();
 
         Time.Instance.run();
         initTime = Time.Instance.getTotalTime();
@@ -88,33 +90,36 @@ public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Init
         motionBlur = new PlayMotionBlur();
         gaussianBlur = new PlayGaussianBlur();
 
-
     }
 
     void draw(){
-        /*effect*/
+        /*gc1,canvas1*/
+        gc1.clearRect(0,0,canvas1.getWidth(),canvas1.getHeight());
+
+        gc1.setFill(Color.RED);
+        gc1.fillRect(0,0,canvas1.getWidth(),canvas1.getHeight());
+
+        gc1.drawImage(player.get(0).play(state1), 400,200,250,250);
 
 
-
-//        draw
-        gc.clearRect(0,0,canvas1.getWidth(),canvas1.getHeight());
-
-        gc.drawImage(player.get(1).play(CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build()), 700,300,400,400);
-        gc.drawImage(player.get(0).play(state1), 400,200,250,250);
-
-
-
-        gc.setFill(Color.RED);
-        gc.fillText(""+text, 300, 100);
+//        displacementMap.play(gc1,firstFrame,0,0.5f,0.5f);
+//        colorAdjust.play(gc1,0,0,0,-0.1);
+//        bloom.play(gc1,0.9,firstFrame,8);
+//        dropShadow.play(gc1,0.5,10,10,Color.color(0.1,0.05,0.1,0.6));
+//        motionBlur.play(gc1,firstFrame,6,30,0);
+        gaussianBlur.play(gc1,firstFrame,10,gaussianBlur.exponentialDecay(gaussianBlur.getDuration(firstFrame),50,1.0));
 
 
-//        displacementMap.play(gc,firstFrame,0,0.5f,0.5f);
-//        colorAdjust.play(gc,0,0,0,-0.1);
-//        bloom.play(gc,0.9,firstFrame,8);
-//        dropShadow.play(gc,0.5,10,10,Color.color(0.1,0.05,0.1,0.6));
-//        motionBlur.play(gc,firstFrame,6,30,0);
-        gaussianBlur.play(gc,firstFrame,10,gaussianBlur.exponentialDecay(gaussianBlur.getDuration(firstFrame),50,1.0));
-    }
+        /*gc2,canvas2*/
+        gc2.clearRect(0,0,canvas2.getWidth(),canvas2.getHeight());
+        gc2.drawImage(player.get(1).play(CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build()), 700,300,400,400);
+
+        /*gc3,canvas3*/
+        gc3.clearRect(0,0,canvas3.getWidth(),canvas3.getHeight());
+        gc3.setFill(Color.WHITE);
+        gc3.fillText(""+text, 300, 100);
+
+        }
 
     @Override
     public void EveryFrameUpdate(){
