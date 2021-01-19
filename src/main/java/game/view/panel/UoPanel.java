@@ -1,6 +1,7 @@
 package game.view.panel;
 import Animation.Animation;
 import Animation.AnimationHolder;
+import Animation.CharacterPlayer.PlayGura;
 import Animation.EffectPlayer.*;
 import Animation.playAnimation;
 import com.taku.util.flux.view.BasePanel;
@@ -44,6 +45,8 @@ public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Init
     private Text text;
     private CharacterState state1;
 
+    PlayGura gura;
+
     PlayColorAdjust colorAdjust;
     PlayDisplacementMap displacementMap;
     PlayBloom bloom;
@@ -51,9 +54,6 @@ public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Init
     PlayMotionBlur motionBlur;
     PlayGaussianBlur gaussianBlur;
     double firstFrame = 0;
-
-
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -81,6 +81,8 @@ public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Init
         player.add(new playAnimation(1,Character.Gura));
         player.add(new playAnimation(2,Character.Kiara));
 
+        gura = new PlayGura(gc2,player.get(0),state1);
+
         state1 = CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build();
 
         colorAdjust = new PlayColorAdjust();
@@ -99,20 +101,20 @@ public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Init
         gc1.setFill(Color.RED);
         gc1.fillRect(0,0,canvas1.getWidth(),canvas1.getHeight());
 
-        gc1.drawImage(player.get(0).play(state1), 400,200,250,250);
-
-
 //        displacementMap.play(gc1,firstFrame,0,0.5f,0.5f);
 //        colorAdjust.play(gc1,0,0,0,-0.1);
 //        bloom.play(gc1,0.9,firstFrame,8);
 //        dropShadow.play(gc1,0.5,10,10,Color.color(0.1,0.05,0.1,0.6));
 //        motionBlur.play(gc1,firstFrame,6,30,0);
-        gaussianBlur.play(gc1,firstFrame,10,gaussianBlur.exponentialDecay(gaussianBlur.getDuration(firstFrame),50,1.0));
 
 
         /*gc2,canvas2*/
         gc2.clearRect(0,0,canvas2.getWidth(),canvas2.getHeight());
+        gura.play();
+//        gc2.drawImage(player.get(0).play(state1), 400,200,250,250);
         gc2.drawImage(player.get(1).play(CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build()), 700,300,400,400);
+
+        gaussianBlur.play(gc2,firstFrame,10,gaussianBlur.exponentialDecay(gaussianBlur.getDuration(firstFrame),50,1.0));
 
         /*gc3,canvas3*/
         gc3.clearRect(0,0,canvas3.getWidth(),canvas3.getHeight());
