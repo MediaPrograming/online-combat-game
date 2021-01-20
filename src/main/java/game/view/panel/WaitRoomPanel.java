@@ -11,12 +11,14 @@ import game.view.service.IFetch;
 import game.view.service.IWaitRoom;
 import game.view.state.RoomState;
 import game.view.state.WaitRoomState;
+import io.game.hub.messageHub.CharacterType;
 import io.game.hub.messageHub.User;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 
@@ -28,14 +30,35 @@ import java.util.ResourceBundle;
 public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implements Initializable {
     //List<User> userList = new ArrayList<>();
     @FXML Button showBackButton, showCombatButton;
-    @FXML ListView listView;
+    @FXML ListView listView, characterList;
     WaitRoomContainer container;
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         container = new WaitRoomContainer(this);
         var props = this.getProps();
         var state = this.getState();
         props.GetRoomUserRequest(state.self);
+
+        //CharacterList
+        for (int i = 0; i < CharacterType.Inanis_VALUE; i++) {
+            state.characters.add(CharacterType.forNumber(i).name());
+        }
+//        state.characters.add("Gura");
+//        state.characters.add("Kiara");
+//        state.characters.add("Watson");
+//        state.characters.add("Mori");
+//        state.characters.add("Ninomae");
+        ObservableList<String> observableList = FXCollections.observableArrayList();
+        state.characters.forEach(observableList::add);
+        characterList.setItems(observableList);
+        characterList.setOnMouseClicked(e -> {
+            System.out.println("Select");
+            var index = characterList.getSelectionModel().getSelectedIndex();
+            props.SetCharacterRequest(index, state.self, state.currentRoom);
+        });
+
         //room内のUserの更新
         showBackButton.setOnAction(e -> props.showBackPanel(state.self, state.currentRoom));
         showCombatButton.setOnAction(e -> {
@@ -80,9 +103,14 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
         //if(!list.equals(userList)){
             //userList = list;
             ObservableList<String> observableList = FXCollections.observableArrayList();;
-            var userNames = list.stream().filter(u-> u != state.self).map(u ->u.getName() + (u.getIsReady() ? "準備完了" : "準備中"));
+            var userNames = list
+                    .stream()
+                    .filter(u-> u != state.self)
+                    .map(u ->u.getName() + (u.getIsReady() ? "準備完了" : "準備中")
+                            + "[" + u.getCharacterType().name()+ "]"
+                    );
             userNames.forEach(observableList::add);
             listView.setItems(observableList);
-        //}
+        //
     }
 }

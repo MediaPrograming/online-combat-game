@@ -4,6 +4,7 @@ import io.game.hub.messageHub.GrpcRoom;
 import io.game.hub.messageHub.User;
 import io.grpc.Grpc;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class WaitRoomState {
     public final boolean isHost;
     public final User self;
     public GrpcRoom currentRoom;
+    public List<String> characters = new ArrayList<>();
     public WaitRoomState(User user, GrpcRoom gRoom){
         this.self = user;
         currentRoom = gRoom;

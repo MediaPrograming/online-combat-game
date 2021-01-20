@@ -7,6 +7,7 @@ import com.taku.util.flux.view.BasePanel;
 import game.view.container.FetchContainer;
 import game.view.service.IFetch;
 import game.view.state.RoomState;
+import io.game.hub.messageHub.CharacterType;
 import io.game.hub.messageHub.GrpcRoom;
 import io.game.hub.messageHub.User;
 import javafx.collections.FXCollections;
@@ -47,9 +48,11 @@ public class SelectPanel extends BasePanel<RoomState, IFetch> implements Initial
                 .setName(usernameField.getText())
                 .setRoomName(room.getRoomName())
                 .setIsReady(false)
+                .setCharacterType(CharacterType.forNumber(0))
                 .build();
         this.getProps().JoinRequest(user, room);
     }
+
 
     @Override
     public void EveryFrameUpdate() {

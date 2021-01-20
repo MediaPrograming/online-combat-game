@@ -1,18 +1,21 @@
 package game.view.panel;
-import Animation.Animation;
 import Animation.animationHolder;
 import Animation.playAnimation;
 import com.taku.util.flux.view.BasePanel;
 import game.config.Character;
 import game.config.PATH;
+import game.store.StoreManager;
 import game.util.Time;
-import game.view.container.CharacterContainer;
-import game.view.service.ICharacter;
+import game.view.container.CombatContainer;
+import game.view.service.IPositionStream;
 import game.view.state.UoPanelState;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
+import io.game.hub.positionHub.Input;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import java.awt.*;
@@ -22,13 +25,17 @@ import javafx.scene.image.Image;
 
 import java.io.File;
 import java.net.URL;
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
-public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Initializable {
+public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements Initializable {
     @FXML
     private Label ground;
     @FXML
@@ -49,12 +56,13 @@ public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Init
     FloatMap floatMap;
     int width,height;
 
+    Input input;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        new CharacterContainer(this);
+        new CombatContainer(this);
         new animationHolder();
 
         var props = this.getProps();
@@ -66,52 +74,40 @@ public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Init
         initTime = Time.Instance.getTotalTime();
         uouo = 0;
 
-        text = new Text (String.valueOf(initTime));
+        text = new Text(String.valueOf(initTime));
         text.setStroke(Color.BLACK);
 
         player = new ArrayList<>();
 
         player.add(new playAnimation(1,Character.Gura));
         player.add(new playAnimation(2,Character.Kiara));
+        Timer timer = new Timer();
 
         state1 = CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build();
+        input = Input.newBuilder().setW(false).setA(false).setS(false).setD(false).setK(false)
+                .setId(getState().self.getId())
+                .setRoomName(getState().self.getRoomName())
+                .build();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                getProps().SendInput(input);
+            }
+        }, 1000, 100);}
 
-//        colorAdjust = new ColorAdjust();
-//        bloom = new Bloom();
-//
-//        floatMap = new FloatMap();
-//        floatMap.setWidth(width);
-//        floatMap.setHeight(height);
-//        displacementMap = new DisplacementMap();
-//        width = (int)gc.getCanvas().getWidth();
-//        height = (int)gc.getCanvas().getHeight();
+    @Override
+    public void KeyPressed(KeyEvent key) {
+        String c = key.getCode().toString();
+        input = keyPressed(c, input);
+    }
 
-
+    @Override
+    public void KeyReleased(KeyEvent key) {
+        String c = key.getCode().toString();
+        input = keyReleased(c, input);
     }
 
     void draw(){
-//        /*effect*/
-//
-//        colorAdjust.setContrast(0.1);
-//        colorAdjust.setHue(-0.05);
-//        colorAdjust.setBrightness(0.1);
-//        colorAdjust.setSaturation(0.2);
-//
-//        bloom.setThreshold(0.1);
-//
-//
-////        for (int i = 0; i < width; i++) {
-////            double v = 10;
-////            for (int j = 0; j < height; j++) {
-////                floatMap.setSamples(i, j, -0.1f, -0.1f);
-////            }
-////        }
-//
-//        floatMap.setSamples(100, 100, -0.1f, -0.1f);
-//
-//        displacementMap.setMapData(floatMap);
-
-//        draw
         gc.clearRect(0,0,canvas.getWidth(),canvas.getHeight());
 
         Image earth = new Image(new File(PATH.Img3).toURI().toString());
@@ -120,19 +116,90 @@ public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Init
         gc.fillRect(uouo, 50, 150, 150);
         gc.strokeOval(uouo, 300, 50, 50);
 
-        gc.drawImage(player.get(1).playAnimation(CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build()), uouo,400,400,400);
-        gc.drawImage(player.get(0).playAnimation(state1), uouo,200,250,250);
+//        gc.drawImage(player.get(1).playAnimation(CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build()),
+//                uouo,400,400,400);
+//        gc.drawImage(player.get(0).playAnimation(state1), uouo,200,250,250);
 
         gc.setFill(Color.RED);
         gc.fillText(""+text, 300, 100);
 
 //        gc.applyEffect(displacementMap);
 
+
+
+
+        var character  = getState().stateBlockingQueue.poll();
+        while (character != null) {
+            if (character.getId() != getState().self.getId()) {
+                c1 = character;
+                gc.drawImage(player.get(1).playAnimation(CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build()),
+                        c1.getX(), c1.getY(), 400, 400);
+            } else {
+                c2 = character;
+                gc.drawImage(player.get(0).playAnimation(CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build()),
+                        c2.getX(), c2.getY(), 400, 400);
+            }
+            character  = getState().stateBlockingQueue.poll();
+        }
+
+//        if (character.getId() != getState().self.getId()) {
+//            gc.drawImage(player.get(1).playAnimation(CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build()),
+//                    c1.getX(), c1.getY(), 400, 400);
+//        } else {
+//            gc.drawImage(player.get(0).playAnimation(CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build()),
+//                    c2.getX(), c2.getY(), 400, 400);
+//        }
+    }
+    CharacterState c1 = CharacterState.newBuilder().setX(0).setY(0).setBehavior(Behavior.NORMAL).build(),
+            c2 = CharacterState.newBuilder().setX(0).setY(0).setBehavior(Behavior.NORMAL).build();;
+    public Input keyPressed(String key, Input input){
+        boolean w = input.getW(), a = input.getA(), s = input.getS(), d = input.getD(), atk = input.getK();
+        switch (key){
+            case "A":
+                a=true;
+                if(d) d=false;
+                break;
+            case "S":
+                s=true;
+                break;
+            case "D":
+                d=true;
+                if(a) a=false;
+                break;
+            case "W":
+                w=true;
+                break;
+            case "K":
+                atk=true;
+                break;
+        }
+        return input.toBuilder().setW(w).setA(a).setS(s).setD(d).setK(atk).build();
+    }
+    public Input keyReleased(String key, Input input){
+        boolean w = input.getW(), a = input.getA(), s = input.getS(), d = input.getD(), atk = input.getK();
+        switch (key){
+            case "A":
+                a=false;
+                break;
+            case "S":
+                s=false;
+                break;
+            case "D":
+                d=false;
+                break;
+            case "W":
+                w=false;
+                break;
+            case "K":
+                atk=false;
+                break;
+        }
+        return input.toBuilder().setW(w).setA(a).setS(s).setD(d).setK(atk).build();
     }
 
     @Override
     public void EveryFrameUpdate(){
-        System.out.println("fps"+Time.Instance.getFrameRate()+"uouo"+uouo);
+        //System.out.println("fps"+Time.Instance.getFrameRate()+"uouo"+uouo);
         uouo++;
 //        gc.strokeText("Total Time : " + (Time.Instance.getTotalTime()-initTime)+ "\n delta Time : " + Time.Instance.getDeltaTime(), 250, 200);
 

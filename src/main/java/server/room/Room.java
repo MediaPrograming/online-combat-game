@@ -21,7 +21,7 @@ public class Room {
     private final Integer hostId;
     private final int limit; //制限人数
     private final Hashtable<Integer, UserState> Observers;
-    private final ArrayList<PhysicsObject> ground;
+    public final ArrayList<PhysicsObject> ground;
     //#endregion
 
 
@@ -33,7 +33,6 @@ public class Room {
         this.limit = limit;
         this.Observers = new Hashtable<>();
         this.ground = new ArrayList<>();
-
         //this.positionObservers = new HashMap<>();
     }
     //#region setter

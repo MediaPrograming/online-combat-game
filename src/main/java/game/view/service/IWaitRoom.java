@@ -12,6 +12,7 @@ public interface IWaitRoom {
         準備完了かどうか
      */
     void IsReadyRequest(boolean isOk, User user, GrpcRoom room);
+    void SetCharacterRequest(int index, User user, GrpcRoom room);
     /*
         Characterセレクト画面に戻る
      */

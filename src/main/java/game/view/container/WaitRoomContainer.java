@@ -27,6 +27,14 @@ public class WaitRoomContainer {
             }
 
             @Override
+            public void SetCharacterRequest(int index, User user, GrpcRoom room) {
+                var updateUser = user.toBuilder().setCharacterType(CharacterType.forNumber(index)).build();
+                var message = Message.newBuilder().setUser(updateUser).setType(Type.UPDATE).setRoom(room).build();
+                var observer = RequestUtil.streamEventCreator.apply(dispatcher);
+                observer.onNext(message);
+            }
+
+            @Override
             public void showBackPanel(User user, GrpcRoom room) {
                 //joinを取り消す
                 var message = Message.newBuilder().setUser(user).setType(Type.LEAVE).setRoom(room).build();
