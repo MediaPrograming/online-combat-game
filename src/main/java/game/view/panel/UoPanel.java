@@ -136,6 +136,7 @@ public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Init
         uouo++;
 //        gc.strokeText("Total Time : " + (Time.Instance.getTotalTime()-initTime)+ "\n delta Time : " + Time.Instance.getDeltaTime(), 250, 200);
 
+        if(text == null) return;
         text.setText(""+uouo+"init"+initTime);
         if(uouo > 200) state1 = CharacterState.newBuilder().setBehavior(Behavior.RUN).build();
         draw();

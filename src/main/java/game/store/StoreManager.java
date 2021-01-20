@@ -7,6 +7,7 @@ import game.view.reducer.*;
 import game.view.stage.MainStage;
 import game.view.state.RoomState;
 import game.view.state.WaitRoomState;
+import io.game.hub.messageHub.User;
 import io.game.hub.positionHub.CharacterState;
 import javafx.util.Pair;
 
@@ -18,7 +19,7 @@ public final class StoreManager {
     public Store store = Store.CreateStore(
             new Pair<>(Unit.class, new ShowPanelReducer()),
             new Pair<>(RoomState.class,new FetchReducer()),
-            new Pair<>(WaitRoomState.class, new RoomReducer()),
+            new Pair<>(WaitRoomState.class, new WaitRoomReducer()),
             new Pair<>(CharacterState.class, new CharacterReducer())
     );
 

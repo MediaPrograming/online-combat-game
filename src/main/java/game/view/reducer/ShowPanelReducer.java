@@ -11,7 +11,7 @@ import game.store.StoreManager;
 import game.util.Time;
 import game.view.action.RoomEvent;
 import game.view.action.UIEvent;
-import game.view.state.WaitRoomState;
+import game.view.state.RoomState;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -84,8 +84,6 @@ public class ShowPanelReducer implements IReducer<Unit> {
                             var StartPanel = new Scene(start);
                             StoreManager.stage.setScene(StartPanel);
                             StoreManager.stage.show();
-
-                            StoreManager.Instance.store.Invoke(new WaitRoomState(), RoomEvent.UPDATE_ROOM.Create(payload));
                         } catch (Exception err) {
                             System.out.println("[ERROR]" + err.toString());
                         }
@@ -93,15 +91,18 @@ public class ShowPanelReducer implements IReducer<Unit> {
                     return state;
                 })
                 .Case(UIEvent.SHOW_UO_PANEL, (state, payload) ->{
-                    try {
-                        Parent uo = FXMLLoader.load(StoreManager.class.getResource("../view/uo.fxml"));
-                        var uoPanel = new Scene(uo);
-                        StoreManager.stage.setScene(uoPanel);
-                        StoreManager.stage.show();
-                    }catch (Exception err){
-                        System.out.println(err);
-                    }
+                    Platform.runLater(() -> {
+                        try {
+                            Parent uo = FXMLLoader.load(StoreManager.class.getResource("../view/uo.fxml"));
+                            var uoPanel = new Scene(uo);
+                            StoreManager.stage.setScene(uoPanel);
+                            StoreManager.stage.show();
+                        } catch (Exception err) {
+                            System.out.println(err);
+                        }
+                    });
                     return state;
+
                 });
     }
 }

@@ -7,5 +7,6 @@
    <children>
       <Button fx:id="showCombatButton" layoutX="493.0" layoutY="290.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="66.0" text="Start" />
       <ListView fx:id="listView" layoutX="98.0" layoutY="58.0" prefHeight="284.0" prefWidth="328.0" />
+      <Button fx:id="showBackButton" layoutX="41.0" layoutY="330.0" mnemonicParsing="false" text="Back" />
    </children>
 </AnchorPane>

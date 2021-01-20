@@ -4,7 +4,6 @@
  */
 package server.service;
 
-import game.phisics.Character;
 import game.phisics.PhysicsCalcUtil;
 import game.phisics.PhysicsObject;
 import io.game.hub.positionHub.*;
@@ -13,6 +12,7 @@ import io.game.hub.positionHub.Input;
 import io.game.hub.positionHub.PositionHubGrpc;
 import io.grpc.stub.StreamObserver;
 import server.core.RoomManager;
+import server.room.UserState;
 
 import java.util.Map;
 
@@ -25,44 +25,46 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
                 var user = value.getUser();
                 var id = user.getId();
                 var name = user.getName();
-                var roomName = user.getRoomInfo().getRoomName();
+
+                var roomName = user.getRoomName();
                 var room = RoomManager.Instance.getRoom(roomName);
+                var observer= RoomManager.Instance.getRoom(roomName).getObserver();
                 //Roomにオブザーバーが登録されていなければ追加する
-                if(room.PositionObservers.contains(id)){
-                    //init
-                    room.PositionObservers.put(id, responseObserver);
-                }
+                if(!observer.containsKey(id)) return;
+                var state = observer.get(id);
+                if(state.positionObserver == null){ state.positionObserver = responseObserver; }
 
                 //物理オブジェクトの取得
-                var characters = room.getCharacters();
-                var self = characters.get(id);
+                var characters = observer.values().stream().map(x -> x.character);
+                var self = observer.get(id).character;
 
                 var physicsObj = room.getGrounds();
-                for(var s : characters.values()){ s.fall(); }
+                characters.forEach(PhysicsObject::fall);
                 self.keycheck(value.getW(), value.getA(), value.getS(), value.getD());
 
                 //キャラの
-                var enemies = characters.entrySet()
+                var enemies = observer.entrySet()
                         .stream()
                         .filter(x -> x.getKey() != id)
                         .map(Map.Entry::getValue);
-                characters.entrySet()
+                observer.entrySet()
                         .stream()
                         .filter(x -> x.getKey() != id)
-                        .forEach(x ->  PhysicsCalcUtil.isAttackHit(self,self.attack, x.getValue(), x.getValue().attack));
+                        .map(x -> x.getValue().character)
+                        .forEach(x ->  PhysicsCalcUtil.isAttackHit(self,self.attack, x, x.attack));
 
                 //キャラ同士が衝突しないように調整する　
-                characters.entrySet()
+                observer.entrySet()
                         .stream()
                         .filter(x -> x.getKey() != id)
-                        .forEach(x ->PhysicsCalcUtil.CharacterCollision(self, x.getValue()));
+                        .forEach(x ->PhysicsCalcUtil.CharacterCollision(self, x.getValue().character));
+
                 //キャラと画面内オブジェクトが衝突しないように調整する　
                 for(var obj : physicsObj){PhysicsCalcUtil.CharacterCollision(self, obj);}
-
                 //とりあえず平面で
                 for (PhysicsObject physicsObject : physicsObj) {
 
-                    enemies.forEach(enemy -> {
+                    enemies.map(x -> x.character).forEach(enemy -> {
                         if(!self.intersects(physicsObject.getX()-1-self.getVx(),self.getY()-2-self.getVy(),
                                 physicsObject.getWidth()+1,physicsObject.getHeight()+1)&&
                                 !self.intersects(enemy.getX()-1-self.getVx(),enemy.getY()-2-self.getVy(),
@@ -99,8 +101,8 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
                                 .setBehavior(behavior)
                                 .setDirection(direction)
                                 .build();
-                for(var observer : room.PositionObservers.values()){
-                    observer.onNext(characterState);
+                for (UserState userState : observer.values()) {
+                    userState.positionObserver.onNext(characterState);
                 }
             }
 

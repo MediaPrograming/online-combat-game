@@ -3,18 +3,13 @@ package game.view.container;
 import com.taku.util.flux.service.IDispatcher;
 import game.store.StoreManager;
 import game.util.Input;
-import game.view.action.ClientEvent;
 import game.view.action.CombatEvent;
-import game.view.action.UIEvent;
 import io.game.hub.messageHub.GrpcRoom;
-import io.game.hub.messageHub.GrpcRoomInfo;
 import io.game.hub.messageHub.User;
 import io.game.hub.positionHub.CharacterState;
 import io.game.hub.positionHub.PositionHubGrpc;
-import io.grpc.Grpc;
 import io.grpc.stub.StreamObserver;
 
-import java.awt.*;
 import java.util.function.Function;
 
 /**
@@ -43,12 +38,6 @@ public class CombatContainer {
 
         }
     } ;
-
-//    StreamObserver<io.game.hub.positionHub.Input> req =  stub.sendInput(new StreamObserver<CharacterState>() {
-//        @Override public void onNext(CharacterState value) { }
-//        @Override public void onError(Throwable t) { System.out.println(t.toString());}
-//        @Override public void onCompleted() { }
-//    });
 }
 
 interface IPositionStream{
