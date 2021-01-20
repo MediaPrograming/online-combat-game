@@ -10,4 +10,5 @@ import java.util.Vector;
 
 public interface ICharacter {
     public void Move(GraphicsContext context, Vector2 transform);
+    public void MoveRequest();
 }

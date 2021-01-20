@@ -9,5 +9,7 @@ public interface IShowPanel {
         void ShowSelectionPanel();
         void ShowCombatPanel();
 
+        void ShowUoPanel(); //uouo
+
         void ShowCreateRoomPanel();
 }

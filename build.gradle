@@ -8,6 +8,8 @@ plugins {
     //JavaFx
     id 'org.openjfx.javafxplugin' version '0.0.9'
     id 'org.beryx.jlink' version '2.22.0'
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 }
 
 
@@ -64,7 +66,7 @@ protobuf {
     }
 }
 
-mainClassName = 'game.view.MainApp'
+mainClassName = 'game.view.Main'
 
 // Inform IDEs like IntelliJ IDEA, Eclipse or NetBeans about the generated code.
 sourceSets {
@@ -91,7 +93,7 @@ test {
 //実行可能なファットjarを作成するためのランチャークラスの設定
 jar {
     manifest {
-        attributes 'Main-Class': 'game.view.MainApp'
+        attributes 'Main-Class': 'game.view.Main'
     }
     from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
@@ -100,7 +102,7 @@ jar {
 //javafx
 javafx {
     version = "13"
-    modules = ['javafx.controls', 'javafx.fxml']
+    modules = [ 'javafx.base', 'javafx.swing', 'javafx.graphics', 'javafx.controls', 'javafx.fxml', 'javafx.media', 'javafx.web' ]
 }
 
 task GrpcServer(type: CreateStartScripts) {
@@ -117,14 +119,25 @@ task GrpcClient(type: CreateStartScripts) {
     classpath = startScripts.classpath
 }
 
-//task serverJar(type: Jar){
-//    mainClassName = 'server.core.GrpcServer'
-//    applicationName = 'message-server'
-//    //outputDir = new File(project.buildDir, 'tmp')
-//    from(sourceSets.main.output) {
-//        include "**"
-//    }
-//}
+task serverJar(type: Jar){
+    archiveFileName = "message-server.jar"
+//実行可能なファットjarを作成するためのランチャークラスの設定
+    manifest { attributes 'Main-Class': 'server.core.GrpcServer' }
+    from configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    from "$buildDir/classes/main"
+    from "$buildDir/resources/main"
+    from sourceSets.main.allSource
+    compileJava {
+        options.encoding = defaultEncoding
+        doFirst {
+            options.compilerArgs = [
+                    '--module-path', classpath.asPath,
+                    '--add-modules', 'javafx.controls,javafx.fxml,javafx.base,javafx.graphics'
+            ]
+        }
+    }
+
+}
 
 applicationDistribution.into('bin') {
     from(GrpcServer)
@@ -136,6 +149,12 @@ applicationDistribution.into('bin') {
 tasks.withType(AbstractCompile) each { it.options.encoding = defaultEncoding }
 compileJava {
     options.encoding = defaultEncoding
+    doFirst {
+        options.compilerArgs = [
+                '--module-path', classpath.asPath,
+                '--add-modules', 'javafx.controls,javafx.fxml,javafx.base,javafx.graphics'
+        ]
+    }
 }
 compileTestJava {
     options.encoding = defaultEncoding
@@ -146,20 +165,11 @@ javadoc {
     options.encoding = defaultEncoding
 }
 
-compileJava {
-    doFirst {
-        options.compilerArgs = [
-                '--module-path', classpath.asPath,
-                '--add-modules', 'javafx.controls,javafx.fxml'
-        ]
-    }
-}
-
 run {
     doFirst {
         jvmArgs = [
                 '--module-path', classpath.asPath,
-                '--add-modules', 'javafx.controls,javafx.fxml'
+                '--add-modules', 'javafx.controls,javafx.fxml,javafx.base,javafx.graphics'
         ]
     }
 }
