@@ -43,9 +43,13 @@ public class WaitRoomReducer implements IReducer<WaitRoomState> {
                         }
                     }else if(message.getType() == Type.UPDATE){
                         roomState.currentRoom = message.getRoom();
+                        if(message.getUser().getId() == roomState.self.getId())
+                            roomState.self = message.getUser();
                     }else if(message.getType() == Type.GAME_START){
                         //UOPanelに移動
                         System.out.println("UOパネルの表示");
+                        StoreManager.Instance.client.user = message.getRoom().getUserList().stream().filter(x->x.getId() == roomState.self.getId()).findFirst().get();
+                        StoreManager.Instance.client.grpcRoom = message.getRoom();
                         StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_UO_PANEL.Create(unit));
                     }
                     else if(message.getType() == Type.ERROR){

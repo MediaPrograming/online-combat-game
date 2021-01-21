@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class WaitRoomState {
     public final boolean isHost;
-    public final User self;
+    public User self;
     public GrpcRoom currentRoom;
     public List<String> characters = new ArrayList<>();
     public WaitRoomState(User user, GrpcRoom gRoom){

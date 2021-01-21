@@ -44,7 +44,6 @@ public class WaitRoomContainer {
 
             @Override
             public void GameStartRequest(User user, GrpcRoom room) {
-                System.out.println("start");
                 var message = Message.newBuilder().setUser(user).setRoom(room).setType(Type.GAME_START).build();
                 var observer = RequestUtil.streamEventCreator.apply(dispatcher);
                 observer.onNext(message);
