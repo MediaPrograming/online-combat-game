@@ -1,7 +1,8 @@
 package Animation.CharacterPlayer;
 
+import Animation.CharaAnimationPlayer;
 import Animation.EffectPlayer.*;
-import Animation.playAnimation;
+import Animation.CharaAnimationPlayer;
 import game.config.Character;
 import io.game.hub.positionHub.CharacterState;
 import io.game.hub.positionHub.Direction;
@@ -12,7 +13,7 @@ public class PlayCharacter {
     protected int X,Y;
     protected double offsetX,offsetY;
     protected GraphicsContext gc;
-    protected playAnimation player;
+    protected CharaAnimationPlayer player;
     protected CharacterState state;
 
     protected PlayColorAdjust colorAdjust;
@@ -22,7 +23,7 @@ public class PlayCharacter {
     protected PlayMotionBlur motionBlur;
     protected PlayGaussianBlur gaussianBlur;
 
-    public PlayCharacter(GraphicsContext gc,playAnimation player, CharacterState state){
+    public PlayCharacter(GraphicsContext gc,CharaAnimationPlayer player, CharacterState state){
         this.gc = gc;
         this.player = player;
         this.state = state;
@@ -40,12 +41,21 @@ public class PlayCharacter {
         X = (int)state.getX();
         Y = (int)state.getY();
     }
+
+    public void setState(CharacterState state) {
+        this.state = state;
+    }
+
     public void adjustDirection(CharacterState state){
         if(state.getDirection() == Direction.RIGHT) width = Math.abs(width);
         else width = -Math.abs(width);
     }
 
     public void play(){
+        //test
+        X = Y = 400;
+
+//        setPositionFromState();
         adjustDirection(state);
         gc.drawImage(player.play(state),X,Y,width,height);
     }

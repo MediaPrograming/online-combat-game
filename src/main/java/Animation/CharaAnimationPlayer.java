@@ -5,18 +5,18 @@ import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
 import javafx.scene.image.Image;
 
-public class playAnimation {
+public class CharaAnimationPlayer {
     private Integer ID;
     private String Chara;
     private Animation nowAnim;
     private CharacterState nowState;
     private double firstFrame;
-    public playAnimation(Integer ID, String Character){
+    public CharaAnimationPlayer(Integer ID, String Character){
 
         this.ID = ID;
         this.Chara = Character;
         try{
-        nowAnim = AnimationHolder.getAnimation(Chara, Behavior.NORMAL);
+        nowAnim = AnimationHolder.getCharaAnimation(Chara, Behavior.NORMAL);
         }catch (Exception e){System.out.println("UOOOOO"+e.toString());}
         firstFrame = Time.Instance.getTotalTime();
         nowState = CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build();
@@ -26,7 +26,7 @@ public class playAnimation {
     public Image play(CharacterState state){
         /*stateが変更されたらAnimation入れ替え*/
         if(nowState.getBehavior() != state.getBehavior()) {
-            nowAnim = AnimationHolder.getAnimation(Chara, state.getBehavior());
+            nowAnim = AnimationHolder.getCharaAnimation(Chara, state.getBehavior());
             nowState = state;
             firstFrame = Time.Instance.getTotalTime();
         }

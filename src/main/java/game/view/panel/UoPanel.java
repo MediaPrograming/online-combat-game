@@ -3,7 +3,7 @@ import Animation.Animation;
 import Animation.AnimationHolder;
 import Animation.CharacterPlayer.PlayGura;
 import Animation.EffectPlayer.*;
-import Animation.playAnimation;
+import Animation.CharaAnimationPlayer;
 import com.taku.util.flux.view.BasePanel;
 import game.config.Character;
 import game.config.PATH;
@@ -38,7 +38,7 @@ public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Init
     GraphicsContext gc1,gc2,gc3;
     double initTime;
 
-    private ArrayList<playAnimation> player;
+    private ArrayList<CharaAnimationPlayer> player;
 
     //test
     private int uouo;
@@ -78,12 +78,12 @@ public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Init
 
         player = new ArrayList<>();
 
-        player.add(new playAnimation(1,Character.Gura));
-        player.add(new playAnimation(2,Character.Kiara));
-
-        gura = new PlayGura(gc2,player.get(0),state1);
+        player.add(new CharaAnimationPlayer(1,Character.Gura));
+        player.add(new CharaAnimationPlayer(2,Character.Kiara));
 
         state1 = CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build();
+
+        gura = new PlayGura(gc2,player.get(0),state1);
 
         colorAdjust = new PlayColorAdjust();
         displacementMap = new PlayDisplacementMap();
@@ -112,9 +112,9 @@ public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Init
         gc2.clearRect(0,0,canvas2.getWidth(),canvas2.getHeight());
         gura.play();
 //        gc2.drawImage(player.get(0).play(state1), 400,200,250,250);
-        gc2.drawImage(player.get(1).play(CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build()), 700,300,400,400);
+        gc2.drawImage(player.get(1).play(state1), 700,300,400,400);
 
-        gaussianBlur.play(gc2,firstFrame,10,gaussianBlur.exponentialDecay(gaussianBlur.getDuration(firstFrame),50,1.0));
+//        gaussianBlur.play(gc2,firstFrame,10,gaussianBlur.exponentialDecay(gaussianBlur.getDuration(firstFrame),50,1.0));
 
         /*gc3,canvas3*/
         gc3.clearRect(0,0,canvas3.getWidth(),canvas3.getHeight());
@@ -130,8 +130,8 @@ public class UoPanel extends BasePanel<UoPanelState, ICharacter> implements Init
 //        gc.strokeText("Total Time : " + (Time.Instance.getTotalTime()-initTime)+ "\n delta Time : " + Time.Instance.getDeltaTime(), 250, 200);
 
         text.setText(""+uouo+"init"+initTime);
-        if(uouo > 200) state1 = CharacterState.newBuilder().setBehavior(Behavior.RUN).build();
-        if(uouo == 300) firstFrame = Time.Instance.getTotalTime();
+        if(uouo > 200) gura.setState(CharacterState.newBuilder().setBehavior(Behavior.RUN).build());
+        if(uouo == 300) {firstFrame = Time.Instance.getTotalTime(); state1 = CharacterState.newBuilder().setBehavior(Behavior.RUN).build();}
         draw();
     }
 }
