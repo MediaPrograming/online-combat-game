@@ -20,8 +20,10 @@ message CharacterState{
   double y = 4;
   double ax = 5;
   double ay = 6;
-  Behavior behavior = 7;
-  Direction direction= 8;
+  double atkX = 7;
+  double atkY = 8;
+  Behavior behavior = 9;
+  Direction direction= 10;
 }
 
 enum Direction{

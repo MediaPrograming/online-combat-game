@@ -222,7 +222,7 @@ public class MessageHubImpl extends MessageHubGrpc.MessageHubImplBase {
             character = new game.phisics.Character(50, 50, 100, 100, chareattack);
         } else {
             chareattack = new PhysicsObject(0, 0, 1, 1);
-            character = new game.phisics.Character(50, 50, 100, 100, chareattack);
+            character = new game.phisics.Character(200,50, 100, 100, chareattack);
         }
         userState.character = character;
     }

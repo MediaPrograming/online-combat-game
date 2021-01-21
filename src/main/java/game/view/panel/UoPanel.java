@@ -93,7 +93,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
             public void run() {
                 getProps().SendInput(input);
             }
-        }, 1000, 100);}
+        }, 1000, 30);}
 
     @Override
     public void KeyPressed(KeyEvent key) {
@@ -132,16 +132,15 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         while (character != null) {
             if (character.getId() != getState().self.getId()) {
                 c1 = character;
-                gc.drawImage(player.get(1).playAnimation(CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build()),
-                        c1.getX(), c1.getY(), 400, 400);
             } else {
                 c2 = character;
-                gc.drawImage(player.get(0).playAnimation(CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build()),
-                        c2.getX(), c2.getY(), 400, 400);
             }
             character  = getState().stateBlockingQueue.poll();
         }
-
+        gc.drawImage(player.get(1).playAnimation(CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build()),
+                c1.getX(), c1.getY(), 400, 400);
+        gc.drawImage(player.get(0).playAnimation(CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build()),
+                c2.getX(), c2.getY(), 400, 400);
 //        if (character.getId() != getState().self.getId()) {
 //            gc.drawImage(player.get(1).playAnimation(CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build()),
 //                    c1.getX(), c1.getY(), 400, 400);
