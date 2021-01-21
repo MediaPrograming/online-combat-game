@@ -10,6 +10,8 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import server.core.GrpcServer;
 
+import java.util.List;
+
 //import java.util.logging.Logger;
 
 /**
@@ -17,6 +19,8 @@ import server.core.GrpcServer;
  */
 public class GrpcClient {
     //private static final Logger logger = Logger.getLogger(GrpcClient.class.getName());
+    public User user;
+    public GrpcRoom grpcRoom;
     public final MessageHubGrpc.MessageHubStub stub;
     public final PositionHubGrpc.PositionHubStub positionHubStub;
     public GrpcClient(){

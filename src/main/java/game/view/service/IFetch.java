@@ -12,13 +12,13 @@ public interface IFetch {
      *
      */
     void GetRoomRequest();
-    void CreateRoom(User user, GrpcRoom gRoom);
+    void CreateRoomRequest(User user, GrpcRoom gRoom);
 
     /**
      * Delete room
      * @param user if This method call, You must be host in the room.
      */
-    void DeleteRoom(User user);
+    void DeleteRoomRequest(User user);
 
     /**
      * Join by StreamEvent
@@ -34,7 +34,6 @@ public interface IFetch {
     void Leave(User user);
 
     void ShowStartPanel();
-    void ShowSelectionPanel();
-    void ShowCombatPanel();
+    void CombatStartRequest(GrpcRoom gRoom, User user);
 
 }

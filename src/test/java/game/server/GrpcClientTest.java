@@ -29,11 +29,7 @@ public class GrpcClientTest {
     String roomName = "testRoom", userName = "TestUser";
     GrpcRoom gRoom = GrpcRoom.newBuilder().setRoomName(roomName).setHostName(userName).build();
     User testUser = User.newBuilder().setId(UUID.randomUUID().hashCode()).setName(userName).build();
-//    @Before
-//    public void LaunchServer() throws IOException, InterruptedException {
-//        MessageServer.main(new String[]{"args"});
-//
-//    }
+
     /**
      * ルーム作成のテスト
      * roomNameとuserNameで作成する

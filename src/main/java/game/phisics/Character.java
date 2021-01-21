@@ -7,7 +7,7 @@ public class Character extends PhysicsObject {
     Character(double x, double y, double w, double h){
         super(x,y,w,h);
     }
-    Character(double x, double y, double w, double h, PhysicsObject a){
+    public Character(double x, double y, double w, double h, PhysicsObject a){
         super(x,y,w,h);
         attack=a;
     }

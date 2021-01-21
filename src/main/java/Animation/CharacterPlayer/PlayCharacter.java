@@ -10,7 +10,7 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class PlayCharacter {
     protected double width,height;
-    protected int X,Y;
+    protected double X,Y;
     protected double offsetX,offsetY;
     protected GraphicsContext gc;
     protected CharaAnimationPlayer player;
@@ -38,11 +38,11 @@ public class PlayCharacter {
     public void setWidth(double width){ this.width = width; }
     public void setHeight(double height){ this.height = height; }
     public void setPositionFromState(){
-        X = (int)state.getX();
-        Y = (int)state.getY();
+        X = state.getX();
+        Y = state.getY();
     }
 
-    public void setState(CharacterState state) {
+    public void updateState(CharacterState state) {
         this.state = state;
     }
 
@@ -55,7 +55,7 @@ public class PlayCharacter {
         //test
         X = Y = 400;
 
-//        setPositionFromState();
+        setPositionFromState();
         adjustDirection(state);
         gc.drawImage(player.play(state),X,Y,width,height);
     }

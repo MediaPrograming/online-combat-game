@@ -15,10 +15,15 @@ import "messageHub/messageHub.proto";
 
 message CharacterState{
   int32 id = 1;
-  float x = 2;
-  float y = 3;
-  Behavior behavior = 4;
-  Direction direction= 5;
+  double time = 2;
+  double x = 3;
+  double y = 4;
+  double ax = 5;
+  double ay = 6;
+  double atkX = 7;
+  double atkY = 8;
+  Behavior behavior = 9;
+  Direction direction= 10;
 }
 
 enum Direction{
@@ -40,12 +45,13 @@ enum Behavior{
 }
 
 message Input{
-  messageHub.User user = 1;
+  int32 id = 1;
   bool w = 2;
   bool a = 3;
   bool s = 4;
   bool d = 5;
   bool k = 6;
+  string roomName = 7;
 }
 service PositionHub {
   rpc SendInput(stream Input) returns (stream CharacterState);

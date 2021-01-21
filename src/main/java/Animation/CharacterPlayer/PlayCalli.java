@@ -6,10 +6,10 @@ import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
 import javafx.scene.canvas.GraphicsContext;
 
-public class PlayGura extends PlayCharacter{
-    public PlayGura(GraphicsContext gc, CharaAnimationPlayer player, CharacterState state){
+public class PlayCalli extends PlayCharacter{
+    public PlayCalli(GraphicsContext gc, CharaAnimationPlayer player, CharacterState state){
         super(gc, player, state);
-        this.width = this.height = 250;
+        this.width = this.height = 400;
     }
 
     @Override

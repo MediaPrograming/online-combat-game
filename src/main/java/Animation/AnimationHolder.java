@@ -27,9 +27,58 @@ public class AnimationHolder {
     private static void addAllAnimations() {
         AnimationHolder.addCharaAnimation(Character.Gura, Behavior.NORMAL ,PATH.Gura_Normal,128,128,4,2,2,true);
         AnimationHolder.addCharaAnimation(Character.Gura, Behavior.RUN ,PATH.Gura_Run,128,128,4,2,4,true);
+        AnimationHolder.addCharaAnimation(Character.Gura, Behavior.ATTACK1 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Gura, Behavior.ATTACK2 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Gura, Behavior.ATTACK3 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Gura, Behavior.ATTACK4 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Gura, Behavior.DEFENCE ,PATH.Gura_Normal,128,128,4,2,2,false);
         AnimationHolder.addCharaAnimation(Character.Gura, Behavior.DAMAGE ,PATH.Gura_Normal,128,128,4,2,2,false);
-        AnimationHolder.addCharaAnimation(Character.Kiara,Behavior.NORMAL,PATH.Kiara_Normal,200,200,5,5,8,true);
-        AnimationHolder.addCharaAnimation(Character.Kiara,Behavior.RUN,PATH.Kiara_Run,160,160,8,1,8,true);
+        AnimationHolder.addCharaAnimation(Character.Gura, Behavior.JUMP ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Gura, Behavior.SQUAT ,PATH.Gura_Normal,128,128,4,2,2,false);
+
+        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.NORMAL  ,PATH.Kiara_Normal,200,200,5,5,8,true );
+        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.RUN     ,PATH.Kiara_Run,   160,160,8,1,8,true );
+        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.ATTACK1 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.ATTACK2 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.ATTACK3 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.ATTACK4 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.DEFENCE ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.DAMAGE  ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.JUMP    ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.SQUAT   ,PATH.Gura_Normal,128,128,4,2,2,false);
+
+        AnimationHolder.addCharaAnimation(Character.Ina, Behavior.NORMAL  ,PATH.Kiara_Normal,200,200,5,5,8,true );
+        AnimationHolder.addCharaAnimation(Character.Ina, Behavior.RUN     ,PATH.Kiara_Run,   160,160,8,1,8,true );
+        AnimationHolder.addCharaAnimation(Character.Ina, Behavior.ATTACK1 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Ina, Behavior.ATTACK2 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Ina, Behavior.ATTACK3 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Ina, Behavior.ATTACK4 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Ina, Behavior.DEFENCE ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Ina, Behavior.DAMAGE  ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Ina, Behavior.JUMP    ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Ina, Behavior.SQUAT   ,PATH.Gura_Normal,128,128,4,2,2,false);
+
+        AnimationHolder.addCharaAnimation(Character.Calli, Behavior.NORMAL  ,PATH.Kiara_Normal,200,200,5,5,8,true );
+        AnimationHolder.addCharaAnimation(Character.Calli, Behavior.RUN     ,PATH.Kiara_Run,   160,160,8,1,8,true );
+        AnimationHolder.addCharaAnimation(Character.Calli, Behavior.ATTACK1 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Calli, Behavior.ATTACK2 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Calli, Behavior.ATTACK3 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Calli, Behavior.ATTACK4 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Calli, Behavior.DEFENCE ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Calli, Behavior.DAMAGE  ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Calli, Behavior.JUMP    ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Calli, Behavior.SQUAT   ,PATH.Gura_Normal,128,128,4,2,2,false);
+
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.NORMAL  ,PATH.Kiara_Normal,200,200,5,5,8,true );
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.RUN     ,PATH.Kiara_Run,   160,160,8,1,8,true );
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.ATTACK1 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.ATTACK2 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.ATTACK3 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.ATTACK4 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.DEFENCE ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.DAMAGE  ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.JUMP    ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.SQUAT   ,PATH.Gura_Normal,128,128,4,2,2,false);
 
 //        AnimationHolder.addEffectAnimation("HIT",PATH.Effect_HIT,100,100,5,1,8,false);
     }
