@@ -136,7 +136,8 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
 
                 for (var r : room.getObserver().entrySet()) {
                     try {
-                        r.getValue().positionObserver.onNext(characterState);
+                        if(r.getValue().positionObserver != null)
+                            r.getValue().positionObserver.onNext(characterState);
                     }catch (Exception e){
                         System.out.println(e.toString());
                     }

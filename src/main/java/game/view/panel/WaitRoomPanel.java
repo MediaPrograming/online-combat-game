@@ -45,11 +45,6 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
         for (int i = 0; i < CharacterType.Inanis_VALUE; i++) {
             state.characters.add(CharacterType.forNumber(i).name());
         }
-//        state.characters.add("Gura");
-//        state.characters.add("Kiara");
-//        state.characters.add("Watson");
-//        state.characters.add("Mori");
-//        state.characters.add("Ninomae");
         ObservableList<String> observableList = FXCollections.observableArrayList();
         state.characters.forEach(observableList::add);
         characterList.setItems(observableList);

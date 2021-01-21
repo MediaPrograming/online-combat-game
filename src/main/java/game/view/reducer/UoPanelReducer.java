@@ -17,7 +17,7 @@ public class UoPanelReducer implements IReducer<UoPanelState> {
         return ReducerBuilder.Create(action, init)
                 .Case(AnimationEvent.STATE_UPDATE, ((uoPanelState, characterState) -> {
                     uoPanelState.stateBlockingQueue.add(characterState);
-                    System.out.println("put : " + "x: "+  characterState.getX() + "y " + characterState.getY());
+                    System.out.println("id : " +  characterState.getId() + "put : " + "x: "+  characterState.getX() + "y " + characterState.getY());
                     return uoPanelState;
                 }));
     }

@@ -68,6 +68,11 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         var props = this.getProps();
         var state = this.getState();
 
+        String debug = "";
+        for (var user : state.room.getUserList()){
+            debug += "name : " + user.getName() + " roomName:" +user.getRoomName() + " id : " + user.getId() + "\n";
+        }
+        System.out.println(debug);
         gc = canvas.getGraphicsContext2D();
 
         Time.Instance.run();
@@ -108,6 +113,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
     }
 
     void draw(){
+        System.out.println("id :" + getState().self.getId());
         gc.clearRect(0,0,canvas.getWidth(),canvas.getHeight());
 
         Image earth = new Image(new File(PATH.Img3).toURI().toString());
@@ -124,7 +130,6 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         gc.fillText(""+text, 300, 100);
 
 //        gc.applyEffect(displacementMap);
-
 
 
 
@@ -149,8 +154,8 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
 //                    c2.getX(), c2.getY(), 400, 400);
 //        }
     }
-    CharacterState c1 = CharacterState.newBuilder().setX(0).setY(0).setBehavior(Behavior.NORMAL).build(),
-            c2 = CharacterState.newBuilder().setX(0).setY(0).setBehavior(Behavior.NORMAL).build();;
+    CharacterState c1 = CharacterState.newBuilder().setX(300).setY(0).setBehavior(Behavior.NORMAL).build(),
+            c2 = CharacterState.newBuilder().setX(600).setY(0).setBehavior(Behavior.NORMAL).build();;
     public Input keyPressed(String key, Input input){
         boolean w = input.getW(), a = input.getA(), s = input.getS(), d = input.getD(), atk = input.getK();
         switch (key){
