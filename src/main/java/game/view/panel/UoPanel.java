@@ -3,6 +3,7 @@ import Animation.AnimationHolder;
 import Animation.CharaAnimationPlayer;
 import Animation.CharacterPlayer.*;
 import Animation.UIPlayer.PlayUI;
+import Audio.AudioHolder;
 import com.taku.util.flux.view.BasePanel;
 import Audio.AudioClip;
 import game.config.CharaData.Gura;
@@ -80,6 +81,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
 
         new CombatContainer(this);
         new AnimationHolder();
+        new AudioHolder();
 
         //debug--->
 

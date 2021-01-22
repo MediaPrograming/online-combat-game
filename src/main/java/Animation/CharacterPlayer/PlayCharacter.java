@@ -18,6 +18,7 @@ public class PlayCharacter {
     protected GraphicsContext gc;
     protected CharaAnimationPlayer player;
     protected CharacterState state;
+    protected boolean changed;
 
     protected PlayColorAdjust colorAdjust;
     protected PlayDisplacementMap displacementMap;
@@ -36,6 +37,7 @@ public class PlayCharacter {
         dropShadow = new PlayDropShadow();
         motionBlur = new PlayMotionBlur();
         gaussianBlur = new PlayGaussianBlur();
+        changed = false;
     }
 
     public void setPosition(double x,double y){ X = x; Y = y; }
@@ -50,8 +52,11 @@ public class PlayCharacter {
     public CharaAnimationPlayer getPlayer(){return player;}
 
     public void updateState(CharacterState state) {
+        if(state.getBehavior() != this.state.getBehavior()) changedAction(state);
         this.state = state;
     }
+
+    public void changedAction(CharacterState state) { }
 
     public void adjustDirection(CharacterState state){
         if(state.getDirection() == Direction.RIGHT) width = Math.abs(width);
