@@ -12,7 +12,7 @@ public class Character extends PhysicsObject {
         attack=a;
     }
     public void keycheck(boolean w, boolean a, boolean s, boolean d){
-        if(timetomove==0){
+        if(timetomove<=0){
             if(atk){//攻撃範囲と硬直時間を設定
                 if(a){
                     attack.setX(this.getX()-this.getWidth()/2);

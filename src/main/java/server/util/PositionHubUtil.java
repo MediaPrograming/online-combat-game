@@ -31,7 +31,7 @@ public class PositionHubUtil {
     }
 
     public static void CharacterUpdate(Input input, Room room, Hashtable<Integer, UserState> table, Integer senderId) {
-        //クライアントから入力があるたびに呼び出してキャラクターの入力状態を更新
+        //クライアントから入力があるたびに呼び出してキャラクターの入力状態を更新したい
         var characters = table.values().stream().map(x -> x.character);
         var self = table.get(senderId).character;
         var physicsObj = room.getGrounds();
@@ -42,7 +42,7 @@ public class PositionHubUtil {
     }
 
     //サーバーから位置情報を送る直前に呼び出して各キャラの位置や情報を更新
-    public static void Characterposistionupdate(Room room, Hashtable<Integer, UserState> table){
+    public static void Characterpositionupdate(Room room, Hashtable<Integer, UserState> table){
             var array = table.values().toArray(UserState[]::new);
             var player1 = array[0].character;
             var player2 = array[1].character;
@@ -79,11 +79,11 @@ public class PositionHubUtil {
         }*/
         int p1=1,p2=1;
         for (PhysicsObject physicsObject : physicsObj) {
-            if (player1.intersects(physicsObject.getX() - 1 - player1.getVx(), player1.getY() - 2 - player1.getVy(),
+            if (player1.intersects(physicsObject.getX() - 1 - player1.getVx(), physicsObject.getY() - 2 - player1.getVy(),
                     physicsObject.getWidth() + 1, physicsObject.getHeight() + 1)){
                 p1=0;
             }
-            if (player2.intersects(physicsObject.getX() - 1 - player2.getVx(), player2.getY() - 2 - player2.getVy(),
+            if (player2.intersects(physicsObject.getX() - 1 - player2.getVx(), physicsObject.getY() - 2 - player2.getVy(),
                     physicsObject.getWidth() + 1, physicsObject.getHeight() + 1)) {
                 p2=0;
             }

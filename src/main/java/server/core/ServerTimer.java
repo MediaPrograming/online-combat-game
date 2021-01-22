@@ -16,7 +16,7 @@ import java.util.function.Consumer;
 
 import static server.util.PositionHubUtil.UpdateBehaviour;
 import static server.util.PositionHubUtil.UpdateDirection;
-import static server.util.PositionHubUtil.Characterposistionupdate;
+import static server.util.PositionHubUtil.Characterpositionupdate;
 
 /**
  * @author Takuya Isaki on 2021/01/22
@@ -48,7 +48,7 @@ public class ServerTimer {
     }
     private void Send(Room room) {
         var observer = room.getObserver();
-        Characterposistionupdate(room,observer);
+        Characterpositionupdate(room,observer);
         for (var state:observer.values()){
             var c = state.character;
             double x = c.getX();
@@ -79,5 +79,6 @@ public class ServerTimer {
                 }
             }
         }
+
     }
 }
