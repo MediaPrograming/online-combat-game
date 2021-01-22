@@ -10,16 +10,11 @@ import io.game.hub.positionHub.*;
 import io.game.hub.positionHub.CharacterState;
 import io.game.hub.positionHub.Input;
 import io.game.hub.positionHub.PositionHubGrpc;
-import io.grpc.SynchronizationContext;
 import io.grpc.stub.StreamObserver;
-import javafx.application.Platform;
-import javafx.scene.SubScene;
-import server.core.GrpcServer;
 import server.core.RoomManager;
-import server.room.Room;
-import server.room.UserState;
-
 import java.util.Map;
+
+import static server.util.PositionHubUtil.*;
 
 public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
     @Override
@@ -36,78 +31,19 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
                     return;
                 }
                 var observer = room.getObserver();
-                //Roomにオブザーバーが登録されていなければ追加する
-//
-//                if (!observer.containsKey(id)) {
-//                    System.out.println("[Error]" + PositionHubImpl.class + "::33");
-//                    return;
-//                }
+                //オブザーバーの追加
                 var state = observer.get(id);
                 state.positionObserver = responseObserver;
-                //observer = RoomManager.Instance.getRoom(roomName).getObserver();
                 //物理オブジェクトの取得
-                var characters = observer.values().stream().map(x -> x.character);
-                var self = observer.get(id).character;
-
-                var physicsObj = room.getGrounds();
-                characters.forEach(PhysicsObject::fall);
-                self.keycheck(value.getW(), value.getA(), value.getS(), value.getD());
-
-                //キャラの
-                var enemies = observer.entrySet()
-                        .stream()
-                        .filter(x -> x.getKey() != id)
-                        .map(Map.Entry::getValue);
-                observer.entrySet()
-                        .stream()
-                        .filter(x -> x.getKey() != id)
-                        .map(x -> x.getValue().character)
-                        .forEach(x -> PhysicsCalcUtil.isAttackHit(self, self.attack, x, x.attack));
-
-                //キャラ同士が衝突しないように調整する　
-                observer.entrySet()
-                        .stream()
-                        .filter(x -> x.getKey() != id)
-                        .forEach(x -> PhysicsCalcUtil.CharacterCollision(self, x.getValue().character));
-
-                //キャラと画面内オブジェクトが衝突しないように調整する　
-                for (var obj : physicsObj) {
-                    PhysicsCalcUtil.CharacterCollision(self, obj);
-                }
-                //とりあえず平面で
-                for (PhysicsObject physicsObject : physicsObj) {
-
-                    enemies.map(x -> x.character).forEach(enemy -> {
-                        if (!self.intersects(physicsObject.getX() - 1 - self.getVx(), self.getY() - 2 - self.getVy(),
-                                physicsObject.getWidth() + 1, physicsObject.getHeight() + 1) &&
-                                !self.intersects(enemy.getX() - 1 - self.getVx(), enemy.getY() - 2 - self.getVy(),
-                                        enemy.getWidth() + 1, enemy.getHeight() + 1)) {
-                            self.setRanded(false);
-                        }
-                    });
-
-                }
-//                if(!self.intersects(flore.getX()-1-chare.getVx(),flore.getY()-2-chare.getVy(),flore.getWidth()+1,flore.getHeight()+1)&&!chare.intersects(enemy.getX()-1-chare.getVx(),enemy.getY()-2-chare.getVy(),enemy.getWidth()+1,enemy.getHeight()+1)){
-//                    chare.setRanded(false);
-//                };
-//                if(!enemy.intersects(flore.getX()-1-chare.getVx(),flore.getY()-2-enemy.getVy(),flore.getWidth()+1,flore.getHeight()+1)&&!enemy.intersects(chare.getX()-1-enemy.getVx(),chare.getY()-2-enemy.getVy(),chare.getWidth()+1,chare.getHeight()+1)){
-//                    enemy.setRanded(false);
-//                }
-//                //System.out.println(chare.intersects(enemy.getX()-1-chare.getVx(),enemy.getY()-2-chare.getVy(),enemy.getWidth()+1,enemy.getHeight()+1));
-                self.move();
-//                enemy.move();
-
+                CharacterUpdate(value, room, observer, id);
+             //   var self = observer.get(id).character;
                 //通知
-                double x = self.getX();
+             /*   double x = self.getX();
                 double y = self.getY();
                 double ax = self.getAx();
                 double ay = self.getAy();
-                Behavior behavior;
-                if (self.getatk()) behavior = Behavior.ATTACK1;
-                else if (self.getRanded()) behavior = Behavior.ATTACK1;
-                else if (value.getA() || value.getD()) behavior = Behavior.NORMAL;
-                else behavior = Behavior.NORMAL;
-                Direction direction = self.getVx() >= 0 ? Direction.RIGHT : Direction.LEFT; //後で治しましょう
+                Behavior behavior = UpdateBehaviour(self);
+                Direction direction = UpdateDirection(self);
                 var characterState = CharacterState
                         .newBuilder()
                         .setId(id)
@@ -119,21 +55,7 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
                         .setBehavior(behavior)
                         .setDirection(direction)
                         .build();
-
-//                SynchronizationContext context = new SynchronizationContext(new Thread.UncaughtExceptionHandler() {
-//                    @Override
-//                    public void uncaughtException(Thread t, Throwable e) {
-//                        System.out.println("Exception Happened");
-//                    }
-//                });
-
-//                context.execute(() -> {
-//                    for (UserState userState : RoomManager.Instance.getRoom(roomName).getObserver().values()) {
-//                        if (userState.positionObserver != null)
-//                           userState.positionObserver.onNext(characterState);
-//                    }
-//                });
-
+*//*
                 for (var r : room.getObserver().entrySet()) {
                     try {
                         if(r.getValue().positionObserver != null)
@@ -141,7 +63,7 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
                     }catch (Exception e){
                         System.out.println(e.toString());
                     }
-                }
+                }*/
             }
 
             @Override
@@ -155,6 +77,4 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
             }
         };
     }
-
-
 }

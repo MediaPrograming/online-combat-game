@@ -1,9 +1,11 @@
 package game.phisics;
+import io.game.hub.positionHub.Behavior;
 
 public class Character extends PhysicsObject {
-    protected boolean jumped=false,atk=false;
+    protected boolean jumped=false,atk=false,a=false,d=false,s=false,w=false;
     public PhysicsObject attack;//あくまでattackは攻撃判定なので描写とずれるかも
     protected int timetomove=0/*0の時キー入力を受け付ける*/,HP=100;
+    protected behaviour = Behavior.NORMAL;
     Character(double x, double y, double w, double h){
         super(x,y,w,h);
     }
@@ -12,7 +14,7 @@ public class Character extends PhysicsObject {
         attack=a;
     }
     public void keycheck(boolean w, boolean a, boolean s, boolean d){
-        if(timetomove==0){
+        if(timetomove<=0){
             if(atk){//攻撃範囲と硬直時間を設定
                 if(a){
                     attack.setX(this.getX()-this.getWidth()/2);
@@ -93,8 +95,36 @@ public class Character extends PhysicsObject {
     }
     @Override
     public boolean setRanded(boolean b) {
-        if(b) jumped=false;
+        if(b){ jumped=false;}
         return super.setRanded(b);
     }
+    public  boolean getA(){
+        return  a;
+    }
 
+    public void setA(boolean a) {
+        this.a = a;
+    }
+
+    public void setS(boolean s) {
+        this.s = s;
+    }
+
+    public boolean getS(){
+        return s;
+    }
+
+    public void setD(boolean d) {
+        this.d = d;
+    }
+
+    public boolean getD(){
+        return  d;
+    }
+    public boolean getW(){
+        return  w;
+    }
+    public void setW(boolean w) {
+        this.w = w;
+    }
 }

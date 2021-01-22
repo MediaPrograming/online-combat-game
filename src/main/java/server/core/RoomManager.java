@@ -15,8 +15,17 @@ import java.util.*;
  */
 public class RoomManager {
     public final static RoomManager Instance = new RoomManager();
+    private ServerTimer timer = new ServerTimer();
     private Hashtable<String, Room> rooms = new Hashtable<>();
     private RoomManager(){
+    }
+
+    public void CombatStart(String roomName){
+        timer.addRoom(rooms.get(roomName));
+    }
+
+    public void CombatStop(String roomName){
+        timer.deleteRoom(rooms.get(roomName));
     }
 
     /**
