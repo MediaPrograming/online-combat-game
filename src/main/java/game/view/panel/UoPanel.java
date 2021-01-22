@@ -2,6 +2,7 @@ package game.view.panel;
 import Animation.AnimationHolder;
 import Animation.CharaAnimationPlayer;
 import Animation.CharacterPlayer.*;
+import Animation.DrawPolygon;
 import Animation.UIPlayer.PlayUI;
 import Audio.AudioHolder;
 import com.taku.util.flux.view.BasePanel;
@@ -62,6 +63,8 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
     private Text text;
     private CharacterState state1;
     private boolean debug;
+    Hashtable<Integer, DrawPolygon> polyTable;
+    Hashtable<Integer, CharacterType> charaTable;
 
 
 
@@ -127,6 +130,10 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
 
         playerTable = new Hashtable<>();
 
+        polyTable = new Hashtable<>();
+
+        charaTable = new Hashtable<>();
+
         getState().room.getUserList().forEach(user ->
         {
             System.out.println("InitialID\t" + user.getId());
@@ -148,8 +155,13 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
                     playerTable.put(user.getId(), new PlayCalli(gc2, new CharaAnimationPlayer(user.getId(), Character.Calli), state1));
                     break;
             }
-        }
-    );
+            polyTable.put(user.getId(),new DrawPolygon());
+            charaTable.put(user.getId(),user.getCharacterType());
+        });
+
+        polyTable.put(0,new DrawPolygon());
+        polyTable.get(0).update(50, 500, 1000, 100);
+
         playerTable.forEach((k,v) -> {if(k == getState().room.getUser(1).getId()) v.setPosition(200,500); else v.setPosition(1200,500);});
 
         input = Input.newBuilder().setW(false).setA(false).setS(false).setD(false).setK(false)
@@ -205,7 +217,8 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         while (character != null) {
             System.out.println("ID"+character.getId());
             playerTable.get(character.getId()).updateState(character);
-            PlayUI.updateState(character); //character state1はdebug用
+            PlayUI.updateState(character);
+            polyTable.get(character.getId()).updateChara((int)character.getX(),(int)character.getY(),charaTable.get(character.getId()));//debug用
             character  = getState().stateBlockingQueue.poll();
         }
 
@@ -220,8 +233,9 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         gc3.fillText(""+text, 300, 100);
 //        PlayUI.play();
         PlayUI.debug(hoge);
-//        if(debug)
-
+        if(debug){
+            polyTable.forEach((k,v) -> v.play(gc3));
+        }
     }
 
     public Input keyPressed(String key, Input input){

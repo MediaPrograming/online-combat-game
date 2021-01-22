@@ -4,6 +4,7 @@ package server.service;
  * @project online-combat-game
  */
 
+import game.config.CharaData.*;
 import game.phisics.Character;
 import game.phisics.PhysicsObject;
 import io.game.hub.messageHub.*;
@@ -218,12 +219,32 @@ public class MessageHubImpl extends MessageHubGrpc.MessageHubImplBase {
         var ct = userState.user.getCharacterType();
         PhysicsObject chareattack;
         game.phisics.Character character;
-        if (ct == CharacterType.Gura) {
-            chareattack = new PhysicsObject(0, 0, 1, 1);
-            character = new game.phisics.Character(50, 50, 100, 100, chareattack);
-        } else {
-            chareattack = new PhysicsObject(0, 0, 1, 1);
-            character = new game.phisics.Character(200,50, 100, 100, chareattack);
+//        if (ct == CharacterType.Gura) {
+//            chareattack = new PhysicsObject(0, 0, 1, 1);
+//            character = new game.phisics.Character(50, 50, 100, 100, chareattack);
+//        } else {
+//            chareattack = new PhysicsObject(0, 0, 1, 1);
+//            character = new game.phisics.Character(200,50, 100, 100, chareattack);
+//        }
+        chareattack = new PhysicsObject(0, 0, 1, 1);
+        switch (ct){
+            case Gura :
+                character = new Character(50, 50, Gura.width, Gura.height, chareattack);
+                break;
+            case Kiara:
+                character = new Character(250, 50, Kiara.width, Kiara.height, chareattack);
+                break;
+            case Amelia:
+                character = new Character(450, 50, Ame.width, Ame.height, chareattack);
+                break;
+            case Inanis:
+                character = new Character(650, 50, Ina.width, Ina.height, chareattack);
+                break;
+            case Calliope:
+                character = new Character(850, 50, Calli.width, Calli.height, chareattack);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + ct);
         }
         userState.character = character;
     }
