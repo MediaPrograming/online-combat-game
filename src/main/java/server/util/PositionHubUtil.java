@@ -79,22 +79,22 @@ public class PositionHubUtil {
         }*/
         int p1=1,p2=1;
         for (PhysicsObject physicsObject : physicsObj) {
-            if (!player1.intersects(physicsObject.getX() - 1 - player1.getVx(), player1.getY() - 2 - player1.getVy(),
-                    physicsObject.getWidth() + 1, physicsObject.getHeight() + 1) &&
-                    !player1.intersects(player2.getX() - 1 - player1.getVx(), player2.getY() - 2 - player1.getVy(),
-                            player2.getWidth() + 1, player2.getHeight() + 1)) {
-
-            }else{
+            if (player1.intersects(physicsObject.getX() - 1 - player1.getVx(), player1.getY() - 2 - player1.getVy(),
+                    physicsObject.getWidth() + 1, physicsObject.getHeight() + 1)){
                 p1=0;
             }
-            if (!player2.intersects(physicsObject.getX() - 1 - player2.getVx(), player2.getY() - 2 - player2.getVy(),
-                    physicsObject.getWidth() + 1, physicsObject.getHeight() + 1) &&
-                    !player2.intersects(player1.getX() - 1 - player2.getVx(), player1.getY() - 2 - player2.getVy(),
-                            player1.getWidth() + 1, player1.getHeight() + 1)) {
-
-            }else{
+            if (player2.intersects(physicsObject.getX() - 1 - player2.getVx(), player2.getY() - 2 - player2.getVy(),
+                    physicsObject.getWidth() + 1, physicsObject.getHeight() + 1)) {
                 p2=0;
             }
+        }
+        if(player1.intersects(player2.getX() - 1 - player1.getVx(), player2.getY() - 2 - player1.getVy(),
+                player2.getWidth() + 1, player2.getHeight() + 1)){
+                p1=0;
+        }
+        if(player2.intersects(player1.getX() - 1 - player2.getVx(), player1.getY() - 2 - player2.getVy(),
+                player1.getWidth() + 1, player1.getHeight() + 1)){
+                p2=0;
         }
         if(p1==1){
             player1.setRanded(false);
