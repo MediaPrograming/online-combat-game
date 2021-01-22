@@ -1,7 +1,7 @@
 package game.phisics;
 
 public class Character extends PhysicsObject {
-    protected boolean jumped=false,atk=false;
+    protected boolean jumped=false,atk=false,a=false,d=false,s=false,w=false;
     public PhysicsObject attack;//あくまでattackは攻撃判定なので描写とずれるかも
     protected int timetomove=0/*0の時キー入力を受け付ける*/,HP=100;
     Character(double x, double y, double w, double h){
@@ -96,5 +96,33 @@ public class Character extends PhysicsObject {
         if(b) jumped=false;
         return super.setRanded(b);
     }
+    public  boolean getA(){
+        return  a;
+    }
 
+    public void setA(boolean a) {
+        this.a = a;
+    }
+
+    public void setS(boolean s) {
+        this.s = s;
+    }
+
+    public boolean getS(){
+        return s;
+    }
+
+    public void setD(boolean d) {
+        this.d = d;
+    }
+
+    public boolean getD(){
+        return  d;
+    }
+    public boolean getW(){
+        return  w;
+    }
+    public void setW(boolean w) {
+        this.w = w;
+    }
 }

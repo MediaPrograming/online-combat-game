@@ -38,7 +38,7 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
                 CharacterUpdate(value, room, observer, id);
                 var self = observer.get(id).character;
                 //通知
-                double x = self.getX();
+             /*   double x = self.getX();
                 double y = self.getY();
                 double ax = self.getAx();
                 double ay = self.getAy();
@@ -55,7 +55,7 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
                         .setBehavior(behavior)
                         .setDirection(direction)
                         .build();
-
+*/
                 for (var r : room.getObserver().entrySet()) {
                     try {
                         if(r.getValue().positionObserver != null)
