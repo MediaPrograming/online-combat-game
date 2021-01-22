@@ -1,9 +1,11 @@
 package game.phisics;
+import io.game.hub.positionHub.Behavior;
 
 public class Character extends PhysicsObject {
     protected boolean jumped=false,atk=false,a=false,d=false,s=false,w=false;
     public PhysicsObject attack;//あくまでattackは攻撃判定なので描写とずれるかも
     protected int timetomove=0/*0の時キー入力を受け付ける*/,HP=100;
+    protected behaviour = Behavior.NORMAL;
     Character(double x, double y, double w, double h){
         super(x,y,w,h);
     }

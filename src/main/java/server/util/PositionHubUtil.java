@@ -47,16 +47,18 @@ public class PositionHubUtil {
             var player1 = array[0].character;
             var player2 = array[1].character;
             var physicsObj = room.getGrounds();
-        player1.keycheck(player1.getW(), player1.getA(), player1.getS(), player1.getD());
-        player2.keycheck(player2.getW(), player2.getA(), player2.getS(), player2.getD());
         player1.fall();
         player2.fall();
+        player1.keycheck(player1.getW(), player1.getA(), player1.getS(), player1.getD());
+        player2.keycheck(player2.getW(), player2.getA(), player2.getS(), player2.getD());
 /*        table.entrySet()//keyvalue
                 .stream()
                 .filter(x -> x != self)
                 .map(x -> x.getValue().character)
                 .forEach(x -> PhysicsCalcUtil.isAttackHit(self, self.attack, x, x.attack));
 */
+        System.out.println(array[0]);
+        System.out.println(array[1]);
         PhysicsCalcUtil.isAttackHit(player1,player1.attack,player2,player2.attack);
         //キャラ同士が衝突しないように調整する　
         PhysicsCalcUtil.CharacterCollision(player1,player2);
