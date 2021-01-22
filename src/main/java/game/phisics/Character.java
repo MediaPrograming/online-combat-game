@@ -93,7 +93,7 @@ public class Character extends PhysicsObject {
     }
     @Override
     public boolean setRanded(boolean b) {
-        if(b) jumped=false;
+        if(b){ jumped=false;}
         return super.setRanded(b);
     }
     public  boolean getA(){

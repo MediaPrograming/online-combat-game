@@ -36,7 +36,7 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
                 state.positionObserver = responseObserver;
                 //物理オブジェクトの取得
                 CharacterUpdate(value, room, observer, id);
-                var self = observer.get(id).character;
+             //   var self = observer.get(id).character;
                 //通知
              /*   double x = self.getX();
                 double y = self.getY();
@@ -55,7 +55,7 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
                         .setBehavior(behavior)
                         .setDirection(direction)
                         .build();
-*/
+*//*
                 for (var r : room.getObserver().entrySet()) {
                     try {
                         if(r.getValue().positionObserver != null)
@@ -63,7 +63,7 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
                     }catch (Exception e){
                         System.out.println(e.toString());
                     }
-                }
+                }*/
             }
 
             @Override
