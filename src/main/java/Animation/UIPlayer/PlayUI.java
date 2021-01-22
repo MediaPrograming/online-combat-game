@@ -17,7 +17,7 @@ public class PlayUI {
     public PlayUI(GraphicsContext gc, User left, User right){
         this.gc = gc;
         meterTable.put(left.getId(),new PlayMeter(gc,true,getHP(left.getCharacterType())));
-        meterTable.put(right.getId(),new PlayMeter(gc,true,getHP(right.getCharacterType())));
+        meterTable.put(right.getId(),new PlayMeter(gc,false,getHP(right.getCharacterType())));
         stateL = CharacterState.newBuilder().setHP(getHP(left.getCharacterType())).build();
         stateR = CharacterState.newBuilder().setHP(getHP(right.getCharacterType())).build();
         stateTable.put(left.getId(),stateL);
@@ -25,19 +25,20 @@ public class PlayUI {
     }
 
     private static int getHP(CharacterType type){
+        int HP =100;
         switch (type){
             case Gura :
-                return Gura.HP;
+                HP = Gura.HP;
             case Inanis :
-                return Ina.HP;
+                HP = Ina.HP;
             case Calliope :
-                return Calli.HP;
+                HP = Calli.HP;
             case Amelia :
-                return Ame.HP;
+                HP = Ame.HP;
             case Kiara:
-                return Kiara.HP;
+                HP = Kiara.HP;
         }
-        return 0;
+        return HP;
     }
 
     public static void updateState(CharacterState state){
@@ -47,4 +48,6 @@ public class PlayUI {
     public static void play(){
         meterTable.forEach((k,v) -> v.play(stateTable.get(k).getHP()));
     }
+
+    public static void debug(int value){meterTable.forEach((k,v) -> v.play(value));}
 }

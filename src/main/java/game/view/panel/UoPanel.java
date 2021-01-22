@@ -57,9 +57,10 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
     Hashtable<Integer, PlayCharacter> playerTable;
 
     //test
-    private int uouo;
+    private int uouo,hoge;
     private Text text;
     private CharacterState state1;
+    private boolean debug;
 
 
 
@@ -167,6 +168,8 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         ctrl.setValue((float)Math.log10(0.1) * 20);
 
         new PlayUI(gc3,getState().room.getUser(0),getState().room.getUser(1));
+        debug = true;
+        hoge=100;
     }
 
     @Override
@@ -187,8 +190,6 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         gc1.setFill(Color.RED);
         gc1.fillRect(0,0,canvas1.getWidth(),canvas1.getHeight());
 
-
-
 //        displacementMap.play(gc1,firstFrame,0,0.5f,0.5f);
 //        colorAdjust.play(gc1,0,0,0,-0.1);
 //        bloom.play(gc1,0.9,firstFrame,8);
@@ -202,7 +203,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         while (character != null) {
             System.out.println("ID"+character.getId());
             playerTable.get(character.getId()).updateState(character);
-            PlayUI.updateState(character);
+            PlayUI.updateState(character); //character state1はdebug用
             character  = getState().stateBlockingQueue.poll();
         }
 
@@ -215,7 +216,9 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         gc3.clearRect(0,0,canvas3.getWidth(),canvas3.getHeight());
         gc3.setFill(Color.WHITE);
         gc3.fillText(""+text, 300, 100);
-        PlayUI.play();
+//        PlayUI.play();
+        PlayUI.debug(hoge);
+//        if(debug)
 
     }
 
@@ -238,6 +241,12 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
                 break;
             case "K":
                 atk=true;
+                break;
+            case "M":
+                hoge ++;
+                break;
+            case "N":
+                hoge --;
                 break;
         }
         return input.toBuilder().setW(w).setA(a).setS(s).setD(d).setK(atk).build();
@@ -266,13 +275,13 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
 
     @Override
     public void EveryFrameUpdate(){
-        //System.out.println("fps"+Time.Instance.getFrameRate()+"uouo"+uouo);
+        System.out.println("fps"+Time.Instance.getFrameRate()+"uouo"+uouo);
         uouo++;
 //        gc.strokeText("Total Time : " + (Time.Instance.getTotalTime()-initTime)+ "\n delta Time : " + Time.Instance.getDeltaTime(), 250, 200);
 
         if(text == null) return;
-        text.setText(""+uouo+"init"+initTime);
-        if(uouo > 200) state1 = CharacterState.newBuilder().setBehavior(Behavior.RUN).build();
+        text.setText("uouo->"+uouo+"FPS->"+Time.Instance.getFrameRate());
+        if(uouo > 200) state1 = CharacterState.newBuilder().setHP(hoge).build();
         draw();
     }
 }
