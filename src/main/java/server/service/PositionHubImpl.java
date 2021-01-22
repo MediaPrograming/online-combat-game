@@ -14,8 +14,6 @@ import io.grpc.stub.StreamObserver;
 import server.core.RoomManager;
 import java.util.Map;
 
-import static server.util.PositionHubUtil.*;
-
 public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
     @Override
     public StreamObserver<Input> sendInput(StreamObserver<CharacterState> responseObserver) {
@@ -34,9 +32,59 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
                 //オブザーバーの追加
                 var state = observer.get(id);
                 state.positionObserver = responseObserver;
+                //observer = RoomManager.Instance.getRoom(roomName).getObserver();
                 //物理オブジェクトの取得
-                CharacterUpdate(value, room, observer, id);
+                var characters = observer.values().stream().map(x -> x.character);
                 var self = observer.get(id).character;
+
+                var physicsObj = room.getGrounds();
+                characters.forEach(PhysicsObject::fall);
+                self.keycheck(value.getW(), value.getA(), value.getS(), value.getD());
+
+                //キャラの
+                var enemies = observer.entrySet()
+                        .stream()
+                        .filter(x -> x.getKey() != id)
+                        .map(Map.Entry::getValue);
+                observer.entrySet()
+                        .stream()
+                        .filter(x -> x.getKey() != id)
+                        .map(x -> x.getValue().character)
+                        .forEach(x -> PhysicsCalcUtil.isAttackHit(self, self.attack, x, x.attack));
+
+                //キャラ同士が衝突しないように調整する　
+                observer.entrySet()
+                        .stream()
+                        .filter(x -> x.getKey() != id)
+                        .forEach(x -> PhysicsCalcUtil.CharacterCollision(self, x.getValue().character));
+
+                //キャラと画面内オブジェクトが衝突しないように調整する　
+                for (var obj : physicsObj) {
+                    PhysicsCalcUtil.CharacterCollision(self, obj);
+                }
+                //とりあえず平面で
+                for (PhysicsObject physicsObject : physicsObj) {
+
+                    enemies.map(x -> x.character).forEach(enemy -> {
+                        if (!self.intersects(physicsObject.getX() - 1 - self.getVx(), self.getY() - 2 - self.getVy(),
+                                physicsObject.getWidth() + 1, physicsObject.getHeight() + 1) &&
+                                !self.intersects(enemy.getX() - 1 - self.getVx(), enemy.getY() - 2 - self.getVy(),
+                                        enemy.getWidth() + 1, enemy.getHeight() + 1)) {
+                            self.setRanded(false);
+                        }
+                    });
+
+                }
+//                if(!self.intersects(flore.getX()-1-chare.getVx(),flore.getY()-2-chare.getVy(),flore.getWidth()+1,flore.getHeight()+1)&&!chare.intersects(enemy.getX()-1-chare.getVx(),enemy.getY()-2-chare.getVy(),enemy.getWidth()+1,enemy.getHeight()+1)){
+//                    chare.setRanded(false);
+//                };
+//                if(!enemy.intersects(flore.getX()-1-chare.getVx(),flore.getY()-2-enemy.getVy(),flore.getWidth()+1,flore.getHeight()+1)&&!enemy.intersects(chare.getX()-1-enemy.getVx(),chare.getY()-2-enemy.getVy(),chare.getWidth()+1,chare.getHeight()+1)){
+//                    enemy.setRanded(false);
+//                }
+//                //System.out.println(chare.intersects(enemy.getX()-1-chare.getVx(),enemy.getY()-2-chare.getVy(),enemy.getWidth()+1,enemy.getHeight()+1));
+                self.move();
+//                enemy.move();
+
                 //通知
                 double x = self.getX();
                 double y = self.getY();
@@ -55,6 +103,20 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
                         .setBehavior(behavior)
                         .setDirection(direction)
                         .build();
+
+//                SynchronizationContext context = new SynchronizationContext(new Thread.UncaughtExceptionHandler() {
+//                    @Override
+//                    public void uncaughtException(Thread t, Throwable e) {
+//                        System.out.println("Exception Happened");
+//                    }
+//                });
+
+//                context.execute(() -> {
+//                    for (UserState userState : RoomManager.Instance.getRoom(roomName).getObserver().values()) {
+//                        if (userState.positionObserver != null)
+//                           userState.positionObserver.onNext(characterState);
+//                    }
+//                });
 
                 for (var r : room.getObserver().entrySet()) {
                     try {
@@ -76,5 +138,17 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
 
             }
         };
+    }
+
+    Behavior UpdateBehaviour(game.phisics.Character c) {
+        Behavior behavior;
+        if (c.getatk()) behavior = Behavior.ATTACK1;
+        else if (c.getRanded()) behavior = Behavior.ATTACK1;
+        else behavior = Behavior.NORMAL;
+        return behavior;
+    }
+
+    Direction UpdateDirection(game.phisics.Character c) {
+        return c.getVx() >= 0 ? Direction.RIGHT : Direction.LEFT;
     }
 }

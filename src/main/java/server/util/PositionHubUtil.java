@@ -8,6 +8,7 @@ import io.game.hub.positionHub.Input;
 import server.room.Room;
 import server.room.UserState;
 
+import java.awt.*;
 import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.Map;
@@ -38,7 +39,7 @@ public class PositionHubUtil {
 
         table.entrySet()
                 .stream()
-                .filter(x -> x.getKey() != senderId)
+                .filter(x -> x != self)
                 .map(x -> x.getValue().character)
                 .forEach(x -> PhysicsCalcUtil.isAttackHit(self, self.attack, x, x.attack));
 
@@ -54,7 +55,7 @@ public class PositionHubUtil {
         }
         //とりあえず平面で
         for (PhysicsObject physicsObject : physicsObj) {
-            characters.forEach(enemy -> {
+            characters.filter(x ->x != self).forEach(enemy -> {
                 if (!self.intersects(physicsObject.getX() - 1 - self.getVx(), self.getY() - 2 - self.getVy(),
                         physicsObject.getWidth() + 1, physicsObject.getHeight() + 1) &&
                         !self.intersects(enemy.getX() - 1 - self.getVx(), enemy.getY() - 2 - self.getVy(),

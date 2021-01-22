@@ -159,6 +159,7 @@ public class MessageHubImpl extends MessageHubGrpc.MessageHubImplBase {
                         if (m.getType() == Type.GAME_START) {
                             System.out.println("GAME_START");
                             SetUp(room);
+                            RoomManager.Instance.CombatStart(roomName);
                         } else if (m.getType() == Type.ERROR) System.out.println(message);
                         break;
                     case UNKNOWN:
