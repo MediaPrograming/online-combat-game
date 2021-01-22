@@ -17,5 +17,5 @@ public final class PATH {
     public static final String Kiara_Run = root + "\\src\\main\\resources\\game\\img\\Kiara\\小鳥遊キアラrun-Sheet.png";
 
 //    public static final String Effect_HIT = root + "\\src\\main\\resources\\game\\img\\hiteffect-Sheet.png";
-
+    public static final String RIP = root + "\\src\\main\\resources\\game\\sounds\\失礼しますが、RIP.wav";
 }

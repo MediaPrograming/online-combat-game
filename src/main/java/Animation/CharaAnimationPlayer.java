@@ -22,6 +22,7 @@ public class CharaAnimationPlayer {
         nowState = CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build();
         }
 
+        public Integer getID(){return ID;}
 
     public Image play(CharacterState state){
         /*stateが変更されたらAnimation入れ替え*/

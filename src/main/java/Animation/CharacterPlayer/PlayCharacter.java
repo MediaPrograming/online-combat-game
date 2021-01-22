@@ -38,6 +38,7 @@ public class PlayCharacter {
         gaussianBlur = new PlayGaussianBlur();
     }
 
+    public void setPosition(double x,double y){ X = x; Y = y; }
     public void setWidth(double width){ this.width = width; }
     public void setHeight(double height){ this.height = height; }
     public void setPositionFromState(){
@@ -45,6 +46,8 @@ public class PlayCharacter {
         else X = state.getX() - this.width;
         Y = state.getY();
     }
+
+    public CharaAnimationPlayer getPlayer(){return player;}
 
     public void updateState(CharacterState state) {
         this.state = state;

@@ -2,7 +2,10 @@ package game.view.panel;
 import Animation.AnimationHolder;
 import Animation.CharaAnimationPlayer;
 import Animation.CharacterPlayer.*;
+import Animation.UIPlayer.PlayUI;
 import com.taku.util.flux.view.BasePanel;
+import Audio.AudioClip;
+import game.config.CharaData.Gura;
 import game.config.Character;
 import game.config.PATH;
 import game.store.StoreManager;
@@ -18,10 +21,10 @@ import io.game.hub.positionHub.Input;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
+import javafx.scene.Group;
+import javafx.scene.SubScene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import java.awt.*;
 
 import javafx.scene.effect.*;
 import javafx.scene.image.Image;
@@ -33,15 +36,22 @@ import java.util.*;
 
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
+
 public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements Initializable {
-    @FXML
-    private Label ground;
     @FXML
     private Canvas canvas1,canvas2,canvas3;
     GraphicsContext gc1,gc2,gc3;
     double initTime;
+
+    Group root;
+    @FXML
+    private SubScene scene;
+    Rectangle r;
 
 //    private ArrayList<CharaAnimationPlayer> player;
     Hashtable<Integer, PlayCharacter> playerTable;
@@ -69,6 +79,26 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
 
         new CombatContainer(this);
         new AnimationHolder();
+
+        //debug--->
+
+        root = new Group();
+
+        Rectangle r = new Rectangle();
+        r.setX(50);
+        r.setY(50);
+        r.setWidth(200);
+        r.setHeight(100);
+        r.setArcWidth(20);
+        r.setArcHeight(20);
+
+        root.getChildren().addAll(r);
+        scene.setRoot(root);
+        scene.setFill(Color.TRANSPARENT);
+
+        //<---debug
+
+
 
         var props = this.getProps();
         var state = this.getState();
@@ -117,6 +147,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
             }
         }
     );
+        playerTable.forEach((k,v) -> {if(k == getState().room.getUser(1).getId()) v.setPosition(200,500); else v.setPosition(1200,500);});
 
         input = Input.newBuilder().setW(false).setA(false).setS(false).setD(false).setK(false)
                 .setId(getState().self.getId())
@@ -127,7 +158,16 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
             public void run() {
                 getProps().SendInput(input);
             }
-        }, 1000, 30);}
+        }, 1000, 30);
+
+
+        Clip bgm = AudioClip.createClip(new File(PATH.RIP));
+        bgm.start();
+        FloatControl ctrl = (FloatControl)bgm.getControl(FloatControl.Type.MASTER_GAIN);
+        ctrl.setValue((float)Math.log10(0.1) * 20);
+
+        new PlayUI(gc3,getState().room.getUser(0),getState().room.getUser(1));
+    }
 
     @Override
     public void KeyPressed(KeyEvent key) {
@@ -144,9 +184,10 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
     void draw(){
         /*gc1,canvas1*/
         gc1.clearRect(0,0,canvas1.getWidth(),canvas1.getHeight());
-
         gc1.setFill(Color.RED);
         gc1.fillRect(0,0,canvas1.getWidth(),canvas1.getHeight());
+
+
 
 //        displacementMap.play(gc1,firstFrame,0,0.5f,0.5f);
 //        colorAdjust.play(gc1,0,0,0,-0.1);
@@ -161,18 +202,12 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         while (character != null) {
             System.out.println("ID"+character.getId());
             playerTable.get(character.getId()).updateState(character);
+            PlayUI.updateState(character);
             character  = getState().stateBlockingQueue.poll();
         }
 
-//        gc2.drawImage(player.get(1).play(CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build()),c1.getX(), c1.getY(), 400, 400);
-//        gc2.drawImage(player.get(0).play(CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build()),c2.getX(), c2.getY(), 400, 400);
-
         gc2.clearRect(0,0,canvas2.getWidth(),canvas2.getHeight());
         playerTable.forEach((k,v) -> v.play());
-
-//        gura.play();
-//        gc2.drawImage(player.get(0).play(state1), 400,200,250,250);
-//        gc2.drawImage(player.get(1).play(state1), 700,300,400,400);
 
 //        gaussianBlur.play(gc2,firstFrame,10,gaussianBlur.exponentialDecay(gaussianBlur.getDuration(firstFrame),50,1.0));
 
@@ -180,10 +215,10 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         gc3.clearRect(0,0,canvas3.getWidth(),canvas3.getHeight());
         gc3.setFill(Color.WHITE);
         gc3.fillText(""+text, 300, 100);
+        PlayUI.play();
 
     }
-    CharacterState c1 = CharacterState.newBuilder().setX(200).setY(0).setBehavior(Behavior.NORMAL).build(),
-            c2 = CharacterState.newBuilder().setX(600).setY(0).setBehavior(Behavior.NORMAL).build();;
+
     public Input keyPressed(String key, Input input){
         boolean w = input.getW(), a = input.getA(), s = input.getS(), d = input.getD(), atk = input.getK();
         switch (key){

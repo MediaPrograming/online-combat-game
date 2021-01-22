@@ -22,8 +22,9 @@ message CharacterState{
   double ay = 6;
   double atkX = 7;
   double atkY = 8;
-  Behavior behavior = 9;
-  Direction direction= 10;
+  int32 HP = 9;
+  Behavior behavior = 10;
+  Direction direction= 11;
 }
 
 enum Direction{
