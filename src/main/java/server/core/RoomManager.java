@@ -38,7 +38,7 @@ public class RoomManager {
         rooms.put(room.getRoomName(), room);
     }
 
-    public boolean containe(String name){
+    public boolean contain(String name){
         return rooms.contains(name);
     }
 
@@ -70,6 +70,8 @@ public class RoomManager {
         System.out.println("削除するRoomが存在しません"); //Debug print
     }
 
+    public void deleteRoom(Room room) { rooms.remove(room.getRoomName()); }
+    public void deleteRoom(String roomName){ rooms.remove(roomName); }
     /**
      * Roomの数を返す
      * @return

@@ -14,13 +14,25 @@ package messageHub;
 message User{
   int32 id = 1;           //ID: ユーザーごとに固有なものを設定する
   string name = 2;        //Name : ユーザーネーム
-  GrpcRoom roomInfo = 3;  //roomInfo: 現在のルーム情報
+  string roomName = 3;  //roomInfo: 現在のルーム情報
+  bool isReady = 4;
+  CharacterType characterType= 5;
+}
+
+enum CharacterType{
+    Gura = 0;
+    Kiara = 1;
+    Amelia = 2;
+    Calliope = 3;
+    Inanis = 4;
+
 }
 
 message Message{
   User user = 1;
-  Type type = 2;
-  string message = 3;
+  GrpcRoom room = 2;
+  Type type = 3;
+  string message = 4;
 }
 
 enum Type {
@@ -29,6 +41,8 @@ enum Type {
   LEAVE = 2;
   MESSAGE = 3;
   ERROR = 4;
+  UPDATE = 5;
+  GAME_START = 6;
 }
 
 message GrpcRoomInfo{
@@ -38,7 +52,8 @@ message GrpcRoomInfo{
 message GrpcRoom{
   string roomName = 1;
   string hostName = 2;
-  repeated User user = 3;
+  int32 hostId = 3;
+  repeated User user = 4;
 }
 
 /**
@@ -47,6 +62,7 @@ message GrpcRoom{
  */
 message ResponseCode {
   int32 code = 1;
+  string message = 2;
 }
 
 message RoomMessage{
@@ -54,11 +70,15 @@ message RoomMessage{
   GrpcRoom room = 2;
 }
 
+message Boolean{
+  bool val = 1;
+}
 /**
  * void is same
  */
 message UnitRequest{}
 service MessageHub {
+  rpc getUsers(User) returns (GrpcRoom);
   rpc getRooms(UnitRequest) returns (GrpcRoomInfo){};
   rpc createRoom(RoomMessage) returns (ResponseCode);
   rpc deleteRoom(RoomMessage) returns (ResponseCode);

@@ -13,6 +13,10 @@ Install idea and gradle from [Official site](https://gradle.org/)
 
 ### How to Build
 ```
+$ ./gradlew generateProto
+```
+generate source code only from IDL.
+```
 $ ./gradlew installDist
 ```
 

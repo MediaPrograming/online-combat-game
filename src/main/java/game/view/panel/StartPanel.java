@@ -19,6 +19,8 @@ public class StartPanel extends BasePanel<Unit, IShowPanel> implements Initializ
     ShowPanelContainer container;
     @FXML
     private Button showCreateRoomButton ,showSelectionButton, quitButton;
+    @FXML
+    private Button showDebugButton; //test
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         container = new ShowPanelContainer(this);
@@ -26,6 +28,9 @@ public class StartPanel extends BasePanel<Unit, IShowPanel> implements Initializ
         showCreateRoomButton.setOnAction(e -> props.ShowCreateRoomPanel());
         showSelectionButton.setOnAction(e ->props.ShowSelectionPanel());
         quitButton.setOnAction(e -> System.exit(0));
+
+        //test
+        showDebugButton.setOnAction(e -> props.ShowUoPanel());
     }
 
 

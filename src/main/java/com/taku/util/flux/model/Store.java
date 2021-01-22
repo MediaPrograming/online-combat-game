@@ -7,8 +7,10 @@ import com.taku.util.flux.service.IDispatchable;
 import com.taku.util.flux.service.IReducer;
 import com.taku.util.flux.view.BasePanel;
 import com.taku.util.flux.view.ReducerBuilder;
+import game.store.StoreManager;
+import javafx.collections.ObservableArray;
+import javafx.scene.input.KeyEvent;
 import javafx.util.Pair;
-
 import java.util.*;
 
 public class Store implements IDispatchable {
@@ -35,12 +37,20 @@ public class Store implements IDispatchable {
                 .map(p -> p.getValue().apply(action, state))
                 .map(ReducerBuilder::getState);
 
-
         pairStream.forEach(newState -> {
             panels.stream()
                     .filter(dispatcher -> state == dispatcher.getState().getClass())
                     .forEach(l-> l.Update(newState));
         });
     }
-}
 
+    public void KeyPressed(KeyEvent keyEvent){
+        for(var l : panels)
+            l.KeyPressed(keyEvent);
+    }
+
+    public void KeyReleased(KeyEvent keyEvent){
+        for (var l : panels)
+            l.KeyReleased(keyEvent);
+    }
+}

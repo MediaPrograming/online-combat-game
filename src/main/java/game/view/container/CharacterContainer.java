@@ -3,23 +3,28 @@ package game.view.container;
  * @author Takuya Isaki on 2021/01/05
  * @project online-combat-game
  */
-import com.taku.util.flux.service.IDispatcher;
-import com.taku.util.flux.view.BasePanel;
 import com.taku.util.model.Vector2;
+import game.store.StoreManager;
+import game.view.panel.UoPanel;
 import game.view.service.ICharacter;
-import game.view.service.IFetch;
-import game.view.state.CharacterState;
+import game.view.state.UoPanelState;
 import javafx.scene.canvas.GraphicsContext;
 
-import java.util.function.Function;
-
 public class CharacterContainer {
-    public CharacterContainer(BasePanel panel){
-        panel.connect(new CharacterState(), state -> state, dispatcher ->
-                new ICharacter() {
-                    @Override
-                    public void Move(GraphicsContext context, Vector2 transform) {
-                    }
-                });
+    public CharacterContainer(UoPanel panel){
+//        panel.connect(new UoPanelState(StoreManager.Instance.client.user,StoreManager.Instance.client.grpcRoom),
+//                state -> state, dispatcher ->
+//                new ICharacter() {
+//
+//                    @Override
+//                    public void Move(GraphicsContext context, Vector2 transform) {
+//
+//                    }
+//
+//                    @Override
+//                    public void MoveRequest() {
+//
+//                    }
+//                });
     }
 }
