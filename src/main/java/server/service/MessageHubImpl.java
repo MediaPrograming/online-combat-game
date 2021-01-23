@@ -211,7 +211,7 @@ public class MessageHubImpl extends MessageHubGrpc.MessageHubImplBase {
         }
         SetCharacter(states[0]);
         SetCharacter(states[1]);
-        PhysicsObject flore = new PhysicsObject(50, 500, 1000, 100);
+        PhysicsObject flore = new PhysicsObject(0, 600, 1280, 100);
         room.ground.add(flore);
     }
 

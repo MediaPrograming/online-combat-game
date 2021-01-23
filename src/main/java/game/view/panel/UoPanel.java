@@ -35,6 +35,8 @@ import java.io.File;
 import java.net.URL;
 import java.security.Key;
 import java.util.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
@@ -50,12 +52,6 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
     GraphicsContext gc1,gc2,gc3;
     double initTime;
 
-    Group root;
-    @FXML
-    private SubScene scene;
-    Rectangle r;
-
-//    private ArrayList<CharaAnimationPlayer> player;
     Hashtable<Integer, PlayCharacter> playerTable;
 
     //test
@@ -66,9 +62,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
     Hashtable<Integer, DrawPolygon> polyTable;
     Hashtable<Integer, CharacterType> charaTable;
 
-
-
-    PlayGura gura;
+    Image floor,back;
 
     ColorAdjust colorAdjust;
     Bloom bloom;
@@ -85,26 +79,6 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         new CombatContainer(this);
         new AnimationHolder();
         new AudioHolder();
-
-        //debug--->
-
-        root = new Group();
-
-        Rectangle r = new Rectangle();
-        r.setX(50);
-        r.setY(50);
-        r.setWidth(200);
-        r.setHeight(100);
-        r.setArcWidth(20);
-        r.setArcHeight(20);
-
-        root.getChildren().addAll(r);
-        scene.setRoot(root);
-        scene.setFill(Color.TRANSPARENT);
-
-        //<---debug
-
-
 
         var props = this.getProps();
         var state = this.getState();
@@ -160,7 +134,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         });
 
         polyTable.put(0,new DrawPolygon());
-        polyTable.get(0).update(50, 500, 1000, 100);
+        polyTable.get(0).update(0, 600, 1280, 100);
 
         playerTable.forEach((k,v) -> {if(k == getState().room.getUser(1).getId()) v.setPosition(200,500); else v.setPosition(1200,500);});
 
@@ -184,6 +158,11 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         new PlayUI(gc3,getState().room.getUser(0),getState().room.getUser(1));
         debug = true;
         hoge=100;
+
+        Path imagePath = Paths.get(PATH.Back);
+        back  = new Image(imagePath.toUri().toString(),1280,720,false,false);
+        Path imagPath = Paths.get(PATH.Floor);
+        floor = new Image(imagPath.toUri().toString(),1280,720,false,false);
     }
 
     @Override
@@ -201,8 +180,10 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
     void draw(){
         /*gc1,canvas1*/
         gc1.clearRect(0,0,canvas1.getWidth(),canvas1.getHeight());
-        gc1.setFill(Color.RED);
-        gc1.fillRect(0,0,canvas1.getWidth(),canvas1.getHeight());
+//        gc1.setFill(Color.RED);
+//        gc1.fillRect(0,0,canvas1.getWidth(),canvas1.getHeight());
+
+        gc1.drawImage(back,-20,-20,1320,742.5);
 
 //        displacementMap.play(gc1,firstFrame,0,0.5f,0.5f);
 //        colorAdjust.play(gc1,0,0,0,-0.1);
@@ -223,6 +204,8 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         }
 
         gc2.clearRect(0,0,canvas2.getWidth(),canvas2.getHeight());
+        gc2.drawImage(floor,-20,-20,1320,742.5);
+
         playerTable.forEach((k,v) -> v.play());
 
 //        gaussianBlur.play(gc2,firstFrame,10,gaussianBlur.exponentialDecay(gaussianBlur.getDuration(firstFrame),50,1.0));

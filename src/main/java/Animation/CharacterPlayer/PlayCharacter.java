@@ -44,9 +44,9 @@ public class PlayCharacter {
     public void setWidth(double width){ this.width = width; }
     public void setHeight(double height){ this.height = height; }
     public void setPositionFromState(){
-        if(state.getDirection() == Direction.RIGHT) X = state.getX();
-        else X = state.getX() - this.width;
-        Y = state.getY();
+        if(state.getDirection() == Direction.RIGHT) X = state.getX()+offsetX;
+        else X = state.getX() - this.width+offsetX;
+        Y = state.getY()+offsetY;
     }
 
     public CharaAnimationPlayer getPlayer(){return player;}

@@ -11,12 +11,18 @@ public class PlayGura extends PlayCharacter{
     public PlayGura(GraphicsContext gc, CharaAnimationPlayer player, CharacterState state){
         super(gc, player, state);
         this.width = this.height = 250;
+        this.offsetX = -80;
+        this.offsetY = -50;
     }
 
     @Override
     public void changedAction(CharacterState state) {
         super.changedAction(state);
         switch (state.getBehavior()){
+            case NORMAL:
+                this.offsetX = -80;
+                this.offsetY = -50;
+                break;
             case DAMAGE :
                 AudioHolder.damage.start();
                 break;
@@ -33,7 +39,6 @@ public class PlayGura extends PlayCharacter{
 
     @Override
     public void play() {
-//        if(this.state.getBehavior() == Behavior.DAMAGE) gc.drawImage(AnimationHolder.getEffectAnimation("HIT").getAnim()[0][0],this.X,this.Y,50,50);
         super.play();
     }
 }

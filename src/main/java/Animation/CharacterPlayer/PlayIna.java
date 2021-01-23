@@ -10,11 +10,12 @@ public class PlayIna extends PlayCharacter{
     public PlayIna(GraphicsContext gc, CharaAnimationPlayer player, CharacterState state){
         super(gc, player, state);
         this.width = this.height = 400;
+        this.offsetX = -80;
+        this.offsetY = -50;
     }
 
     @Override
     public void play() {
-//        if(this.state.getBehavior() == Behavior.DAMAGE) gc.drawImage(AnimationHolder.getEffectAnimation("HIT").getAnim()[0][0],this.X,this.Y,50,50);
         super.play();
     }
 }
