@@ -7,7 +7,11 @@ import javafx.scene.effect.FloatMap;
 
 public class PlayDisplacementMap extends PlayEffect{
     private int width,height;
-    public PlayDisplacementMap(){}
+    public PlayDisplacementMap(GraphicsContext gc,double firstFrame,double playTime){
+        this.gc = gc;
+        this.firstFrame = firstFrame;
+        this.playTime = playTime;
+    }
 
     public void play(GraphicsContext gc, double firstFrame, double time,float fX,float fY){
         duration = this.getDuration(firstFrame);

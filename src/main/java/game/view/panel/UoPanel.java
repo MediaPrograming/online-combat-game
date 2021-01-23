@@ -214,8 +214,8 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         gc3.clearRect(0,0,canvas3.getWidth(),canvas3.getHeight());
         gc3.setFill(Color.WHITE);
         gc3.fillText(""+text, 300, 100);
-//        PlayUI.play();
-        PlayUI.debug(hoge);
+        PlayUI.play();
+//        PlayUI.debug(hoge);
         if(debug){
             polyTable.forEach((k,v) -> v.play(gc3));
         }

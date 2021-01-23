@@ -6,7 +6,11 @@ import javafx.scene.effect.MotionBlur;
 
 public class PlayMotionBlur extends PlayEffect{
 
-    public PlayMotionBlur(){}
+    public PlayMotionBlur((GraphicsContext gc,double firstFrame,double playTime){
+        this.gc = gc;
+        this.firstFrame = firstFrame;
+        this.playTime = playTime;
+    }
 
     public void play(GraphicsContext gc, double firstFrame, double time , double radius,double angle){
         duration = this.getDuration(firstFrame);

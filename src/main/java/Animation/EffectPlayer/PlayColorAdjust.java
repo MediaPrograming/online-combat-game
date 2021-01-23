@@ -5,7 +5,11 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.effect.ColorAdjust;
 
 public class PlayColorAdjust extends PlayEffect {
-    public PlayColorAdjust(){}
+    public PlayColorAdjust(GraphicsContext gc,double firstFrame,double playTime){
+        this.gc = gc;
+        this.firstFrame = firstFrame;
+        this.playTime = playTime;
+    }
 
     public void play(GraphicsContext gc,double contrast,double hue, double brightness, double saturation){
         ColorAdjust colorAdjust = new ColorAdjust();

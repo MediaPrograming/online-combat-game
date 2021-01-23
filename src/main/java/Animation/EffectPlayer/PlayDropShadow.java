@@ -6,7 +6,11 @@ import javafx.scene.paint.Color;
 
 public class PlayDropShadow extends PlayEffect{
 
-    public PlayDropShadow(){}
+    public PlayDropShadow((GraphicsContext gc,double firstFrame,double playTime){
+        this.gc = gc;
+        this.firstFrame = firstFrame;
+        this.playTime = playTime;
+    }
 
     public void play(GraphicsContext gc,double radius, double offsetX,double offsetY,Color color){
         DropShadow dropShadow = new DropShadow();
