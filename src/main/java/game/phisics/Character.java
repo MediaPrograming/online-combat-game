@@ -23,13 +23,15 @@ public class Character extends PhysicsObject {
                     attack.setY(this.getY()+this.getHeight()/4);
                     attack.setWidth(this.getWidth()/2);
                     attack.setHeight(this.getHeight()/2);
-                    action=Behavior.ATTACK1;muki=Direction.LEFT;
+                    action=Behavior.ATTACK1;
+                    muki=Direction.LEFT;
                 }else if(d){
                     attack.setX(this.getX()+this.getWidth());
                     attack.setY(this.getY()+this.getHeight()/4);
                     attack.setWidth(this.getWidth()/2);
                     attack.setHeight(this.getHeight()/2);
-                    action=Behavior.ATTACK2;muki=Direction.RIGHT;
+                    action=Behavior.ATTACK2;
+                    muki=Direction.RIGHT;
                 }else if(w){
                     attack.setX(this.getX()+this.getWidth()/4);
                     attack.setY(this.getY()-this.getHeight()/2);

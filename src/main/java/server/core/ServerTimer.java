@@ -14,8 +14,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.function.Consumer;
 
-import static server.util.PositionHubUtil.UpdateBehaviour;
-import static server.util.PositionHubUtil.UpdateDirection;
 import static server.util.PositionHubUtil.Characterpositionupdate;
 
 /**
