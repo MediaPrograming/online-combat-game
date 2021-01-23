@@ -64,9 +64,12 @@ public class PlayCharacter {
     }
 
     public void drawShadow(GraphicsContext gc){
-        int distance = 600 - (int)state.getY() + (int)height;
+        int distance = 600 - (int)state.getY() - (int)height;
+        int ovalW=100,ovalH=20;
+        if(distance >0) {ovalW=100/distance; ovalH = 20/distance;}
+        gc.fillText("distance->"+distance,state.getX(),state.getY(),300);
         gc.setFill(Color.color(0.1,0.1,0.2,0.4));
-        gc.fillOval(state.getX(),580,100,20);
+        gc.fillOval(state.getX(),580,ovalW,ovalH);
     }
 
     public void play(){
