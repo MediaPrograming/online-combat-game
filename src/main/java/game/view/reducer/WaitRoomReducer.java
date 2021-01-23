@@ -13,11 +13,17 @@ import game.store.StoreManager;
 import game.view.action.ClientEvent;
 import game.view.action.RoomEvent;
 import game.view.action.UIEvent;
+import game.view.panel.WaitRoomPanel;
 import game.view.state.WaitRoomState;
 import io.game.hub.messageHub.Type;
 import io.grpc.BindableService;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.PopupWindow;
 
 import javax.management.remote.JMXServerErrorException;
+import javax.swing.*;
 
 public class WaitRoomReducer implements IReducer<WaitRoomState> {
     @Override
@@ -52,7 +58,7 @@ public class WaitRoomReducer implements IReducer<WaitRoomState> {
                         StoreManager.Instance.client.grpcRoom = message.getRoom();
                         StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_UO_PANEL.Create(unit));
                     }
-                    else if(message.getType() == Type.ERROR){
+                    else if(message.getType() == Type.ERROR) {
                         System.out.println("[ERROR]" + message.getMessage());
                     }
                     return roomState;

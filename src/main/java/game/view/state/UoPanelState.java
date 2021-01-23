@@ -14,6 +14,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 public class UoPanelState {
     public final User self;
     public final GrpcRoom room;
+    public boolean quitPaneVisible = false;
     public BlockingQueue<CharacterState> stateBlockingQueue;
     public UoPanelState(User self, GrpcRoom room){
         this.self = self;

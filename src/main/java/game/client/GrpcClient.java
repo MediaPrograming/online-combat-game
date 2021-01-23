@@ -23,15 +23,20 @@ public class GrpcClient {
     public GrpcRoom grpcRoom;
     public final MessageHubGrpc.MessageHubStub stub;
     public final PositionHubGrpc.PositionHubStub positionHubStub;
+    private final ManagedChannel channel;
     public GrpcClient(){
         //クライアントの起動
-        ManagedChannel channel = ManagedChannelBuilder.forAddress(Config.HOST, Config.PORT)
+        channel = ManagedChannelBuilder.forAddress(Config.HOST, Config.PORT)
                 .usePlaintext() //証明書なし
                 .build();
-
-
         //stubの作成
         stub = MessageHubGrpc.newStub(channel);
         positionHubStub = PositionHubGrpc.newStub(channel);
+    }
+
+    public void Close(){
+        if(!channel.isShutdown()){
+            channel.shutdown();
+        }
     }
 }
