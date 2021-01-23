@@ -200,4 +200,13 @@ public class Character extends PhysicsObject {
     public Direction getDirection() {
         return muki;
     }
+    @Override public void move(){
+        super.move();
+        if(this.getY()>=2000){
+            HP=0;
+        }
+    }
+        
+    
+
 }
