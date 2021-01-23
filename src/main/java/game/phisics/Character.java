@@ -80,6 +80,7 @@ public class Character extends PhysicsObject {
                 attack.setY(-1);
                 attack.setWidth(1);
                 attack.setHeight(1);
+                action=Behavior.NORMAL;
             }
             if(a&&vx>-5){
                 vx+=-5;
@@ -91,9 +92,6 @@ public class Character extends PhysicsObject {
                 if(randed)action=Behavior.RUN;
             }else if(!a&&vx<=0){
                 vx=(int)(vx/5.0);
-                if(action!=Behavior.JUMP&&!(action==Behavior.ATTACK1||action==Behavior.ATTACK2||action==Behavior.ATTACK3||action==Behavior.ATTACK4)){
-                    action=Behavior.NORMAL;
-                }
             }
             if(d&&vx<5){
                 vx+=5;
@@ -105,13 +103,19 @@ public class Character extends PhysicsObject {
                 if(randed)action=Behavior.RUN;
             }else if(!d&&vx>=0){
                 vx=(int)(vx/5.0);
-                if(action!=Behavior.JUMP&&!(action==Behavior.ATTACK1||action==Behavior.ATTACK2||action==Behavior.ATTACK3||action==Behavior.ATTACK4)){
+            }
+            if(action==Behavior.RUN&&!a&&!d){
                     action=Behavior.NORMAL;
                 }
-            }
             if(w&&randed){
-                vector(0,-5);
+                vector(0,-10);
                 action=Behavior.JUMP;
+            }
+            if(!randed&&(action!=Behavior.DAMAGE&&action!=Behavior.ATTACK1&&action!=Behavior.ATTACK2&&action!=Behavior.ATTACK3&&action!=Behavior.ATTACK4)){
+                action=Behavior.JUMP;
+            }
+            if(randed&&action==Behavior.JUMP){
+                action=Behavior.NORMAL;
             }
 
         }else{
@@ -120,7 +124,8 @@ public class Character extends PhysicsObject {
                 attack.setVx(this.getVx());
                 attack.setVy(this.getVy());
                 attack.move();
-            }else{
+            }
+            if(action!=Behavior.DAMAGE&&action!=Behavior.ATTACK1&&action!=Behavior.ATTACK2&&action!=Behavior.ATTACK3&&action!=Behavior.ATTACK4){
                 action=Behavior.NORMAL;
             }
         }
