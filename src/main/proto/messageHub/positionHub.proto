@@ -34,10 +34,10 @@ enum Direction{
 
 enum Behavior{
   NORMAL = 0;
-  ATTACK1 = 1;
-  ATTACK2 = 2;
-  ATTACK3 = 3;
-  ATTACK4 = 4;
+  ATTACK1 = 1;//左攻撃
+  ATTACK2 = 2;//右攻撃
+  ATTACK3 = 3;//上攻撃
+  ATTACK4 = 4;//下攻撃
   DEFENCE = 5;
   DAMAGE = 6;
   JUMP = 7;

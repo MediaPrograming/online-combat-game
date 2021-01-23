@@ -14,8 +14,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.function.Consumer;
 
-import static server.util.PositionHubUtil.UpdateBehaviour;
-import static server.util.PositionHubUtil.UpdateDirection;
 import static server.util.PositionHubUtil.Characterpositionupdate;
 
 /**
@@ -55,8 +53,9 @@ public class ServerTimer {
             double y = c.getY();
             double ax = c.getAx();
             double ay = c.getAy();
-            Behavior behavior = UpdateBehaviour(c);
-            Direction direction = UpdateDirection(c);
+            int hp=c.getHP();
+            Behavior behavior = c.getAction();
+            Direction direction = c.getDirection();
             var characterState = CharacterState
                     .newBuilder()
                     .setId(state.user.getId())
@@ -64,6 +63,7 @@ public class ServerTimer {
                     .setY(y)
                     .setAx(ax)
                     .setAy(ay)
+                    .setHP(hp)
                     .setTime(time)
                     .setBehavior(behavior)
                     .setDirection(direction)

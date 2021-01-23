@@ -12,7 +12,7 @@ import server.core.RoomManager;
 import server.room.Room;
 import io.grpc.stub.StreamObserver;
 import server.room.UserState;
-
+import game.phisics.Attackplygon;
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -217,7 +217,7 @@ public class MessageHubImpl extends MessageHubGrpc.MessageHubImplBase {
 
     void SetCharacter(UserState userState) {
         var ct = userState.user.getCharacterType();
-        PhysicsObject chareattack;
+        Attackplygon chareattack;
         game.phisics.Character character;
 //        if (ct == CharacterType.Gura) {
 //            chareattack = new PhysicsObject(0, 0, 1, 1);
@@ -226,10 +226,10 @@ public class MessageHubImpl extends MessageHubGrpc.MessageHubImplBase {
 //            chareattack = new PhysicsObject(0, 0, 1, 1);
 //            character = new game.phisics.Character(200,50, 100, 100, chareattack);
 //        }
-        chareattack = new PhysicsObject(0, 0, 1, 1);
+        chareattack = new Attackplygon(0, 0, 1, 1);
         switch (ct){
             case Gura :
-                character = new Character(50, 50, Gura.width, Gura.height, chareattack);
+                character = new Character(50, 50, Gura.width, Gura.height,chareattack);
                 break;
             case Kiara:
                 character = new Character(250, 50, Kiara.width, Kiara.height, chareattack);

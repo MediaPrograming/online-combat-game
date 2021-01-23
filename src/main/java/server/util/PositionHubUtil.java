@@ -27,7 +27,7 @@ public class PositionHubUtil {
     }
 
     public static Direction UpdateDirection(game.phisics.Character c) {
-        return c.getVx() >= 0 ? Direction.RIGHT : Direction.LEFT;
+        return c.getDirection();
     }
 
     public static void CharacterUpdate(Input input, Room room, Hashtable<Integer, UserState> table, Integer senderId) {
@@ -37,7 +37,7 @@ public class PositionHubUtil {
         var physicsObj = room.getGrounds();
         characters.forEach(PhysicsObject::fall);
         self.setA(input.getA());self.setS(input.getS());self.setD(input.getD());self.setW(input.getW());
-
+        self.setAttack(input.getK());
 
     }
 
