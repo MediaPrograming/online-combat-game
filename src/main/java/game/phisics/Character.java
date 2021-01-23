@@ -94,7 +94,7 @@ public class Character extends PhysicsObject {
                 action=Behavior.NORMAL;
             }
             if(w&&randed){
-                vector(0,-5);
+                vector(0,-20);
                 action=Behavior.JUMP;
             }
 
