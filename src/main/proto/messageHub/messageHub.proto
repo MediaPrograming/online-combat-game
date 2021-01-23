@@ -25,7 +25,6 @@ enum CharacterType{
     Amelia = 2;
     Calliope = 3;
     Inanis = 4;
-
 }
 
 message Message{

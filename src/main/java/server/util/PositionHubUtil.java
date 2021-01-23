@@ -37,7 +37,7 @@ public class PositionHubUtil {
         var physicsObj = room.getGrounds();
         characters.forEach(PhysicsObject::fall);
         self.setA(input.getA());self.setS(input.getS());self.setD(input.getD());self.setW(input.getW());
-
+        self.setAttack(input.getK());
 
     }
 

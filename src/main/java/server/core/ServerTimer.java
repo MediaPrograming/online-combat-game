@@ -53,6 +53,7 @@ public class ServerTimer {
             double y = c.getY();
             double ax = c.getAx();
             double ay = c.getAy();
+            int hp=c.getHP();
             Behavior behavior = c.getAction();
             Direction direction = c.getDirection();
             var characterState = CharacterState
@@ -62,6 +63,7 @@ public class ServerTimer {
                     .setY(y)
                     .setAx(ax)
                     .setAy(ay)
+                    .setHP(hp)
                     .setTime(time)
                     .setBehavior(behavior)
                     .setDirection(direction)

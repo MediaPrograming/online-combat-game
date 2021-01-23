@@ -1,18 +1,24 @@
 package game.phisics;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.Direction;
+import game.phisics.Attackplygon;
 
 public class Character extends PhysicsObject {
     protected boolean jumped=false,atk=false,a=false,d=false,s=false,w=false;
-    public PhysicsObject attack;//あくまでattackは攻撃判定なので描写とずれるかも
+    public Attackplygon attack;//あくまでattackは攻撃判定なので描写とずれるかも
     protected int timetomove=0/*0の時キー入力を受け付ける*/,HP=100;
     protected Behavior action= Behavior.NORMAL;
     protected Direction muki=Direction.LEFT;
     Character(double x, double y, double w, double h){
         super(x,y,w,h);
     }
-    public Character(double x, double y, double w, double h, PhysicsObject a){
+    public Character(double x, double y, double w, double h,Attackplygon a){
         super(x,y,w,h);
+        attack=a;
+    }
+    public Character(double x, double y, double w, double h,int hp, Attackplygon a){
+        super(x,y,w,h);
+        HP=hp;
         attack=a;
     }
     public void keycheck(boolean w, boolean a, boolean s, boolean d){
@@ -23,6 +29,7 @@ public class Character extends PhysicsObject {
                     attack.setY(this.getY()+this.getHeight()/4);
                     attack.setWidth(this.getWidth()/2);
                     attack.setHeight(this.getHeight()/2);
+                    attack.setDamege(50);
                     action=Behavior.ATTACK1;
                     muki=Direction.LEFT;
                 }else if(d){
@@ -31,18 +38,21 @@ public class Character extends PhysicsObject {
                     attack.setWidth(this.getWidth()/2);
                     attack.setHeight(this.getHeight()/2);
                     action=Behavior.ATTACK2;
+                    attack.setDamege(50);
                     muki=Direction.RIGHT;
                 }else if(w){
                     attack.setX(this.getX()+this.getWidth()/4);
                     attack.setY(this.getY()-this.getHeight()/2);
                     attack.setWidth(this.getWidth()/2);
                     attack.setHeight(this.getHeight()/2);
+                    attack.setDamege(50);
                     action=Behavior.ATTACK3;
                 }else if(s){
                     attack.setX(this.getX()-this.getWidth()/4);
                     attack.setY(this.getY()+3*this.getHeight()/4);
                     attack.setWidth(3*this.getWidth()/2);
                     attack.setHeight(this.getHeight()/4);
+                    attack.setDamege(50);
                     action=Behavior.ATTACK4;
                 }else{
                     if(muki==Direction.LEFT){
@@ -50,6 +60,7 @@ public class Character extends PhysicsObject {
                         attack.setY(this.getY()+this.getHeight()/4);
                         attack.setWidth(this.getWidth()/2);
                         attack.setHeight(this.getHeight()/2);
+                        attack.setDamege(50);
                         action=Behavior.ATTACK1;
                     }else{
                         attack.setX(this.getX()+this.getWidth());
@@ -57,6 +68,7 @@ public class Character extends PhysicsObject {
                         attack.setWidth(this.getWidth()/2);
                         attack.setHeight(this.getHeight()/2);
                         action=Behavior.ATTACK2;
+                        attack.setDamege(50);
                     }
                 }
                 attack.setVisible(true);
@@ -79,7 +91,9 @@ public class Character extends PhysicsObject {
                 if(randed)action=Behavior.RUN;
             }else if(!a&&vx<=0){
                 vx=(int)(vx/5.0);
-                action=Behavior.NORMAL;
+                if(action!=Behavior.JUMP&&!(action==Behavior.ATTACK1||action==Behavior.ATTACK2||action==Behavior.ATTACK3||action==Behavior.ATTACK4)){
+                    action=Behavior.NORMAL;
+                }
             }
             if(d&&vx<5){
                 vx+=5;
@@ -91,10 +105,12 @@ public class Character extends PhysicsObject {
                 if(randed)action=Behavior.RUN;
             }else if(!d&&vx>=0){
                 vx=(int)(vx/5.0);
-                action=Behavior.NORMAL;
+                if(action!=Behavior.JUMP&&!(action==Behavior.ATTACK1||action==Behavior.ATTACK2||action==Behavior.ATTACK3||action==Behavior.ATTACK4)){
+                    action=Behavior.NORMAL;
+                }
             }
             if(w&&randed){
-                vector(0,-20);
+                vector(0,-5);
                 action=Behavior.JUMP;
             }
 
@@ -104,6 +120,8 @@ public class Character extends PhysicsObject {
                 attack.setVx(this.getVx());
                 attack.setVy(this.getVy());
                 attack.move();
+            }else{
+                action=Behavior.NORMAL;
             }
         }
     }
@@ -114,6 +132,11 @@ public class Character extends PhysicsObject {
         timetomove=t;
         return t;
     }
+
+    public void setAttack(boolean a) {
+        this.atk=a;
+    }
+
     public boolean getatk(){
         return  atk;
     }
