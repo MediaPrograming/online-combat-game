@@ -54,6 +54,20 @@ message Input{
   bool k = 6;
   string roomName = 7;
 }
+
+message PositionHubMessage{
+  .messageHub.User user = 1;
+  .messageHub.GrpcRoom room = 2;
+  Type type = 3;
+  string message = 4;
+}
+
+enum Type{
+  INIT = 0;
+  GAME_FINISH = 1;
+}
+
 service PositionHub {
   rpc SendInput(stream Input) returns (stream CharacterState);
+  rpc StreamEvent(stream PositionHubMessage) returns (stream PositionHubMessage);
 }
