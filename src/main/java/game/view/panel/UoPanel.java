@@ -50,7 +50,7 @@ import javax.sound.sampled.FloatControl;
 public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements Initializable {
     @FXML
     private Canvas canvas1,canvas2,canvas3;
-    GraphicsContext gc1,gc2,gc3;
+    public static GraphicsContext gc1,gc2,gc3;
     double initTime;
 
     Hashtable<Integer, PlayCharacter> playerTable;
@@ -162,8 +162,6 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         back  = new Image(imagePath.toUri().toString(),1280,720,false,false);
         Path imagPath = Paths.get(PATH.Floor);
         floor = new Image(imagPath.toUri().toString(),1280,720,false,false);
-
-        new EffectManager(gc1,gc2,gc3);
     }
 
     @Override
