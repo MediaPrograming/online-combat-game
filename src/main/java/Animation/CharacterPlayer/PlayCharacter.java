@@ -63,9 +63,16 @@ public class PlayCharacter {
         else width = -Math.abs(width);
     }
 
+    public void drawShadow(GraphicsContext gc){
+        int distance = 600 - (int)state.getY() + (int)height;
+        gc.setFill(Color.color(0.1,0.1,0.2,0.4));
+        gc.fillOval(state.getX(),580,100,20);
+    }
+
     public void play(){
         adjustDirection(state);
         setPositionFromState();
+        drawShadow(gc);
         gc.drawImage(player.play(state),X,Y,width,height);
 
         //test
@@ -107,7 +114,5 @@ public class PlayCharacter {
                 gc.fillText("STATE:DEFENCE",X,Y+100,300);
                 break;
         }
-
     }
-
 }
