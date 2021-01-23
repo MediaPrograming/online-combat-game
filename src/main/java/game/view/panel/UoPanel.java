@@ -3,6 +3,7 @@ import Animation.AnimationHolder;
 import Animation.CharaAnimationPlayer;
 import Animation.CharacterPlayer.*;
 import Animation.DrawPolygon;
+import Animation.EffectPlayer.EffectManager;
 import Animation.UIPlayer.PlayUI;
 import Audio.AudioHolder;
 import com.taku.util.flux.view.BasePanel;
@@ -100,8 +101,6 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
 
         state1 = CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build();
 
-//        gura = new PlayGura(gc2,player.get(0),state1);
-
         playerTable = new Hashtable<>();
 
         polyTable = new Hashtable<>();
@@ -163,6 +162,8 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         back  = new Image(imagePath.toUri().toString(),1280,720,false,false);
         Path imagPath = Paths.get(PATH.Floor);
         floor = new Image(imagPath.toUri().toString(),1280,720,false,false);
+
+        new EffectManager(gc1,gc2,gc3);
     }
 
     @Override

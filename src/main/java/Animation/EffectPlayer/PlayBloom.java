@@ -16,8 +16,8 @@ public class PlayBloom extends PlayEffect{
 
     @Override
     public void play(){
-        duration = this.getDuration(firstFrame);
-        if(duration >= 0 && duration <= time) {
+        duration = this.getDuration();
+        if(duration >= 0 && duration <= playTime) {
             Bloom bloom = new Bloom();
             bloom.setThreshold(threshold);
             gc.applyEffect(bloom);

@@ -31,12 +31,6 @@ public class PlayCharacter {
         this.gc = gc;
         this.player = player;
         this.state = state;
-        colorAdjust = new PlayColorAdjust();
-        displacementMap = new PlayDisplacementMap();
-        bloom = new PlayBloom();
-        dropShadow = new PlayDropShadow();
-        motionBlur = new PlayMotionBlur();
-        gaussianBlur = new PlayGaussianBlur();
         changed = false;
     }
 

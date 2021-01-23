@@ -11,7 +11,7 @@ public abstract class PlayEffect {
 
     public abstract void play();
 
-    public double getDuration(double firstFrame){
+    public double getDuration(){
         return Time.Instance.getTotalTime() - firstFrame;
     }
     public double getPlayTime(){return playTime;}
