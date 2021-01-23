@@ -3,7 +3,7 @@ import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.Direction;
 import io.game.hub.messageHub.CharacterType;
 import game.phisics.Attackplygon;
-import game.phisics.CharaController;
+import game.phisics.Controller.*;
 
 public class Character extends PhysicsObject {
     protected boolean jumped=false,atk=false,a=false,d=false,s=false,w=false;
