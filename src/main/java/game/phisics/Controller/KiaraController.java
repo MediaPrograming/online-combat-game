@@ -13,19 +13,21 @@ public class KiaraController extends CharaController{
     public int attack1(){
             attack.setX(character.getX()-character.getWidth()/2);
             attack.setY(character.getY()+character.getHeight()/4);
-            attack.setWidth(character.getWidth()/2);
-            attack.setHeight(character.getHeight()/2);
+            attack.setWidth(character.getWidth());
+            attack.setHeight(character.getHeight()/4);
             attack.setDamege(50);
-            return 50;
+            attack.setDamagetime(20);
+            return 20;
     }
     @Override
     public int attack2(){
             attack.setX(character.getX()+character.getWidth());
             attack.setY(character.getY()+character.getHeight()/4);
-            attack.setWidth(character.getWidth()/2);
+            attack.setWidth(character.getWidth());
             attack.setHeight(character.getHeight()/2);
             attack.setDamege(50);
-            return 50;
+            attack.setDamagetime(20);
+            return 20;
     }
     @Override
     public int attack3(){
@@ -34,6 +36,7 @@ public class KiaraController extends CharaController{
             attack.setWidth(character.getWidth()/2);
             attack.setHeight(character.getHeight()/2);
             attack.setDamege(50);
+            attack.setDamagetime(50);
              return 50;
      }
 
@@ -43,6 +46,8 @@ public class KiaraController extends CharaController{
             attack.setWidth(3*character.getWidth()/2);
             attack.setHeight(character.getHeight()/4);
             attack.setDamege(50);
+            attack.setDamagetime(50);
+
              return 50;
      }
      @Override public void jump(){
