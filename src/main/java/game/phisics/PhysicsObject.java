@@ -27,7 +27,7 @@ public class PhysicsObject extends Rectangle {
         vy=vy+y;
     }
     public void fall(){
-        if(!randed){vy+=1;}
+        if(!randed){vy+=0.5;}
     }
     public double getVx(){
         return vx;

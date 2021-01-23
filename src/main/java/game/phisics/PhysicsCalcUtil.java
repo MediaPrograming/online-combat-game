@@ -1,6 +1,7 @@
 package game.phisics;
 
 import game.view.service.ICharacter;
+import io.game.hub.positionHub.Behavior;
 
 /**
  * @author Takuya Isaki on 2021/01/14
@@ -100,6 +101,7 @@ public class PhysicsCalcUtil {
             bAttack.setWidth(1);
             bAttack.setHeight(1);
             b.setTimetomove(40);
+            b.setAction(Behavior.DAMAGE);
             return 1;
         }
         if(bAttack.intersects(a.getX()+a.getVx(),a.getY()+a.getVy(),a.getWidth(),a.getHeight())){
@@ -128,7 +130,7 @@ public class PhysicsCalcUtil {
             bAttack.setX(-1);
             bAttack.setWidth(1);
             bAttack.setHeight(1);
-            b.setTimetomove(40);
+            a.setAction(Behavior.DAMAGE);
             return -1;
         }
         return 0;

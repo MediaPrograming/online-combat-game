@@ -27,7 +27,7 @@ public class PositionHubUtil {
     }
 
     public static Direction UpdateDirection(game.phisics.Character c) {
-        return c.getVx() >= 0 ? Direction.RIGHT : Direction.LEFT;
+        return c.getDirection();
     }
 
     public static void CharacterUpdate(Input input, Room room, Hashtable<Integer, UserState> table, Integer senderId) {
