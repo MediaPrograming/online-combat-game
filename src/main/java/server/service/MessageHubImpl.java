@@ -224,19 +224,19 @@ public class MessageHubImpl extends MessageHubGrpc.MessageHubImplBase {
         chareattack = new Attackplygon(0, 0, 1, 1);
         switch (ct){
             case Gura :
-                character = new Character(x, y, Gura.width, Gura.height,chareattack);
+                character = new Character(x, y, Gura.width, Gura.height,Gura.HP,ct,chareattack);
                 break;
             case Kiara:
-                character = new Character(x, y, Kiara.width, Kiara.height, chareattack);
+                character = new Character(x, y, Kiara.width, Kiara.height,Kiara.HP,ct ,chareattack);
                 break;
             case Amelia:
-                character = new Character(x, y, Ame.width, Ame.height, chareattack);
+                character = new Character(x, y, Ame.width, Ame.height, Ame.HP,ct,chareattack);
                 break;
             case Inanis:
-                character = new Character(x, y, Ina.width, Ina.height, chareattack);
+                character = new Character(x, y, Ina.width, Ina.height, Ina.HP,ct,chareattack);
                 break;
             case Calliope:
-                character = new Character(x, y, Calli.width, Calli.height, chareattack);
+                character = new Character(x, y, Calli.width, Calli.height, Calli.HP,ct,chareattack);
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + ct);
