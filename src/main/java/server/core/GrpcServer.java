@@ -3,6 +3,7 @@ package server.core;
  * @author Takuya Isaki on 2021/01/05
  * @project online-combat-game
  */
+import game.util.Time;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import server.config.ServerConfig;
@@ -19,11 +20,14 @@ import java.util.logging.Logger;
 public class GrpcServer {
   private static final Logger logger = Logger.getLogger(GrpcServer.class.getName());
   private Server server;
-
   /**
    * Main launches the server from the command line.
    */
   public static void main(String[] args) throws IOException, InterruptedException {
+    //Timeの実行
+//    Thread thread = new Thread(Time.Instance);
+//    thread.start();
+
     final GrpcServer grpcServer = new GrpcServer();
     grpcServer.start();
     grpcServer.blockUntilShutdown();

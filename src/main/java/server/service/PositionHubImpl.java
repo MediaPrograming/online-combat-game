@@ -4,20 +4,17 @@
  */
 package server.service;
 
-import game.phisics.Physics;
 import game.phisics.PhysicsCalcUtil;
+import game.phisics.PhysicsObject;
+import io.game.hub.positionHub.*;
 import io.game.hub.positionHub.CharacterState;
 import io.game.hub.positionHub.Input;
 import io.game.hub.positionHub.PositionHubGrpc;
 import io.grpc.stub.StreamObserver;
-import javafx.geometry.Pos;
 import server.core.RoomManager;
-import server.room.Room;
+import java.util.Map;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Hashtable;
+import static server.util.PositionHubUtil.*;
 
 public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
     @Override
@@ -25,39 +22,53 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
         return new StreamObserver<Input>() {
             @Override
             public void onNext(Input value) {
-                var user = value.getUser();
-                var id = user.getId();
-                var name = user.getName();
-                var roomName = user.getRoomInfo().getRoomName();
+                var id = value.getId();
+                var user = RoomManager.Instance.getRoom(value.getRoomName());
+                var roomName = user.getRoomName();
                 var room = RoomManager.Instance.getRoom(roomName);
-                //Roomにオブザーバーが登録されていなければ追加する
-                if(room.PositionObservers.contains(id)){
-                    //init
-                    room.PositionObservers.put(id, responseObserver);
+                if (room == null) {
+                    System.out.println("Room is null");
+                    return;
                 }
-
+                var observer = room.getObserver();
+                //オブザーバーの追加
+                var state = observer.get(id);
+                state.positionObserver = responseObserver;
                 //物理オブジェクトの取得
-                var characters = room.getCharacters();
-                var self = characters.get(id);
-
-                var physicsObj = room.getGrounds();
-                for(var s : characters.values()){ s.fall(); }
-                self.keycheck(value.getW(), value.getA(), value.getS(), value.getD());
-
-                //PhysicsCalcUtil.isAttackHit(,chareattack,enemy,enemyattack);
-                //キャラ同士が衝突しないように調整する　
-                characters.entrySet()
-                        .stream()
-                        .filter(x -> x.getKey() != id)
-                        .forEach(x ->PhysicsCalcUtil.CharacterCollision(self, x.getValue()));
-                //キャラと画面内オブジェクトが衝突しないように調整する　
-                for(var obj : physicsObj){PhysicsCalcUtil.CharacterCollision(self, obj);}
-                var state = CharacterState.newBuilder().build();
+                CharacterUpdate(value, room, observer, id);
+             //   var self = observer.get(id).character;
+                //通知
+             /*   double x = self.getX();
+                double y = self.getY();
+                double ax = self.getAx();
+                double ay = self.getAy();
+                Behavior behavior = UpdateBehaviour(self);
+                Direction direction = UpdateDirection(self);
+                var characterState = CharacterState
+                        .newBuilder()
+                        .setId(id)
+                        .setX(x)
+                        .setY(y)
+                        .setAx(ax)
+                        .setAy(ay)
+                        .setTime(0)
+                        .setBehavior(behavior)
+                        .setDirection(direction)
+                        .build();
+*//*
+                for (var r : room.getObserver().entrySet()) {
+                    try {
+                        if(r.getValue().positionObserver != null)
+                            r.getValue().positionObserver.onNext(characterState);
+                    }catch (Exception e){
+                        System.out.println(e.toString());
+                    }
+                }*/
             }
 
             @Override
             public void onError(Throwable t) {
-
+                System.out.println(t.toString());
             }
 
             @Override

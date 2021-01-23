@@ -13,6 +13,9 @@ import game.view.action.UIEvent;
 import game.view.state.RoomState;
 import io.game.hub.messageHub.Type;
 import io.game.hub.messageHub.UnitRequest;
+import server.room.Room;
+
+import java.util.Hashtable;
 
 public class FetchReducer implements IReducer<RoomState> {
     static Type type = Type.JOIN;
@@ -37,12 +40,12 @@ public class FetchReducer implements IReducer<RoomState> {
                         case JOIN:
                             System.out.println(message.getUser().getName() + "さんが入室しました");
                             state.joined = true; //入室できなかった場合Errorが返ってくるように実装する
-                            StoreManager.Instance.store.Invoke(new Unit(), UIEvent.SHOW_COMBAT_PANEL.Create(unit));
+                            StoreManager.Instance.store.Invoke(new Unit(), UIEvent.SHOW_WAIT_ROOM_PANEL.Create(unit));
                             break;
                         case LEAVE:
                             System.out.println(message.getUser().getName() + "さんが退室しました");
-                            StoreManager.Instance.store.Invoke(new RoomState(), UIEvent.SHOW_SELECTION_PANEL.Create(unit));
-                            state.joined = false;
+                            //StoreManager.Instance.store.Invoke(new RoomState(), UIEvent.SHOW_SELECTION_PANEL.Create(unit));
+                            //state.joined = false;
                             break;
                         case MESSAGE:
                             System.out.println("[" + message.getUser().getName() + "]" + message.getMessage());

@@ -3,12 +3,16 @@ package game.view.container;
  * @author Takuya Isaki on 2021/01/05
  * @project online-combat-game
  */
+import com.taku.util.flux.model.Store;
 import com.taku.util.flux.service.IDispatcher;
 import com.taku.util.model.Unit;
 import game.store.StoreManager;
+import game.util.RequestUtil;
 import game.view.action.ClientEvent;
+import game.view.action.CombatEvent;
 import game.view.action.UIEvent;
 import game.view.panel.SelectPanel;
+import game.view.panel.WaitRoomPanel;
 import game.view.service.IFetch;
 import game.view.state.RoomState;
 import io.game.hub.messageHub.*;
@@ -17,10 +21,12 @@ import io.grpc.stub.StreamObserver;
 import java.util.function.Function;
 
 public class FetchContainer {
+    final RoomState roomState = new RoomState();
     public FetchContainer(SelectPanel panel){
-        panel.connect(new RoomState(), state -> state, mapDispatch);
+        panel.connect(roomState, state -> state, mapDispatch);
     }
-    MessageHubGrpc.MessageHubStub stub = StoreManager.Instance.client.stub;
+
+    private MessageHubGrpc.MessageHubStub stub = StoreManager.Instance.client.stub;
 
     //unit
     Unit unit = new Unit();
@@ -36,7 +42,7 @@ public class FetchContainer {
                         public void onNext(GrpcRoomInfo value) {
                             var rooms = value.getRoomList();
                             //#region debug print
-                            System.out.println("ルームの一覧を表示します");
+                            System.out.println("display room");
                             int i = 0;
                             for (var r: rooms){
                                 System.out.println( "[" + i++ + "]" + r);
@@ -50,7 +56,7 @@ public class FetchContainer {
                 }
 
                 @Override
-                public void CreateRoom(User user, GrpcRoom gRoom) {
+                public void CreateRoomRequest(User user, GrpcRoom gRoom) {
                     var request = RoomMessage.newBuilder().setRoom(gRoom).setUser(user).build();
                     stub.createRoom(request, new StreamObserver<ResponseCode>() {
                         @Override public void onNext(ResponseCode value) { dispatcher.dispatch(ClientEvent.CREATE_ROOM.Create(value)); }
@@ -60,7 +66,7 @@ public class FetchContainer {
                 }
 
                 @Override
-                public void DeleteRoom(User user) {
+                public void DeleteRoomRequest(User user) {
                     var request = RoomMessage.newBuilder().setUser(user).build();
                     stub.deleteRoom(request, new StreamObserver<ResponseCode>() {
                         @Override public void onNext(ResponseCode value) { dispatcher.dispatch(ClientEvent.DELETE_ROOM.Create(value)); }
@@ -71,26 +77,26 @@ public class FetchContainer {
 
                 @Override
                 public void JoinRequest(User user, GrpcRoom gRoom){
-                    var request = Message.newBuilder().setType(Type.JOIN).setMessage(gRoom.getRoomName()).setUser(user).build();
-                    var observer = streamEventCreator.apply(dispatcher);
+                    StoreManager.Instance.client.user = user;
+                    StoreManager.Instance.client.grpcRoom = gRoom;
+                    var request = Message.newBuilder().setType(Type.JOIN).setUser(user).setRoom(gRoom).build();
+                    var observer = RequestUtil.streamEventCreator.apply(dispatcher);
                     observer.onNext(request);
                 }
 
                 @Override
                 public void Leave(User user){
                     var request = Message.newBuilder().setType(Type.LEAVE).setUser(user).build();
-                    var observer = streamEventCreator.apply(dispatcher);
+                    var observer = RequestUtil.streamEventCreator.apply(dispatcher);
                     observer.onNext(request);
                 }
-                @Override public void ShowStartPanel() { StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_START_PANEL.Create(unit)); }
-                @Override public void ShowSelectionPanel() { StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_SELECTION_PANEL.Create(unit));}
-                @Override public void ShowCombatPanel() { StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_COMBAT_PANEL.Create(unit));}
+                @Override
+                public void ShowStartPanel() { StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_START_PANEL.Create(unit)); }
+                @Override
+                public void CombatStartRequest(GrpcRoom gRoom, User user) {
+                    var request = Message.newBuilder().setType(Type.GAME_START).setMessage(gRoom.getRoomName()).setUser(user).build();
+                    var observer = RequestUtil.streamEventCreator.apply(dispatcher);
+                    observer.onNext(request);
+                }
             };
-
-      Function<IDispatcher, StreamObserver<Message>> streamEventCreator = (dispatcher) ->  stub.streamEvent(new StreamObserver<Message>() {
-              @Override public void onNext(Message value) { dispatcher.dispatch(ClientEvent.STREAM_EVENT.Create(value)); }
-              @Override public void onError(Throwable t) { System.out.println(t.toString());}
-              @Override public void onCompleted() { }
-          });
-
 }

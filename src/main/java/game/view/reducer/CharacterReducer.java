@@ -6,11 +6,39 @@ package game.view.reducer;
 import com.taku.util.flux.model.Action;
 import com.taku.util.flux.service.IReducer;
 import com.taku.util.flux.view.ReducerBuilder;
-import game.view.state.CharaState;
+import game.view.action.AnimationEvent;
+import game.view.action.CombatEvent;
+import game.view.state.UoPanelState;
+import io.game.hub.positionHub.Behavior;
+import io.game.hub.positionHub.CharacterState;
 
-public class CharacterReducer implements IReducer<CharaState> {
+public class CharacterReducer implements IReducer<UoPanelState> {
     @Override
-    public ReducerBuilder<CharaState> apply(Action<?> action, CharaState init) {
-        return ReducerBuilder.Create(action, init);
+    public ReducerBuilder<UoPanelState> apply(Action<?> action, UoPanelState init) {
+        return ReducerBuilder.Create(action, init)
+                .Case(AnimationEvent.STATE_UPDATE, ((uoPanelState, characterState) -> {
+                    uoPanelState.stateBlockingQueue.add(characterState);
+                    return uoPanelState;
+                }));
+//                .Case(CombatEvent.UPDATE_ROOM, (state, payload) -> {
+//                    state.characters.clear();
+//                    var hostName = payload.getHostName();
+//                    var roomName = payload.getRoomName();
+//                    var users = payload.getUserList();
+//                    for(var user : users)
+//                        state.characters.put(user.getId(), CharacterState
+//                                .newBuilder()
+//                                .setX(20) //初期座標
+//                                .setY(20) //初期座補油
+//                                .setId(user.getId())
+//                                .setBehavior(Behavior.NORMAL)
+//                                .build());
+//                    state.roomName = roomName;
+//                    state.hostName = hostName;
+//                    return state;
+//                }).Case(CombatEvent.MOVE, (state, payload) ->{
+//                    state.characters.replace(payload.getId(),payload);
+//                    return state;
+//                });
     }
 }
