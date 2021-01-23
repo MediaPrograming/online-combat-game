@@ -55,6 +55,8 @@ public class ServerTimer {
             double ay = c.getAy();
             Behavior behavior = c.getAction();
             Direction direction = c.getDirection();
+            System.out.println(" "+behavior);
+            System.out.println(" "+direction);
             var characterState = CharacterState
                     .newBuilder()
                     .setId(state.user.getId())
