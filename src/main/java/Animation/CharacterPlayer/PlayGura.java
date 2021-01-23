@@ -29,7 +29,7 @@ public class PlayGura extends PlayCharacter{
                 AudioHolder.damage.loop(1);;
                 break;
             case ATTACK1:
-//                EffectManager.getInstance().addBloom(state.getTime(),3,0.5);
+//                EffectManager.addBloom(state.getTime(),3,0.5);
                 double rand = Math.random();
                 if(rand>0.8) AudioHolder.peti1.loop(1);
                 else if(rand<=0.8 && rand>0.6) AudioHolder.peti2.loop(1);

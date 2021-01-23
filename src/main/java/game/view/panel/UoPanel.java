@@ -1,4 +1,5 @@
 package game.view.panel;
+
 import Animation.AnimationHolder;
 import Animation.CharaAnimationPlayer;
 import Animation.CharacterPlayer.*;
@@ -8,40 +9,34 @@ import Animation.UIPlayer.PlayUI;
 import Audio.AudioHolder;
 import com.taku.util.flux.view.BasePanel;
 import Audio.AudioClip;
-import game.config.CharaData.Gura;
 import game.config.Character;
 import game.config.PATH;
-import game.store.StoreManager;
 import game.util.Time;
 import game.view.container.CombatContainer;
 import game.view.service.IPositionStream;
 import game.view.state.UoPanelState;
 import io.game.hub.messageHub.CharacterType;
-import io.game.hub.messageHub.User;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
 import io.game.hub.positionHub.Input;
-import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
-import javafx.scene.SubScene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
+import javafx.scene.control.Button;
 import javafx.scene.effect.*;
 import javafx.scene.image.Image;
 
 import java.io.File;
 import java.net.URL;
-import java.security.Key;
 import java.util.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import javax.sound.sampled.Clip;
@@ -49,31 +44,35 @@ import javax.sound.sampled.FloatControl;
 
 public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements Initializable {
     @FXML
-    private Canvas canvas1,canvas2,canvas3;
-    public static GraphicsContext gc1,gc2,gc3;
+    private Canvas canvas1, canvas2, canvas3;
+    public static GraphicsContext gc1, gc2, gc3;
     double initTime;
 
+    @FXML
+    private Pane quitPane;
+    @FXML
+    private Button continueButton, quitButton;
     Hashtable<Integer, PlayCharacter> playerTable;
 
     //test
-    private int uouo,hoge;
+    private int uouo, hoge;
     private Text text;
     private CharacterState state1;
     private boolean debug;
     Hashtable<Integer, DrawPolygon> polyTable;
     Hashtable<Integer, CharacterType> charaTable;
 
-    Image floor,back;
+    Image floor, back;
 
     ColorAdjust colorAdjust;
     Bloom bloom;
     DisplacementMap displacementMap;
     FloatMap floatMap;
-    int width,height;
+    int width, height;
 
     Input input;
 
-
+    private Timer timer;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -83,10 +82,14 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
 
         var props = this.getProps();
         var state = this.getState();
+        props.Init(state.self, state.room);
+
 
         gc1 = canvas1.getGraphicsContext2D();
         gc2 = canvas2.getGraphicsContext2D();
         gc3 = canvas3.getGraphicsContext2D();
+
+        new EffectManager(gc1,gc2,gc3);
 
         Time.Instance.run();
         initTime = Time.Instance.getTotalTime();
@@ -96,10 +99,11 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         text.setStroke(Color.BLACK);
 
 
-
-        Timer timer = new Timer();
+        timer = new Timer();
 
         state1 = CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build();
+
+//        gura = new PlayGura(gc2,player.get(0),state1);
 
         playerTable = new Hashtable<>();
 
@@ -128,14 +132,17 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
                     playerTable.put(user.getId(), new PlayCalli(gc2, new CharaAnimationPlayer(user.getId(), Character.Calli), state1));
                     break;
             }
-            polyTable.put(user.getId(),new DrawPolygon());
-            charaTable.put(user.getId(),user.getCharacterType());
+            polyTable.put(user.getId(), new DrawPolygon());
+            charaTable.put(user.getId(), user.getCharacterType());
         });
 
-        polyTable.put(0,new DrawPolygon());
+        polyTable.put(0, new DrawPolygon());
         polyTable.get(0).update(0, 600, 1280, 100);
 
-        playerTable.forEach((k,v) -> {if(k == getState().room.getUser(1).getId()) v.setPosition(200,500); else v.setPosition(1200,500);});
+        playerTable.forEach((k, v) -> {
+            if (k == getState().room.getUser(1).getId()) v.setPosition(200, 500);
+            else v.setPosition(1200, 500);
+        });
 
         input = Input.newBuilder().setW(false).setA(false).setS(false).setD(false).setK(false)
                 .setId(getState().self.getId())
@@ -151,17 +158,25 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
 
         Clip bgm = AudioClip.createClip(new File(PATH.RIP));
         bgm.start();
-        FloatControl ctrl = (FloatControl)bgm.getControl(FloatControl.Type.MASTER_GAIN);
-        ctrl.setValue((float)Math.log10(0.1) * 20);
+        FloatControl ctrl = (FloatControl) bgm.getControl(FloatControl.Type.MASTER_GAIN);
+        ctrl.setValue((float) Math.log10(0.1) * 20);
 
-        new PlayUI(gc3,getState().room.getUser(0),getState().room.getUser(1));
+        new PlayUI(gc3, getState().room.getUser(0), getState().room.getUser(1));
         debug = true;
-        hoge=100;
+        hoge = 100;
 
         Path imagePath = Paths.get(PATH.Back);
-        back  = new Image(imagePath.toUri().toString(),1280,720,false,false);
+        back = new Image(imagePath.toUri().toString(), 1280, 720, false, false);
         Path imagPath = Paths.get(PATH.Floor);
-        floor = new Image(imagPath.toUri().toString(),1280,720,false,false);
+        floor = new Image(imagPath.toUri().toString(), 1280, 720, false, false);
+
+        continueButton.setOnAction(e ->
+        {
+            props.ContinueGame();
+        });
+        quitButton.setOnAction(e -> {
+            props.QuitGame();
+        });
     }
 
     @Override
@@ -176,13 +191,13 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         input = keyReleased(c, input);
     }
 
-    void draw(){
+    void draw() {
         /*gc1,canvas1*/
-        gc1.clearRect(0,0,canvas1.getWidth(),canvas1.getHeight());
+        gc1.clearRect(0, 0, canvas1.getWidth(), canvas1.getHeight());
 //        gc1.setFill(Color.RED);
 //        gc1.fillRect(0,0,canvas1.getWidth(),canvas1.getHeight());
 
-        gc1.drawImage(back,-20,-20,1320,742.5);
+        gc1.drawImage(back, -20, -20, 1320, 742.5);
 
 //        displacementMap.play(gc1,firstFrame,0,0.5f,0.5f);
 //        colorAdjust.play(gc1,0,0,0,-0.1);
@@ -193,93 +208,99 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
 
         /*gc2,canvas2*/
 
-        var character  = getState().stateBlockingQueue.poll();
+        var character = getState().stateBlockingQueue.poll();
         while (character != null) {
-            System.out.println("ID"+character.getId());
+            System.out.println("ID" + character.getId());
             playerTable.get(character.getId()).updateState(character);
             PlayUI.updateState(character);
-            polyTable.get(character.getId()).updateChara((int)character.getX(),(int)character.getY(),charaTable.get(character.getId()));//debug用
-            character  = getState().stateBlockingQueue.poll();
+            polyTable.get(character.getId()).updateChara((int) character.getX(), (int) character.getY(), charaTable.get(character.getId()));//debug用
+            character = getState().stateBlockingQueue.poll();
         }
 
-        gc2.clearRect(0,0,canvas2.getWidth(),canvas2.getHeight());
-        gc2.drawImage(floor,-20,-20,1320,742.5);
+        gc2.clearRect(0, 0, canvas2.getWidth(), canvas2.getHeight());
+        gc2.drawImage(floor, -20, -20, 1320, 742.5);
 
-        playerTable.forEach((k,v) -> v.play());
+        playerTable.forEach((k, v) -> v.play());
 
 //        gaussianBlur.play(gc2,firstFrame,10,gaussianBlur.exponentialDecay(gaussianBlur.getDuration(firstFrame),50,1.0));
 
         /*gc3,canvas3*/
-        gc3.clearRect(0,0,canvas3.getWidth(),canvas3.getHeight());
+        gc3.clearRect(0, 0, canvas3.getWidth(), canvas3.getHeight());
         gc3.setFill(Color.WHITE);
-        gc3.fillText(""+text, 300, 100);
+        gc3.fillText("" + text, 300, 100);
         PlayUI.play();
-//        PlayUI.debug(hoge);
-        if(debug){
-            polyTable.forEach((k,v) -> v.play(gc3));
+        //PlayUI.debug(hoge);
+        if (debug) {
+            polyTable.forEach((k, v) -> v.play(gc3));
         }
     }
 
-    public Input keyPressed(String key, Input input){
+    public Input keyPressed(String key, Input input) {
         boolean w = input.getW(), a = input.getA(), s = input.getS(), d = input.getD(), atk = input.getK();
-        switch (key){
+        switch (key) {
             case "A":
-                a=true;
-                if(d) d=false;
+                a = true;
+                if (d) d = false;
                 break;
             case "S":
-                s=true;
+                s = true;
                 break;
             case "D":
-                d=true;
-                if(a) a=false;
+                d = true;
+                if (a) a = false;
                 break;
             case "W":
-                w=true;
+                w = true;
                 break;
             case "K":
-                atk=true;
+                atk = true;
                 break;
             case "M":
-                hoge ++;
+                hoge++;
                 break;
             case "N":
-                hoge --;
+                hoge--;
                 break;
         }
         return input.toBuilder().setW(w).setA(a).setS(s).setD(d).setK(atk).build();
     }
-    public Input keyReleased(String key, Input input){
+
+    public Input keyReleased(String key, Input input) {
         boolean w = input.getW(), a = input.getA(), s = input.getS(), d = input.getD(), atk = input.getK();
-        switch (key){
+        switch (key) {
             case "A":
-                a=false;
+                a = false;
                 break;
             case "S":
-                s=false;
+                s = false;
                 break;
             case "D":
-                d=false;
+                d = false;
                 break;
             case "W":
-                w=false;
+                w = false;
                 break;
             case "K":
-                atk=false;
+                atk = false;
                 break;
         }
         return input.toBuilder().setW(w).setA(a).setS(s).setD(d).setK(atk).build();
     }
 
     @Override
-    public void EveryFrameUpdate(){
-        System.out.println("fps"+Time.Instance.getFrameRate()+"uouo"+uouo);
+    public void EveryFrameUpdate() {
+        var state = getState();
+        quitPane.setVisible(state.quitPaneVisible);
+        if(state.quitPaneVisible) {
+            timer.cancel();
+        }
+        //System.out.println("fps" + Time.Instance.getFrameRate() + "uouo" + uouo);
         uouo++;
 //        gc.strokeText("Total Time : " + (Time.Instance.getTotalTime()-initTime)+ "\n delta Time : " + Time.Instance.getDeltaTime(), 250, 200);
 
-        if(text == null) return;
-        text.setText("uouo->"+uouo+"FPS->"+Time.Instance.getFrameRate());
-        if(uouo > 200) state1 = CharacterState.newBuilder().setHP(hoge).build();
+        if (text == null) return;
+        text.setText("uouo->" + uouo + "FPS->" + Time.Instance.getFrameRate());
+        if (uouo > 200) state1 = CharacterState.newBuilder().setHP(hoge).build();
         draw();
     }
 }
