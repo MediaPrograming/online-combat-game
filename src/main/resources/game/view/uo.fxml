@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Point3D?>
-<?import javafx.scene.canvas.Canvas?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
 <AnchorPane maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.panel.UoPanel">
    <children>
@@ -18,5 +19,11 @@
          <rotationAxis>
             <Point3D />
          </rotationAxis></Canvas>
+      <Pane fx:id="quitPane" layoutX="300.0" layoutY="188.0" prefHeight="345.0" prefWidth="741.0">
+         <children>
+            <Button fx:id="continueButton" layoutX="271.0" layoutY="160.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="195.0" text="Continue" />
+            <Button fx:id="quitButton" layoutX="271.0" layoutY="226.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="195.0" text="Quit" />
+            <Label layoutX="271.0" layoutY="50.0" prefHeight="65.0" prefWidth="220.0" text="YOU WIN!!!" />
+         </children></Pane>
    </children>
 </AnchorPane>
