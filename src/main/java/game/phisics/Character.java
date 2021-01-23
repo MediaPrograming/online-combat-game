@@ -1,7 +1,9 @@
 package game.phisics;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.Direction;
+import io.game.hub.messageHub.CharacterType;
 import game.phisics.Attackplygon;
+import game.phisics.Controller.*;
 
 public class Character extends PhysicsObject {
     protected boolean jumped=false,atk=false,a=false,d=false,s=false,w=false;
@@ -9,6 +11,7 @@ public class Character extends PhysicsObject {
     protected int timetomove=0/*0の時キー入力を受け付ける*/,HP=100;
     protected Behavior action= Behavior.NORMAL;
     protected Direction muki=Direction.LEFT;
+    protected CharaController controller;
     Character(double x, double y, double w, double h){
         super(x,y,w,h);
     }
@@ -21,59 +24,58 @@ public class Character extends PhysicsObject {
         HP=hp;
         attack=a;
     }
+    public Character(double x, double y, double w, double h,int hp,CharacterType ct, Attackplygon a){
+        super(x,y,w,h);
+        HP=hp;
+        attack=a;
+        switch (ct){
+            case Gura:
+                controller=new GuraController(this,a);
+                break;
+            case Kiara:
+                controller=new KiaraController(this,a);
+                break;
+            case Amelia:
+                controller=new AmeliaController(this,a);
+                break;
+            case Inanis:
+                controller=new InanisController(this,a);
+                break;
+            case Calliope:
+                controller=new CalliopeController(this,a);
+                break;
+        }
+    }
+
     public void keycheck(boolean w, boolean a, boolean s, boolean d){
         if(timetomove<=0){
             if(atk){//攻撃範囲と硬直時間を設定
                 if(a){
-                    attack.setX(this.getX()-this.getWidth()/2);
-                    attack.setY(this.getY()+this.getHeight()/4);
-                    attack.setWidth(this.getWidth()/2);
-                    attack.setHeight(this.getHeight()/2);
-                    attack.setDamege(50);
+                    timetomove=controller.attack1();
                     action=Behavior.ATTACK1;
                     muki=Direction.LEFT;
                 }else if(d){
-                    attack.setX(this.getX()+this.getWidth());
-                    attack.setY(this.getY()+this.getHeight()/4);
-                    attack.setWidth(this.getWidth()/2);
-                    attack.setHeight(this.getHeight()/2);
+                    timetomove=controller.attack2();
                     action=Behavior.ATTACK2;
-                    attack.setDamege(50);
                     muki=Direction.RIGHT;
                 }else if(w){
-                    attack.setX(this.getX()+this.getWidth()/4);
-                    attack.setY(this.getY()-this.getHeight()/2);
-                    attack.setWidth(this.getWidth()/2);
-                    attack.setHeight(this.getHeight()/2);
-                    attack.setDamege(50);
+                    timetomove=controller.attack3();
                     action=Behavior.ATTACK3;
                 }else if(s){
-                    attack.setX(this.getX()-this.getWidth()/4);
-                    attack.setY(this.getY()+3*this.getHeight()/4);
-                    attack.setWidth(3*this.getWidth()/2);
-                    attack.setHeight(this.getHeight()/4);
-                    attack.setDamege(50);
+                    timetomove=controller.attack4();
                     action=Behavior.ATTACK4;
                 }else{
                     if(muki==Direction.LEFT){
-                        attack.setX(this.getX()-this.getWidth()/2);
-                        attack.setY(this.getY()+this.getHeight()/4);
-                        attack.setWidth(this.getWidth()/2);
-                        attack.setHeight(this.getHeight()/2);
-                        attack.setDamege(50);
+                        timetomove=controller.attack1();
                         action=Behavior.ATTACK1;
                     }else{
-                        attack.setX(this.getX()+this.getWidth());
-                        attack.setY(this.getY()+this.getHeight()/4);
-                        attack.setWidth(this.getWidth()/2);
-                        attack.setHeight(this.getHeight()/2);
+                        timetomove=controller.attack2();
                         action=Behavior.ATTACK2;
-                        attack.setDamege(50);
                     }
                 }
                 attack.setVisible(true);
                 atk=a=s=d=w=false;
-                timetomove=60;
+                
             }else {
                 attack.setVisible(false);
                 attack.setX(-1);
@@ -108,7 +110,7 @@ public class Character extends PhysicsObject {
                     action=Behavior.NORMAL;
                 }
             if(w&&randed){
-                vector(0,-10);
+                controller.jump();
                 action=Behavior.JUMP;
             }
             if(!randed&&(action!=Behavior.DAMAGE&&action!=Behavior.ATTACK1&&action!=Behavior.ATTACK2&&action!=Behavior.ATTACK3&&action!=Behavior.ATTACK4)){
@@ -120,11 +122,7 @@ public class Character extends PhysicsObject {
 
         }else{
             timetomove--;
-            if(attack.getX()!=-1){
-                attack.setVx(this.getVx());
-                attack.setVy(this.getVy());
-                attack.move();
-            }
+            controller.attacking();
             if(action!=Behavior.DAMAGE&&action!=Behavior.ATTACK1&&action!=Behavior.ATTACK2&&action!=Behavior.ATTACK3&&action!=Behavior.ATTACK4){
                 action=Behavior.NORMAL;
             }
@@ -202,4 +200,13 @@ public class Character extends PhysicsObject {
     public Direction getDirection() {
         return muki;
     }
+    @Override public void move(){
+        super.move();
+        if(this.getY()>=2000){
+            HP=0;
+        }
+    }
+        
+    
+
 }

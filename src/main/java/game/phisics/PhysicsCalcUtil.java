@@ -100,7 +100,7 @@ public class PhysicsCalcUtil {
             bAttack.setX(-1);
             bAttack.setWidth(1);
             bAttack.setHeight(1);
-            b.setTimetomove(40);
+            b.setTimetomove(aAttack.getDamagetime());
             b.setAction(Behavior.DAMAGE);
             b.Damage(aAttack.getDamage());
             return 1;
@@ -125,7 +125,7 @@ public class PhysicsCalcUtil {
             aAttack.setX(-1);
             aAttack.setWidth(1);
             aAttack.setHeight(1);
-            a.setTimetomove(40);
+            a.setTimetomove(bAttack.getDamagetime());
             bAttack.setVisible(false);
             bAttack.setY(-1);
             bAttack.setX(-1);
