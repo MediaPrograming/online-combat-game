@@ -1,5 +1,7 @@
 package game.view.service;
 
+import io.game.hub.messageHub.GrpcRoom;
+import io.game.hub.messageHub.User;
 import io.game.hub.positionHub.Input;
 import javafx.scene.canvas.GraphicsContext;
 
@@ -44,4 +46,7 @@ public interface IPositionStream{
     void UpdateCharacterTable(GraphicsContext gc);
 
     //void UpdateHP();
+    void ContinueGame();
+    void QuitGame();
+    void Init(User user, GrpcRoom room);
 }

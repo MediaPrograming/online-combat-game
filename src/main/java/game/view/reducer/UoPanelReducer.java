@@ -3,21 +3,18 @@ package game.view.reducer;
 import Animation.CharaAnimationPlayer;
 import Animation.CharacterPlayer.*;
 import Animation.DrawPolygon;
-import Animation.UIPlayer.PlayUI;
 import Audio.AudioClip;
 import com.taku.util.flux.model.Action;
 import com.taku.util.flux.service.IReducer;
 import com.taku.util.flux.view.ReducerBuilder;
 import game.config.Character;
 import game.config.PATH;
+import game.store.StoreManager;
 import game.view.action.AnimationEvent;
+import game.view.action.UIEvent;
 import game.view.state.UoPanelState;
-
-import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import java.io.File;
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * @author Takuya Isaki on 2021/01/20
@@ -31,6 +28,19 @@ public class UoPanelReducer implements IReducer<UoPanelState> {
                 .Case(AnimationEvent.STATE_UPDATE, ((uoPanelState, characterState) -> {
                     uoPanelState.stateBlockingQueue.add(characterState);
                     //System.out.println("id : " +  characterState.getId() + "put : " + "x: "+  characterState.getX() + "y " + characterState.getY());
+                    return uoPanelState;
+                }))
+                .Case(AnimationEvent.STREAM_EVENT, ((uoPanelState, positionHubMessage) -> {
+                    switch (positionHubMessage.getType()){
+                        case INIT -> {}
+                        case GAME_FINISH -> {uoPanelState.quitPaneVisible = true;}
+                    }
+                    return uoPanelState;
+                })).Case(AnimationEvent.CONTINUE, ((uoPanelState, unit) -> {
+                    StoreManager.Instance.store.Invoke(unit,UIEvent.SHOW_WAIT_ROOM_PANEL.Create(unit));
+                    return uoPanelState;
+                })).Case(AnimationEvent.QUIT, ((uoPanelState, unit) -> {
+                    System.exit(0);
                     return uoPanelState;
                 }))
                 .Case(AnimationEvent.UPDATE_INPUT_PRESSED, ((panelState, key) -> {

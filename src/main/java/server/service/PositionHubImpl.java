@@ -4,15 +4,14 @@
  */
 package server.service;
 
-import game.phisics.PhysicsCalcUtil;
-import game.phisics.PhysicsObject;
+import io.game.hub.positionHub.Type;
 import io.game.hub.positionHub.*;
 import io.game.hub.positionHub.CharacterState;
 import io.game.hub.positionHub.Input;
 import io.game.hub.positionHub.PositionHubGrpc;
 import io.grpc.stub.StreamObserver;
 import server.core.RoomManager;
-import java.util.Map;
+import server.util.RoomUtil;
 
 import static server.util.PositionHubUtil.*;
 
@@ -36,39 +35,48 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
                 state.positionObserver = responseObserver;
                 //物理オブジェクトの取得
                 CharacterUpdate(value, room, observer, id);
-             //   var self = observer.get(id).character;
-                //通知
-             /*   double x = self.getX();
-                double y = self.getY();
-                double ax = self.getAx();
-                double ay = self.getAy();
-                Behavior behavior = UpdateBehaviour(self);
-                Direction direction = UpdateDirection(self);
-                var characterState = CharacterState
-                        .newBuilder()
-                        .setId(id)
-                        .setX(x)
-                        .setY(y)
-                        .setAx(ax)
-                        .setAy(ay)
-                        .setTime(0)
-                        .setBehavior(behavior)
-                        .setDirection(direction)
-                        .build();
-*//*
-                for (var r : room.getObserver().entrySet()) {
-                    try {
-                        if(r.getValue().positionObserver != null)
-                            r.getValue().positionObserver.onNext(characterState);
-                    }catch (Exception e){
-                        System.out.println(e.toString());
-                    }
-                }*/
+
             }
 
             @Override
             public void onError(Throwable t) {
                 System.out.println(t.toString());
+            }
+
+            @Override
+            public void onCompleted() { }
+        };
+    }
+
+    @Override
+    public StreamObserver<PositionHubMessage> streamEvent(StreamObserver<PositionHubMessage> responseObserver) {
+        return new StreamObserver<PositionHubMessage>() {
+            @Override
+            public void onNext(PositionHubMessage value) {
+                var id = value.getUser().getId();
+                var room = RoomManager.Instance.getRoom(value.getUser().getRoomName());
+
+                if (room == null) {
+                    System.out.println("Room is null");
+                    return;
+                }
+                var observer = room.getObserver();
+                //オブザーバーの追加
+                var state = observer.get(id);
+                state.positionHubMessageStreamObserver = responseObserver;
+
+                switch (value.getType()){
+                    case INIT -> {}
+                    case GAME_FINISH -> { }
+                    default -> {return;}
+
+
+                }
+            }
+
+            @Override
+            public void onError(Throwable t) {
+
             }
 
             @Override

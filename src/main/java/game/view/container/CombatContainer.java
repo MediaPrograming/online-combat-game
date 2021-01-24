@@ -3,6 +3,7 @@ package game.view.container;
 import com.taku.util.flux.service.IDispatcher;
 import com.taku.util.model.Unit;
 import game.store.StoreManager;
+import game.util.RequestUtil;
 import game.view.action.AnimationEvent;
 import game.view.panel.UoPanel;
 import game.view.service.IPositionStream;
@@ -12,6 +13,12 @@ import io.game.hub.positionHub.PositionHubGrpc;
 import io.grpc.stub.StreamObserver;
 import io.game.hub.positionHub.Input;
 import javafx.scene.canvas.GraphicsContext;
+import io.game.hub.messageHub.GrpcRoom;
+import io.game.hub.messageHub.Message;
+import io.game.hub.messageHub.User;
+import io.game.hub.positionHub.*;
+import io.grpc.stub.StreamObserver;
+import server.room.Room;
 
 import java.util.function.Function;
 
@@ -51,5 +58,14 @@ public class CombatContainer {
 
         @Override
         public void UpdateCharacterTable(GraphicsContext gc) { dispatcher.dispatch(AnimationEvent.UPDATE_CHARACTER_TABLE.Create(gc)); }
+        public void Init(User user, GrpcRoom room){
+            var observer = RequestUtil.streamPositionCreator.apply(dispatcher);
+            observer.onNext(PositionHubMessage.newBuilder().setUser(user).setRoom(room).setType(Type.INIT).build());
+        }
+        @Override
+        public void ContinueGame() { dispatcher.dispatch(AnimationEvent.CONTINUE.Create(unit)); }
+
+        @Override
+        public void QuitGame() { dispatcher.dispatch(AnimationEvent.QUIT.Create(unit));}
     };
 }

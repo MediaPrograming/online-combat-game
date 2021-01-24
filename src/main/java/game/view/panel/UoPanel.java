@@ -22,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 
 import java.io.File;
@@ -31,6 +32,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
@@ -40,10 +42,15 @@ import javax.sound.sampled.FloatControl;
 public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements Initializable {
     @FXML
     private Canvas canvas1,canvas2,canvas3;
+
+    @FXML
+    private Pane quitPane;
+    @FXML
+    private Button continueButton, quitButton;
     GraphicsContext gc1,gc2,gc3;
     double initTime;
     //test
-    private int uouo,hoge;
+    private int uouo = 0,hoge;
     private Text text;
     private boolean debug;
 
@@ -56,15 +63,13 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
 
         var props = this.getProps();
         var state = this.getState();
-
+        props.Init(state.self, state.room);
         gc1 = canvas1.getGraphicsContext2D();
         gc2 = canvas2.getGraphicsContext2D();
         gc3 = canvas3.getGraphicsContext2D();
 
-        Time.Instance.run();
+//        Time.Instance.run();
         initTime = Time.Instance.getTotalTime();
-        uouo = 0;
-
         text = new Text(String.valueOf(initTime));
         text.setStroke(Color.BLACK);
         this.getProps().UpdateCharacterTable(gc2);
@@ -80,6 +85,8 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         new PlayUI(gc3,getState().room.getUser(0),getState().room.getUser(1));
         debug = true;
         hoge=100;
+        continueButton.setOnAction(e -> props.ContinueGame());
+        quitButton.setOnAction(e -> props.QuitGame());
     }
 
     @Override
@@ -127,6 +134,10 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
 
     @Override
     public void EveryFrameUpdate(){
+        var state = getState();
+        quitPane.setVisible(state.quitPaneVisible);
+        if(state.quitPaneVisible) state.timer.cancel();
+
         uouo++;
         //#region debug text
         if(debug) {
@@ -136,7 +147,6 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         //#endregion
         if(text == null) return;
         text.setText("uouo->"+uouo+"FPS->"+Time.Instance.getFrameRate());
-//        if(uouo > 200) getState().selfState= CharacterState.newBuilder().setHP(hoge).build();
         draw();
     }
 }

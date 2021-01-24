@@ -27,6 +27,7 @@ public final class UoPanelState {
     public final GrpcRoom room;
     public CharacterState selfState;
     public Input input;
+    public boolean quitPaneVisible = false;
     public BlockingQueue<CharacterState> stateBlockingQueue;
     public final Hashtable<Integer, DrawPolygon> polyTable;
     public final Hashtable<Integer, CharacterType> charaTable;

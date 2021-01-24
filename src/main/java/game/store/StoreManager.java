@@ -8,9 +8,6 @@ import game.view.stage.MainStage;
 import game.view.state.RoomState;
 import game.view.state.UoPanelState;
 import game.view.state.WaitRoomState;
-import io.game.hub.messageHub.User;
-import io.game.hub.positionHub.CharacterState;
-import javafx.scene.Scene;
 import javafx.util.Pair;
 
 
