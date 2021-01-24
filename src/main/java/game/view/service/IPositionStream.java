@@ -1,11 +1,47 @@
 package game.view.service;
 
 import io.game.hub.positionHub.Input;
+import javafx.scene.canvas.GraphicsContext;
 
 /**
  * @project online-combat-game
  * @author Takuya Isaki on 2021/01/20
  */
 public interface IPositionStream{
+    /**
+     * 音楽の再生
+     */
+    void StartAudio();
+
+    /**
+     * 音楽の停止
+     */
+    void StopAudio();
+
+    /**
+     * サーバーへInputの送信
+     * @param input
+     */
     void SendInput(Input input);
+
+    /**
+     * キーボードを推したときにInputを変更する
+     * @param key
+     */
+    void ChangeInputPressed(String key);
+
+    /**
+     * キーボードを話したときにInputを変更する
+     * @param key
+     */
+    void ChangeInputReleased(String key);
+
+    /**
+     * キャラテーブルの更新
+     * Warning: 元のテーブルは消去される
+     * @param gc
+     */
+    void UpdateCharacterTable(GraphicsContext gc);
+
+    //void UpdateHP();
 }
