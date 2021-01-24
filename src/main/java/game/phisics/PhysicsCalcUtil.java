@@ -1,6 +1,5 @@
 package game.phisics;
 
-import game.view.service.ICharacter;
 import io.game.hub.positionHub.Behavior;
 
 /**

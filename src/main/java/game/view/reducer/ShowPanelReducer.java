@@ -59,21 +59,6 @@ public class ShowPanelReducer implements IReducer<Unit> {
                     });
                     return state;
                 })
-                .Case(UIEvent.SHOW_COMBAT_PANEL, (state, payload) -> {
-                    Platform.runLater(() -> {
-                        try {
-                            Parent parent = FXMLLoader.load(StoreManager.class.getResource("../view/combat.fxml"));
-                            var scene = new Scene(parent);
-                            StoreManager.stage.setScene(scene);
-                            StoreManager.stage.show();
-                            scene.setOnKeyPressed(k ->StoreManager.Instance.store.KeyPressed(k));
-                            scene.setOnKeyReleased(k ->StoreManager.Instance.store.KeyReleased(k));
-                        } catch (Exception err) {
-                            System.out.println("[ERROR]" + err.toString());
-                        }
-                    });
-                    return state;
-                })
                 .Case(UIEvent.SHOW_CREATE_PANEL, (state, payload) -> {
                     Platform.runLater(() -> {
                         try {
