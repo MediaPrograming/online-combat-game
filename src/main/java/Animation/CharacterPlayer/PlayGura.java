@@ -5,6 +5,7 @@ import Animation.CharaAnimationPlayer;
 import Animation.EffectPlayer.EffectManager;
 import Animation.EffectPlayer.PlayBloom;
 import Audio.AudioHolder;
+import game.util.Time;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
 import javafx.scene.canvas.GraphicsContext;
@@ -29,7 +30,8 @@ public class PlayGura extends PlayCharacter{
                 AudioHolder.damage.loop(1);;
                 break;
             case ATTACK1:
-//                EffectManager.addBloom(state.getTime(),3,0.5);
+                EffectManager.addBloom(Time.Instance.getTotalTime(),3,0.5);
+                System.out.println("state.getTime()->"+state.getTime());
                 double rand = Math.random();
                 if(rand>0.8) AudioHolder.peti1.loop(1);
                 else if(rand<=0.8 && rand>0.6) AudioHolder.peti2.loop(1);

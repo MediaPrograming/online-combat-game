@@ -3,6 +3,7 @@ import Animation.AnimationHolder;
 import Animation.CharaAnimationPlayer;
 import Animation.CharacterPlayer.*;
 import Animation.DrawPolygon;
+import Animation.EffectPlayer.EffectManager;
 import Animation.UIPlayer.PlayUI;
 import Audio.AudioHolder;
 import com.taku.util.flux.view.BasePanel;
@@ -87,6 +88,10 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         hoge=100;
         continueButton.setOnAction(e -> props.ContinueGame());
         quitButton.setOnAction(e -> props.QuitGame());
+//        new EffectManager();
+        EffectManager.addGraphicsContext(gc1);
+        EffectManager.addGraphicsContext(gc2);
+        EffectManager.addGraphicsContext(gc3);
     }
 
     @Override
@@ -110,7 +115,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
 
         var character  = getState().stateBlockingQueue.poll();
         while (character != null) {
-            System.out.println("ID"+character.getId());
+//            System.out.println("ID"+character.getId());
             state.playerTable.get(character.getId()).updateState(character);
             PlayUI.updateState(character);
             state.polyTable.get(character.getId()).updateChara((int)character.getX(),(int)character.getY(),state.charaTable.get(character.getId()));//debug用
@@ -130,6 +135,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         if(debug){
             state.polyTable.forEach((k,v) -> v.play(gc3));
         }
+        EffectManager.play();
     }
 
     @Override
@@ -141,7 +147,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         uouo++;
         //#region debug text
         if(debug) {
-            System.out.println("fps" + Time.Instance.getFrameRate() + "uouo" + uouo);
+//            System.out.println("fps" + Time.Instance.getFrameRate() + "uouo" + uouo);
             //gc.strokeText("Total Time : " + (Time.Instance.getTotalTime() - initTime) + "\n delta Time : " + Time.Instance.getDeltaTime(), 250, 200);
         }
         //#endregion

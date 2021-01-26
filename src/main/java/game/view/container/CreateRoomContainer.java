@@ -3,7 +3,6 @@ package game.view.container;
  * @author Takuya Isaki on 2021/01/05
  * @project online-combat-game
  */
-import com.taku.util.flux.model.Store;
 import com.taku.util.model.Unit;
 import game.store.StoreManager;
 import game.view.action.UIEvent;

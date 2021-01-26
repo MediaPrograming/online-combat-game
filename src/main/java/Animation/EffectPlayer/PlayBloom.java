@@ -16,6 +16,7 @@ public class PlayBloom extends PlayEffect{
 
     @Override
     public void play(){
+
         duration = this.getDuration();
         if(duration >= 0 && duration <= playTime) {
             Bloom bloom = new Bloom();

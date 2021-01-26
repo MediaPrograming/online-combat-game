@@ -7,9 +7,7 @@ public interface IShowPanel {
         //#region Show Window
         void ShowStartPanel();
         void ShowSelectionPanel();
-        void ShowCombatPanel();
-
-        void ShowUoPanel(); //uouo
-
+        void ShowUoPanel();
         void ShowCreateRoomPanel();
+        //#endregion
 }
