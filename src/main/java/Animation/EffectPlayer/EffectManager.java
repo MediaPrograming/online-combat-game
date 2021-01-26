@@ -1,26 +1,23 @@
 package Animation.EffectPlayer;
 
-import javafx.application.Platform;
 import javafx.scene.canvas.GraphicsContext;
 
 import java.util.*;
 
 public class EffectManager {
-    public static List<PlayEffect> list = Collections.synchronizedList(new ArrayList<>());
-    public static ArrayList<GraphicsContext> gc = new ArrayList<>();
-    public EffectManager(){}
+    private static List<PlayEffect> list = new ArrayList<>();
+    private static ArrayList<GraphicsContext> gcList = new ArrayList<>();
+    private EffectManager(){}
     public static void addGraphicsContext(GraphicsContext g){
-        EffectManager.gc.add(g);
+        gcList.add(g);
     }
-    public static void addEffect(PlayEffect effect){
-        EffectManager.list.add(effect);
-    }
+
     public static void play(){
-        EffectManager.list.forEach(e -> {if(e.getDuration() > e.getPlayTime()) EffectManager.list.remove(e);});
-        EffectManager.list.forEach(e ->  Platform.runLater(() -> e.play()));
+//        EffectManager.list.forEach(e -> {if(e.getDuration() > e.getPlayTime()) EffectManager.list.remove(e);});
+        list.forEach(PlayEffect::play);
     }
 
     public static void addBloom(double firstFrame,double playTime,double threshold){
-        EffectManager.gc.forEach(gc -> EffectManager.addEffect(new PlayBloom(gc,firstFrame,playTime,threshold)));
+        gcList.forEach(gc -> list.add(new PlayBloom(gc,firstFrame,playTime,threshold)));
     }
 }

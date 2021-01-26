@@ -24,6 +24,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
 import javafx.scene.control.Button;
+import javafx.scene.effect.Bloom;
 import javafx.scene.image.Image;
 
 import java.io.File;
