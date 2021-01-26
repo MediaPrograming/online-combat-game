@@ -111,6 +111,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         var props = getProps();
 
         gc1.clearRect(0,0,canvas1.getWidth(),canvas1.getHeight());
+
         gc1.drawImage(state.back,-20,-20,1320,742.5);
 
         var character  = getState().stateBlockingQueue.poll();
