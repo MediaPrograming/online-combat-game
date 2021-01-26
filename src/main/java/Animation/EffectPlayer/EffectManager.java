@@ -16,7 +16,7 @@ public class EffectManager {
         EffectManager.list.add(effect);
     }
     public static void play(){
-//        EffectManager.list.forEach(e -> {if(e.getDuration() > e.getPlayTime()) EffectManager.list.remove(e);});
+        EffectManager.list.forEach(e -> {if(e.getDuration() > e.getPlayTime()) EffectManager.list.remove(e);});
         EffectManager.list.forEach(e ->  Platform.runLater(() -> e.play()));
     }
 

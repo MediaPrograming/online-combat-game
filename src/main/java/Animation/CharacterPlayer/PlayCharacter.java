@@ -63,7 +63,7 @@ public class PlayCharacter {
         if(distance >0) {ovalW=100/distance; ovalH = 20/distance;}
         gc.fillText("distance->"+distance,state.getX(),state.getY(),300);
         gc.setFill(Color.color(0.1,0.1,0.2,0.4));
-        gc.fillOval(state.getX(),580,ovalW,ovalH);
+        gc.fillOval(state.getX()-ovalW/2,580-ovalH/2,ovalW,ovalH);
     }
 
     public void play(){
