@@ -86,8 +86,8 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         new PlayUI(gc3,getState().room.getUser(0),getState().room.getUser(1));
         debug = true;
         hoge=100;
-        continueButton.setOnAction(e -> props.ContinueGame());
-        quitButton.setOnAction(e -> props.QuitGame());
+        continueButton.setOnAction(e -> {props.StopAudio(); props.ContinueGame();});
+        quitButton.setOnAction(e -> {props.StopAudio(); props.QuitGame();});
 //        new EffectManager();
         EffectManager.addGraphicsContext(gc1);
         EffectManager.addGraphicsContext(gc2);

@@ -6,6 +6,7 @@ import Animation.EffectPlayer.EffectManager;
 import Animation.EffectPlayer.PlayBloom;
 import Audio.AudioHolder;
 import game.util.Time;
+import io.game.hub.messageHub.CharacterType;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
 import javafx.scene.canvas.GraphicsContext;
@@ -44,6 +45,7 @@ public class PlayGura extends PlayCharacter{
 
     @Override
     public void play() {
+        drawShadow(gc, CharacterType.Gura);
         super.play();
     }
 }

@@ -3,6 +3,7 @@ package Animation.CharacterPlayer;
 import Animation.AnimationHolder;
 import Animation.CharaAnimationPlayer;
 import Audio.AudioHolder;
+import io.game.hub.messageHub.CharacterType;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
 import javafx.scene.canvas.GraphicsContext;
@@ -33,6 +34,7 @@ public class PlayKiara extends PlayCharacter{
 
     @Override
     public void play() {
-       super.play();
+        drawShadow(gc, CharacterType.Kiara);
+        super.play();
     }
 }
