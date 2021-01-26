@@ -45,7 +45,7 @@ import javax.sound.sampled.FloatControl;
 public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements Initializable {
     @FXML
     private Canvas canvas1, canvas2, canvas3;
-    public static GraphicsContext gc1, gc2, gc3;
+    GraphicsContext gc1, gc2, gc3;
     double initTime;
 
     @FXML
@@ -89,7 +89,10 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         gc2 = canvas2.getGraphicsContext2D();
         gc3 = canvas3.getGraphicsContext2D();
 
-        new EffectManager(gc1,gc2,gc3);
+        new EffectManager();
+        EffectManager.addGraphicsContext(gc1);
+        EffectManager.addGraphicsContext(gc2);
+        EffectManager.addGraphicsContext(gc3);
 
         Time.Instance.run();
         initTime = Time.Instance.getTotalTime();

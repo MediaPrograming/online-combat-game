@@ -7,11 +7,11 @@ import java.util.*;
 public class EffectManager {
     public static ArrayList<PlayEffect> list;
     public static ArrayList<GraphicsContext> gc;
-    public EffectManager(GraphicsContext gc1,GraphicsContext gc2,GraphicsContext gc3){
+    public EffectManager(){
         EffectManager.list = new ArrayList<>();
-        EffectManager.gc.add(gc1);
-        EffectManager.gc.add(gc2);
-        EffectManager.gc.add(gc3);
+    }
+    public static void addGraphicsContext(GraphicsContext g){
+        EffectManager.gc.add(g);
     }
     public static void addEffect(PlayEffect effect){
         EffectManager.list.add(effect);
