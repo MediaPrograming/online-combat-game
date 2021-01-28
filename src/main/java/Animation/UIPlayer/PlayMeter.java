@@ -53,7 +53,7 @@ public class PlayMeter {
         gc.fillRect(x,y,width,height);
 
         //debug
-        if(left) gc.fillText("x->"+x+"width->"+width+"value->"+nowValue+"amount->"+amount,gc.getCanvas().getWidth()/4,gc.getCanvas().getHeight()/2);
-        else gc.fillText("x->"+x+"width->"+width+"value->"+nowValue+"amount->"+amount,gc.getCanvas().getWidth()/4*3,gc.getCanvas().getHeight()/2);
+//        if(left) gc.fillText("x->"+x+"width->"+width+"value->"+nowValue+"amount->"+amount,gc.getCanvas().getWidth()/4,gc.getCanvas().getHeight()/2);
+//        else gc.fillText("x->"+x+"width->"+width+"value->"+nowValue+"amount->"+amount,gc.getCanvas().getWidth()/4*3,gc.getCanvas().getHeight()/2);
     }
 }

@@ -15,6 +15,7 @@ import game.view.container.CombatContainer;
 import game.view.service.IPositionStream;
 import game.view.state.UoPanelState;
 import io.game.hub.messageHub.CharacterType;
+import io.game.hub.messageHub.User;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
 import io.game.hub.positionHub.Input;
@@ -84,12 +85,18 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
 
         props.StartAudio();
 
-        new PlayUI(gc3,getState().room.getUser(0),getState().room.getUser(1));
+        User host,client;
+        if(getState().room.getUser(0).getId() == getState().room.getHostId()){
+            host = getState().room.getUser(0); client = getState().room.getUser(1);
+        }else{
+            host = getState().room.getUser(1); client = getState().room.getUser(0);
+        }
+        new PlayUI(gc3,host,client);
         debug = true;
         hoge=100;
         continueButton.setOnAction(e -> {props.StopAudio(); props.ContinueGame();});
         quitButton.setOnAction(e -> {props.StopAudio(); props.QuitGame();});
-//        new EffectManager();
+
         EffectManager.addGraphicsContext(gc1);
         EffectManager.addGraphicsContext(gc2);
         EffectManager.addGraphicsContext(gc3);

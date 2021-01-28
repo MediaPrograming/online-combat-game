@@ -6,6 +6,8 @@ import io.game.hub.messageHub.CharacterType;
 import io.game.hub.messageHub.User;
 import io.game.hub.positionHub.CharacterState;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 import java.util.Hashtable;
 
@@ -14,6 +16,7 @@ public class PlayUI {
     private static CharacterState stateL,stateR;
     private static Hashtable<Integer,CharacterState> stateTable = new Hashtable<>();
     private static Hashtable<Integer,PlayMeter> meterTable = new Hashtable<>();
+    private static User left,right;
     public PlayUI(GraphicsContext gc, User left, User right){
         this.gc = gc;
         meterTable.put(left.getId(),new PlayMeter(gc,true,getHP(left.getCharacterType())));
@@ -22,6 +25,8 @@ public class PlayUI {
         stateR = CharacterState.newBuilder().setHP(getHP(right.getCharacterType())).build();
         stateTable.put(left.getId(),stateL);
         stateTable.put(right.getId(),stateR);
+        this.left = left;
+        this.right = right;
     }
 
     private static int getHP(CharacterType type){
@@ -47,6 +52,10 @@ public class PlayUI {
 
     public static void play(){
         meterTable.forEach((k,v) -> v.play(stateTable.get(k).getHP()));
+        gc.setFill(Color.PAPAYAWHIP);
+        gc.setFont(Font.font(50));
+        gc.fillText(left.getName(),100,170,300);
+        gc.fillText(right.getName(),980,170,300);
     }
 
     public static void debug(int value){meterTable.forEach((k,v) -> v.play(value));}

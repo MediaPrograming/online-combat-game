@@ -31,8 +31,9 @@ public class PlayGura extends PlayCharacter{
                 AudioHolder.damage.loop(1);;
                 break;
             case ATTACK1:
-                EffectManager.addBloom(Time.Instance.getTotalTime(),3,0.5);
-                System.out.println("state.getTime()->"+state.getTime());
+//                EffectManager.addBloom(Time.Instance.getTotalTime(),3,0.5);
+                EffectManager.addDisplacementMap(Time.Instance.getTotalTime(),3, state.getAx(), state.getAy(), true);
+                System.out.println("state.getAX,Y()->"+state.getAx()+","+state.getAy());
                 double rand = Math.random();
                 if(rand>0.8) AudioHolder.peti1.loop(1);
                 else if(rand<=0.8 && rand>0.6) AudioHolder.peti2.loop(1);

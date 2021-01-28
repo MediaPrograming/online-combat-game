@@ -8,15 +8,19 @@ import javafx.scene.effect.FloatMap;
 public class PlayDisplacementMap extends PlayEffect{
     private double duration;
     private int width,height;
-    private float fX,fY;
+    private float fX,fY,ffx,ffy;
+    private double gamma;
     private boolean wiggle;
-    public PlayDisplacementMap(GraphicsContext gc,double firstFrame,double playTime,float fX,float fY,boolean wiggle){
+    public PlayDisplacementMap(GraphicsContext gc,double firstFrame,double playTime,double fX,double fY,double gamma,boolean wiggle){
         this.gc = gc;
         this.firstFrame = firstFrame;
         this.playTime = playTime;
-        this.fX = fX;
-        this.fY = fY;
+        this.fX = (float)fX;
+        this.fY = (float)fY;
         this.wiggle = wiggle;
+        this.gamma = gamma;
+        width = (int) gc.getCanvas().getWidth();
+        height = (int) gc.getCanvas().getHeight();
     }
 
     public void play(){
@@ -26,14 +30,12 @@ public class PlayDisplacementMap extends PlayEffect{
             floatMap.setWidth(width);
             floatMap.setHeight(height);
             DisplacementMap displacementMap = new DisplacementMap();
-            width = (int) gc.getCanvas().getWidth();
-            height = (int) gc.getCanvas().getHeight();
 
             if(wiggle) wiggler();
 
             for (int i = 0; i < width; i++) {
                 for (int j = 0; j < height; j++) {
-                    floatMap.setSamples(i, j,fX , fY);
+                    floatMap.setSamples(i, j,ffx , ffy);
                 }
             }
             displacementMap.setMapData(floatMap);
@@ -41,6 +43,8 @@ public class PlayDisplacementMap extends PlayEffect{
         }
     }
 
-    public void wiggler(){}
-
+    public void wiggler(){
+        ffx = fX/1000.0f*(float)(Math.exp(-gamma*duration)*Math.cos(20.0*duration));
+        ffy = fY/1000.0f*(float)(Math.exp(-gamma*duration)*Math.cos(20.0*duration));
+    }
 }

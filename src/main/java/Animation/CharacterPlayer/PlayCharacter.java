@@ -81,10 +81,9 @@ public class PlayCharacter {
                 throw new IllegalStateException("Unexpected value: " + chara);
         }
         int ovalW=100,ovalH=20;
-        if(distance >0) {ovalW=100/distance; ovalH = 20/distance;}
-        gc.fillText("distance->"+distance,state.getX(),state.getY(),300);
+        if(distance >0) {ovalW=100-distance; ovalH = 20-distance/5;}
         gc.setFill(Color.color(0.1,0.1,0.2,0.4));
-        gc.fillOval(state.getX()-ovalW/2,580-ovalH/2,ovalW,ovalH);
+        gc.fillOval(state.getX()+Math.abs(width/4)-ovalW/2,580-ovalH/2,ovalW,ovalH);
     }
 
     public void play(){
