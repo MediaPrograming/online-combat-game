@@ -66,9 +66,9 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
                 state.positionHubMessageStreamObserver = responseObserver;
 
                 switch (value.getType()){
-                    case INIT -> {}
-                    case GAME_FINISH -> { }
-                    default -> {return;}
+                    case INIT : {break;}
+                    case GAME_FINISH : { break;}
+                    default : {return;}
 
 
                 }

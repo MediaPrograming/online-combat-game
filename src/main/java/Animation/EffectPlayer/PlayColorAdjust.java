@@ -5,9 +5,18 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.effect.ColorAdjust;
 
 public class PlayColorAdjust extends PlayEffect {
-    public PlayColorAdjust(){}
+    private double contrast,hue,brightness,saturation;
+    public PlayColorAdjust(GraphicsContext gc,double firstFrame,double playTime,double contrast,double hue, double brightness, double saturation){
+        this.gc = gc;
+        this.firstFrame = firstFrame;
+        this.playTime = playTime;
+        this.contrast = contrast;
+        this.brightness = brightness;
+        this.hue = hue;
+        this.saturation = saturation;
+    }
 
-    public void play(GraphicsContext gc,double contrast,double hue, double brightness, double saturation){
+    public void play(){
         ColorAdjust colorAdjust = new ColorAdjust();
         colorAdjust.setContrast(contrast);
         colorAdjust.setHue(hue);

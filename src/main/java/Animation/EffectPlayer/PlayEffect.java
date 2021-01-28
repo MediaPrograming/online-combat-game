@@ -3,13 +3,17 @@ package Animation.EffectPlayer;
 import game.util.Time;
 import javafx.scene.canvas.GraphicsContext;
 
-public class PlayEffect {
-    protected double duration;
+public abstract class PlayEffect {
+    protected GraphicsContext gc;
+    protected double playTime;
+    protected double firstFrame;
     public PlayEffect(){}
 
-    public void play(){}
+    public abstract void play();
 
-    public double getDuration(double firstFrame){
-        return Time.Instance.getTotalTime() - firstFrame;
+    public double getDuration(){
+        return (Time.Instance.getTotalTime() - firstFrame);
     }
+    public double getPlayTime(){return playTime;}
+    public double getFirstFrame(){return firstFrame;}
 }

@@ -101,7 +101,8 @@ public class ShowPanelReducer implements IReducer<Unit> {
                         } catch (Exception err) {
                             System.out.println(err);
                         }
-                    });
+                    }
+                    );
                     return state;
 
                 });

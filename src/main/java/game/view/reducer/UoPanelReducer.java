@@ -32,8 +32,8 @@ public class UoPanelReducer implements IReducer<UoPanelState> {
                 }))
                 .Case(UoPanelEvent.STREAM_EVENT, ((uoPanelState, positionHubMessage) -> {
                     switch (positionHubMessage.getType()){
-                        case INIT -> {}
-                        case GAME_FINISH -> {uoPanelState.quitPaneVisible = true;}
+                        case INIT : {break;}
+                        case GAME_FINISH : {uoPanelState.quitPaneVisible = true; break;}
                     }
                     return uoPanelState;
                 })).Case(UoPanelEvent.CONTINUE, ((uoPanelState, unit) -> {

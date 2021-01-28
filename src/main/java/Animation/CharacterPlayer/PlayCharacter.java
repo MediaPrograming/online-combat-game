@@ -3,7 +3,9 @@ package Animation.CharacterPlayer;
 import Animation.CharaAnimationPlayer;
 import Animation.EffectPlayer.*;
 import Animation.CharaAnimationPlayer;
+import game.config.CharaData.*;
 import game.config.Character;
+import io.game.hub.messageHub.CharacterType;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
 import io.game.hub.positionHub.Direction;
@@ -31,12 +33,6 @@ public class PlayCharacter {
         this.gc = gc;
         this.player = player;
         this.state = state;
-        colorAdjust = new PlayColorAdjust();
-        displacementMap = new PlayDisplacementMap();
-        bloom = new PlayBloom();
-        dropShadow = new PlayDropShadow();
-        motionBlur = new PlayMotionBlur();
-        gaussianBlur = new PlayGaussianBlur();
         changed = false;
     }
 
@@ -63,19 +59,36 @@ public class PlayCharacter {
         else width = -Math.abs(width);
     }
 
-    public void drawShadow(GraphicsContext gc){
-        int distance = 600 - (int)state.getY() - (int)height;
+    public void drawShadow(GraphicsContext gc, CharacterType chara){
+        int distance;
+        switch (chara){
+            case Gura :
+                distance = 600 - (int)state.getY() - (int) Gura.height;
+                break;
+            case Calliope :
+                distance = 600 - (int)state.getY() - (int) Calli.height;
+                break;
+            case Inanis :
+                distance = 600 - (int)state.getY() - (int) Ina.height;
+                break;
+            case Amelia :
+                distance = 600 - (int)state.getY() - (int) Ame.height;
+                break;
+            case Kiara :
+                distance = 600 - (int)state.getY() - (int) Kiara.height;
+                break;
+            default :
+                throw new IllegalStateException("Unexpected value: " + chara);
+        }
         int ovalW=100,ovalH=20;
-        if(distance >0) {ovalW=100/distance; ovalH = 20/distance;}
-        gc.fillText("distance->"+distance,state.getX(),state.getY(),300);
+        if(distance >0) {ovalW=100-distance; ovalH = 20-distance/5;}
         gc.setFill(Color.color(0.1,0.1,0.2,0.4));
-        gc.fillOval(state.getX(),580,ovalW,ovalH);
+        gc.fillOval(state.getX()+Math.abs(width/4)-ovalW/2,580-ovalH/2,ovalW,ovalH);
     }
 
     public void play(){
         adjustDirection(state);
         setPositionFromState();
-        drawShadow(gc);
         gc.drawImage(player.play(state),X,Y,width,height);
 
         //test

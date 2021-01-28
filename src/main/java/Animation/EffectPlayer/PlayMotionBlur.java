@@ -5,12 +5,19 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.effect.MotionBlur;
 
 public class PlayMotionBlur extends PlayEffect{
+    private double duration;
+    private double radius,angle;
+    public PlayMotionBlur(GraphicsContext gc,double firstFrame,double playTime,double radius,double angle){
+        this.gc = gc;
+        this.firstFrame = firstFrame;
+        this.playTime = playTime;
+        this.radius = radius;
+        this.angle = angle;
+    }
 
-    public PlayMotionBlur(){}
-
-    public void play(GraphicsContext gc, double firstFrame, double time , double radius,double angle){
-        duration = this.getDuration(firstFrame);
-        if(duration >= 0 && duration <= time) {
+    public void play(){
+        duration = this.getDuration();
+        if(duration >= 0 && duration <= playTime) {
             MotionBlur motionBlur = new MotionBlur();
             motionBlur.setRadius(radius);
             motionBlur.setAngle(angle);
