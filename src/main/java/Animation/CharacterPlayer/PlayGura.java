@@ -28,6 +28,7 @@ public class PlayGura extends PlayCharacter{
 
     @Override
     public void changedAction(CharacterState state) {
+        System.out.println("uo");
         super.changedAction(state);
         switch (state.getBehavior()){
             case NORMAL:
