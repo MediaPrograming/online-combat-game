@@ -40,20 +40,25 @@ public class PlayGura extends PlayCharacter{
                 this.offsetY = -50;
                 break;
             case DAMAGE :
+                if(rand>0.8) {AudioHolder.AU_UN.setFramePosition(0);AudioHolder.AU_UN.loop(0);}
+                else if(rand<=0.8 && rand>0.6) {AudioHolder.AU_UN.setFramePosition(0);AudioHolder.AU.loop(0);}
+                else if(rand<=0.6 && rand>0.4) {AudioHolder.AU_UN.setFramePosition(0);AudioHolder.AAAA.loop(0);}
+                else if(rand<=0.4 && rand>0.2) {AudioHolder.AU_UN.setFramePosition(0);AudioHolder.AHHHFine.loop(0);}
+                else {}
                 break;
             case ATTACK1,ATTACK2:
 //                EffectManager.addBloom(Time.Instance.getTotalTime(),3,0.5);
                 EffectManager.addDisplacementMap(Time.Instance.getTotalTime(),3, state.getAx(), state.getAy(), true);
                 System.out.println("state.getAX,Y()->"+state.getAx()+","+state.getAy());
-                if(rand>0.8) {AudioHolder.peti1.loop(1);AudioHolder.HUCHA.loop(1);}
-                else if(rand<=0.8 && rand>0.6) {AudioHolder.peti2.loop(1);AudioHolder.MAHIMAHI.loop(1);}
-                else if(rand<=0.6 && rand>0.4) {AudioHolder.peti3.loop(1);AudioHolder.FUTUN.loop(1);}
-                else if(rand<=0.4 && rand>0.2) AudioHolder.peti4.loop(1);
-                else AudioHolder.peti5.loop(1);
+                if(rand>0.8) {AudioHolder.peti1.setFramePosition(0);AudioHolder.peti1.loop(0);AudioHolder.HUCHA.setFramePosition(0);AudioHolder.HUCHA.loop(0);}
+                else if(rand<=0.8 && rand>0.6) {AudioHolder.peti2.setFramePosition(0);AudioHolder.peti2.loop(0);AudioHolder.MAHIMAHI.setFramePosition(0);AudioHolder.MAHIMAHI.loop(0);}
+                else if(rand<=0.6 && rand>0.4) {AudioHolder.peti3.setFramePosition(0);AudioHolder.peti3.loop(0);AudioHolder.FUTUN.setFramePosition(0);AudioHolder.FUTUN.loop(0);}
+                else if(rand<=0.4 && rand>0.2) {AudioHolder.peti4.setFramePosition(0);AudioHolder.peti4.loop(0);AudioHolder.SHAAAARK.setFramePosition(0);AudioHolder.SHAAAARK.loop(0);}
+                else {AudioHolder.peti5.setFramePosition(0);AudioHolder.peti5.loop(0);AudioHolder.HUMM.setFramePosition(0);AudioHolder.HUMM.loop(0);}
                 break;
             case ATTACK3:
-                if(rand>0.5)AudioHolder.TRIDENT.loop(1);
-                else AudioHolder.SHAAAARK.loop(1);
+                if(rand>0.5){AudioHolder.TRIDENT.setFramePosition(0);AudioHolder.TRIDENT.loop(0);}
+                else {AudioHolder.a.setFramePosition(0);AudioHolder.a.loop(0);}
                 trident_dir = state.getDirection();
                 break;
         }

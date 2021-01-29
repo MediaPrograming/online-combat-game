@@ -10,8 +10,10 @@ public class AudioHolder {
     public static Clip a;
     public static Clip peti1,peti2,peti3,peti4,peti5;
     public static Clip TRIDENT,MAHIMAHI,SHAAAARK,HUMM,FUTUN,HUCHA;
+    public static Clip AAAA,AHHHFine,AU,AU_UN;
     public AudioHolder(){
         damage = AudioClip.createClip(new File(PATH.Effect_HIT));
+        a = AudioClip.createClip(new File(PATH.root + "\\src\\main\\resources\\game\\sounds\\Gura\\a.wav"));
         peti1 = AudioClip.createClip(new File(PATH.root + "\\src\\main\\resources\\game\\sounds\\Gura\\peti1.wav"));
         peti2 = AudioClip.createClip(new File(PATH.root + "\\src\\main\\resources\\game\\sounds\\Gura\\peti2.wav"));
         peti3 = AudioClip.createClip(new File(PATH.root + "\\src\\main\\resources\\game\\sounds\\Gura\\peti3.wav"));
@@ -24,7 +26,10 @@ public class AudioHolder {
         HUMM = AudioClip.createClip(new File(PATH.root + "\\src\\main\\resources\\game\\sounds\\Gura\\HUMM.wav"));
         FUTUN = AudioClip.createClip(new File(PATH.root + "\\src\\main\\resources\\game\\sounds\\Gura\\Futun.wav"));
         HUCHA = AudioClip.createClip(new File(PATH.root + "\\src\\main\\resources\\game\\sounds\\Gura\\hutya.wav"));
-
+        AAAA = AudioClip.createClip(new File(PATH.root + "\\src\\main\\resources\\game\\sounds\\Gura\\AAAA.wav"));
+        AHHHFine = AudioClip.createClip(new File(PATH.root + "\\src\\main\\resources\\game\\sounds\\Gura\\AHHHFine.wav"));
+        AU = AudioClip.createClip(new File(PATH.root + "\\src\\main\\resources\\game\\sounds\\Gura\\AU.wav"));
+        AU_UN = AudioClip.createClip(new File(PATH.root + "\\src\\main\\resources\\game\\sounds\\Gura\\AU_UN.wav"));
 
     }
 
