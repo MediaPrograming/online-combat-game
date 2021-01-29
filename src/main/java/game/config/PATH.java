@@ -19,6 +19,7 @@ public final class PATH {
     public static final String Kiara_Run = root + "\\src\\main\\resources\\game\\img\\Kiara\\小鳥遊キアラrun-Sheet.png";
     public static final String Kiara_Attack1 = root + "\\src\\main\\resources\\game\\img\\Kiara\\小鳥遊キアラyokoattack-Sheet.png";
     public static final String Kiara_Attack3 = root + "\\src\\main\\resources\\game\\img\\Kiara\\小鳥遊キアラupperattack-Sheet.png";
+    public static final String Kiara_Attack4 = root +"\\src\\main\\resources\\game\\img\\Kiara\\小鳥遊キアラeat-Sheet.png";
     public static final String Kiara_Jump=root +"\\src\\main\\resources\\game\\img/Kiara\\小鳥遊キアラjump-Sheet.png";
     public static final String Kiara_Damage= root+"\\src\\main\\resources\\game\\img\\Kiara\\小鳥遊キアラdamage-Sheet.png";
 
