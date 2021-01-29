@@ -43,7 +43,7 @@ public class AnimationHolder {
         AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.ATTACK3 ,PATH.Gura_Normal,128,128,4,2,2,false);
         AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.ATTACK4 ,PATH.Gura_Normal,128,128,4,2,2,false);
         AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.DEFENCE ,PATH.Gura_Normal,128,128,4,2,2,false);
-        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.DAMAGE  ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.DAMAGE  ,PATH.Kiara_Damage,160,160,2,2,8,true);
         AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.JUMP    ,PATH.Gura_Normal,128,128,4,2,2,false);
         AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.SQUAT   ,PATH.Gura_Normal,128,128,4,2,2,false);
 

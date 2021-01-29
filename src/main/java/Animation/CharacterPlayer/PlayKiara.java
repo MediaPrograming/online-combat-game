@@ -32,6 +32,13 @@ public class PlayKiara extends PlayCharacter{
                 break;
             case DAMAGE :
                 AudioHolder.damage.loop(1);
+                if(state.getDirection()==Direction.RIGHT){
+                    this.offsetX = -150;
+                    this.offsetY = -60;
+                }else{
+                    this.offsetX = -170;
+                    this.offsetY = -60;
+                }
                 break;
             case ATTACK1:
                 break;
