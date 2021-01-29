@@ -46,22 +46,23 @@ public class AmeliaController extends CharaController{
                     attack.setVx(character.getVx());
                     attack.setVy(character.getVy());
                     attack.move();
-            }else if(character.getAction()==Behavior.ATTACK1&&character.getTimetomove()==28){
+            }else if(character.getAction()==Behavior.ATTACK1&&character.getTimetomove()==25){
                 attack.setX(character.getX()-character.getWidth()/2);
                 attack.setY(character.getY()+character.getHeight()/4);
                 attack.setWidth(character.getWidth()/2);
                 attack.setHeight(character.getHeight()/2);
                 attack.setVx(-10);
                 attack.setDamege(50);
-            }else if(character.getAction()==Behavior.ATTACK1&&character.getTimetomove()<28){
+            }else if(character.getAction()==Behavior.ATTACK1&&character.getTimetomove()<25){
                 attack.move();
-            }else if(character.getAction()==Behavior.ATTACK2&&character.getTimetomove()==28){
+            }else if(character.getAction()==Behavior.ATTACK2&&character.getTimetomove()==25){
                 attack.setX(character.getX()+character.getWidth());
                 attack.setY(character.getY()+character.getHeight()/4);
                 attack.setWidth(character.getWidth()/2);
                 attack.setHeight(character.getHeight()/2);
+                attack.setVx(10);
                 attack.setDamege(50);
-            }else if(character.getAction()==Behavior.ATTACK2&&character.getTimetomove()<28){
+            }else if(character.getAction()==Behavior.ATTACK2&&character.getTimetomove()<25){
                 attack.move();
             }else if(character.getAction()==Behavior.ATTACK3&&character.getTimetomove()==12){
             }else if(character.getAction()==Behavior.ATTACK4&&character.getTimetomove()==1){
