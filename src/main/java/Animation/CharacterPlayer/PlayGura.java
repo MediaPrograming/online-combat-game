@@ -12,12 +12,14 @@ import game.util.Time;
 import io.game.hub.messageHub.CharacterType;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
+import io.game.hub.positionHub.Direction;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 import java.io.File;
 
 public class PlayGura extends PlayCharacter{
+    Direction trident_dir;
     Image trident =	new Image(new File(PATH.TRIDENT).toURI().toString());
     public PlayGura(GraphicsContext gc, CharaAnimationPlayer player, CharacterState state){
         super(gc, player, state);
@@ -50,6 +52,7 @@ public class PlayGura extends PlayCharacter{
                 break;
             case ATTACK4:
                 AudioHolder.TRIDENT.loop(1);
+                trident_dir = state.getDirection();
                 break;
         }
     }
@@ -63,7 +66,10 @@ public class PlayGura extends PlayCharacter{
                 case ATTACK4 :
                     AtkW = Gura.TRIDENT_W;
                     AtkH = Gura.TRIDENT_H;
-                    gc.drawImage(trident,state.getAtkX(), state.getAtkY(),AtkW,AtkH);
+                    switch (trident_dir){
+                        case RIGHT :gc.drawImage(trident,state.getAtkX(), state.getAtkY(),AtkW,AtkH);
+                        case LEFT: gc.drawImage(trident,state.getAtkX()+AtkW, state.getAtkY(),-AtkW,AtkH);
+                    }
                     break;
             }
 
