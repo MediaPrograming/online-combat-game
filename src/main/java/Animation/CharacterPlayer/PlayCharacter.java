@@ -104,7 +104,6 @@ public class PlayCharacter {
         //test
         ShowStatus();
         gc.fillText("AtkX,Y->"+state.getAtkX()+","+state.getAtkY(),state.getX()-50, state.getY()-50);
-        gc.fillRect(state.getAtkX(), state.getAtkY(), 20,20);
     }
 
     protected void ShowAttackPolygon(CharacterState state){}
