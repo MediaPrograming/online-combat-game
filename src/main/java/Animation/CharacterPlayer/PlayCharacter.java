@@ -1,10 +1,13 @@
 package Animation.CharacterPlayer;
 
 import Animation.CharaAnimationPlayer;
+import Animation.EffectAnimationManager;
 import Animation.EffectPlayer.*;
 import Animation.CharaAnimationPlayer;
+import Audio.AudioHolder;
 import game.config.CharaData.*;
 import game.config.Character;
+import game.util.Time;
 import io.game.hub.messageHub.CharacterType;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
@@ -52,7 +55,14 @@ public class PlayCharacter {
         this.state = state;
     }
 
-    public void changedAction(CharacterState state) { }
+    public void changedAction(CharacterState state) {
+        switch (state.getBehavior()){
+            case DAMAGE :
+                AudioHolder.damage.loop(1);;
+                EffectAnimationManager.addEffectAnimation("HIT",1, Time.Instance.getTotalTime(),state);
+                break;
+        }
+    } // Behaviorが変更されたとき1回だけ呼ばれる関数
 
     public void adjustDirection(CharacterState state){
         if(state.getDirection() == Direction.RIGHT) width = Math.abs(width);

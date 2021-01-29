@@ -14,7 +14,7 @@ public class AudioHolder {
     public static Clip peti4;
     public static Clip peti5;
     public AudioHolder(){
-        damage = AudioClip.createClip(new File(PATH.damage));
+        damage = AudioClip.createClip(new File(PATH.Effect_HIT));
         peti1 = AudioClip.createClip(new File(PATH.root + "\\src\\main\\resources\\game\\sounds\\peti1.wav"));
         peti2 = AudioClip.createClip(new File(PATH.root + "\\src\\main\\resources\\game\\sounds\\peti2.wav"));
         peti3 = AudioClip.createClip(new File(PATH.root + "\\src\\main\\resources\\game\\sounds\\peti3.wav"));

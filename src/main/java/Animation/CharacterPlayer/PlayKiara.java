@@ -6,14 +6,15 @@ import Audio.AudioHolder;
 import io.game.hub.messageHub.CharacterType;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
+import io.game.hub.positionHub.Direction;
 import javafx.scene.canvas.GraphicsContext;
 
 public class PlayKiara extends PlayCharacter{
     public PlayKiara(GraphicsContext gc, CharaAnimationPlayer player, CharacterState state){
         super(gc, player, state);
         this.width = this.height = 400;
-        this.offsetX = -150;
-        this.offsetY = -50;
+        this.offsetX = -170;
+        this.offsetY = -60;
     }
 
     @Override
@@ -21,13 +22,34 @@ public class PlayKiara extends PlayCharacter{
         super.changedAction(state);
         switch (state.getBehavior()){
             case NORMAL:
-                this.offsetX = -80;
-                this.offsetY = -50;
+                if(state.getDirection()==Direction.RIGHT){
+                    this.offsetX = -150;
+                    this.offsetY = -60;
+                }else{
+                    this.offsetX = -170;
+                    this.offsetY = -60;
+                }
                 break;
             case DAMAGE :
                 AudioHolder.damage.loop(1);
+                if(state.getDirection()==Direction.RIGHT){
+                    this.offsetX = -150;
+                    this.offsetY = -60;
+                }else{
+                    this.offsetX = -170;
+                    this.offsetY = -60;
+                }
                 break;
             case ATTACK1:
+                break;
+            case JUMP:
+                if(state.getDirection()==Direction.RIGHT){
+                    this.offsetX = -160;
+                    this.offsetY = -60;
+                }else{
+                    this.offsetX = -160;
+                    this.offsetY = -60;
+                }
                 break;
         }
     }
