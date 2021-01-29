@@ -4,6 +4,7 @@ package game.phisics.Controller;
 import game.phisics.Attackplygon;
 import game.phisics.Character;
 import game.phisics.Controller.*;
+import io.game.hub.positionHub.Behavior;
 
 public class InanisController extends CharaController{
        public InanisController(Character c,Attackplygon a){        
@@ -50,11 +51,15 @@ public class InanisController extends CharaController{
              character.vector(0, -10);
      }
      @Override public void attacking(){
-            if(attack.getX()!=-1){
+        if(attack.getX()!=-1){
                     attack.setVx(character.getVx());
                     attack.setVy(character.getVy());
                     attack.move();
-                }
+        }else if(character.getAction()==Behavior.ATTACK1&&character.getTimetomove()==12){  
+        }else if(character.getAction()==Behavior.ATTACK2&&character.getTimetomove()==12){
+        }else if(character.getAction()==Behavior.ATTACK3&&character.getTimetomove()==12){
+        }else if(character.getAction()==Behavior.ATTACK4&&character.getTimetomove()==1){
+        }
                
      }
 }
