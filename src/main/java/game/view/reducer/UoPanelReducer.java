@@ -13,6 +13,8 @@ import game.store.StoreManager;
 import game.view.action.UoPanelEvent;
 import game.view.action.UIEvent;
 import game.view.state.UoPanelState;
+
+import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import java.io.File;
 
@@ -139,8 +141,8 @@ public class UoPanelReducer implements IReducer<UoPanelState> {
                     return panelState;
                 })
                 .Case(UoPanelEvent.START_AUDIO, ((panelState, unit) -> {
-                    var bgm = AudioClip.createClip(new File(PATH.RIP));
-                    bgm.start();
+                    var bgm = AudioClip.createClip(new File(PATH.BGM));
+                    bgm.loop(Clip.LOOP_CONTINUOUSLY);
                     FloatControl ctrl = (FloatControl)bgm.getControl(FloatControl.Type.MASTER_GAIN);
                     ctrl.setValue((float)Math.log10(0.1) * 20);
                     panelState.bgm = bgm;

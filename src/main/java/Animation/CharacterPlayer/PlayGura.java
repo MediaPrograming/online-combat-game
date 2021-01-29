@@ -2,6 +2,7 @@ package Animation.CharacterPlayer;
 
 import Animation.AnimationHolder;
 import Animation.CharaAnimationPlayer;
+import Animation.EffectAnimationManager;
 import Animation.EffectPlayer.EffectManager;
 import Animation.EffectPlayer.PlayBloom;
 import Audio.AudioHolder;
@@ -28,7 +29,6 @@ public class PlayGura extends PlayCharacter{
                 this.offsetY = -50;
                 break;
             case DAMAGE :
-                AudioHolder.damage.loop(1);;
                 break;
             case ATTACK1:
 //                EffectManager.addBloom(Time.Instance.getTotalTime(),3,0.5);

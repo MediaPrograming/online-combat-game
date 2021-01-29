@@ -3,6 +3,7 @@ import Animation.AnimationHolder;
 import Animation.CharaAnimationPlayer;
 import Animation.CharacterPlayer.*;
 import Animation.DrawPolygon;
+import Animation.EffectAnimationManager;
 import Animation.EffectPlayer.EffectManager;
 import Animation.UIPlayer.PlayUI;
 import Audio.AudioHolder;
@@ -71,7 +72,6 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         gc2 = canvas2.getGraphicsContext2D();
         gc3 = canvas3.getGraphicsContext2D();
 
-//        Time.Instance.run();
         initTime = Time.Instance.getTotalTime();
         text = new Text(String.valueOf(initTime));
         text.setStroke(Color.BLACK);
@@ -97,6 +97,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         continueButton.setOnAction(e -> {props.StopAudio(); props.ContinueGame();});
         quitButton.setOnAction(e -> {props.StopAudio(); props.QuitGame();});
 
+        EffectAnimationManager.setGc(gc2);
         EffectManager.addGraphicsContext(gc1);
         EffectManager.addGraphicsContext(gc2);
         EffectManager.addGraphicsContext(gc3);
@@ -134,11 +135,13 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         gc2.clearRect(0,0,canvas2.getWidth(),canvas2.getHeight());
         gc2.drawImage(state.floor,-20,-20,1320,742.5);
         state.playerTable.forEach((k,v) -> v.play());
+        EffectAnimationManager.play();
 
         /*gc3,canvas3*/
         gc3.clearRect(0,0,canvas3.getWidth(),canvas3.getHeight());
         gc3.setFill(Color.WHITE);
         gc3.fillText(""+text, 300, 100);
+
         PlayUI.play();
         //PlayUI.debug(hoge);
         if(debug){

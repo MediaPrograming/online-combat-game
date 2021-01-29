@@ -80,7 +80,7 @@ public class AnimationHolder {
         AnimationHolder.addCharaAnimation(Character.Ame, Behavior.JUMP    ,PATH.Gura_Normal,128,128,4,2,2,false);
         AnimationHolder.addCharaAnimation(Character.Ame, Behavior.SQUAT   ,PATH.Gura_Normal,128,128,4,2,2,false);
 
-//        AnimationHolder.addEffectAnimation("HIT",PATH.Effect_HIT,100,100,5,1,8,false);
+        AnimationHolder.addEffectAnimation("HIT",PATH.HIT,100,100,5,1,8,false);
     }
 
 //    public ArrayList<Image[][]> getAnimations(){
