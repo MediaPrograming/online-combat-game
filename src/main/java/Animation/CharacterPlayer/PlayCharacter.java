@@ -103,9 +103,13 @@ public class PlayCharacter {
 
         //test
         ShowStatus();
+        gc.fillText("AtkX,Y->"+state.getAtkX()+","+state.getAtkY(),state.getX()-50, state.getY()-50);
+        gc.fillRect(state.getAtkX(), state.getAtkY(), 20,20);
     }
 
-    public void ShowStatus(){
+    protected void ShowAttackPolygon(CharacterState state){}
+
+    private void ShowStatus(){
         gc.setFill(Color.BLUE);
         gc.setFont(Font.font(20));
         switch (this.state.getBehavior()) {
