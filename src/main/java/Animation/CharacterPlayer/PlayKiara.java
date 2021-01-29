@@ -3,6 +3,7 @@ package Animation.CharacterPlayer;
 import Animation.AnimationHolder;
 import Animation.CharaAnimationPlayer;
 import Audio.AudioHolder;
+import game.config.CharaData.Gura;
 import io.game.hub.messageHub.CharacterType;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
@@ -53,6 +54,7 @@ public class PlayKiara extends PlayCharacter{
                 break;
         }
     }
+
 
     @Override
     public void play() {

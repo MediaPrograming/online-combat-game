@@ -27,7 +27,7 @@ public final class PATH {
     public static final String Amelia_Attack1 = root + "\\src\\main\\resources\\game\\img\\Amelia\\Amerial-Attack-01.png";
 
 
-    public static final String TRIDENT = root + "\\src\\main\\resources\\game\\img\\Amelia\\Amerial-Attack-01.png";
+    public static final String TRIDENT = root + "\\src\\main\\resources\\game\\img\\Gura\\Guratrydent-Sheet.png";
 
     public static final String BGM = root + "\\src\\main\\resources\\game\\sounds\\Tanukichi.wav";
     public static final String Effect_HIT = root + "\\src\\main\\resources\\game\\sounds\\hit.wav";

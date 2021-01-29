@@ -54,18 +54,15 @@ public class PlayGura extends PlayCharacter{
     protected void ShowAttackPolygon(CharacterState state){
         double AtkX = state.getAtkX() , AtkY = state.getAtkY();
         double AtkW = 0, AtkH = 0;
-        Image img;
         if(!(AtkX == -1.0 && AtkY == -1.0)){
             switch (state.getBehavior()){
                 case ATTACK4 :
                     AtkW = Gura.TRIDENT_W;
                     AtkH = Gura.TRIDENT_H;
-                    img = trident;
+                    gc.drawImage(trident,state.getAtkX(), state.getAtkY(),AtkW,AtkH);
                     break;
-                default:
-                    throw new IllegalStateException("Unexpected value: " + state.getBehavior());
             }
-            gc.drawImage(img,state.getAtkX(), state.getAtkY(),AtkW,AtkH);
+
             gc.strokeRect(state.getAtkX(),state.getAtkY(),state.getAtkW(),state.getAtkH());
         }
     }
