@@ -42,6 +42,15 @@ public class PlayKiara extends PlayCharacter{
                 break;
             case ATTACK1:
                 break;
+            case JUMP:
+                if(state.getDirection()==Direction.RIGHT){
+                    this.offsetX = -160;
+                    this.offsetY = -60;
+                }else{
+                    this.offsetX = -160;
+                    this.offsetY = -60;
+                }
+                break;
         }
     }
 
