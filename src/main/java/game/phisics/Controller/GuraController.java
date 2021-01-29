@@ -3,6 +3,7 @@ package game.phisics.Controller;
 import game.phisics.Controller.*;
 import game.phisics.Attackplygon;
 import game.phisics.Character;
+import io.game.hub.positionHub.Behavior;
 
 public class GuraController extends CharaController{
     public GuraController(Character c, Attackplygon a){        
@@ -53,7 +54,11 @@ public class GuraController extends CharaController{
                     attack.setVx(character.getVx());
                     attack.setVy(character.getVy());
                     attack.move();
-                }
-               
+            }else if(character.getAction()==Behavior.ATTACK1&&character.getTimetomove()==12){  
+            }else if(character.getAction()==Behavior.ATTACK2&&character.getTimetomove()==12){
+            }else if(character.getAction()==Behavior.ATTACK3&&character.getTimetomove()==12){
+            }else if(character.getAction()==Behavior.ATTACK4&&character.getTimetomove()==1){
+            }
+
      }
 }
