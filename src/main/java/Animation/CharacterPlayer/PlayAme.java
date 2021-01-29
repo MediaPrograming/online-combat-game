@@ -10,9 +10,9 @@ import javafx.scene.canvas.GraphicsContext;
 public class PlayAme extends PlayCharacter{
     public PlayAme(GraphicsContext gc, CharaAnimationPlayer player, CharacterState state){
         super(gc, player, state);
-        this.width = this.height = 350;
-        this.offsetX = -80;
-        this.offsetY = -50;
+        this.width = this.height = 275;
+        this.offsetX = 0;
+        this.offsetY = -5;
     }
 
     @Override

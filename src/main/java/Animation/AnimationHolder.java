@@ -69,8 +69,8 @@ public class AnimationHolder {
         AnimationHolder.addCharaAnimation(Character.Calli, Behavior.JUMP    ,PATH.Gura_Normal,128,128,4,2,2,false);
         AnimationHolder.addCharaAnimation(Character.Calli, Behavior.SQUAT   ,PATH.Gura_Normal,128,128,4,2,2,false);
 
-        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.NORMAL  ,PATH.Kiara_Normal,200,200,5,5,8,true );
-        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.RUN     ,PATH.Kiara_Run,   160,160,8,1,8,true );
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.NORMAL  ,PATH.Amelia_Normal,150,150,4,3,8,true );
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.RUN     ,PATH.Amelia_Attack1,   160,160,8,1,8,true );
         AnimationHolder.addCharaAnimation(Character.Ame, Behavior.ATTACK1 ,PATH.Gura_Normal,128,128,4,2,2,false);
         AnimationHolder.addCharaAnimation(Character.Ame, Behavior.ATTACK2 ,PATH.Gura_Normal,128,128,4,2,2,false);
         AnimationHolder.addCharaAnimation(Character.Ame, Behavior.ATTACK3 ,PATH.Gura_Normal,128,128,4,2,2,false);
