@@ -80,6 +80,8 @@ public class Character extends PhysicsObject {
                 attack.setVisible(false);
                 attack.setX(-1);
                 attack.setY(-1);
+                attack.setVy(0);
+                attack.setVx(0);
                 attack.setWidth(1);
                 attack.setHeight(1);
                 action=Behavior.NORMAL;
