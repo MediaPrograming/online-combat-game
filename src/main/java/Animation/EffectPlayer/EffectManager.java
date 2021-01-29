@@ -18,6 +18,7 @@ public class EffectManager {
         EffectManager.list.forEach(e -> {if(e.getDuration() > e.getPlayTime()) remove.add(e);});
         EffectManager.list.removeAll(remove);
         list.forEach(PlayEffect::play);
+//        if(!EffectManager.list.isEmpty()) {EffectManager.list.forEach(e->System.out.println(e));System.out.println("----------------------");}
     }
 
     public static void addBloom(double firstFrame,double playTime,double threshold){

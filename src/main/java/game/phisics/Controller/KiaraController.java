@@ -27,13 +27,6 @@ public class KiaraController extends CharaController{
      }
 
      @Override public int attack4(){
-            attack.setX(character.getX()-character.getWidth()/4);
-            attack.setY(character.getY()+3*character.getHeight()/4);
-            attack.setWidth(3*character.getWidth()/2);
-            attack.setHeight(character.getHeight()/4);
-            attack.setDamege(50);
-            attack.setDamagetime(50);
-
              return 50;
      }
      @Override public void jump(){
@@ -65,7 +58,9 @@ public class KiaraController extends CharaController{
                          attack.setHeight(character.getHeight()/2);
                           attack.setDamege(50);
                          attack.setDamagetime(50);
-                }
+                }else if(character.getAction()==Behavior.ATTACK4&&character.getTimetomove()==1){
+                        character.Damage(-50);
+            }
 
                
      }

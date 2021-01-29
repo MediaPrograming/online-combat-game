@@ -3,6 +3,7 @@ package game.phisics.Controller;
 import game.phisics.Controller.*;
 import game.phisics.Character;
 import game.phisics.*;
+import io.game.hub.positionHub.Behavior;
 
 public class AmeliaController extends CharaController{
     public AmeliaController(Character c, Attackplygon a){        
@@ -11,21 +12,13 @@ public class AmeliaController extends CharaController{
     }
     @Override 
     public int attack1(){
-        attack.setX(character.getX()-character.getWidth()/2);
-        attack.setY(character.getY()+character.getHeight()/4);
-        attack.setWidth(character.getWidth()/2);
-        attack.setHeight(character.getHeight()/2);
-        attack.setDamege(50);
-            return 50;
+
+            return 70;
     }
     @Override
     public int attack2(){
-        attack.setX(character.getX()+character.getWidth());
-        attack.setY(character.getY()+character.getHeight()/4);
-        attack.setWidth(character.getWidth()/2);
-        attack.setHeight(character.getHeight()/2);
-        attack.setDamege(50);
-            return 50;
+
+            return 70;
     }
     @Override
     public int attack3(){
@@ -49,11 +42,31 @@ public class AmeliaController extends CharaController{
              character.vector(0, -10);
      }
      @Override public void attacking(){
-            if(attack.getX()!=-1){
+            if(character.getAction()!=Behavior.ATTACK1&&character.getAction()!=Behavior.ATTACK2&&attack.getX()!=-1){
                     attack.setVx(character.getVx());
                     attack.setVy(character.getVy());
                     attack.move();
-                }
+            }else if(character.getAction()==Behavior.ATTACK1&&character.getTimetomove()==25){
+                attack.setX(character.getX()-character.getWidth()/2);
+                attack.setY(character.getY()+character.getHeight()/4);
+                attack.setWidth(character.getWidth()/2);
+                attack.setHeight(character.getHeight()/2);
+                attack.setVx(-10);
+                attack.setDamege(50);
+            }else if(character.getAction()==Behavior.ATTACK1&&character.getTimetomove()<25){
+                attack.move();
+            }else if(character.getAction()==Behavior.ATTACK2&&character.getTimetomove()==25){
+                attack.setX(character.getX()+character.getWidth());
+                attack.setY(character.getY()+character.getHeight()/4);
+                attack.setWidth(character.getWidth()/2);
+                attack.setHeight(character.getHeight()/2);
+                attack.setVx(10);
+                attack.setDamege(50);
+            }else if(character.getAction()==Behavior.ATTACK2&&character.getTimetomove()<25){
+                attack.move();
+            }else if(character.getAction()==Behavior.ATTACK3&&character.getTimetomove()==12){
+            }else if(character.getAction()==Behavior.ATTACK4&&character.getTimetomove()==1){
+            }
                
      }
 }

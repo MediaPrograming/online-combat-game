@@ -41,7 +41,7 @@ public class AnimationHolder {
         AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.ATTACK1 ,PATH.Kiara_Attack1,160,160,3,2,8,false);
         AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.ATTACK2 ,PATH.Kiara_Attack1,160,160,3,2,8,false);
         AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.ATTACK3 ,PATH.Kiara_Attack3,160,160,3,2,8,false);
-        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.ATTACK4 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.ATTACK4 ,PATH.Kiara_Attack4,160,160,2,1,4,false);
         AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.DEFENCE ,PATH.Gura_Normal,128,128,4,2,2,false);
         AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.DAMAGE  ,PATH.Kiara_Damage,160,160,2,2,8,true);
         AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.JUMP    ,PATH.Kiara_Jump,160,160,1,1,2,true);
@@ -70,9 +70,9 @@ public class AnimationHolder {
         AnimationHolder.addCharaAnimation(Character.Calli, Behavior.SQUAT   ,PATH.Gura_Normal,128,128,4,2,2,false);
 
         AnimationHolder.addCharaAnimation(Character.Ame, Behavior.NORMAL  ,PATH.Amelia_Normal,150,150,4,3,8,true );
-        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.RUN     ,PATH.Amelia_Attack1,   160,160,8,1,8,true );
-        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.ATTACK1 ,PATH.Gura_Normal,128,128,4,2,2,false);
-        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.ATTACK2 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.RUN     ,PATH.Gura_Normal,   128,128,4,2,2,true );
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.ATTACK1 ,PATH.Amelia_Attack1,150,150,5,2,8,false);
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.ATTACK2 ,PATH.Amelia_Attack1,150,150,5,2,8,false);
         AnimationHolder.addCharaAnimation(Character.Ame, Behavior.ATTACK3 ,PATH.Gura_Normal,128,128,4,2,2,false);
         AnimationHolder.addCharaAnimation(Character.Ame, Behavior.ATTACK4 ,PATH.Gura_Normal,128,128,4,2,2,false);
         AnimationHolder.addCharaAnimation(Character.Ame, Behavior.DEFENCE ,PATH.Gura_Normal,128,128,4,2,2,false);
