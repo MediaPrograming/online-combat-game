@@ -12,6 +12,7 @@ public class EffectManager {
     public static void addGraphicsContext(GraphicsContext g){
         gcList.add(g);
     }
+    public static void resetGraphicsContext(){gcList = new ArrayList<>();}
 
     public static void play(){
         ArrayList<PlayEffect> remove = new ArrayList<>();

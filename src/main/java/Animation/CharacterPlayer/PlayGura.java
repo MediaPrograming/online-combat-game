@@ -19,7 +19,8 @@ import javafx.scene.image.Image;
 import java.io.File;
 
 public class PlayGura extends PlayCharacter{
-    Direction trident_dir;
+    private boolean flag;
+    private Direction trident_dir;
     Image trident =	new Image(new File(PATH.TRIDENT).toURI().toString());
     public PlayGura(GraphicsContext gc, CharaAnimationPlayer player, CharacterState state){
         super(gc, player, state);
@@ -32,6 +33,7 @@ public class PlayGura extends PlayCharacter{
     public void changedAction(CharacterState state) {
         System.out.println("uo");
         super.changedAction(state);
+        double rand = Math.random();
         switch (state.getBehavior()){
             case NORMAL:
                 this.offsetX = -80;
@@ -43,15 +45,15 @@ public class PlayGura extends PlayCharacter{
 //                EffectManager.addBloom(Time.Instance.getTotalTime(),3,0.5);
                 EffectManager.addDisplacementMap(Time.Instance.getTotalTime(),3, state.getAx(), state.getAy(), true);
                 System.out.println("state.getAX,Y()->"+state.getAx()+","+state.getAy());
-                double rand = Math.random();
                 if(rand>0.8) {AudioHolder.peti1.loop(1);AudioHolder.HUCHA.loop(1);}
                 else if(rand<=0.8 && rand>0.6) {AudioHolder.peti2.loop(1);AudioHolder.MAHIMAHI.loop(1);}
                 else if(rand<=0.6 && rand>0.4) {AudioHolder.peti3.loop(1);AudioHolder.FUTUN.loop(1);}
                 else if(rand<=0.4 && rand>0.2) AudioHolder.peti4.loop(1);
                 else AudioHolder.peti5.loop(1);
                 break;
-            case ATTACK4:
-                AudioHolder.TRIDENT.loop(1);
+            case ATTACK3:
+                if(rand>0.5)AudioHolder.TRIDENT.loop(1);
+                else AudioHolder.SHAAAARK.loop(1);
                 trident_dir = state.getDirection();
                 break;
         }
@@ -63,17 +65,21 @@ public class PlayGura extends PlayCharacter{
         double AtkW = 0, AtkH = 0;
         if(!(AtkX == -1.0 && AtkY == -1.0)){
             switch (state.getBehavior()){
-                case ATTACK4 :
-                    AtkW = Gura.TRIDENT_W;
-                    AtkH = Gura.TRIDENT_H;
+                case ATTACK3 :
+                    flag = true;
+                    AtkW = state.getAtkW();
+                    AtkH = state.getAtkH();
                     switch (trident_dir){
                         case RIGHT :gc.drawImage(trident,state.getAtkX(), state.getAtkY(),AtkW,AtkH);
+                                    break;
                         case LEFT: gc.drawImage(trident,state.getAtkX()+AtkW, state.getAtkY(),-AtkW,AtkH);
+                                    break;
                     }
                     break;
             }
-
             gc.strokeRect(state.getAtkX(),state.getAtkY(),state.getAtkW(),state.getAtkH());
+        }else{
+            if(flag) {EffectManager.addDisplacementMap(Time.Instance.getTotalTime(),3, 10, 2, true); flag = false;}
         }
     }
 
