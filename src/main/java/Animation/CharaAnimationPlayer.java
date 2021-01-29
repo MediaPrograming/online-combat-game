@@ -5,6 +5,8 @@ import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
 import javafx.scene.image.Image;
 
+import java.awt.*;
+
 public class CharaAnimationPlayer {
     private Integer ID;
     private String Chara;
@@ -37,7 +39,7 @@ public class CharaAnimationPlayer {
         int two = (int)(duration/nowAnim.getAnim().length*nowAnim.getSpeed())%nowAnim.getAnim()[0].length;
 
         if(!nowAnim.getLoop()){
-            if(duration > nowAnim.getAnim().length*nowAnim.getAnim()[0].length * nowAnim.getSpeed() ){
+            if(duration > nowAnim.getAnim().length*nowAnim.getAnim()[0].length / nowAnim.getSpeed() ){
                 one = nowAnim.getAnim().length - 1;
                 two = nowAnim.getAnim()[0].length - 1;
             }
