@@ -3,6 +3,7 @@ package game.phisics.Controller;
 import game.phisics.Attackplygon;
 import game.phisics.Character;
 import game.phisics.Controller.*;
+import io.game.hub.positionHub.Behavior;
 
 public class KiaraController extends CharaController{
     public KiaraController(Character c, Attackplygon a){        
@@ -11,33 +12,18 @@ public class KiaraController extends CharaController{
     }
     @Override 
     public int attack1(){
-            attack.setX(character.getX()-character.getWidth()/2);
-            attack.setY(character.getY()+character.getHeight()/4);
-            attack.setWidth(character.getWidth());
-            attack.setHeight(character.getHeight()/4);
-            attack.setDamege(50);
-            attack.setDamagetime(20);
-            return 20;
+            
+            return 24;
     }
     @Override
     public int attack2(){
-            attack.setX(character.getX()+character.getWidth());
-            attack.setY(character.getY()+character.getHeight()/4);
-            attack.setWidth(character.getWidth());
-            attack.setHeight(character.getHeight()/2);
-            attack.setDamege(50);
-            attack.setDamagetime(20);
-            return 20;
+           
+            return 24;
     }
     @Override
     public int attack3(){
-            attack.setX(character.getX()+character.getWidth()/4);
-            attack.setY(character.getY()-character.getHeight()/2);
-            attack.setWidth(character.getWidth()/2);
-            attack.setHeight(character.getHeight()/2);
-            attack.setDamege(50);
-            attack.setDamagetime(50);
-             return 50;
+            
+             return 24;
      }
 
      @Override public int attack4(){
@@ -58,7 +44,29 @@ public class KiaraController extends CharaController{
                     attack.setVx(character.getVx());
                     attack.setVy(character.getVy());
                     attack.move();
+            }else if(character.getAction()==Behavior.ATTACK1&&character.getTimetomove()==12){
+                        attack.setX(character.getX()-character.getWidth()/2);
+                        attack.setY(character.getY()+character.getHeight()/4);
+                        attack.setWidth(character.getWidth());
+                        attack.setHeight(character.getHeight()/4);
+                        attack.setDamege(50);
+                        attack.setDamagetime(20);
+            }else if(character.getAction()==Behavior.ATTACK2&&character.getTimetomove()==12){
+                attack.setX(character.getX()+character.getWidth());
+                attack.setY(character.getY()+character.getHeight()/4);
+                attack.setWidth(character.getWidth());
+                attack.setHeight(character.getHeight()/2);
+                attack.setDamege(50);
+                attack.setDamagetime(20);
+                }else if(character.getAction()==Behavior.ATTACK3&&character.getTimetomove()==12){
+                        attack.setX(character.getX()+character.getWidth()/4);
+                         attack.setY(character.getY()-character.getHeight()/2);
+                          attack.setWidth(character.getWidth()/2);
+                         attack.setHeight(character.getHeight()/2);
+                          attack.setDamege(50);
+                         attack.setDamagetime(50);
                 }
+
                
      }
 }

@@ -39,12 +39,12 @@ public class AnimationHolder {
         AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.NORMAL  ,PATH.Kiara_Normal,200,200,5,5,8,true );
         AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.RUN     ,PATH.Kiara_Run,   160,160,8,1,8,true );
         AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.ATTACK1 ,PATH.Kiara_Attack1,160,160,3,2,8,false);
-        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.ATTACK2 ,PATH.Kiara_Attack2,160,160,3,2,8,false);
-        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.ATTACK3 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.ATTACK2 ,PATH.Kiara_Attack1,160,160,3,2,8,false);
+        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.ATTACK3 ,PATH.Kiara_Attack3,160,160,3,2,8,false);
         AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.ATTACK4 ,PATH.Gura_Normal,128,128,4,2,2,false);
         AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.DEFENCE ,PATH.Gura_Normal,128,128,4,2,2,false);
-        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.DAMAGE  ,PATH.Gura_Normal,128,128,4,2,2,false);
-        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.JUMP    ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.DAMAGE  ,PATH.Kiara_Damage,160,160,2,2,8,true);
+        AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.JUMP    ,PATH.Kiara_Jump,160,160,1,1,2,true);
         AnimationHolder.addCharaAnimation(Character.Kiara, Behavior.SQUAT   ,PATH.Gura_Normal,128,128,4,2,2,false);
 
         AnimationHolder.addCharaAnimation(Character.Ina, Behavior.NORMAL  ,PATH.Kiara_Normal,200,200,5,5,8,true );
