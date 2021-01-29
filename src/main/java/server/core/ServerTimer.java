@@ -67,6 +67,8 @@ public class ServerTimer {
             double y = c.getY();
             double ax = c.getAx();
             double ay = c.getAy();
+            double atkX =c.getAttack().getX();
+            double atkY =c.getAttack().getY();
             int hp = c.getHP();
             Behavior behavior = c.getAction();
             Direction direction = c.getDirection();
@@ -79,6 +81,8 @@ public class ServerTimer {
                     .setAy(ay)
                     .setHP(hp)
                     .setTime(time)
+                    .setAtkX(atkX)
+                    .setAtkY(atkY)
                     .setBehavior(behavior)
                     .setDirection(direction)
                     .build();

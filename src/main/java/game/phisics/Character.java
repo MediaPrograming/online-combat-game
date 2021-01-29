@@ -206,7 +206,8 @@ public class Character extends PhysicsObject {
             HP=0;
         }
     }
-        
-    
 
+    public Attackplygon getAttack() {
+        return attack;
+    }
 }
