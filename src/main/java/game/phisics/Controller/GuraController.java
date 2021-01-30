@@ -13,25 +13,24 @@ public class GuraController extends CharaController{
     }
     @Override 
     public int attack1(){
-        attack.setX(character.getX()-character.getWidth()/2);
-        attack.setY(character.getY()+character.getHeight()/4);
-        attack.setWidth(character.getWidth()/2);
-        attack.setHeight(character.getHeight()/2);
+        attack.setX(character.getX()-character.getWidth()/6);
+        attack.setY(character.getY());
+        attack.setWidth(character.getWidth()/6);
+        attack.setHeight(character.getHeight());
         attack.setDamege(40);
             return 30;
     }
     @Override
     public int attack2(){
         attack.setX(character.getX()+character.getWidth());
-        attack.setY(character.getY()+character.getHeight()/4);
-        attack.setWidth(character.getWidth()/2);
-        attack.setHeight(character.getHeight()/2);
+        attack.setY(character.getY());
+        attack.setWidth(character.getWidth()/6);
+        attack.setHeight(character.getHeight());
         attack.setDamege(40);
             return 30;
     }
     @Override
     public int attack3(){
-
         attack.setDamege(100);
         return 80;
      }
