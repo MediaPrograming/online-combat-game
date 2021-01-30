@@ -9,7 +9,7 @@ import io.game.hub.positionHub.Behavior;
 public class PhysicsCalcUtil {
     public static void CharacterCollision(PhysicsObject a, PhysicsObject b) {
         if (a.intersects(b.getX() + b.getVx() - 1 - a.getVx(), b.getY() + b.getVy() - 1 - a.getVy(), b.getWidth() + 2, b.getHeight() + 2)) {
-            if (a.intersects(b.getX() + b.getVx() - 1 - a.getVx(), b.getY() - 1, b.getWidth() + 1, b.getHeight() + 1)) {
+            if (a.intersects(b.getX() + b.getVx() - 1 - a.getVx(), b.getY() - 1, b.getWidth() + 2, b.getHeight() + 2)) {
                 if (a.getX() < b.getX()) {
                     //a.setVx((b.getX()-a.getWidth()-2-a.getX()));
                     if (a.getVx() <= 0) {
@@ -76,19 +76,8 @@ public class PhysicsCalcUtil {
             return 0;
         }
         if(aAttack.intersects(b.getX()+b.getVx(),b.getY()+b.getVy(),b.getWidth(),b.getHeight())){
-            if(aAttack.getX()== a.getX()+a.getWidth()/4){
-                b.vector(0,-10);
-            }else if(aAttack.getX()== a.getX()-a.getWidth()/2){
-                b.vector(-5,-2);
-            } else if(aAttack.getX()== a.getX()+a.getWidth()){
-                b.vector(5,-2);
-            }else if(aAttack.getX()== a.getX()-a.getWidth()/4){
-                if(b.getX()<=a.getX()){
-                    b.vector(-2,-2);
-                }else{
-                    b.vector(2,-2);
-                }
-            }
+
+            b.vector(aAttack.getVecx(),aAttack.getVecy());
             aAttack.setVisible(false);
             aAttack.setY(-1);
             aAttack.setX(-1);
@@ -99,8 +88,8 @@ public class PhysicsCalcUtil {
             bAttack.setVisible(false);
             bAttack.setY(-1);
             bAttack.setX(-1);
-            bAttack.setVx(0);
             bAttack.setVy(0);
+            bAttack.setVx(0);
             bAttack.setWidth(1);
             bAttack.setHeight(1);
             b.setTimetomove(aAttack.getDamagetime());
@@ -109,20 +98,8 @@ public class PhysicsCalcUtil {
             return 1;
         }
         if(bAttack.intersects(a.getX()+a.getVx(),a.getY()+a.getVy(),a.getWidth(),a.getHeight())){
-            if(bAttack.getX()== b.getX()+b.getWidth()/4){
-                a.vector(0,-10);
-            }else if(bAttack.getX()== b.getX()-b.getWidth()/2){
-                a.vector(-5,-2);
-            }else if(bAttack.getX()== b.getX()+b.getWidth()){
-                a.vector(5,-2);
-            }else if(bAttack.getX()== b.getX()-b.getWidth()/4){
-                if(b.getX()<=a.getX()){
-                    a.vector(2,-2);
-                }else{
-                    a.vector(-2,-2);
-                }
 
-            }
+            a.vector(bAttack.getVecx(),bAttack.getVecx());
             aAttack.setVisible(false);
             aAttack.setY(-1);
             aAttack.setX(-1);
@@ -134,8 +111,8 @@ public class PhysicsCalcUtil {
             bAttack.setVisible(false);
             bAttack.setY(-1);
             bAttack.setX(-1);
-            bAttack.setVx(0);
             bAttack.setVy(0);
+            bAttack.setVx(0);
             bAttack.setWidth(1);
             bAttack.setHeight(1);
             a.setAction(Behavior.DAMAGE);

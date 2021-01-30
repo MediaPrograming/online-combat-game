@@ -7,6 +7,8 @@ import Animation.EffectAnimationManager;
 import Animation.EffectPlayer.EffectManager;
 import Animation.UIPlayer.PlayUI;
 import Audio.AudioHolder;
+import Audio.AudioPlayer;
+
 import com.taku.util.flux.view.BasePanel;
 import Audio.AudioClip;
 import game.config.Character;
@@ -81,8 +83,8 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
             }
         }, 1000, 30);
 
-        props.StartAudio();
-
+        AudioPlayer.Play(PATH.BattleBGM);
+        
         User host,client;
         if(getState().room.getUser(0).getId() == getState().room.getHostId()){
             host = getState().room.getUser(0); client = getState().room.getUser(1);
@@ -92,8 +94,8 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         new PlayUI(gc3,host,client);
         debug = true;
         hoge=100;
-        continueButton.setOnAction(e -> {EffectManager.resetGraphicsContext();props.StopAudio(); props.ContinueGame();});
-        quitButton.setOnAction(e -> {EffectManager.resetGraphicsContext();props.StopAudio(); props.QuitGame();});
+        continueButton.setOnAction(e -> {EffectManager.resetGraphicsContext(); props.ContinueGame();});
+        quitButton.setOnAction(e -> {EffectManager.resetGraphicsContext(); props.QuitGame();});
 
         EffectAnimationManager.setGc(gc2);
         EffectManager.addGraphicsContext(gc1);
@@ -152,7 +154,13 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
     public void EveryFrameUpdate(){
         var state = getState();
         quitPane.setVisible(state.quitPaneVisible);
-        if(state.quitPaneVisible) state.timer.cancel();
+        if(state.quitPaneVisible){
+            state.timer.cancel();
+            System.out.println("finishbgm");
+            if(AudioPlayer.getBGM()!=PATH.FinishBGM){
+                AudioPlayer.Play(PATH.FinishBGM);
+            }
+        } 
 
         uouo++;
         //#region debug text

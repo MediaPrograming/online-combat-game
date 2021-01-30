@@ -5,7 +5,6 @@ package game.view;
  */
 
 import Animation.AnimationHolder;
-import Audio.AudioHolder;
 import com.taku.util.model.Unit;
 import game.store.StoreManager;
 import game.util.Time;
@@ -14,10 +13,13 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.stage.Stage;
-
+import Audio.AudioPlayer;
+import Audio.AudioClip;
+import Audio.AudioHolder;
+import game.config.PATH;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
-
+import java.io.File;
 /**
  * This class is entry point
  */
@@ -36,9 +38,8 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.close(); //このwindowは使わん
         var unit = new Unit();
-
+        AudioPlayer.Play(PATH.HomeBGM);
         StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_START_PANEL.Create(unit));
-
         Thread thread = new Thread(() -> Platform.runLater(Time.Instance));
         thread.start();
     }

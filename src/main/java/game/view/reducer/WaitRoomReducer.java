@@ -4,6 +4,7 @@ package game.view.reducer;
  * @project online-combat-game
  */
 
+import Animation.EffectPlayer.EffectManager;
 import com.taku.util.flux.model.Action;
 import com.taku.util.flux.model.Store;
 import com.taku.util.flux.service.IReducer;
@@ -21,6 +22,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.PopupWindow;
+import game.config.PATH;
+
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 
 import javax.management.remote.JMXServerErrorException;
 import javax.swing.*;
@@ -33,6 +38,7 @@ public class WaitRoomReducer implements IReducer<WaitRoomState> {
                 .Case(RoomEvent.START_GAME, ((state, room) -> {
                     StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_UO_PANEL.Create(unit));
                     return state;
+                    
                 }))
                 .Case(ClientEvent.STREAM_EVENT, ((roomState, message) -> {
 
@@ -52,6 +58,7 @@ public class WaitRoomReducer implements IReducer<WaitRoomState> {
                         if(message.getUser().getId() == roomState.self.getId())
                             roomState.self = message.getUser();
                     }else if(message.getType() == Type.GAME_START){
+                        EffectManager.resetGraphicsContext();
                         //UOPanelに移動
                         System.out.println("UOパネルの表示");
                         StoreManager.Instance.client.user = message.getRoom().getUserList().stream().filter(x->x.getId() == roomState.self.getId()).findFirst().get();

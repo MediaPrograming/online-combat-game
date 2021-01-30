@@ -15,6 +15,7 @@ import io.game.hub.positionHub.CharacterState;
 import io.game.hub.positionHub.Direction;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 
 import java.io.File;
 
@@ -31,8 +32,8 @@ public class PlayGura extends PlayCharacter{
 
     @Override
     public void changedAction(CharacterState state) {
-        System.out.println("uo");
         super.changedAction(state);
+        System.out.println("state.getAX,Y()->"+state.getAx()+","+state.getAy()+"ID:"+state.getId());
         double rand = Math.random();
         switch (state.getBehavior()){
             case NORMAL:
@@ -49,7 +50,6 @@ public class PlayGura extends PlayCharacter{
             case ATTACK1,ATTACK2:
 //                EffectManager.addBloom(Time.Instance.getTotalTime(),3,0.5);
                 EffectManager.addDisplacementMap(Time.Instance.getTotalTime(),3, state.getAx(), state.getAy(), true);
-                System.out.println("state.getAX,Y()->"+state.getAx()+","+state.getAy());
                 if(rand>0.8) {AudioHolder.peti1.setFramePosition(0);AudioHolder.peti1.loop(0);AudioHolder.HUCHA.setFramePosition(0);AudioHolder.HUCHA.loop(0);}
                 else if(rand<=0.8 && rand>0.6) {AudioHolder.peti2.setFramePosition(0);AudioHolder.peti2.loop(0);AudioHolder.MAHIMAHI.setFramePosition(0);AudioHolder.MAHIMAHI.loop(0);}
                 else if(rand<=0.6 && rand>0.4) {AudioHolder.peti3.setFramePosition(0);AudioHolder.peti3.loop(0);AudioHolder.FUTUN.setFramePosition(0);AudioHolder.FUTUN.loop(0);}
@@ -82,9 +82,10 @@ public class PlayGura extends PlayCharacter{
                     }
                     break;
             }
+            gc.setFill(Color.RED);
             gc.strokeRect(state.getAtkX(),state.getAtkY(),state.getAtkW(),state.getAtkH());
         }else{
-            if(flag) {EffectManager.addDisplacementMap(Time.Instance.getTotalTime(),3, 10, 2, true); flag = false;}
+            if(flag) { flag = false;}
         }
     }
 

@@ -30,6 +30,7 @@ public class CharaAnimationPlayer {
         /*stateが変更されたらAnimation入れ替え*/
         if(nowState.getBehavior() != state.getBehavior()) {
             nowAnim = AnimationHolder.getCharaAnimation(Chara, state.getBehavior());
+//            System.out.println("nowState_"+nowState+"->newState_"+state);
             nowState = state;
             firstFrame = Time.Instance.getTotalTime();
         }
@@ -39,10 +40,12 @@ public class CharaAnimationPlayer {
         int two = (int)(duration/nowAnim.getAnim().length*nowAnim.getSpeed())%nowAnim.getAnim()[0].length;
 
         if(!nowAnim.getLoop()){
-            if(duration > nowAnim.getAnim().length*nowAnim.getAnim()[0].length / nowAnim.getSpeed() ){
+            if(duration > (double)nowAnim.getAnim().length*(double)nowAnim.getAnim()[0].length / (double)nowAnim.getSpeed() ){
                 one = nowAnim.getAnim().length - 1;
                 two = nowAnim.getAnim()[0].length - 1;
+//                System.out.println("OVER");
             }
+//            System.out.println("nowPlaying["+one+"]["+two+"]");
         }
 
         return nowAnim.getAnim()[one][two];
