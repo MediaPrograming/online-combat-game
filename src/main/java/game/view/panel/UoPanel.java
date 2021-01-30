@@ -56,7 +56,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
     GraphicsContext gc1,gc2,gc3;
     double initTime;
     //test
-    private int uouo = 0,hoge;
+    private int uouo = 0;
     private Text text;
     private boolean debug;
 
@@ -93,7 +93,6 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         }
         new PlayUI(gc3,host,client);
         debug = true;
-        hoge=100;
         continueButton.setOnAction(e -> {EffectManager.resetGraphicsContext(); props.ContinueGame();});
         quitButton.setOnAction(e -> {EffectManager.resetGraphicsContext(); props.QuitGame();});
 
@@ -139,13 +138,13 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
 
         /*gc3,canvas3*/
         gc3.clearRect(0,0,canvas3.getWidth(),canvas3.getHeight());
-        gc3.setFill(Color.WHITE);
-        gc3.fillText(""+text, 300, 100);
 
         PlayUI.play();
         //PlayUI.debug(hoge);
         if(debug){
             state.polyTable.forEach((k,v) -> v.play(gc3));
+            gc3.setFill(Color.WHITE);
+            gc3.fillText(""+text, 300, 100);
         }
         EffectManager.play();
     }
