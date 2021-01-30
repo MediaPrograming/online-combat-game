@@ -70,15 +70,15 @@ public class AnimationHolder {
         AnimationHolder.addCharaAnimation(Character.Calli, Behavior.SQUAT   ,PATH.Gura_Normal,128,128,4,2,2,false);
 
         AnimationHolder.addCharaAnimation(Character.Ame, Behavior.NORMAL  ,PATH.Amelia_Normal,150,150,4,3,8,true );
-        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.RUN     ,PATH.Gura_Normal,   128,128,4,2,2,true );
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.RUN     ,PATH.Amelia_Run,   128,128,4,2,8,true );
         AnimationHolder.addCharaAnimation(Character.Ame, Behavior.ATTACK1 ,PATH.Amelia_Attack1,150,150,5,2,8,false);
         AnimationHolder.addCharaAnimation(Character.Ame, Behavior.ATTACK2 ,PATH.Amelia_Attack1,150,150,5,2,8,false);
-        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.ATTACK3 ,PATH.Gura_Normal,128,128,4,2,2,false);
-        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.ATTACK4 ,PATH.Gura_Normal,128,128,4,2,2,false);
-        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.DEFENCE ,PATH.Gura_Normal,128,128,4,2,2,false);
-        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.DAMAGE  ,PATH.Gura_Normal,128,128,4,2,2,false);
-        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.JUMP    ,PATH.Gura_Normal,128,128,4,2,2,false);
-        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.SQUAT   ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.ATTACK3 ,PATH.Amelia_Attack3,128,128,4,3,8,false);
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.ATTACK4 ,PATH.Amelia_Attack4,128,128,3,2,8,false);
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.DEFENCE ,PATH.Amelia_Damaged,128,128,4,2,8,false);
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.DAMAGE  ,PATH.Amelia_Damaged,128,128,4,2,8,false);
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.JUMP    ,PATH.Amelia_Normal,128,128,4,3,8,false);
+        AnimationHolder.addCharaAnimation(Character.Ame, Behavior.SQUAT   ,PATH.Amelia_Normal,128,128,4,3,8,false);
 
         AnimationHolder.addEffectAnimation("HIT",PATH.HIT,100,100,5,1,8,false);
         
