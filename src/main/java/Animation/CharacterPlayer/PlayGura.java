@@ -15,6 +15,7 @@ import io.game.hub.positionHub.CharacterState;
 import io.game.hub.positionHub.Direction;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 
 import java.io.File;
 
@@ -82,6 +83,7 @@ public class PlayGura extends PlayCharacter{
                     }
                     break;
             }
+            gc.setFill(Color.RED);
             gc.strokeRect(state.getAtkX(),state.getAtkY(),state.getAtkW(),state.getAtkH());
         }else{
             if(flag) {EffectManager.addDisplacementMap(Time.Instance.getTotalTime(),3, 10, 2, true); flag = false;}

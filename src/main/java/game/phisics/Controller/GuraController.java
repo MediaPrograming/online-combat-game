@@ -13,10 +13,10 @@ public class GuraController extends CharaController{
     }
     @Override 
     public int attack1(){
-        attack.setX(character.getX()-character.getWidth()/2);
-        attack.setY(character.getY()+character.getHeight()/4);
-        attack.setWidth(character.getWidth()/2);
-        attack.setHeight(character.getHeight()/2);
+        attack.setX(character.getX()-character.getWidth()/6);
+        attack.setY(character.getY());
+        attack.setWidth(character.getWidth()/6);
+        attack.setHeight(character.getHeight());
         attack.setDamege(40);
         attack.setVecx(0);
         attack.setVecy(0);
@@ -25,9 +25,9 @@ public class GuraController extends CharaController{
     @Override
     public int attack2(){
         attack.setX(character.getX()+character.getWidth());
-        attack.setY(character.getY()+character.getHeight()/4);
-        attack.setWidth(character.getWidth()/2);
-        attack.setHeight(character.getHeight()/2);
+        attack.setY(character.getY());
+        attack.setWidth(character.getWidth()/6);
+        attack.setHeight(character.getHeight());
         attack.setDamege(40);
         attack.setVecx(0);
         attack.setVecy(0);
@@ -35,10 +35,6 @@ public class GuraController extends CharaController{
     }
     @Override
     public int attack3(){
-        attack.setX(character.getX()+character.getWidth()/4);
-        attack.setY(character.getY()-character.getHeight()/2);
-        attack.setWidth(character.getWidth()/2);
-        attack.setHeight(character.getHeight()/2);
         attack.setVecx(0);
         attack.setVecy(0);
 
@@ -46,16 +42,13 @@ public class GuraController extends CharaController{
         return 80;
      }
 
-
      @Override public int attack4(){
-        attack.setX(character.getX()-character.getWidth()/4);
-        attack.setY(character.getY()+3*character.getHeight()/4);
-        attack.setWidth(3*character.getWidth()/2);
-        attack.setHeight(character.getHeight()/4);
-        attack.setDamege(50);
-        attack.setVecx(0);
-        attack.setVecy(0);
-             return 50;
+         attack.setX(character.getX()+character.getWidth()/4);
+         attack.setY(character.getY()-character.getHeight()/2);
+         attack.setWidth(character.getWidth()/2);
+         attack.setHeight(character.getHeight()/2);
+         attack.setDamege(50);
+         return 50;
      }
      @Override public void jump(){
              character.vector(0, -20);

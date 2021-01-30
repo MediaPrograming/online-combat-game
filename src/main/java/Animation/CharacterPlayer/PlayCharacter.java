@@ -58,8 +58,9 @@ public class PlayCharacter {
     public void changedAction(CharacterState state) {
         switch (state.getBehavior()){
             case DAMAGE :
-                AudioHolder.damage.loop(1);;
+                AudioHolder.damage.loop(1);
                 EffectAnimationManager.addEffectAnimation("HIT",1, Time.Instance.getTotalTime(),state);
+                EffectManager.addColorAdjust(Time.Instance.getTotalTime(), 1,0,0,1,0,true);
                 break;
         }
     } // Behaviorが変更されたとき1回だけ呼ばれる関数
