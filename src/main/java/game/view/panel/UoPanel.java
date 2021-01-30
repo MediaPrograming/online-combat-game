@@ -155,7 +155,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         quitPane.setVisible(state.quitPaneVisible);
         if(state.quitPaneVisible){
             state.timer.cancel();
-            System.out.println("finishbgm");
+            //System.out.println("finishbgm");
             if(AudioPlayer.getBGM()!=PATH.FinishBGM){
                 AudioPlayer.Play(PATH.FinishBGM);
             }
