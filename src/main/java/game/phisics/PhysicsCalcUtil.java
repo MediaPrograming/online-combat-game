@@ -9,7 +9,7 @@ import io.game.hub.positionHub.Behavior;
 public class PhysicsCalcUtil {
     public static void CharacterCollision(PhysicsObject a, PhysicsObject b) {
         if (a.intersects(b.getX() + b.getVx() - 1 - a.getVx(), b.getY() + b.getVy() - 1 - a.getVy(), b.getWidth() + 2, b.getHeight() + 2)) {
-            if (a.intersects(b.getX() + b.getVx() - 1 - a.getVx(), b.getY() - 1, b.getWidth() + 1, b.getHeight() + 1)) {
+            if (a.intersects(b.getX() + b.getVx() - 1 - a.getVx(), b.getY() - 1, b.getWidth() + 2, b.getHeight() + 2)) {
                 if (a.getX() < b.getX()) {
                     //a.setVx((b.getX()-a.getWidth()-2-a.getX()));
                     if (a.getVx() <= 0) {
