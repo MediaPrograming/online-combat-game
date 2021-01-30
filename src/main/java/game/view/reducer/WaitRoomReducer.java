@@ -4,6 +4,7 @@ package game.view.reducer;
  * @project online-combat-game
  */
 
+import Animation.EffectPlayer.EffectManager;
 import com.taku.util.flux.model.Action;
 import com.taku.util.flux.model.Store;
 import com.taku.util.flux.service.IReducer;
@@ -57,6 +58,7 @@ public class WaitRoomReducer implements IReducer<WaitRoomState> {
                         if(message.getUser().getId() == roomState.self.getId())
                             roomState.self = message.getUser();
                     }else if(message.getType() == Type.GAME_START){
+                        EffectManager.resetGraphicsContext();
                         //UOPanelに移動
                         System.out.println("UOパネルの表示");
                         StoreManager.Instance.client.user = message.getRoom().getUserList().stream().filter(x->x.getId() == roomState.self.getId()).findFirst().get();
