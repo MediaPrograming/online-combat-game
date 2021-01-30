@@ -23,7 +23,6 @@ public class PlayKiara extends PlayCharacter{
         super.changedAction(state);
         double rand = Math.random();
         switch (state.getBehavior()){
-
             case NORMAL:
                 if(state.getDirection()==Direction.RIGHT){
                     this.offsetX = -150;
@@ -48,14 +47,14 @@ public class PlayKiara extends PlayCharacter{
             case ATTACK1:
                 if(rand>0.6){
                     AudioHolder.Kiarayouwannafight.setFramePosition(0);AudioHolder.Kiarayouwannafight.loop(0);
-                }else if(rand>0.3){
+                }else if(rand<=0.6&&rand>0.3){
                     AudioHolder.Kiarabigbumb.setFramePosition(0);AudioHolder.Kiarabigbumb.loop(0);
                 }
                 break;
             case ATTACK2:
                 if(rand>0.6){
                     AudioHolder.Kiarayouwannafight.setFramePosition(0);AudioHolder.Kiarayouwannafight.loop(0);
-                }else if(rand>0.3){
+                }else if(rand<=0.6&&rand>0.3){
                     AudioHolder.Kiarabigbumb.setFramePosition(0);AudioHolder.Kiarabigbumb.loop(0);
                 }
                 break;
