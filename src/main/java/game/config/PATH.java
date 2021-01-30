@@ -30,9 +30,9 @@ public final class PATH {
     public static final String Amelia_Run = root + "\\src\\main\\resources\\game\\img\\Amelia\\Amerial-Walk-01.png";
     public static final String Amelia_Atk_obj = root + "\\src\\main\\resources\\game\\img\\Amelia\\Amelia-Atk-obj.png";
     public static final String Amelia_Damaged = root + "\\src\\main\\resources\\game\\img\\Amelia\\Amerial-Damaged-01.png";
-    public static final String BattleBGM = root + "\\src\\main\\resources\\game\\sounds\\Tanukichi.wav";
-    public static final String HomeBGM = root + "\\src\\main\\resources\\game\\sounds\\Lets!.wav";
-    public static final String FinishBGM = root + "\\src\\main\\resources\\game\\sounds\\のんきな日常.wav";
+    public static final String BattleBGM = root + "\\src\\main\\resources\\game\\sounds\\BGM\\Tanukichi.wav";
+    public static final String HomeBGM = root + "\\src\\main\\resources\\game\\sounds\\BGM\\のんきな日常.wav";
+    public static final String FinishBGM = root + "\\src\\main\\resources\\game\\sounds\\BGM\\Let's!.wav";
 
     public static final String TRIDENT = root + "\\src\\main\\resources\\game\\img\\Gura\\Guratrydent-Sheet.png";
 

@@ -181,8 +181,8 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
             }
             EffectManager.addSelectionWiggle(false,Time.Instance.getTotalTime(),true,(int)Self.getLayoutX(),(int)Self.getLayoutY(),(int)Enemy.getLayoutX(),(int)Enemy.getLayoutY());
         }
-        gc1.drawImage(self,0,0,Self.getWidth(),Self.getHeight());
-        gc2.drawImage(enemy,Self.getWidth(),0,-Self.getWidth(),Self.getHeight());
+        gc1.drawImage(self,0,0);
+        gc2.drawImage(enemy,0,0);
         EffectManager.play();
     }
 
