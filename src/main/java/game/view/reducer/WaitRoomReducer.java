@@ -21,6 +21,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.PopupWindow;
+import game.config.PATH;
+
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 
 import javax.management.remote.JMXServerErrorException;
 import javax.swing.*;

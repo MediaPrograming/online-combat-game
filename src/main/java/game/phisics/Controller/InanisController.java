@@ -18,6 +18,8 @@ public class InanisController extends CharaController{
         attack.setWidth(character.getWidth()/2);
         attack.setHeight(character.getHeight()/2);
         attack.setDamege(50);
+        attack.setVecx(0);
+        attack.setVecy(0);
             return 50;
     }
     @Override
@@ -27,6 +29,8 @@ public class InanisController extends CharaController{
         attack.setWidth(character.getWidth()/2);
         attack.setHeight(character.getHeight()/2);
         attack.setDamege(50);
+        attack.setVecx(0);
+        attack.setVecy(0);
             return 50;
     }
     @Override
@@ -36,6 +40,8 @@ public class InanisController extends CharaController{
         attack.setWidth(character.getWidth()/2);
         attack.setHeight(character.getHeight()/2);
         attack.setDamege(50);
+        attack.setVecx(0);
+        attack.setVecy(0);
              return 50;
      }
 
@@ -45,6 +51,8 @@ public class InanisController extends CharaController{
         attack.setWidth(3*character.getWidth()/2);
         attack.setHeight(character.getHeight()/4);
         attack.setDamege(50);
+        attack.setVecx(0);
+        attack.setVecy(0);
              return 50;
      }
      @Override public void jump(){
