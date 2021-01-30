@@ -4,7 +4,11 @@ package game.view.panel;
  * @author Takuya Isaki on 2021/01/05
  * @project online-combat-game
  */
+import Animation.AnimationHolder;
+import Animation.CharaAnimationPlayer;
+import Animation.CharacterPlayer.PlayGura;
 import com.taku.util.flux.view.BasePanel;
+import game.config.Character;
 import game.view.container.FetchContainer;
 import game.view.container.WaitRoomContainer;
 import game.view.service.IFetch;
@@ -13,14 +17,18 @@ import game.view.state.RoomState;
 import game.view.state.WaitRoomState;
 import io.game.hub.messageHub.CharacterType;
 import io.game.hub.messageHub.User;
+import io.game.hub.positionHub.Behavior;
+import io.game.hub.positionHub.CharacterState;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.SubScene;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.image.ImageView;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -30,8 +38,14 @@ import java.util.ResourceBundle;
 public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implements Initializable {
     //List<User> userList = new ArrayList<>();
     @FXML Button showBackButton, showCombatButton;
-    @FXML ListView listView, characterList;
+    @FXML ListView listView;
+    @FXML Canvas Self,Enemy;
+    @FXML ImageView Gura,Kiara,Ame,Ina,Calli;
+    @FXML Button Gr,Kr,Am,In,Cl;
     WaitRoomContainer container;
+    CharacterState state1;
+    CharaAnimationPlayer player_Gura,player_Kiara,player_Ame;
+    boolean gr=false,kr=false,am=false,in=false,cl=false;
 
 
     @Override
@@ -40,19 +54,6 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
         var props = this.getProps();
         var state = this.getState();
         props.GetRoomUserRequest(state.self);
-
-        //CharacterList
-        for (int i = 0; i < CharacterType.Inanis_VALUE; i++) {
-            state.characters.add(CharacterType.forNumber(i).name());
-        }
-        ObservableList<String> observableList = FXCollections.observableArrayList();
-        state.characters.forEach(observableList::add);
-        characterList.setItems(observableList);
-        characterList.setOnMouseClicked(e -> {
-            System.out.println("Select");
-            var index = characterList.getSelectionModel().getSelectedIndex();
-            props.SetCharacterRequest(index, state.self, state.currentRoom);
-        });
 
         //room内のUserの更新
         showBackButton.setOnAction(e -> props.showBackPanel(state.self, state.currentRoom));
@@ -72,6 +73,37 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
         //ルーム内のclientに通知
         props.IsReadyRequest(getState().isHost, state.self, state.currentRoom);
 
+
+        //キャラクター再生用
+        state1 = CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build();
+        player_Gura = new CharaAnimationPlayer(0, Character.Gura);
+        player_Kiara = new CharaAnimationPlayer(1, Character.Kiara);
+        player_Ame = new CharaAnimationPlayer(2, Character.Ame);
+
+
+        //Character用button
+        Gr.setOnMouseEntered(event -> {gr = true;});
+        Gr.setOnMouseExited(event -> {gr = false;});
+        Gr.setOnAction(event -> props.SetCharacterRequest(CharacterType.Gura_VALUE, state.self, state.currentRoom));
+        Kr.setOnMouseEntered(event -> {kr = true;});
+        Kr.setOnMouseExited(event -> {kr= false;});
+        Kr.setOnAction(event -> props.SetCharacterRequest(CharacterType.Kiara_VALUE, state.self, state.currentRoom));
+        Am.setOnMouseEntered(event -> {am = true;});
+        Am.setOnMouseExited(event -> {am= false;});
+        Am.setOnAction(event -> props.SetCharacterRequest(CharacterType.Amelia_VALUE, state.self, state.currentRoom));
+    }
+
+    void draw(){
+        //ImageView
+        if(gr){Gura.setImage(player_Gura.play(state1));}else{
+            Gura.setImage(AnimationHolder.getCharaAnimation(Character.Gura,Behavior.NORMAL).getAnim()[0][0]);
+        }
+        if(kr){Kiara.setImage(player_Kiara.play(state1));}else{
+            Kiara.setImage(AnimationHolder.getCharaAnimation(Character.Kiara,Behavior.NORMAL).getAnim()[0][0]);
+        }
+        if(am){Ame.setImage(player_Ame.play(state1));}else{
+            Ame.setImage(AnimationHolder.getCharaAnimation(Character.Ame,Behavior.NORMAL).getAnim()[0][0]);
+        }
     }
 
     @Override
@@ -107,5 +139,7 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
             userNames.forEach(observableList::add);
             listView.setItems(observableList);
         //
+
+        draw();
     }
 }

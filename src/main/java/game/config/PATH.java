@@ -32,4 +32,5 @@ public final class PATH {
 
     public static final String TRIDENT = root + "\\src\\main\\resources\\game\\img\\Gura\\Guratrydent-Sheet.png";
     public static final String Effect_HIT = root + "\\src\\main\\resources\\game\\sounds\\hit.wav";
+    public static final String Hizyousyoku =root +"\\src\\main\\resources\\game\\img\\hizyousyoku-Sheet .png";
 }

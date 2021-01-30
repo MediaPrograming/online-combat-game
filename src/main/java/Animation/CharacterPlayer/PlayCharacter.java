@@ -61,6 +61,7 @@ public class PlayCharacter {
                 AudioHolder.damage.loop(1);
                 EffectAnimationManager.addEffectAnimation("HIT",1, Time.Instance.getTotalTime(),state);
                 EffectManager.addColorAdjust(Time.Instance.getTotalTime(), 1,0,0,1,0,true);
+                EffectManager.addDisplacementMap(Time.Instance.getTotalTime(),3, state.getAx(), state.getAy(), true);
                 break;
         }
     } // Behaviorが変更されたとき1回だけ呼ばれる関数

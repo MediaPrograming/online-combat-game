@@ -1,0 +1,45 @@
+.showCombatButton
+{
+    -fx-background-image: url("../img/gameStart.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+}
+
+.showCombatButton:hover
+{
+    -fx-background-image: url("../img/gameStart.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: rgba(255, 200, 200, 0.2);
+}
+
+.showCombatButton:pressed
+{
+    -fx-background-image: url("../img/gameStart.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: rgba(255,100,100,1);
+}
+
+.showBackButton
+{
+  -fx-background-color: rgba(200,255,255,0.8);
+  -fx-background-radius: 50;
+  -fx-border-radius: 50;
+}
+
+.showBackButton:hover
+{
+  -fx-background-color: rgba(200,255,255,1);
+  -fx-background-radius: 50;
+  -fx-border-radius: 50;
+}
+
+.showBackButton:pressed
+{
+  -fx-background-color: rgba(100,100,255,0.8);
+  -fx-background-radius: 50;
+  -fx-border-radius: 50;
+}
+
+.characterButton{
+    -fx-background-color: transparent;
+}
