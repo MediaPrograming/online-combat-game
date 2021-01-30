@@ -4,6 +4,8 @@ import Animation.CharaAnimationPlayer;
 import Animation.CharacterPlayer.*;
 import Animation.DrawPolygon;
 import Audio.AudioClip;
+import Audio.AudioPlayer;
+
 import com.taku.util.flux.model.Action;
 import com.taku.util.flux.service.IReducer;
 import com.taku.util.flux.view.ReducerBuilder;
@@ -40,6 +42,8 @@ public class UoPanelReducer implements IReducer<UoPanelState> {
                     return uoPanelState;
                 })).Case(UoPanelEvent.CONTINUE, ((uoPanelState, unit) -> {
                     StoreManager.Instance.store.Invoke(unit,UIEvent.SHOW_WAIT_ROOM_PANEL.Create(unit));
+                    
+                    AudioPlayer.Play(PATH.HomeBGM);
                     return uoPanelState;
                 })).Case(UoPanelEvent.QUIT, ((uoPanelState, unit) -> {
                     System.exit(0);
@@ -139,19 +143,6 @@ public class UoPanelReducer implements IReducer<UoPanelState> {
 
                     playerTable.forEach((k,v) -> {if(k == panelState.room.getUser(1).getId()) v.setPosition(200,500); else v.setPosition(1200,500);});
                     return panelState;
-                })
-                .Case(UoPanelEvent.START_AUDIO, ((panelState, unit) -> {
-                    var bgm = AudioClip.createClip(new File(PATH.BattleBGM));
-                    bgm.loop(Clip.LOOP_CONTINUOUSLY);
-                    FloatControl ctrl = (FloatControl)bgm.getControl(FloatControl.Type.MASTER_GAIN);
-                    ctrl.setValue((float)Math.log10(0.1) * 20);
-                    panelState.bgm = bgm;
-                    return panelState;
-                }))
-                .Case(UoPanelEvent.STOP_AUDIO, ((panelState, unit) -> {
-                    if(panelState.bgm != null)
-                        panelState.bgm.stop();
-                    return panelState;
-                }));
+                });
     }
 }

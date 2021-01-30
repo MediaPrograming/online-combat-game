@@ -37,6 +37,7 @@ public class WaitRoomReducer implements IReducer<WaitRoomState> {
                 .Case(RoomEvent.START_GAME, ((state, room) -> {
                     StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_UO_PANEL.Create(unit));
                     return state;
+                    
                 }))
                 .Case(ClientEvent.STREAM_EVENT, ((roomState, message) -> {
 

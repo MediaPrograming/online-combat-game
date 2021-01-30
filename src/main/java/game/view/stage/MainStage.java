@@ -5,7 +5,10 @@ package game.view.stage;
  */
 import game.store.StoreManager;
 import javafx.stage.Stage;
-
+import game.config.PATH;
+import Audio.AudioClip;
+import Audio.AudioPlayer;
+import java.io.File;
 /**
  * This is stage of prototype
  */
@@ -14,6 +17,8 @@ public class MainStage extends Stage {
         this.setTitle("Combat Game");
 //        this.setWidth(Config.WINDOW_WIDTH);
 //        this.setHeight(Config.WINDOW_HEIGHT);
-        this.setOnCloseRequest(e ->{ StoreManager.Instance.client.Close(); });
+        this.setOnCloseRequest(
+                e ->{ StoreManager.Instance.client.Close(); }
+                );
     }
 }

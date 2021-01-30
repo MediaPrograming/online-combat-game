@@ -11,6 +11,7 @@ public class AudioHolder {
     public static Clip peti1,peti2,peti3,peti4,peti5;
     public static Clip TRIDENT,MAHIMAHI,SHAAAARK,HUMM,FUTUN,HUCHA;
     public static Clip AAAA,AHHHFine,AU,AU_UN;
+    public static Clip Kikkeriki,Kiarastopit,Kiarabigbumb,Kiaraeat,Kiarayouwannafight,Kiarayabe;
     public AudioHolder(){
         damage = AudioClip.createClip(new File(PATH.Effect_HIT));
         a = AudioClip.createClip(new File(PATH.root + "\\src\\main\\resources\\game\\sounds\\Gura\\a.wav"));
@@ -31,6 +32,12 @@ public class AudioHolder {
         AU = AudioClip.createClip(new File(PATH.root + "\\src\\main\\resources\\game\\sounds\\Gura\\AU.wav"));
         AU_UN = AudioClip.createClip(new File(PATH.root + "\\src\\main\\resources\\game\\sounds\\Gura\\AU_UN.wav"));
 
+        Kikkeriki = AudioClip.createClip(new File(PATH.root +"\\src\\main\\resources\\game\\sounds\\Kiara\\Kikkeriki---------.wav"));
+        Kiarastopit = AudioClip.createClip(new File(PATH.root +"\\src\\main\\resources\\game\\sounds\\Kiara\\Kiarastopit.wav"));
+        Kiarabigbumb = AudioClip.createClip(new File(PATH.root +"\\src\\main\\resources\\game\\sounds\\Kiara\\kiarabigbumb.wav"));
+        Kiarayabe = AudioClip.createClip(new File(PATH.root +"\\src\\main\\resources\\game\\sounds\\Kiara\\Kiarayabe.wav"));
+        Kiaraeat = AudioClip.createClip(new File(PATH.root +"\\src\\main\\resources\\game\\sounds\\Kiara\\kiaraeat.wav"));
+        Kiarayouwannafight = AudioClip.createClip(new File(PATH.root +"\\src\\main\\resources\\game\\sounds\\Kiara\\kiarayouwannafight.wav"));
     }
 
 }
