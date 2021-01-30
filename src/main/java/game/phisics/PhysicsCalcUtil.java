@@ -76,27 +76,20 @@ public class PhysicsCalcUtil {
             return 0;
         }
         if(aAttack.intersects(b.getX()+b.getVx(),b.getY()+b.getVy(),b.getWidth(),b.getHeight())){
-            if(aAttack.getX()== a.getX()+a.getWidth()/4){
-                b.vector(0,-10);
-            }else if(aAttack.getX()== a.getX()-a.getWidth()/2){
-                b.vector(-5,-2);
-            } else if(aAttack.getX()== a.getX()+a.getWidth()){
-                b.vector(5,-2);
-            }else if(aAttack.getX()== a.getX()-a.getWidth()/4){
-                if(b.getX()<=a.getX()){
-                    b.vector(-2,-2);
-                }else{
-                    b.vector(2,-2);
-                }
-            }
+
+            b.vector(aAttack.getAx(),aAttack.getAy());
             aAttack.setVisible(false);
             aAttack.setY(-1);
             aAttack.setX(-1);
+            aAttack.setVx(0);
+            aAttack.setVy(0);
             aAttack.setWidth(1);
             aAttack.setHeight(1);
             bAttack.setVisible(false);
             bAttack.setY(-1);
             bAttack.setX(-1);
+            bAttack.setVy(0);
+            bAttack.setVx(0);
             bAttack.setWidth(1);
             bAttack.setHeight(1);
             b.setTimetomove(aAttack.getDamagetime());
@@ -105,29 +98,21 @@ public class PhysicsCalcUtil {
             return 1;
         }
         if(bAttack.intersects(a.getX()+a.getVx(),a.getY()+a.getVy(),a.getWidth(),a.getHeight())){
-            if(bAttack.getX()== b.getX()+b.getWidth()/4){
-                a.vector(0,-10);
-            }else if(bAttack.getX()== b.getX()-b.getWidth()/2){
-                a.vector(-5,-2);
-            }else if(bAttack.getX()== b.getX()+b.getWidth()){
-                a.vector(5,-2);
-            }else if(bAttack.getX()== b.getX()-b.getWidth()/4){
-                if(b.getX()<=a.getX()){
-                    a.vector(2,-2);
-                }else{
-                    a.vector(-2,-2);
-                }
 
-            }
+            a.vector(bAttack.getAx(),bAttack.getAx());
             aAttack.setVisible(false);
             aAttack.setY(-1);
             aAttack.setX(-1);
+            aAttack.setVx(0);
+            aAttack.setVy(0);
             aAttack.setWidth(1);
             aAttack.setHeight(1);
             a.setTimetomove(bAttack.getDamagetime());
             bAttack.setVisible(false);
             bAttack.setY(-1);
             bAttack.setX(-1);
+            bAttack.setVy(0);
+            bAttack.setVx(0);
             bAttack.setWidth(1);
             bAttack.setHeight(1);
             a.setAction(Behavior.DAMAGE);

@@ -44,6 +44,8 @@ public class KiaraController extends CharaController{
                         attack.setHeight(character.getHeight()/4);
                         attack.setDamege(50);
                         attack.setDamagetime(20);
+                        attack.setAx(-5);
+                        attack.setAy(-2);
             }else if(character.getAction()==Behavior.ATTACK2&&character.getTimetomove()==12){
                 attack.setX(character.getX()+character.getWidth());
                 attack.setY(character.getY()+character.getHeight()/4);
@@ -51,6 +53,8 @@ public class KiaraController extends CharaController{
                 attack.setHeight(character.getHeight()/2);
                 attack.setDamege(50);
                 attack.setDamagetime(20);
+                attack.setAx(5);
+                attack.setAy(-2);
                 }else if(character.getAction()==Behavior.ATTACK3&&character.getTimetomove()==12){
                         attack.setX(character.getX()+character.getWidth()/4);
                          attack.setY(character.getY()-character.getHeight()/2);
@@ -58,6 +62,8 @@ public class KiaraController extends CharaController{
                          attack.setHeight(character.getHeight()/2);
                           attack.setDamege(50);
                          attack.setDamagetime(50);
+                        attack.setAx(0);
+                        attack.setAy(-5);
                 }else if(character.getAction()==Behavior.ATTACK4&&character.getTimetomove()==1){
                         character.Damage(-50);
             }

@@ -141,7 +141,7 @@ public class UoPanelReducer implements IReducer<UoPanelState> {
                     return panelState;
                 })
                 .Case(UoPanelEvent.START_AUDIO, ((panelState, unit) -> {
-                    var bgm = AudioClip.createClip(new File(PATH.BGM));
+                    var bgm = AudioClip.createClip(new File(PATH.BattleBGM));
                     bgm.loop(Clip.LOOP_CONTINUOUSLY);
                     FloatControl ctrl = (FloatControl)bgm.getControl(FloatControl.Type.MASTER_GAIN);
                     ctrl.setValue((float)Math.log10(0.1) * 20);
