@@ -12,12 +12,14 @@ public class EffectManager {
     public static void addGraphicsContext(GraphicsContext g){
         gcList.add(g);
     }
+    public static void resetGraphicsContext(){gcList = new ArrayList<>();}
 
     public static void play(){
         ArrayList<PlayEffect> remove = new ArrayList<>();
         EffectManager.list.forEach(e -> {if(e.getDuration() > e.getPlayTime()) remove.add(e);});
         EffectManager.list.removeAll(remove);
         list.forEach(PlayEffect::play);
+//        if(!EffectManager.list.isEmpty()) {EffectManager.list.forEach(e->System.out.println(e));System.out.println("----------------------");}
     }
 
     public static void addBloom(double firstFrame,double playTime,double threshold){

@@ -1,5 +1,6 @@
 package game.phisics.Controller;
 
+import game.config.CharaData.Gura;
 import game.phisics.Controller.*;
 import game.phisics.Attackplygon;
 import game.phisics.Character;
@@ -16,10 +17,10 @@ public class GuraController extends CharaController{
         attack.setY(character.getY()+character.getHeight()/4);
         attack.setWidth(character.getWidth()/2);
         attack.setHeight(character.getHeight()/2);
-        attack.setDamege(50);
+        attack.setDamege(40);
         attack.setVecx(0);
         attack.setVecy(0);
-            return 50;
+            return 30;
     }
     @Override
     public int attack2(){
@@ -27,10 +28,10 @@ public class GuraController extends CharaController{
         attack.setY(character.getY()+character.getHeight()/4);
         attack.setWidth(character.getWidth()/2);
         attack.setHeight(character.getHeight()/2);
-        attack.setDamege(50);
+        attack.setDamege(40);
         attack.setVecx(0);
         attack.setVecy(0);
-            return 50;
+            return 30;
     }
     @Override
     public int attack3(){
@@ -38,11 +39,13 @@ public class GuraController extends CharaController{
         attack.setY(character.getY()-character.getHeight()/2);
         attack.setWidth(character.getWidth()/2);
         attack.setHeight(character.getHeight()/2);
-        attack.setDamege(50);
         attack.setVecx(0);
         attack.setVecy(0);
-             return 50;
+
+        attack.setDamege(100);
+        return 80;
      }
+
 
      @Override public int attack4(){
         attack.setX(character.getX()-character.getWidth()/4);
@@ -55,18 +58,38 @@ public class GuraController extends CharaController{
              return 50;
      }
      @Override public void jump(){
-             character.vector(0, -10);
+             character.vector(0, -20);
      }
      @Override public void attacking(){
-            if(attack.getX()!=-1){
-                    attack.setVx(character.getVx());
-                    attack.setVy(character.getVy());
-                    attack.move();
-            }else if(character.getAction()==Behavior.ATTACK1&&character.getTimetomove()==12){  
-            }else if(character.getAction()==Behavior.ATTACK2&&character.getTimetomove()==12){
-            }else if(character.getAction()==Behavior.ATTACK3&&character.getTimetomove()==12){
-            }else if(character.getAction()==Behavior.ATTACK4&&character.getTimetomove()==1){
-            }
+            if(character.getAction()==Behavior.ATTACK1){
+                character.setVx(-20);
+                attack.setVx(character.getVx());
+                attack.setVy(character.getVy());
+                attack.move();
+            }else if(character.getAction()==Behavior.ATTACK2){
+                character.setVx(20);
+                attack.setVx(character.getVx());
+                attack.setVy(character.getVy());
+                attack.move();
+            }else if(character.getAction()==Behavior.ATTACK3){
+                if(character.getTimetomove()>50){
+                    attack.setWidth(Gura.TRIDENT_W/(character.getTimetomove()-49));
+                    attack.setHeight(Gura.TRIDENT_H/(character.getTimetomove()-49));
+                    attack.setX(character.getX()+character.getWidth()/2-attack.getWidth()/2);
+                    attack.setY(character.getY()-character.getHeight()/4+(character.getTimetomove()-50)-attack.getHeight()/2);
 
+                }else if(character.getTimetomove()==50) {
+                    attack.setWidth(Gura.TRIDENT_W);
+                    attack.setHeight(Gura.TRIDENT_H);
+                    switch (character.getDirection()) {
+                        case LEFT:
+                            attack.setVx(-15);
+                            break;
+                        case RIGHT:
+                            attack.setVx(15);
+                    }
+                }else {if(attack.getX()!=-1)attack.setVy((50-character.getTimetomove())/3);attack.move();}
+            }else if(character.getAction()==Behavior.ATTACK4){
+            }
      }
 }

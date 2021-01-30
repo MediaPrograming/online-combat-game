@@ -4,6 +4,8 @@ package game.view;
  * @project online-combat-game
  */
 
+import Animation.AnimationHolder;
+import Audio.AudioHolder;
 import com.taku.util.model.Unit;
 import game.store.StoreManager;
 import game.util.Time;
@@ -22,7 +24,9 @@ import java.util.logging.LogRecord;
 public class MainApp extends Application {
 
     public static void main(String[] args) {
-       launch(args);
+        new AnimationHolder();
+        new AudioHolder();
+        launch(args);
     }
 
     /**

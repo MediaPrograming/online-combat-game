@@ -26,20 +26,12 @@ public class PlayDisplacementMap extends PlayEffect{
     public void play(){
         duration = this.getDuration();
         if(duration >= 0 && duration <= playTime ) {
-            FloatMap floatMap = new FloatMap();
-            floatMap.setWidth(width);
-            floatMap.setHeight(height);
-            DisplacementMap displacementMap = new DisplacementMap();
 
             if(wiggle) wiggler();
 
-            for (int i = 0; i < width; i++) {
-                for (int j = 0; j < height; j++) {
-                    floatMap.setSamples(i, j,ffx , ffy);
-                }
-            }
-            displacementMap.setMapData(floatMap);
-            gc.applyEffect(displacementMap);
+            gc.getCanvas().setLayoutX(gc.getCanvas().getWidth()*ffx); //DisplacementMapは凄く重いのでCanvasを移動
+            gc.getCanvas().setLayoutY(gc.getCanvas().getHeight()*ffy);
+
         }
     }
 

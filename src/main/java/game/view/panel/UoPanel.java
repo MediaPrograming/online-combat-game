@@ -62,8 +62,6 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
     public void initialize(URL location, ResourceBundle resources) {
 
         new CombatContainer(this);
-        new AnimationHolder();
-        new AudioHolder();
 
         var props = this.getProps();
         var state = this.getState();
@@ -94,8 +92,8 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         new PlayUI(gc3,host,client);
         debug = true;
         hoge=100;
-        continueButton.setOnAction(e -> {props.StopAudio(); props.ContinueGame();});
-        quitButton.setOnAction(e -> {props.StopAudio(); props.QuitGame();});
+        continueButton.setOnAction(e -> {EffectManager.resetGraphicsContext();props.StopAudio(); props.ContinueGame();});
+        quitButton.setOnAction(e -> {EffectManager.resetGraphicsContext();props.StopAudio(); props.QuitGame();});
 
         EffectAnimationManager.setGc(gc2);
         EffectManager.addGraphicsContext(gc1);
