@@ -40,7 +40,6 @@ public class CharaAnimationPlayer {
         int two = (int)(duration/nowAnim.getAnim().length*nowAnim.getSpeed())%nowAnim.getAnim()[0].length;
 
         if(!nowAnim.getLoop()){
-            System.out.println("duration->"+duration);
             if(duration > (double)nowAnim.getAnim().length*(double)nowAnim.getAnim()[0].length / (double)nowAnim.getSpeed() ){
                 one = nowAnim.getAnim().length - 1;
                 two = nowAnim.getAnim()[0].length - 1;

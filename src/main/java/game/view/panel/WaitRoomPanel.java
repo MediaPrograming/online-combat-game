@@ -4,7 +4,10 @@ package game.view.panel;
  * @author Takuya Isaki on 2021/01/05
  * @project online-combat-game
  */
+import Animation.CharaAnimationPlayer;
+import Animation.CharacterPlayer.PlayGura;
 import com.taku.util.flux.view.BasePanel;
+import game.config.Character;
 import game.view.container.FetchContainer;
 import game.view.container.WaitRoomContainer;
 import game.view.service.IFetch;
@@ -13,14 +16,18 @@ import game.view.state.RoomState;
 import game.view.state.WaitRoomState;
 import io.game.hub.messageHub.CharacterType;
 import io.game.hub.messageHub.User;
+import io.game.hub.positionHub.Behavior;
+import io.game.hub.positionHub.CharacterState;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.SubScene;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.image.ImageView;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -31,7 +38,11 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
     //List<User> userList = new ArrayList<>();
     @FXML Button showBackButton, showCombatButton;
     @FXML ListView listView, characterList;
+    @FXML Canvas Self,Enemy;
+    @FXML ImageView Gura,Kiara,Ame,Ina,Calli;
     WaitRoomContainer container;
+    CharacterState state1;
+    CharaAnimationPlayer player;
 
 
     @Override
@@ -42,7 +53,7 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
         props.GetRoomUserRequest(state.self);
 
         //CharacterList
-        for (int i = 0; i < CharacterType.Inanis_VALUE; i++) {
+        for (int i = 0; i <= CharacterType.Inanis_VALUE; i++) {
             state.characters.add(CharacterType.forNumber(i).name());
         }
         ObservableList<String> observableList = FXCollections.observableArrayList();
@@ -72,6 +83,15 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
         //ルーム内のclientに通知
         props.IsReadyRequest(getState().isHost, state.self, state.currentRoom);
 
+
+        //キャラクター再生用
+        state1 = CharacterState.newBuilder().setBehavior(Behavior.NORMAL).build();
+        player = new CharaAnimationPlayer(0, Character.Gura);
+    }
+
+    void draw(){
+        //ImageView
+        Gura.setImage(player.play(state1));
     }
 
     @Override
@@ -107,5 +127,7 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
             userNames.forEach(observableList::add);
             listView.setItems(observableList);
         //
+
+        draw();
     }
 }

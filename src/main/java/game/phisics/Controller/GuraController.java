@@ -18,7 +18,7 @@ public class GuraController extends CharaController{
         attack.setWidth(character.getWidth()/2);
         attack.setHeight(character.getHeight()/2);
         attack.setDamege(40);
-        attack.setVecx(0);
+        attack.setVecx(-5);
         attack.setVecy(0);
             return 30;
     }
@@ -29,13 +29,13 @@ public class GuraController extends CharaController{
         attack.setWidth(character.getWidth()/2);
         attack.setHeight(character.getHeight()/2);
         attack.setDamege(40);
-        attack.setVecx(0);
+        attack.setVecx(5);
         attack.setVecy(0);
             return 30;
     }
     @Override
     public int attack3(){
-
+        attack.setVecy(10);
         attack.setDamege(100);
         return 80;
      }
@@ -75,9 +75,11 @@ public class GuraController extends CharaController{
                     switch (character.getDirection()) {
                         case LEFT:
                             attack.setVx(-15);
+                            attack.setVecx(-10);
                             break;
                         case RIGHT:
                             attack.setVx(15);
+                            attack.setVecx(10);
                     }
                 }else {if(attack.getX()!=-1)attack.setVy((50-character.getTimetomove())/3);attack.move();}
             }else if(character.getAction()==Behavior.ATTACK4){

@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.panel.WaitRoomPanel">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #66FFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.panel.WaitRoomPanel">
    <children>
-      <Button fx:id="showCombatButton" layoutX="493.0" layoutY="290.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="66.0" text="Start" />
-      <ListView fx:id="listView" layoutX="98.0" layoutY="58.0" prefHeight="61.0" prefWidth="328.0" />
-      <Button fx:id="showBackButton" layoutX="41.0" layoutY="330.0" mnemonicParsing="false" text="Back" />
-      <ListView fx:id="characterList" layoutX="98.0" layoutY="176.0" prefHeight="175.0" prefWidth="328.0" />
+      <Button fx:id="showCombatButton" alignment="CENTER" contentDisplay="CENTER" layoutX="779.0" layoutY="591.0" mnemonicParsing="false" prefHeight="96.0" prefWidth="486.0" rotate="-3.4" style="-fx-background-radius: 100;" styleClass="showCombatButton" stylesheets="@waitRoom.css" text="Start">
+         <effect>
+            <DropShadow color="#557ecf" />
+         </effect></Button>
+      <ListView fx:id="listView" layoutX="424.0" layoutY="546.0" prefHeight="121.0" prefWidth="328.0" style="-fx-font-size: 24px; -fx-background-color: #66FFFF; -fx-control-inner-background: #AAFFFF; -fx-border-color: #FFFF88; -fx-border-radius: 20;" />
+      <Button fx:id="showBackButton" layoutX="64.0" layoutY="543.0" mnemonicParsing="false" prefHeight="128.0" prefWidth="196.0" stylesheets="@waitRoom.css" text="Back" />
+      <ListView fx:id="characterList" editable="true" layoutX="934.0" layoutY="19.0" prefHeight="175.0" prefWidth="328.0" />
+      <Canvas fx:id="Self" height="335.0" layoutX="111.0" layoutY="46.0" width="541.0" />
+      <Canvas fx:id="Enemy" height="335.0" layoutX="646.0" layoutY="54.0" width="541.0" />
+      <ImageView fx:id="Gura" fitHeight="121.0" fitWidth="131.0" layoutX="232.0" layoutY="404.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Kiara" fitHeight="121.0" fitWidth="131.0" layoutX="356.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Ame" fitHeight="121.0" fitWidth="131.0" layoutX="569.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Ina" fitHeight="121.0" fitWidth="131.0" layoutX="773.0" layoutY="417.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Calli" fitHeight="121.0" fitWidth="131.0" layoutX="922.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
