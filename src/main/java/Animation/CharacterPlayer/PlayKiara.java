@@ -21,7 +21,9 @@ public class PlayKiara extends PlayCharacter{
     @Override
     public void changedAction(CharacterState state) {
         super.changedAction(state);
+        double rand = Math.random();
         switch (state.getBehavior()){
+
             case NORMAL:
                 if(state.getDirection()==Direction.RIGHT){
                     this.offsetX = -150;
@@ -32,7 +34,9 @@ public class PlayKiara extends PlayCharacter{
                 }
                 break;
             case DAMAGE :
-                AudioHolder.damage.loop(1);
+                if(rand>0.4){AudioHolder.Kiarastopit.setFramePosition(0);AudioHolder.Kiarastopit.loop(0);
+                }else {AudioHolder.Kiarayabe.setFramePosition(0);AudioHolder.Kiarayabe.loop(0);
+                }
                 if(state.getDirection()==Direction.RIGHT){
                     this.offsetX = -150;
                     this.offsetY = -60;
@@ -42,6 +46,23 @@ public class PlayKiara extends PlayCharacter{
                 }
                 break;
             case ATTACK1:
+                if(rand>0.6){
+                    AudioHolder.Kiarayouwannafight.setFramePosition(0);AudioHolder.Kiarayouwannafight.loop(0);
+                }else if(rand>0.3){
+                    AudioHolder.Kiarabigbumb.setFramePosition(0);AudioHolder.Kiarabigbumb.loop(0);
+                }
+                break;
+            case ATTACK2:
+                if(rand>0.6){
+                    AudioHolder.Kiarayouwannafight.setFramePosition(0);AudioHolder.Kiarayouwannafight.loop(0);
+                }else if(rand>0.3){
+                    AudioHolder.Kiarabigbumb.setFramePosition(0);AudioHolder.Kiarabigbumb.loop(0);
+                }
+                break;
+            case ATTACK4:
+                if(rand>0.7){
+                    AudioHolder.Kiaraeat.setFramePosition(0);AudioHolder.Kiaraeat.loop(0);
+                }
                 break;
             case JUMP:
                 if(state.getDirection()==Direction.RIGHT){
