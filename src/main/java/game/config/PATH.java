@@ -25,7 +25,11 @@ public final class PATH {
 
     public static final String Amelia_Normal = root + "\\src\\main\\resources\\game\\img\\Amelia\\Amerial-Nornal-01.png";
     public static final String Amelia_Attack1 = root + "\\src\\main\\resources\\game\\img\\Amelia\\Amerial-Attack-01.png";
-
+    public static final String Amelia_Attack3 = root + "\\src\\main\\resources\\game\\img\\Amelia\\Amerial-Attack-Upper-01.png";
+    public static final String Amelia_Attack4 = root + "\\src\\main\\resources\\game\\img\\Amelia\\Amerial-Attack-Under-01.png";
+    public static final String Amelia_Run = root + "\\src\\main\\resources\\game\\img\\Amelia\\Amerial-Walk-01.png";
+    public static final String Amelia_Atk_obj = root + "\\src\\main\\resources\\game\\img\\Amelia\\Amelia-Atk-obj.png";
+    public static final String Amelia_Damaged = root + "\\src\\main\\resources\\game\\img\\Amelia\\Amerial-Damaged-01.png";
     public static final String BattleBGM = root + "\\src\\main\\resources\\game\\sounds\\Tanukichi.wav";
     public static final String HomeBGM = root + "\\src\\main\\resources\\game\\sounds\\Lets!.wav";
     public static final String FinishBGM = root + "\\src\\main\\resources\\game\\sounds\\のんきな日常.wav";
