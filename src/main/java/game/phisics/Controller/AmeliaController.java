@@ -27,9 +27,9 @@ public class AmeliaController extends CharaController{
         attack.setWidth(character.getWidth()/2);
         attack.setHeight(character.getHeight()/2);
         attack.setDamege(50);
-        attack.setAx(0);
-        attack.setAy(0);
-             return 50;
+        attack.setVecx(0);
+        attack.setVecy(0);
+        return 50;
      }
 
      @Override public int attack4(){
@@ -38,9 +38,9 @@ public class AmeliaController extends CharaController{
         attack.setWidth(3*character.getWidth()/2);
         attack.setHeight(character.getHeight()/4);
         attack.setDamege(50);
-         attack.setAx(0);
-         attack.setAy(0);
-             return 50;
+        attack.setVecx(0);
+        attack.setVecy(0);
+        return 50;
      }
      @Override public void jump(){
              character.vector(0, -10);
@@ -57,8 +57,8 @@ public class AmeliaController extends CharaController{
                 attack.setHeight(character.getHeight()/2);
                 attack.setVx(-10);
                 attack.setDamege(50);
-                attack.setAx(0);
-                attack.setAy(0);
+                attack.setVecx(0);
+                attack.setVecy(0);
             }else if(character.getAction()==Behavior.ATTACK1&&character.getTimetomove()<25){
                 attack.move();
             }else if(character.getAction()==Behavior.ATTACK2&&character.getTimetomove()==25){
@@ -68,8 +68,8 @@ public class AmeliaController extends CharaController{
                 attack.setHeight(character.getHeight()/2);
                 attack.setVx(10);
                 attack.setDamege(50);
-                attack.setAx(0);
-                attack.setAy(0);
+                attack.setVecx(0);
+                attack.setVecy(0);
             }else if(character.getAction()==Behavior.ATTACK2&&character.getTimetomove()<25){
                 attack.move();
             }else if(character.getAction()==Behavior.ATTACK3&&character.getTimetomove()==12){

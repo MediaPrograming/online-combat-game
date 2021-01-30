@@ -77,7 +77,7 @@ public class PhysicsCalcUtil {
         }
         if(aAttack.intersects(b.getX()+b.getVx(),b.getY()+b.getVy(),b.getWidth(),b.getHeight())){
 
-            b.vector(aAttack.getAx(),aAttack.getAy());
+            b.vector(aAttack.getVecx(),aAttack.getVecy());
             aAttack.setVisible(false);
             aAttack.setY(-1);
             aAttack.setX(-1);
@@ -99,7 +99,7 @@ public class PhysicsCalcUtil {
         }
         if(bAttack.intersects(a.getX()+a.getVx(),a.getY()+a.getVy(),a.getWidth(),a.getHeight())){
 
-            a.vector(bAttack.getAx(),bAttack.getAx());
+            a.vector(bAttack.getVecx(),bAttack.getVecx());
             aAttack.setVisible(false);
             aAttack.setY(-1);
             aAttack.setX(-1);

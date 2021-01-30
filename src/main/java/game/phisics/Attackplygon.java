@@ -3,7 +3,7 @@ package game.phisics;
 public class Attackplygon extends PhysicsObject {
     private int damage=0;
     private int damagetime=50; //攻撃を食らった相手が動けるまでの時間
-    private int ax=0,ay=0;
+    private int vecx=0,vecy=0;//吹っ飛ばす距離
     Attackplygon(){
         super();
     }
@@ -25,19 +25,19 @@ public class Attackplygon extends PhysicsObject {
         return damagetime;
     }
 
-    public int getAx() {
-        return ax;
+    public int getVecx() {
+        return vecx;
     }
 
-    public void setAx(int ax) {
-        this.ax = ax;
+    public void setVecx(int ax) {
+        this.vecx = ax;
     }
 
-    public int getAy() {
-        return ay;
+    public int getVecy() {
+        return vecy;
     }
 
-    public void setAy(int ay) {
-        this.ay = ay;
+    public void setVecy(int ay) {
+        this.vecy = ay;
     }
 }
