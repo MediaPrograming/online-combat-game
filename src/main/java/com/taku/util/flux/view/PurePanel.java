@@ -1,9 +1,7 @@
 package com.taku.util.flux.view;
 
 import com.taku.util.flux.service.IUpdate;
-import com.taku.util.model.Unit;
 import game.util.Time;
-import game.view.action.UIEvent;
 import javafx.scene.input.KeyEvent;
 
 /**

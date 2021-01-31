@@ -6,37 +6,21 @@ package game.view.reducer;
 
 import Animation.EffectPlayer.EffectManager;
 import com.taku.util.flux.model.Action;
-import com.taku.util.flux.model.Store;
 import com.taku.util.flux.service.IReducer;
 import com.taku.util.flux.view.ReducerBuilder;
-import com.taku.util.model.Unit;
 import game.store.StoreManager;
+import game.util.ShowPanelUtil;
 import game.view.action.ClientEvent;
 import game.view.action.RoomEvent;
-import game.view.action.UIEvent;
-import game.view.panel.WaitRoomPanel;
 import game.view.state.WaitRoomState;
 import io.game.hub.messageHub.Type;
-import io.grpc.BindableService;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.PopupWindow;
-import game.config.PATH;
-
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.FloatControl;
-
-import javax.management.remote.JMXServerErrorException;
-import javax.swing.*;
 
 public class WaitRoomReducer implements IReducer<WaitRoomState> {
     @Override
     public ReducerBuilder<WaitRoomState> apply(Action<?> action, WaitRoomState init) {
-        var unit = new Unit();
         return ReducerBuilder.Create(action, init)
                 .Case(RoomEvent.START_GAME, ((state, room) -> {
-                    StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_UO_PANEL.Create(unit));
+                    ShowPanelUtil.ShowUoPanel();
                     return state;
                     
                 }))
@@ -49,7 +33,7 @@ public class WaitRoomReducer implements IReducer<WaitRoomState> {
                             System.out.println("Start画面の表示");
                             StoreManager.Instance.client.grpcRoom = null;
                             StoreManager.Instance.client.user = null;
-                            StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_START_PANEL.Create(unit));
+                            ShowPanelUtil.ShowStartPanel();
                         }else {
                             roomState.currentRoom = message.getRoom();
                         }
@@ -63,7 +47,7 @@ public class WaitRoomReducer implements IReducer<WaitRoomState> {
                         System.out.println("UOパネルの表示");
                         StoreManager.Instance.client.user = message.getRoom().getUserList().stream().filter(x->x.getId() == roomState.self.getId()).findFirst().get();
                         StoreManager.Instance.client.grpcRoom = message.getRoom();
-                        StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_UO_PANEL.Create(unit));
+                        ShowPanelUtil.ShowUoPanel();
                     }
                     else if(message.getType() == Type.ERROR) {
                         System.out.println("[ERROR]" + message.getMessage());

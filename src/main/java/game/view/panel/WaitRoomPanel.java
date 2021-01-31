@@ -6,29 +6,22 @@ package game.view.panel;
  */
 import Animation.AnimationHolder;
 import Animation.CharaAnimationPlayer;
-import Animation.CharacterPlayer.PlayGura;
 import Animation.EffectPlayer.EffectManager;
 import Audio.AudioHolder;
 import com.taku.util.flux.view.BasePanel;
 import game.config.Character;
 import game.config.PATH;
 import game.util.Time;
-import game.view.container.FetchContainer;
 import game.view.container.WaitRoomContainer;
-import game.view.service.IFetch;
 import game.view.service.IWaitRoom;
-import game.view.state.RoomState;
 import game.view.state.WaitRoomState;
 import io.game.hub.messageHub.CharacterType;
-import io.game.hub.messageHub.User;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.SubScene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
@@ -39,8 +32,6 @@ import javafx.scene.image.ImageView;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implements Initializable {

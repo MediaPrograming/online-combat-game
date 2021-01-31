@@ -3,7 +3,6 @@ package game.view.reducer;
 import Animation.CharaAnimationPlayer;
 import Animation.CharacterPlayer.*;
 import Animation.DrawPolygon;
-import Audio.AudioClip;
 import Audio.AudioPlayer;
 
 import com.taku.util.flux.model.Action;
@@ -11,14 +10,9 @@ import com.taku.util.flux.service.IReducer;
 import com.taku.util.flux.view.ReducerBuilder;
 import game.config.Character;
 import game.config.PATH;
-import game.store.StoreManager;
+import game.util.ShowPanelUtil;
 import game.view.action.UoPanelEvent;
-import game.view.action.UIEvent;
 import game.view.state.UoPanelState;
-
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.FloatControl;
-import java.io.File;
 
 /**
  * @author Takuya Isaki on 2021/01/20
@@ -31,7 +25,6 @@ public class UoPanelReducer implements IReducer<UoPanelState> {
         return ReducerBuilder.Create(action, init)
                 .Case(UoPanelEvent.STATE_UPDATE, ((uoPanelState, characterState) -> {
                     uoPanelState.stateBlockingQueue.add(characterState);
-                    //System.out.println("id : " +  characterState.getId() + "put : " + "x: "+  characterState.getX() + "y " + characterState.getY());
                     return uoPanelState;
                 }))
                 .Case(UoPanelEvent.STREAM_EVENT, ((uoPanelState, positionHubMessage) -> {
@@ -41,8 +34,7 @@ public class UoPanelReducer implements IReducer<UoPanelState> {
                     }
                     return uoPanelState;
                 })).Case(UoPanelEvent.CONTINUE, ((uoPanelState, unit) -> {
-                    StoreManager.Instance.store.Invoke(unit,UIEvent.SHOW_WAIT_ROOM_PANEL.Create(unit));
-                    
+                    ShowPanelUtil.ShowWaitRoomPanel();
                     AudioPlayer.Play(PATH.HomeBGM);
                     return uoPanelState;
                 })).Case(UoPanelEvent.QUIT, ((uoPanelState, unit) -> {
@@ -115,8 +107,8 @@ public class UoPanelReducer implements IReducer<UoPanelState> {
 
                     panelState.room.getUserList().forEach(user ->
                     {
-                        System.out.println("InitialID\t" + user.getId());
-                        System.out.println("selfID\t" + self.getId());
+//                        System.out.println("InitialID\t" + user.getId());
+//                        System.out.println("selfID\t" + self.getId());
                         switch (user.getCharacterType()) {
                             case Gura:
                                 playerTable.put(user.getId(), new PlayGura(gc, new CharaAnimationPlayer(user.getId(), Character.Gura), selfState));

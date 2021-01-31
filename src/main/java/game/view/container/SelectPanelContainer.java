@@ -3,26 +3,22 @@ package game.view.container;
  * @author Takuya Isaki on 2021/01/05
  * @project online-combat-game
  */
-import com.taku.util.flux.model.Store;
 import com.taku.util.flux.service.IDispatcher;
 import com.taku.util.model.Unit;
 import game.store.StoreManager;
 import game.util.RequestUtil;
 import game.view.action.ClientEvent;
-import game.view.action.CombatEvent;
-import game.view.action.UIEvent;
 import game.view.panel.SelectPanel;
-import game.view.panel.WaitRoomPanel;
-import game.view.service.IFetch;
+import game.view.service.ISelectPanel;
 import game.view.state.RoomState;
 import io.game.hub.messageHub.*;
 import io.grpc.stub.StreamObserver;
 
 import java.util.function.Function;
 
-public class FetchContainer {
+public class SelectPanelContainer {
     final RoomState roomState = new RoomState();
-    public FetchContainer(SelectPanel panel){
+    public SelectPanelContainer(SelectPanel panel){
         panel.connect(roomState, state -> state, mapDispatch);
     }
 
@@ -32,8 +28,8 @@ public class FetchContainer {
     Unit unit = new Unit();
 
     UnitRequest unitRequest = UnitRequest.newBuilder().build();
-    Function<IDispatcher, IFetch> mapDispatch = dispatcher ->
-            new IFetch() {
+    Function<IDispatcher, ISelectPanel> mapDispatch = dispatcher ->
+            new ISelectPanel() {
                 @Override
                 public void GetRoomRequest() {
                     //非同期リクエストの送信
@@ -85,13 +81,12 @@ public class FetchContainer {
                 }
 
                 @Override
-                public void Leave(User user){
+                public void LeaveRequest(User user){
                     var request = Message.newBuilder().setType(Type.LEAVE).setUser(user).build();
                     var observer = RequestUtil.streamEventCreator.apply(dispatcher);
                     observer.onNext(request);
                 }
-                @Override
-                public void ShowStartPanel() { StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_START_PANEL.Create(unit)); }
+
                 @Override
                 public void CombatStartRequest(GrpcRoom gRoom, User user) {
                     var request = Message.newBuilder().setType(Type.GAME_START).setMessage(gRoom.getRoomName()).setUser(user).build();

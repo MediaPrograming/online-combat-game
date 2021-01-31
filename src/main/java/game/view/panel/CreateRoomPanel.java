@@ -5,6 +5,7 @@ package game.view.panel;
  */
 import com.taku.util.flux.view.BasePanel;
 import com.taku.util.model.Unit;
+import game.util.ShowPanelUtil;
 import game.view.container.CreateRoomContainer;
 import game.view.service.ICreateRoom;
 import javafx.fxml.FXML;
@@ -29,6 +30,6 @@ public class CreateRoomPanel extends BasePanel<Unit, ICreateRoom> implements Ini
             var userName = userNameField.getText();
             props.CreateRoomRequest(roomName, userName);
         });
-        backButton.setOnAction(e -> props.ShowStartPanel());
+        backButton.setOnAction(e -> ShowPanelUtil.ShowStartPanel());
     }
 }

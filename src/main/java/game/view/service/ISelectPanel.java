@@ -7,9 +7,9 @@ import io.game.hub.messageHub.GrpcRoom;
 import io.game.hub.messageHub.User;
 import io.grpc.Grpc;
 
-public interface IFetch {
+public interface ISelectPanel {
     /**
-     *
+     * Get room request
      */
     void GetRoomRequest();
     void CreateRoomRequest(User user, GrpcRoom gRoom);
@@ -31,9 +31,7 @@ public interface IFetch {
      * Leave by StreamEvent
      * @param user　User must need to have the user variable roomInfo and must be joined
      */
-    void Leave(User user);
-
-    void ShowStartPanel();
+    void LeaveRequest(User user);
     void CombatStartRequest(GrpcRoom gRoom, User user);
 
 }
