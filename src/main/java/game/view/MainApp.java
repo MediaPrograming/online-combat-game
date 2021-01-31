@@ -21,8 +21,7 @@ import game.config.PATH;
 public class MainApp extends Application {
 
     public static void main(String[] args) {
-        new AnimationHolder();
-        new AudioHolder();
+
         launch(args);
     }
 
@@ -32,7 +31,8 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.close(); //このwindowは使わん
-        var unit = new Unit();
+        AnimationHolder.Initialize();
+        AudioHolder.Initialize();
         AudioPlayer.Play(PATH.HomeBGM);
         ShowPanelUtil.ShowStartPanel();
         Thread thread = new Thread(() -> Platform.runLater(Time.Instance));

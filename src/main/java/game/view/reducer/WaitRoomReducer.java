@@ -14,6 +14,7 @@ import game.view.action.ClientEvent;
 import game.view.action.RoomEvent;
 import game.view.state.WaitRoomState;
 import io.game.hub.messageHub.Type;
+import server.room.Room;
 
 public class WaitRoomReducer implements IReducer<WaitRoomState> {
     @Override
@@ -53,6 +54,21 @@ public class WaitRoomReducer implements IReducer<WaitRoomState> {
                         System.out.println("[ERROR]" + message.getMessage());
                     }
                     return roomState;
+                }))
+                .Case(RoomEvent.CHANGE_DISPLAY_CHARACTER_BEHAVIOUR, ((state, behavior) -> {
+                    return state;
+                }))
+                .Case(RoomEvent.CHANGE_MOUSEOVER_TYPE, ((state, type) -> {
+                    state.mouseOverCharacter = type;
+                    return state;
+                }))
+                .Case(RoomEvent.CHANGE_BEFORE_CHARACTER, ((state, user) -> {
+                    if(user.getId() == state.self.getId()){
+                        state.beforeSelf = user;
+                    }else{
+                        state.beforeEnemy = user;
+                    }
+                    return state;
                 }));
     }
 }

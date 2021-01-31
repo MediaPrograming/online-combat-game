@@ -15,9 +15,7 @@ import java.util.UUID;
 
 public class CreateRoomContainer {
     public CreateRoomContainer(CreateRoomPanel panel){
-        Unit unit = new Unit();
-        panel.connect(unit, state -> state, dispatcher -> new ICreateRoom() {
-
+        panel.connect(new ICreateRoom() {
             @Override public void CreateRoomRequest(String roomName, String userName) {
                 var client = StoreManager.Instance.client;
                 var id = UUID.randomUUID().hashCode();

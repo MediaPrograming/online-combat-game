@@ -13,6 +13,7 @@ import game.config.PATH;
 import game.util.ShowPanelUtil;
 import game.view.action.UoPanelEvent;
 import game.view.state.UoPanelState;
+import io.game.hub.messageHub.CharacterType;
 
 /**
  * @author Takuya Isaki on 2021/01/20
@@ -111,19 +112,19 @@ public class UoPanelReducer implements IReducer<UoPanelState> {
 //                        System.out.println("selfID\t" + self.getId());
                         switch (user.getCharacterType()) {
                             case Gura:
-                                playerTable.put(user.getId(), new PlayGura(gc, new CharaAnimationPlayer(user.getId(), Character.Gura), selfState));
+                                playerTable.put(user.getId(), new PlayGura(gc, new CharaAnimationPlayer(user.getId(), CharacterType.Gura), selfState));
                                 break;
                             case Kiara:
-                                playerTable.put(user.getId(), new PlayKiara(gc, new CharaAnimationPlayer(user.getId(), Character.Kiara), selfState));
+                                playerTable.put(user.getId(), new PlayKiara(gc, new CharaAnimationPlayer(user.getId(), CharacterType.Kiara), selfState));
                                 break;
                             case Amelia:
-                                playerTable.put(user.getId(), new PlayAme(gc, new CharaAnimationPlayer(user.getId(), Character.Ame), selfState));
+                                playerTable.put(user.getId(), new PlayAme(gc, new CharaAnimationPlayer(user.getId(), CharacterType.Amelia), selfState));
                                 break;
                             case Inanis:
-                                playerTable.put(user.getId(), new PlayIna(gc, new CharaAnimationPlayer(user.getId(), Character.Ina), selfState));
+                                playerTable.put(user.getId(), new PlayIna(gc, new CharaAnimationPlayer(user.getId(), CharacterType.Inanis), selfState));
                                 break;
                             case Calliope:
-                                playerTable.put(user.getId(), new PlayCalli(gc, new CharaAnimationPlayer(user.getId(), Character.Calli), selfState));
+                                playerTable.put(user.getId(), new PlayCalli(gc, new CharaAnimationPlayer(user.getId(), CharacterType.Calliope), selfState));
                                 break;
                         }
                         polyTable.put(user.getId(),new DrawPolygon());

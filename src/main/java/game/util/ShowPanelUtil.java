@@ -16,6 +16,7 @@ import javafx.scene.Scene;
  */
 public final class ShowPanelUtil {
     public static void ShowStartPanel() {
+        Platform.runLater(() ->{
         try {
             Parent parent = FXMLLoader.load(StoreManager.class.getResource("../view/start.fxml"));
             var scene = new Scene(parent);
@@ -26,57 +27,66 @@ public final class ShowPanelUtil {
         } catch (Exception err) {
             System.out.println("[ERROR]" + err.toString());
         }
+        });
     }
 
     public static void ShowSelectionPanel() {
-        try {
-            Parent parent = FXMLLoader.load(StoreManager.class.getResource("../view/select.fxml"));
-            var scene = new Scene(parent);
-            StoreManager.stage.setScene(scene);
-            StoreManager.stage.show();
-            scene.setOnKeyPressed(k -> Time.Instance.KeyPressed(k));
-            scene.setOnKeyReleased(k -> Time.Instance.KeyReleased(k));
-        } catch (Exception err) {
-            System.out.println("[ERROR]" + err.toString());
-        }
+        Platform.runLater(() -> {
+            try {
+                Parent parent = FXMLLoader.load(StoreManager.class.getResource("../view/select.fxml"));
+                var scene = new Scene(parent);
+                StoreManager.stage.setScene(scene);
+                StoreManager.stage.show();
+                scene.setOnKeyPressed(k -> Time.Instance.KeyPressed(k));
+                scene.setOnKeyReleased(k -> Time.Instance.KeyReleased(k));
+            } catch (Exception err) {
+                System.out.println("[ERROR]" + err.toString());
+            }
+        });
     }
 
     public static void ShowCreateRoomPanel() {
-        try {
-            Parent parent = FXMLLoader.load(StoreManager.class.getResource("../view/createRoom.fxml"));
-            var scene = new Scene(parent);
-            StoreManager.stage.setScene(scene);
-            StoreManager.stage.show();
-            scene.setOnKeyPressed(k -> Time.Instance.KeyPressed(k));
-            scene.setOnKeyReleased(k -> Time.Instance.KeyReleased(k));
-        } catch (Exception err) {
-            System.out.println("[ERROR]" + err.toString());
-        }
+        Platform.runLater(() -> {
+            try {
+                Parent parent = FXMLLoader.load(StoreManager.class.getResource("../view/createRoom.fxml"));
+                var scene = new Scene(parent);
+                StoreManager.stage.setScene(scene);
+                StoreManager.stage.show();
+                scene.setOnKeyPressed(k -> Time.Instance.KeyPressed(k));
+                scene.setOnKeyReleased(k -> Time.Instance.KeyReleased(k));
+            } catch (Exception err) {
+                System.out.println("[ERROR]" + err.toString());
+            }
+        });
     }
 
     public static void ShowWaitRoomPanel() {
-        try {
-            Parent parent = FXMLLoader.load(StoreManager.class.getResource("../view/waitRoom.fxml"));
-            var scene = new Scene(parent);
-            StoreManager.stage.setScene(scene);
-            StoreManager.stage.show();
-            scene.setOnKeyPressed(k -> Time.Instance.KeyPressed(k));
-            scene.setOnKeyReleased(k -> Time.Instance.KeyReleased(k));
-        } catch (Exception err) {
-            System.out.println("[ERROR]" + err.toString());
-        }
+        Platform.runLater(() -> {
+            try {
+                Parent parent = FXMLLoader.load(StoreManager.class.getResource("../view/waitRoom.fxml"));
+                var scene = new Scene(parent);
+                StoreManager.stage.setScene(scene);
+                StoreManager.stage.show();
+                scene.setOnKeyPressed(k -> Time.Instance.KeyPressed(k));
+                scene.setOnKeyReleased(k -> Time.Instance.KeyReleased(k));
+            } catch (Exception err) {
+                System.out.println("[ERROR]" + err.toString());
+            }
+        });
     }
 
     public static void ShowUoPanel() {
-        try {
-            Parent parent = FXMLLoader.load(StoreManager.class.getResource("../view/uo.fxml"));
-            var scene = new Scene(parent);
-            StoreManager.stage.setScene(scene);
-            StoreManager.stage.show();
-            scene.setOnKeyPressed(k -> Time.Instance.KeyPressed(k));
-            scene.setOnKeyReleased(k -> Time.Instance.KeyReleased(k));
-        } catch (Exception err) {
-            System.out.println("[ERROR] : " + err.toString());
-        }
+        Platform.runLater(() -> {
+            try {
+                Parent parent = FXMLLoader.load(StoreManager.class.getResource("../view/uo.fxml"));
+                var scene = new Scene(parent);
+                StoreManager.stage.setScene(scene);
+                StoreManager.stage.show();
+                scene.setOnKeyPressed(k -> Time.Instance.KeyPressed(k));
+                scene.setOnKeyReleased(k -> Time.Instance.KeyReleased(k));
+            } catch (Exception err) {
+                System.out.println("[ERROR] : " + err.toString());
+            }
+        });
     }
 }

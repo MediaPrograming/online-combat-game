@@ -7,6 +7,7 @@ import game.view.panel.WaitRoomPanel;
 import game.view.service.IWaitRoom;
 import game.view.state.WaitRoomState;
 import io.game.hub.messageHub.*;
+import io.game.hub.positionHub.Behavior;
 import io.grpc.stub.StreamObserver;
 
 /**
@@ -63,6 +64,21 @@ public class WaitRoomContainer {
                     @Override public void onError(Throwable t) { System.out.println(t.toString());}
                     @Override public void onCompleted() { }
                 });
+            }
+
+            @Override
+            public void ChangeDisplayCharacterBehaviour(Behavior behavior) {
+                dispatcher.dispatch(RoomEvent.CHANGE_DISPLAY_CHARACTER_BEHAVIOUR.Create(behavior));
+            }
+
+            @Override
+            public void ChangeBeforeCharacter(User user) {
+                dispatcher.dispatch(RoomEvent.CHANGE_BEFORE_CHARACTER.Create(user));
+            }
+
+            @Override
+            public void ChangeMouseOverCharacter(CharacterType type) {
+                dispatcher.dispatch(RoomEvent.CHANGE_MOUSEOVER_TYPE.Create(type));
             }
         });
     }

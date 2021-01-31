@@ -1,6 +1,7 @@
 package Animation;
 
 import game.util.Time;
+import io.game.hub.messageHub.CharacterType;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
 import javafx.scene.image.Image;
@@ -9,14 +10,13 @@ import java.awt.*;
 
 public class CharaAnimationPlayer {
     private Integer ID;
-    private String Chara;
+    private CharacterType Chara;
     private Animation nowAnim;
     private CharacterState nowState;
     private double firstFrame;
-    public CharaAnimationPlayer(Integer ID, String Character){
-
+    public CharaAnimationPlayer(Integer ID, CharacterType CharacterType){
         this.ID = ID;
-        this.Chara = Character;
+        this.Chara = CharacterType;
         try{
         nowAnim = AnimationHolder.getCharaAnimation(Chara, Behavior.NORMAL);
         }catch (Exception e){System.out.println("UOOOOO"+e.toString());}

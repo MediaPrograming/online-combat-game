@@ -8,7 +8,7 @@ import javafx.scene.input.KeyEvent;
  * @author Takuya Isaki on 2021/01/31
  * @project online-combat-game
  */
-public class PurePanel implements IUpdate {
+public abstract class PurePanel implements IUpdate {
     public PurePanel(){
         Time.Instance.addListener(this);
     }

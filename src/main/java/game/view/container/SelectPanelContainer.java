@@ -52,44 +52,10 @@ public class SelectPanelContainer {
                 }
 
                 @Override
-                public void CreateRoomRequest(User user, GrpcRoom gRoom) {
-                    var request = RoomMessage.newBuilder().setRoom(gRoom).setUser(user).build();
-                    stub.createRoom(request, new StreamObserver<ResponseCode>() {
-                        @Override public void onNext(ResponseCode value) { dispatcher.dispatch(ClientEvent.CREATE_ROOM.Create(value)); }
-                        @Override public void onError(Throwable t) {System.out.println(t.toString()); }
-                        @Override public void onCompleted() { }
-                    });
-                }
-
-                @Override
-                public void DeleteRoomRequest(User user) {
-                    var request = RoomMessage.newBuilder().setUser(user).build();
-                    stub.deleteRoom(request, new StreamObserver<ResponseCode>() {
-                        @Override public void onNext(ResponseCode value) { dispatcher.dispatch(ClientEvent.DELETE_ROOM.Create(value)); }
-                        @Override public void onError(Throwable t) { System.out.println(t.toString());}
-                        @Override public void onCompleted() {}
-                    });
-                }
-
-                @Override
                 public void JoinRequest(User user, GrpcRoom gRoom){
                     StoreManager.Instance.client.user = user;
                     StoreManager.Instance.client.grpcRoom = gRoom;
                     var request = Message.newBuilder().setType(Type.JOIN).setUser(user).setRoom(gRoom).build();
-                    var observer = RequestUtil.streamEventCreator.apply(dispatcher);
-                    observer.onNext(request);
-                }
-
-                @Override
-                public void LeaveRequest(User user){
-                    var request = Message.newBuilder().setType(Type.LEAVE).setUser(user).build();
-                    var observer = RequestUtil.streamEventCreator.apply(dispatcher);
-                    observer.onNext(request);
-                }
-
-                @Override
-                public void CombatStartRequest(GrpcRoom gRoom, User user) {
-                    var request = Message.newBuilder().setType(Type.GAME_START).setMessage(gRoom.getRoomName()).setUser(user).build();
                     var observer = RequestUtil.streamEventCreator.apply(dispatcher);
                     observer.onNext(request);
                 }
