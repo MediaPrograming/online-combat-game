@@ -49,21 +49,21 @@ public class AmeliaController extends CharaController{
                 attack.setX(character.getX()-character.getWidth()/2);
                 attack.setY(character.getY()+character.getHeight()/4);
                 attack.setWidth(character.getWidth()/2);
-                attack.setHeight(character.getHeight()/4);
-                attack.setVx(-10);
+                attack.setHeight(character.getHeight()/6);
+                attack.setVx(-30);
                 attack.setDamege(50);
-                attack.setVecx(0);
+                attack.setVecx(-3);
                 attack.setVecy(0);
             }else if(character.getAction()==Behavior.ATTACK1&&character.getTimetomove()<28){
                 attack.move();
             }else if(character.getAction()==Behavior.ATTACK2&&character.getTimetomove()==28){
                 attack.setX(character.getX()+character.getWidth());
                 attack.setY(character.getY()+character.getHeight()/4);
-                attack.setWidth(character.getWidth());
-                attack.setHeight(character.getHeight()/4);
-                attack.setVx(10);
+                attack.setWidth(character.getWidth()/2);
+                attack.setHeight(character.getHeight()/6);
+                attack.setVx(30);
                 attack.setDamege(50);
-                attack.setVecx(0);
+                attack.setVecx(3);
                 attack.setVecy(0);
             }else if(character.getAction()==Behavior.ATTACK2&&character.getTimetomove()<28){
                 attack.move();

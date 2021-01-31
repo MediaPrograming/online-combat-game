@@ -60,7 +60,7 @@ public class PlayAme extends PlayCharacter{
                     }
                     break;
             }
-            gc.strokeRect(state.getAtkX(),state.getAtkY(),state.getAtkW(),state.getAtkH());
+//            gc.strokeRect(state.getAtkX(),state.getAtkY(),state.getAtkW(),state.getAtkH());
         }else{
         if(flag) { flag = false;}
     }

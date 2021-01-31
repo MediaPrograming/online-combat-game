@@ -1,0 +1,11 @@
+.leftName{
+    -fx-background-color: #FFFAFA;
+    -fx-background-radius: 0 100 0 100;
+    -fx-border-radius:0 100 0 100;
+}
+
+.rightName{
+    -fx-background-color: #FAFAFF;
+    -fx-background-radius: 100 0 100 0;
+    -fx-border-radius:100 0 100 0;
+}

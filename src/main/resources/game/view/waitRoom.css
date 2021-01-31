@@ -43,3 +43,7 @@
 .characterButton{
     -fx-background-color: transparent;
 }
+
+.BackPane{
+    -fx-background-image: url("../img/SelectBack.png");
+}

@@ -2,13 +2,17 @@ package Animation.UIPlayer;
 
 import game.config.CharaData.*;
 import game.config.Character;
+import game.config.PATH;
 import io.game.hub.messageHub.CharacterType;
 import io.game.hub.messageHub.User;
 import io.game.hub.positionHub.CharacterState;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Hashtable;
 
 public class PlayUI {
@@ -34,14 +38,19 @@ public class PlayUI {
         switch (type){
             case Gura :
                 HP = Gura.HP;
+                break;
             case Inanis :
                 HP = Ina.HP;
+                break;
             case Calliope :
                 HP = Calli.HP;
+                break;
             case Amelia :
                 HP = Ame.HP;
+                break;
             case Kiara:
                 HP = Kiara.HP;
+                break;
         }
         return HP;
     }
@@ -52,10 +61,10 @@ public class PlayUI {
 
     public static void play(){
         meterTable.forEach((k,v) -> v.play(stateTable.get(k).getHP()));
-        gc.setFill(Color.PAPAYAWHIP);
-        gc.setFont(Font.font(50));
-        gc.fillText(left.getName(),100,170,300);
-        gc.fillText(right.getName(),980,170,300);
+//        gc.setFill(Color.PAPAYAWHIP);
+//        gc.setFont(Font.font(50));
+//        gc.fillText(left.getName(),100,170,300);
+//        gc.fillText(right.getName(),980,170,300);
     }
 
     public static void debug(int value){meterTable.forEach((k,v) -> v.play(value));}

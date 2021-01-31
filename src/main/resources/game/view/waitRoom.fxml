@@ -11,9 +11,9 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #66FFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.panel.WaitRoomPanel">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="BackPane" stylesheets="@waitRoom.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.panel.WaitRoomPanel">
    <children>
-      <ListView fx:id="listView" layoutX="476.0" layoutY="580.0" prefHeight="121.0" prefWidth="328.0" style="-fx-font-size: 24px; -fx-background-color: #66FFFF; -fx-control-inner-background: #AAFFFF; -fx-border-color: #FFFF88; -fx-border-radius: 20;" />
+      <ListView fx:id="listView" layoutX="354.0" layoutY="569.0" prefHeight="122.0" prefWidth="426.0" style="-fx-font-size: 24px; -fx-background-color: transparent; -fx-control-inner-background: #AAFFFF; -fx-border-color: #FFFF88; -fx-border-radius: 20;" />
       <Button fx:id="showBackButton" layoutX="53.0" layoutY="556.0" mnemonicParsing="false" prefHeight="128.0" prefWidth="196.0" styleClass="showBackButton" stylesheets="@waitRoom.css" text="戻る" textAlignment="CENTER">
          <font>
             <Font name="Yu Gothic Medium" size="48.0" />
@@ -26,11 +26,17 @@
                </stops>
             </LinearGradient>
          </textFill></Button>
-      <Canvas fx:id="Self" height="335.0" layoutX="111.0" layoutY="46.0" width="541.0" />
-      <Canvas fx:id="Enemy" height="335.0" layoutX="646.0" layoutY="54.0" width="541.0" />
-      <SplitPane dividerPositions="0.19259962049335863, 0.40037950664136623, 0.611954459203036, 0.8026565464895635" layoutX="259.0" layoutY="412.0" prefHeight="143.0" prefWidth="763.0" style="-fx-background-color: rgba(255, 200, 200, 0.2); -fx-background-radius: 20; -fx-border-color: #FEFC3D; -fx-border-width: 4; -fx-border-radius: 20;">
+      <Canvas fx:id="Self" height="550.0" layoutX="-45.0" layoutY="-81.0" rotate="-10.0" width="680.0">
+         <effect>
+            <DropShadow blurType="ONE_PASS_BOX" color="#fffd87bd" offsetX="10.0" offsetY="10.0" />
+         </effect></Canvas>
+      <Canvas fx:id="Enemy" height="550.0" layoutX="650.0" layoutY="25.0" rotate="10.0" width="680.0">
+         <effect>
+            <DropShadow color="#ff66c9cc" offsetX="10.0" offsetY="10.0" />
+         </effect></Canvas>
+      <SplitPane dividerPositions="0.19259962049335863, 0.40037950664136623, 0.611954459203036, 0.8026565464895635" layoutX="259.0" layoutY="412.0" prefHeight="143.0" prefWidth="763.0" style="-fx-background-color: rgba(255, 200, 200, 0.2); -fx-background-radius: 20; -fx-border-color: #FEFEFE; -fx-border-width: 4; -fx-border-radius: 20;">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="239.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="239.0" style="-fx-border-color: #FFFFFF;">
                <children>
                   <ImageView fx:id="Gura" fitHeight="146.0" fitWidth="150.0" layoutX="-4.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true" />
                   <Button fx:id="Gr" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="146.0" prefWidth="151.0" styleClass="characterButton" stylesheets="@waitRoom.css" />
@@ -48,15 +54,15 @@
                   <Button fx:id="Am" mnemonicParsing="false" prefHeight="145.0" prefWidth="158.0" styleClass="characterButton" stylesheets="@waitRoom.css" />
                </children>
             </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="869.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="869.0" style="-fx-background-color: rgba(200, 200, 200, 0.5);">
                <children>
-                  <ImageView fx:id="Ina" fitHeight="143.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="Ina" fitHeight="73.0" fitWidth="79.0" layoutX="35.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
                   <Button fx:id="In" mnemonicParsing="false" prefHeight="143.0" prefWidth="142.0" styleClass="characterButton" stylesheets="@waitRoom.css" />
                </children>
             </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="321.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="321.0" style="-fx-background-color: rgba(200, 200, 200, 0.5);;">
                <children>
-                  <ImageView fx:id="Calli" fitHeight="143.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="Calli" fitHeight="73.0" fitWidth="79.0" layoutX="37.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
                   <Button fx:id="Cl" mnemonicParsing="false" prefHeight="143.0" prefWidth="153.0" styleClass="characterButton" stylesheets="@waitRoom.css" />
                </children>
             </AnchorPane>
