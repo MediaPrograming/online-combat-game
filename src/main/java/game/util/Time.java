@@ -1,9 +1,8 @@
 package game.util;
 
-import com.taku.util.flux.view.BasePanel;
 import com.taku.util.flux.service.IUpdate;
 import javafx.animation.AnimationTimer;
-import javafx.animation.Timeline;
+import javafx.scene.input.KeyEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +55,16 @@ public final class Time implements Runnable {
             }
         }
     };
+
+    public void KeyPressed(KeyEvent keyEvent){
+        for(var l : updates)
+            l.KeyPressed(keyEvent);
+    }
+
+    public void KeyReleased(KeyEvent keyEvent){
+        for (var l : updates)
+            l.KeyReleased(keyEvent);
+    }
     @Override
     public void run() {
         timer.start();

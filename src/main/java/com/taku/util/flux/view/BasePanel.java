@@ -9,8 +9,6 @@ import com.taku.util.model.Unit;
 import com.taku.util.flux.service.IUpdate;
 import game.store.StoreManager;
 import game.util.Time;
-import game.view.action.UIEvent;
-import io.game.hub.positionHub.Input;
 import javafx.scene.input.KeyEvent;
 
 import java.util.function.Function;
@@ -49,7 +47,6 @@ public abstract class BasePanel<IStateProps, IDispatchProps> implements IDispatc
         this.mapDispatchToProps = mapDispatch;
         state = init;
         props = mapDispatch.apply(this);
-        dispatch(UIEvent.INIT.Create(new Unit()));
         Time.Instance.addListener(this);
 
     }
@@ -66,7 +63,9 @@ public abstract class BasePanel<IStateProps, IDispatchProps> implements IDispatc
     @Override
     public void EveryFrameUpdate(){}
 
+    @Override
     public void KeyPressed(KeyEvent key){}
+    @Override
     public void KeyReleased(KeyEvent key){}
 
     @Override

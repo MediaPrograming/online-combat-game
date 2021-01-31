@@ -1,7 +1,9 @@
 package game.view.service;
 
+import io.game.hub.messageHub.CharacterType;
 import io.game.hub.messageHub.GrpcRoom;
 import io.game.hub.messageHub.User;
+import io.game.hub.positionHub.Behavior;
 
 /**
  * @author Takuya Isaki on 2021/01/05
@@ -24,4 +26,8 @@ public interface IWaitRoom {
     void GameStartRequest(User user, GrpcRoom room);
 
     void GetRoomUserRequest(User user);
+
+    void ChangeDisplayCharacterBehaviour(Behavior behavior);
+    void ChangeBeforeCharacter(User user);
+    void ChangeMouseOverCharacter(CharacterType type);
 }

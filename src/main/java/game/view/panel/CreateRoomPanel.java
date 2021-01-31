@@ -3,8 +3,8 @@ package game.view.panel;
  * @author Takuya Isaki on 2021/01/05
  * @project online-combat-game
  */
-import com.taku.util.flux.view.BasePanel;
-import com.taku.util.model.Unit;
+import com.taku.util.flux.view.FunctionPanel;
+import game.util.ShowPanelUtil;
 import game.view.container.CreateRoomContainer;
 import game.view.service.ICreateRoom;
 import javafx.fxml.FXML;
@@ -15,7 +15,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CreateRoomPanel extends BasePanel<Unit, ICreateRoom> implements Initializable {
+public class CreateRoomPanel extends FunctionPanel<ICreateRoom> implements Initializable {
     @FXML private TextField roomNameField, userNameField;
     @FXML private Button createButton, backButton;
 
@@ -29,6 +29,6 @@ public class CreateRoomPanel extends BasePanel<Unit, ICreateRoom> implements Ini
             var userName = userNameField.getText();
             props.CreateRoomRequest(roomName, userName);
         });
-        backButton.setOnAction(e -> props.ShowStartPanel());
+        backButton.setOnAction(e -> ShowPanelUtil.ShowStartPanel());
     }
 }
