@@ -21,6 +21,7 @@ import io.game.hub.positionHub.CharacterState;
 import io.game.hub.positionHub.Input;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
@@ -36,6 +37,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -47,7 +51,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
     @FXML
     private Canvas canvas1,canvas2,canvas3;
     @FXML
-    private Label winner;
+    private Label winner,loser;
     @FXML
     private Pane quitPane;
     @FXML
@@ -131,7 +135,9 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         var character  = getState().stateBlockingQueue.poll();
         while (character != null) {
 //            System.out.println("ID"+character.getId());
-            if(character.getHP()<=0) {winner.setText((character.getId() != state.self.getId()) ? "You Win!!!!" : "You Lose...");}
+            if(character.getHP()<=0) {
+                ((character.getId() == state.self.getId()) ? winner : loser ).setVisible(false);
+            }
             state.playerTable.get(character.getId()).updateState(character);
             PlayUI.updateState(character);
             state.polyTable.get(character.getId()).updateChara((int)character.getX(),(int)character.getY(),state.charaTable.get(character.getId()));//debug用
