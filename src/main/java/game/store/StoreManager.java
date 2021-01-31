@@ -11,7 +11,8 @@ import javafx.util.Pair;
 
 
 public final class StoreManager {
-    public static StoreManager Instance = new StoreManager();    //再代入不可
+    public static StoreManager getInstance(){ return Instance;}
+    private static StoreManager Instance = new StoreManager();    //再代入不可
     public static MainStage stage = new MainStage();
     public GrpcClient client = new GrpcClient();
     public Store store = Store.CreateStore(

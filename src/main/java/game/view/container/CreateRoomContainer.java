@@ -17,7 +17,7 @@ public class CreateRoomContainer {
     public CreateRoomContainer(CreateRoomPanel panel){
         panel.connect(new ICreateRoom() {
             @Override public void CreateRoomRequest(String roomName, String userName) {
-                var client = StoreManager.Instance.client;
+                var client = StoreManager.getInstance().client;
                 var id = UUID.randomUUID().hashCode();
                 User user = User.newBuilder()
                         .setId(id)
@@ -36,8 +36,8 @@ public class CreateRoomContainer {
                 client.stub.createRoom(createRequest, new StreamObserver<ResponseCode>() {
                     @Override public void onNext(ResponseCode value) {
                         if(value.getCode() == 200) {
-                            StoreManager.Instance.client.grpcRoom = room;
-                            StoreManager.Instance.client.user = user;
+                            StoreManager.getInstance().client.grpcRoom = room;
+                            StoreManager.getInstance().client.user = user;
                             ShowPanelUtil.ShowWaitRoomPanel();
                         }else{
                             System.out.println("[" + value.getCode() + "]" + value.getMessage());

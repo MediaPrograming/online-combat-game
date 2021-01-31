@@ -32,8 +32,8 @@ public class WaitRoomReducer implements IReducer<WaitRoomState> {
                         //HostがLEAVEした場合,もしくは自分が退出した場合はStart画面に移動する
                         if(message.getUser().getId() == roomState.currentRoom.getHostId() || message.getUser().getId() == roomState.self.getId()) {
                             System.out.println("Start画面の表示");
-                            StoreManager.Instance.client.grpcRoom = null;
-                            StoreManager.Instance.client.user = null;
+                            StoreManager.getInstance().client.grpcRoom = null;
+                            StoreManager.getInstance().client.user = null;
                             ShowPanelUtil.ShowStartPanel();
                         }else {
                             roomState.currentRoom = message.getRoom();
@@ -46,8 +46,8 @@ public class WaitRoomReducer implements IReducer<WaitRoomState> {
                         EffectManager.resetGraphicsContext();
                         //UOPanelに移動
                         System.out.println("UOパネルの表示");
-                        StoreManager.Instance.client.user = message.getRoom().getUserList().stream().filter(x->x.getId() == roomState.self.getId()).findFirst().get();
-                        StoreManager.Instance.client.grpcRoom = message.getRoom();
+                        StoreManager.getInstance().client.user = message.getRoom().getUserList().stream().filter(x->x.getId() == roomState.self.getId()).findFirst().get();
+                        StoreManager.getInstance().client.grpcRoom = message.getRoom();
                         ShowPanelUtil.ShowUoPanel();
                     }
                     else if(message.getType() == Type.ERROR) {

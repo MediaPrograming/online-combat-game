@@ -45,8 +45,6 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
     GraphicsContext gc1,gc2;
     Image selfImg, enemyImg,selfVoice,enemyVoice,unlock;
     WaitRoomContainer container;
-    //CharacterType selfChara=CharacterType.Inanis,ps=CharacterType.Inanis,enemyChara=CharacterType.Inanis,pe=CharacterType.Inanis;
-
     ArrayList<DisplayCharacter> characters = new ArrayList<>();
 
     @Override
@@ -142,14 +140,8 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
         Calli.setImage(unlock);
 
         //Canvas
-
         gc1.clearRect(0,0,Self.getWidth(),Self.getHeight());
         gc2.clearRect(0,0,Enemy.getWidth(),Enemy.getHeight());
-
-//        getState().currentRoom.getUserList().forEach(e->{
-//            if(e.getId() == getState().self.getId()){ps = selfChara; selfChara = e.getCharacterType();}
-//            else {pe = enemyChara; enemyChara = e.getCharacterType();}
-//        });
 
         if(state.beforeSelf.getCharacterType() != state.self.getCharacterType()){    //自キャラが変更されたら
             characters.stream().filter(x -> x.type == state.self.getCharacterType()).forEach(y ->{
@@ -159,10 +151,10 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
 
             EffectManager.addSelectionWiggle(true,Time.Instance.getTotalTime(),true,(int)Self.getLayoutX(),(int)Self.getLayoutY(),(int)Enemy.getLayoutX(),(int)Enemy.getLayoutY());
         }
-        var users = state.currentRoom.getUserList().stream().filter(x -> state.self.getId() != x.getId());
-        if(users.count() != 0) {
-            var enemy = users.findFirst().get();
-            if (state.beforeEnemy.getCharacterType() != enemy.getCharacterType()) {  //敵キャラが変更されたら
+//        var users = state.currentRoom.getUserList().stream().filter(x -> state.self.getId() != x.getId());
+        if(state.currentRoom.getUserList().stream().count() > 1) {
+            var enemy = state.currentRoom.getUserList().stream().filter(x -> x.getId() != state.self.getId()).findFirst().get();
+            if (state.beforeEnemy == null || state.beforeEnemy.getCharacterType() != enemy.getCharacterType()) {  //敵キャラが変更されたら
                 characters.stream().filter(x -> x.type == enemy.getCharacterType()).forEach(y -> {
                     y.playAudio();
                     enemyImg = y.img;

@@ -22,7 +22,7 @@ public class SelectPanelContainer {
         panel.connect(roomState, state -> state, mapDispatch);
     }
 
-    private MessageHubGrpc.MessageHubStub stub = StoreManager.Instance.client.stub;
+    private MessageHubGrpc.MessageHubStub stub = StoreManager.getInstance().client.stub;
 
     //unit
     Unit unit = new Unit();
@@ -53,8 +53,8 @@ public class SelectPanelContainer {
 
                 @Override
                 public void JoinRequest(User user, GrpcRoom gRoom){
-                    StoreManager.Instance.client.user = user;
-                    StoreManager.Instance.client.grpcRoom = gRoom;
+                    StoreManager.getInstance().client.user = user;
+                    StoreManager.getInstance().client.grpcRoom = gRoom;
                     var request = Message.newBuilder().setType(Type.JOIN).setUser(user).setRoom(gRoom).build();
                     var observer = RequestUtil.streamEventCreator.apply(dispatcher);
                     observer.onNext(request);

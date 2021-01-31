@@ -25,6 +25,7 @@ public class Store implements IDispatchable {
     public void addView(BasePanel dispatcher) {
         panels.add(dispatcher);
     }
+    public void clearView(){panels.clear();}
 
     @SafeVarargs
     public static Store CreateStore(Pair<Class<?>, IReducer>... pairs) {
