@@ -66,7 +66,9 @@ public abstract class BasePanel<IStateProps, IDispatchProps> implements IDispatc
     @Override
     public void EveryFrameUpdate(){}
 
+    @Override
     public void KeyPressed(KeyEvent key){}
+    @Override
     public void KeyReleased(KeyEvent key){}
 
     @Override

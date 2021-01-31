@@ -18,21 +18,22 @@ public class Store implements IDispatchable {
     private final List<BasePanel> panels = new ArrayList<>();
 
     @SafeVarargs
-    private Store(Pair<Class<? >, IReducer>... pairs){
+    private Store(Pair<Class<?>, IReducer>... pairs) {
         this.pairs = pairs;
     }
 
-    public void addView(BasePanel dispatcher){
+    public void addView(BasePanel dispatcher) {
         panels.add(dispatcher);
     }
 
     @SafeVarargs
-    public static Store CreateStore(Pair<Class<?>, IReducer>... pairs){
+    public static Store CreateStore(Pair<Class<?>, IReducer>... pairs) {
         return new Store(pairs);
     }
+
     @Override
     public <TState, TPayload> void Invoke(TState state, Action<TPayload> action) {
-        var pairStream= Arrays.stream(pairs)
+        var pairStream = Arrays.stream(pairs)
                 .filter(pair -> pair.getKey() == state.getClass())
                 .map(p -> p.getValue().apply(action, state))
                 .map(ReducerBuilder::getState);
@@ -40,17 +41,7 @@ public class Store implements IDispatchable {
         pairStream.forEach(newState -> {
             panels.stream()
                     .filter(dispatcher -> state == dispatcher.getState().getClass())
-                    .forEach(l-> l.Update(newState));
+                    .forEach(l -> l.Update(newState));
         });
-    }
-
-    public void KeyPressed(KeyEvent keyEvent){
-        for(var l : panels)
-            l.KeyPressed(keyEvent);
-    }
-
-    public void KeyReleased(KeyEvent keyEvent){
-        for (var l : panels)
-            l.KeyReleased(keyEvent);
     }
 }

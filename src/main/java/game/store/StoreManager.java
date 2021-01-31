@@ -16,7 +16,6 @@ public final class StoreManager {
     public static MainStage stage = new MainStage();
     public GrpcClient client = new GrpcClient();
     public Store store = Store.CreateStore(
-            new Pair<>(Unit.class, new ShowPanelReducer()),
             new Pair<>(RoomState.class,new FetchReducer()),
             new Pair<>(WaitRoomState.class, new WaitRoomReducer()),
             new Pair<>(UoPanelState.class, new UoPanelReducer())
