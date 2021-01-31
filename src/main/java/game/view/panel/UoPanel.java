@@ -28,6 +28,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.effect.Bloom;
 import javafx.scene.image.Image;
 
@@ -48,7 +49,8 @@ import javax.sound.sampled.FloatControl;
 public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements Initializable {
     @FXML
     private Canvas canvas1,canvas2,canvas3;
-
+    @FXML
+    private Label winner;
     @FXML
     private Pane quitPane;
     @FXML
@@ -129,7 +131,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         var character  = getState().stateBlockingQueue.poll();
         while (character != null) {
 //            System.out.println("ID"+character.getId());
-            if(character.getHP()<=0) {}
+            if(character.getHP()<=0) {winner.setText((character.getId() != state.self.getId()) ? "You Win!!!!" : "You Lose...");}
             state.playerTable.get(character.getId()).updateState(character);
             PlayUI.updateState(character);
             state.polyTable.get(character.getId()).updateChara((int)character.getX(),(int)character.getY(),state.charaTable.get(character.getId()));//debug用
