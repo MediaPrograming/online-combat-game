@@ -1,9 +1,6 @@
 package game.view.panel;
-import Animation.AnimationHolder;
-import Animation.CharaAnimationPlayer;
+import Animation.*;
 import Animation.CharacterPlayer.*;
-import Animation.DrawPolygon;
-import Animation.EffectAnimationManager;
 import Animation.EffectPlayer.EffectManager;
 import Animation.UIPlayer.PlayUI;
 import Audio.AudioHolder;
@@ -61,6 +58,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
     private int uouo = 0;
     private Text text;
     private boolean debug;
+    private Animation Bloop;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -106,6 +104,8 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         EffectManager.addGraphicsContext(gc1);
         EffectManager.addGraphicsContext(gc2);
         EffectManager.addGraphicsContext(gc3);
+
+        Bloop = AnimationHolder.getEffectAnimation("Bloop");
     }
 
     @Override
@@ -140,6 +140,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
 
         gc2.clearRect(0,0,canvas2.getWidth(),canvas2.getHeight());
         gc2.drawImage(state.floor,-20,-20,1320,742.5);
+        gc2.drawImage(Bloop.getAnim()[(int)(Time.Instance.getTotalTime()*Bloop.getSpeed())%Bloop.getAnim().length][(int)(Time.Instance.getTotalTime()/Bloop.getAnim().length*Bloop.getSpeed())%Bloop.getAnim()[0].length],1150,520,50,50);
         state.playerTable.forEach((k,v) -> v.play());
         EffectAnimationManager.play();
 

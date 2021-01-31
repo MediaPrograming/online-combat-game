@@ -81,7 +81,7 @@ public class AnimationHolder {
         AnimationHolder.addCharaAnimation(Character.Ame, Behavior.SQUAT   ,PATH.Amelia_Normal,128,128,4,3,8,false);
 
         AnimationHolder.addEffectAnimation("HIT",PATH.HIT,100,100,5,1,8,false);
-        
+        AnimationHolder.addEffectAnimation("Bloop", PATH.root+"\\src\\main\\resources\\game\\img\\hizyousyoku-Sheet .png",100,100,2,2,2,true);
     }
 
 //    public ArrayList<Image[][]> getAnimations(){
