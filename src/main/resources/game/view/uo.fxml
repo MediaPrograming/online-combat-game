@@ -30,7 +30,7 @@
          <children>
             <Button fx:id="continueButton" layoutX="271.0" layoutY="160.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="220.0" text="Continue" />
             <Button fx:id="quitButton" layoutX="271.0" layoutY="226.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="220.0" text="Quit" />
-            <Label layoutX="271.0" layoutY="50.0" prefHeight="65.0" prefWidth="220.0" text="YOU WIN!!!">
+            <Label fx:id="winner" layoutX="271.0" layoutY="50.0" prefHeight="65.0" prefWidth="220.0" text="YOU WIN!!!">
                <font>
                   <Font name="Yu Gothic Bold" size="36.0" />
                </font></Label>
