@@ -4,11 +4,14 @@
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.panel.UoPanel">
+<AnchorPane maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.panel.UoPanel">
    <children>
       <Canvas fx:id="canvas1" height="720.0" width="1280.0">
          <rotationAxis>
@@ -21,7 +24,8 @@
       <Canvas fx:id="canvas3" height="720.0" width="1280.0">
          <rotationAxis>
             <Point3D />
-         </rotationAxis></Canvas>
+         </rotationAxis>
+      </Canvas>
       <Pane fx:id="quitPane" layoutX="300.0" layoutY="188.0" prefHeight="345.0" prefWidth="741.0">
          <children>
             <Button fx:id="continueButton" layoutX="271.0" layoutY="160.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="220.0" text="Continue" />
@@ -31,5 +35,39 @@
                   <Font name="Yu Gothic Bold" size="36.0" />
                </font></Label>
          </children></Pane>
+      <Button fx:id="leftName" layoutX="183.0" layoutY="634.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="200.0" styleClass="leftName" stylesheets="@Uo.css" text="You" textAlignment="CENTER">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.2583642980866273" centerY="0.3730158851260231" focusAngle="-169.73" focusDistance="1.0" radius="0.5077519527701444">
+               <stops>
+                  <Stop color="#eada9a" />
+                  <Stop color="#eada9a" offset="0.007653061224489797" />
+                  <Stop color="#c21570" offset="0.9961832061068702" />
+                  <Stop color="#c21570" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+         <effect>
+            <InnerShadow choke="0.38" color="#ffe3e9" height="139.6" radius="34.4" width="0.0" />
+         </effect>
+      </Button>
+      <Button fx:id="rightName" layoutX="930.0" layoutY="634.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="200.0" styleClass="rightName" stylesheets="@Uo.css" text="Enemy" textAlignment="CENTER">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.6858735563143479" centerY="0.4079364958263579" focusAngle="13.13" focusDistance="1.0" radius="0.5077519527701444">
+               <stops>
+                  <Stop color="#91e5ff" />
+                  <Stop color="#3a136b" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+         <effect>
+            <InnerShadow choke="0.5" color="#c8c7ff" height="115.88" radius="31.7425" width="13.09" />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>

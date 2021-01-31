@@ -82,8 +82,8 @@ public class PlayGura extends PlayCharacter{
                     }
                     break;
             }
-            gc.setFill(Color.RED);
-            gc.strokeRect(state.getAtkX(),state.getAtkY(),state.getAtkW(),state.getAtkH());
+//            gc.setFill(Color.RED);
+//            gc.strokeRect(state.getAtkX(),state.getAtkY(),state.getAtkW(),state.getAtkH());
         }else{
             if(flag) { flag = false;}
         }

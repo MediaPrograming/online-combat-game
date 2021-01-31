@@ -183,10 +183,16 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
                 case Gura :
                     enemy = gura;
                     enemyVoice = shaark;
+                    if(rand>0.5){
+                        AudioHolder.SHAAAARK.setFramePosition(0);AudioHolder.SHAAAARK.loop(0);}
+                    else {AudioHolder.a.setFramePosition(0);AudioHolder.a.loop(0);}
                     break;
                 case Kiara:
                     enemy = kiara;
                     enemyVoice = kikkeriki;
+                    if(rand>0.5){
+                        AudioHolder.Kikkeriki.setFramePosition(0);AudioHolder.Kikkeriki.loop(0);}
+                    else {AudioHolder.Kiarayouwannafight.setFramePosition(0);AudioHolder.Kiarayouwannafight.loop(0);}
                     break;
                 case Amelia:
                     enemy = ame;
