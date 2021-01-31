@@ -1,7 +1,6 @@
 package game.store;
 
 import com.taku.util.flux.model.Store;
-import com.taku.util.model.Unit;
 import game.client.GrpcClient;
 import game.view.reducer.*;
 import game.view.stage.MainStage;
@@ -16,8 +15,7 @@ public final class StoreManager {
     public static MainStage stage = new MainStage();
     public GrpcClient client = new GrpcClient();
     public Store store = Store.CreateStore(
-            new Pair<>(Unit.class, new ShowPanelReducer()),
-            new Pair<>(RoomState.class,new FetchReducer()),
+            new Pair<>(RoomState.class,new SelectPanelReducer()),
             new Pair<>(WaitRoomState.class, new WaitRoomReducer()),
             new Pair<>(UoPanelState.class, new UoPanelReducer())
     );

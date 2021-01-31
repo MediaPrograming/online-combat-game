@@ -12,7 +12,8 @@ public class AudioHolder {
     public static Clip TRIDENT,MAHIMAHI,SHAAAARK,HUMM,FUTUN,HUCHA;
     public static Clip AAAA,AHHHFine,AU,AU_UN;
     public static Clip Kikkeriki,Kiarastopit,Kiarabigbumb,Kiaraeat,Kiarayouwannafight,Kiarayabe;
-    public AudioHolder(){
+    private AudioHolder(){}
+    public static void Initialize(){
         damage = AudioClip.createClip(new File(PATH.Effect_HIT));
         a = AudioClip.createClip(new File(PATH.root + "\\src\\main\\resources\\game\\sounds\\Gura\\a.wav"));
         peti1 = AudioClip.createClip(new File(PATH.root + "\\src\\main\\resources\\game\\sounds\\Gura\\peti1.wav"));
