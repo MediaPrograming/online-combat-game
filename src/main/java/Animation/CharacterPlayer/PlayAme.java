@@ -20,15 +20,25 @@ public class PlayAme extends PlayCharacter{
     public PlayAme(GraphicsContext gc, CharaAnimationPlayer player, CharacterState state){
         super(gc, player, state);
         this.width = this.height = 275;
-        this.offsetX = 0;
-        this.offsetY = -5;
+        this.offsetX = -80;
+        this.offsetY = -30;
     }
 
     @Override
     public void changedAction(CharacterState state) {
         switch (state.getBehavior()){
+            case NORMAL:
+                if(state.getDirection()==Direction.LEFT){
+                    this.offsetX = -80;
+                    this.offsetY = -30;
+                }else{
+                    this.offsetX = -100;
+                    this.offsetY = -30;
+                }
+            break;
             case ATTACK1, ATTACK2:
                 direction = state.getDirection();
+            break;
         }
     }
 
