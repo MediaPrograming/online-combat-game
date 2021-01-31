@@ -10,6 +10,8 @@ import game.view.container.ShowPanelContainer;
 import game.view.service.IShowPanel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 
 import java.net.URL;
@@ -20,7 +22,8 @@ public class StartPanel extends BasePanel<Unit, IShowPanel> implements Initializ
     @FXML
     private Button showCreateRoomButton ,showSelectionButton, quitButton;
     @FXML
-    private Button showDebugButton; //test
+    private Canvas canvas;
+    GraphicsContext gc;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         container = new ShowPanelContainer(this);
@@ -29,8 +32,17 @@ public class StartPanel extends BasePanel<Unit, IShowPanel> implements Initializ
         showSelectionButton.setOnAction(e ->props.ShowSelectionPanel());
         quitButton.setOnAction(e -> System.exit(0));
 
-        //test
-        showDebugButton.setOnAction(e -> props.ShowUoPanel());
+        gc = canvas.getGraphicsContext2D();
+
+    }
+
+    void draw(){
+
+    }
+
+    @Override
+    public void EveryFrameUpdate() {
+        draw();
     }
 
 
