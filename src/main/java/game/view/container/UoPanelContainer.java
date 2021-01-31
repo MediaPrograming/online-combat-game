@@ -26,10 +26,10 @@ import java.util.function.Function;
 public class UoPanelContainer {
     Unit unit = new Unit();
     public UoPanelContainer(UoPanel panel) {
-        panel.connect(new UoPanelState(StoreManager.Instance.client.user,StoreManager.Instance.client.grpcRoom),
+        panel.connect(new UoPanelState(StoreManager.getInstance().client.user,StoreManager.getInstance().client.grpcRoom),
                 state -> state, function);
     }
-    private final PositionHubGrpc.PositionHubStub stub = StoreManager.Instance.client.positionHubStub;
+    private final PositionHubGrpc.PositionHubStub stub = StoreManager.getInstance().client.positionHubStub;
     Function<IDispatcher, IUoPanel> function = dispatcher -> new IUoPanel() {
         @Override
         public void SendInput(Input input) {

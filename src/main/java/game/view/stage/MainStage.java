@@ -18,7 +18,7 @@ public class MainStage extends Stage {
 //        this.setWidth(Config.WINDOW_WIDTH);
 //        this.setHeight(Config.WINDOW_HEIGHT);
         this.setOnCloseRequest(
-                e ->{ StoreManager.Instance.client.Close(); }
+                e ->{ StoreManager.getInstance().client.Close(); }
                 );
     }
 }
