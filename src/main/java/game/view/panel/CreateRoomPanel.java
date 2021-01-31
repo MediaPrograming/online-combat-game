@@ -15,6 +15,9 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import game.config.PATH;
+import Audio.AudioPlayer;
+
 public class CreateRoomPanel extends FunctionPanel<ICreateRoom> implements Initializable {
     @FXML private TextField roomNameField, userNameField;
     @FXML private Button createButton, backButton;
@@ -24,6 +27,9 @@ public class CreateRoomPanel extends FunctionPanel<ICreateRoom> implements Initi
     public void initialize(URL location, ResourceBundle resources) {
         container = new CreateRoomContainer(this);
         var props = this.getProps();
+        if(AudioPlayer.getBGM()!=PATH.HomeBGM){
+            AudioPlayer.Play(PATH.HomeBGM);
+        }
         createButton.setOnAction(e -> {
             var roomName = roomNameField.getText();
             var userName = userNameField.getText();

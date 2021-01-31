@@ -24,6 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.UUID;
+import game.config.PATH;
+import Audio.AudioPlayer;
+
 
 public class SelectPanel extends BasePanel<RoomState, ISelectPanel> implements Initializable {
     List<GrpcRoom> roomList = new ArrayList<>();
@@ -35,6 +38,9 @@ public class SelectPanel extends BasePanel<RoomState, ISelectPanel> implements I
     public void initialize(URL location, ResourceBundle resources) {
         new SelectPanelContainer(this);
         roomList.clear();
+        if(AudioPlayer.getBGM()!=PATH.HomeBGM){
+            AudioPlayer.Play(PATH.HomeBGM);
+        }
         updateButton.setOnAction(e -> this.getProps().GetRoomRequest());
         joinButton.setOnAction(e -> Join());
         backButton.setOnAction(e -> ShowPanelUtil.ShowStartPanel());

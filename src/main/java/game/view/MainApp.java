@@ -33,7 +33,6 @@ public class MainApp extends Application {
         primaryStage.close(); //このwindowは使わん
         AnimationHolder.Initialize();
         AudioHolder.Initialize();
-        AudioPlayer.Play(PATH.HomeBGM);
         ShowPanelUtil.ShowStartPanel();
         Thread thread = new Thread(() -> Platform.runLater(Time.Instance));
         thread.start();

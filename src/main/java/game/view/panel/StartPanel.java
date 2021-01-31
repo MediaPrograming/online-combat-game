@@ -17,6 +17,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import game.config.PATH;
+import Audio.AudioPlayer;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,6 +32,8 @@ public class StartPanel extends PurePanel implements Initializable{
     int gura,kiara,ame;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        AudioPlayer.Play(PATH.HomeBGM);
+      
         showCreateRoomButton.setOnAction(e -> ShowPanelUtil.ShowCreateRoomPanel());
         showSelectionButton.setOnAction(e -> ShowPanelUtil.ShowSelectionPanel());
         quitButton.setOnAction(e -> System.exit(0));
