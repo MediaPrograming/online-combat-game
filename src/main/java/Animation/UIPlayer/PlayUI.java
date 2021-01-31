@@ -61,10 +61,10 @@ public class PlayUI {
 
     public static void play(){
         meterTable.forEach((k,v) -> v.play(stateTable.get(k).getHP()));
-        gc.setFill(Color.PAPAYAWHIP);
-        gc.setFont(Font.font(50));
-        gc.fillText(left.getName(),100,170,300);
-        gc.fillText(right.getName(),980,170,300);
+//        gc.setFill(Color.PAPAYAWHIP);
+//        gc.setFont(Font.font(50));
+//        gc.fillText(left.getName(),100,170,300);
+//        gc.fillText(right.getName(),980,170,300);
     }
 
     public static void debug(int value){meterTable.forEach((k,v) -> v.play(value));}

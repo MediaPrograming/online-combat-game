@@ -72,22 +72,27 @@ public class PlayCharacter {
     }
 
     public void drawShadow(GraphicsContext gc, CharacterType chara){
-        int distance;
+        int distance,offsetX = (int)width/4;
         switch (chara){
             case Gura :
                 distance = 600 - (int)state.getY() - (int) Gura.height;
+                offsetX = Gura.width/2;
                 break;
             case Calliope :
                 distance = 600 - (int)state.getY() - (int) Calli.height;
+                offsetX = Calli.width/2;
                 break;
             case Inanis :
                 distance = 600 - (int)state.getY() - (int) Ina.height;
+                offsetX = Ina.width/2;
                 break;
             case Amelia :
                 distance = 600 - (int)state.getY() - (int) Ame.height;
+                offsetX = Ame.width/2;
                 break;
             case Kiara :
                 distance = 600 - (int)state.getY() - (int) Kiara.height;
+                offsetX = Kiara.width/2;
                 break;
             default :
                 throw new IllegalStateException("Unexpected value: " + chara);
@@ -95,7 +100,7 @@ public class PlayCharacter {
         int ovalW=100,ovalH=20;
         if(distance >0) {ovalW=100-distance; ovalH = 20-distance/5;}
         gc.setFill(Color.color(0.1,0.1,0.2,0.4));
-        gc.fillOval(state.getX()+Math.abs(width/4)-ovalW/2,580-ovalH/2,ovalW,ovalH);
+        gc.fillOval(state.getX()+Math.abs(offsetX)-ovalW/2,600-ovalH/2,ovalW,ovalH);
     }
 
     public void play(){

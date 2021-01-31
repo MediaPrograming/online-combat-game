@@ -52,7 +52,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
     @FXML
     private Pane quitPane;
     @FXML
-    private Button continueButton, quitButton;
+    private Button continueButton, quitButton ,leftName,rightName;
     GraphicsContext gc1,gc2,gc3;
     double initTime;
     //test
@@ -88,11 +88,15 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         User host,client;
         if(getState().room.getUser(0).getId() == getState().room.getHostId()){
             host = getState().room.getUser(0); client = getState().room.getUser(1);
+            leftName.setText(getState().room.getUser(0).getName());
+            rightName.setText(getState().room.getUser(1).getName());
         }else{
             host = getState().room.getUser(1); client = getState().room.getUser(0);
+            leftName.setText(getState().room.getUser(1).getName());
+            rightName.setText(getState().room.getUser(0).getName());
         }
         new PlayUI(gc3,host,client);
-        debug = true;
+        debug = false;
         continueButton.setOnAction(e -> {EffectManager.resetGraphicsContext(); props.ContinueGame();});
         quitButton.setOnAction(e -> {EffectManager.resetGraphicsContext(); props.QuitGame();});
 
@@ -125,6 +129,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         var character  = getState().stateBlockingQueue.poll();
         while (character != null) {
 //            System.out.println("ID"+character.getId());
+            if(character.getHP()<=0) {}
             state.playerTable.get(character.getId()).updateState(character);
             PlayUI.updateState(character);
             state.polyTable.get(character.getId()).updateChara((int)character.getX(),(int)character.getY(),state.charaTable.get(character.getId()));//debug用
@@ -152,15 +157,6 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
     @Override
     public void EveryFrameUpdate(){
         var state = getState();
-        quitPane.setVisible(state.quitPaneVisible);
-        if(state.quitPaneVisible){
-            state.timer.cancel();
-            //System.out.println("finishbgm");
-            if(AudioPlayer.getBGM()!=PATH.FinishBGM){
-                AudioPlayer.Play(PATH.FinishBGM);
-            }
-        } 
-
         uouo++;
         //#region debug text
         if(debug) {
@@ -171,5 +167,13 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         if(text == null) return;
         text.setText("uouo->"+uouo+"FPS->"+Time.Instance.getFrameRate());
         draw();
+        quitPane.setVisible(state.quitPaneVisible);
+        if(state.quitPaneVisible){
+            state.timer.cancel();
+            //System.out.println("finishbgm");
+            if(AudioPlayer.getBGM()!=PATH.FinishBGM){
+                AudioPlayer.Play(PATH.FinishBGM);
+            }
+        }
     }
 }
