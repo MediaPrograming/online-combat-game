@@ -19,6 +19,7 @@ public final class ShowPanelUtil {
         Platform.runLater(() ->{
         try {
             StoreManager.getInstance().store.clearView();
+            Time.Instance.clearUpdates();
             Parent parent = FXMLLoader.load(StoreManager.class.getResource("../view/start.fxml"));
             var scene = new Scene(parent);
             StoreManager.stage.setScene(scene);
@@ -35,6 +36,7 @@ public final class ShowPanelUtil {
         Platform.runLater(() -> {
             try {
                 StoreManager.getInstance().store.clearView();
+                Time.Instance.clearUpdates();
                 Parent parent = FXMLLoader.load(StoreManager.class.getResource("../view/select.fxml"));
                 var scene = new Scene(parent);
                 StoreManager.stage.setScene(scene);
@@ -51,7 +53,7 @@ public final class ShowPanelUtil {
         Platform.runLater(() -> {
             try {
                 StoreManager.getInstance().store.clearView();
-                StoreManager.getInstance().store.clearView();
+                Time.Instance.clearUpdates();
                 Parent parent = FXMLLoader.load(StoreManager.class.getResource("../view/createRoom.fxml"));
                 var scene = new Scene(parent);
                 StoreManager.stage.setScene(scene);
@@ -68,6 +70,7 @@ public final class ShowPanelUtil {
         Platform.runLater(() -> {
             try {
                 StoreManager.getInstance().store.clearView();
+                Time.Instance.clearUpdates();
                 Parent parent = FXMLLoader.load(StoreManager.class.getResource("../view/waitRoom.fxml"));
                 var scene = new Scene(parent);
                 StoreManager.stage.setScene(scene);
@@ -84,6 +87,7 @@ public final class ShowPanelUtil {
         Platform.runLater(() -> {
             try {
                 StoreManager.getInstance().store.clearView();
+                Time.Instance.clearUpdates();
                 Parent parent = FXMLLoader.load(StoreManager.class.getResource("../view/uo.fxml"));
                 var scene = new Scene(parent);
                 StoreManager.stage.setScene(scene);
