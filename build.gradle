@@ -94,7 +94,7 @@ test {
 //実行可能なファットjarを作成するためのランチャークラスの設定
 jar {
     manifest {
-        attributes 'Main-Class': 'game.view.Main'
+        attributes 'Main-Class': 'game.view.MainApp'
     }
     from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }

@@ -6,7 +6,7 @@ import game.store.StoreManager;
 import game.util.RequestUtil;
 import game.view.action.UoPanelEvent;
 import game.view.panel.UoPanel;
-import game.view.service.IPositionStream;
+import game.view.service.IUoPanel;
 import game.view.state.UoPanelState;
 import io.game.hub.positionHub.CharacterState;
 import io.game.hub.positionHub.PositionHubGrpc;
@@ -23,25 +23,19 @@ import java.util.function.Function;
  * @author Takuya Isaki on 2021/01/15
  * @project online-combat-game
  */
-public class CombatContainer {
+public class UoPanelContainer {
     Unit unit = new Unit();
-    public CombatContainer(UoPanel panel) {
-        panel.connect(new UoPanelState(StoreManager.Instance.client.user,StoreManager.Instance.client.grpcRoom),
+    public UoPanelContainer(UoPanel panel) {
+        panel.connect(new UoPanelState(StoreManager.getInstance().client.user,StoreManager.getInstance().client.grpcRoom),
                 state -> state, function);
     }
-    private final PositionHubGrpc.PositionHubStub stub = StoreManager.Instance.client.positionHubStub;
-    Function<IDispatcher, IPositionStream> function = dispatcher -> new IPositionStream() {
-        @Override
-        public void StartAudio() { dispatcher.dispatch(UoPanelEvent.START_AUDIO.Create(unit)); }
-
-        @Override
-        public void StopAudio() { dispatcher.dispatch(UoPanelEvent.STOP_AUDIO.Create(unit));}
-
+    private final PositionHubGrpc.PositionHubStub stub = StoreManager.getInstance().client.positionHubStub;
+    Function<IDispatcher, IUoPanel> function = dispatcher -> new IUoPanel() {
         @Override
         public void SendInput(Input input) {
             var req = stub.sendInput(new StreamObserver<CharacterState>() {
                 @Override public void onNext(CharacterState value) { dispatcher.dispatch(UoPanelEvent.STATE_UPDATE.Create(value));}
-                @Override public void onError(Throwable t) { System.out.println("[ERROR] : " + t.toString() + "(" + CombatContainer.class+  ")");}
+                @Override public void onError(Throwable t) { System.out.println("[ERROR] : " + t.toString() + "(" + UoPanelContainer.class+  ")");}
                 @Override public void onCompleted() { }
             });
             req.onNext(input);
@@ -63,6 +57,7 @@ public class CombatContainer {
         public void ContinueGame() { dispatcher.dispatch(UoPanelEvent.CONTINUE.Create(unit)); }
 
         @Override
-        public void QuitGame() { dispatcher.dispatch(UoPanelEvent.QUIT.Create(unit));}
+        public void QuitGame() {
+            StoreManager.stage.Exit();}
     };
 }

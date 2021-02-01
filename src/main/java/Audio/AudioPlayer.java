@@ -33,10 +33,11 @@ public class AudioPlayer{
         }
 
         public static void ChangeVolume(float volume){
-                ctrl.setValue((float)Math.log10(0.1) * 20);
+                ctrl.setValue((float)Math.log10(volume) * 20);
         }
         public static String getBGM(){
                 return p;
         }
+        public static void PlayVoice(Clip Voice){Voice.setFramePosition(0);Voice.loop(0);}
 
 }

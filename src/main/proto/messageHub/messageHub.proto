@@ -80,6 +80,6 @@ service MessageHub {
   rpc getUsers(User) returns (GrpcRoom);
   rpc getRooms(UnitRequest) returns (GrpcRoomInfo){};
   rpc createRoom(RoomMessage) returns (ResponseCode);
-  rpc deleteRoom(RoomMessage) returns (ResponseCode);
+  rpc deleteRoomOrLeave(RoomMessage) returns (ResponseCode);
   rpc StreamEvent(stream Message) returns (stream Message);
 }

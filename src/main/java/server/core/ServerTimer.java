@@ -54,7 +54,7 @@ public class ServerTimer {
     }
 
     public void deleteRoom(Room room) {
-        this.rooms.remove(room);
+        if(rooms.contains(room)) this.rooms.remove(room);
     }
 
     private void Send(Room room) {

@@ -1,0 +1,30 @@
+.BackPane{
+    -fx-background-image: url("../img/SelectBack.png");
+}
+
+.Title{
+    -fx-background-image: url("../img/title.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 800 180;
+}
+
+.MakeHost
+{
+  -fx-background-color: rgba(200,255,255,0.7);
+  -fx-background-radius: 50;
+  -fx-border-radius: 50;
+}
+
+.MakeHost:hover
+{
+  -fx-background-color: rgba(200,255,255,1);
+  -fx-background-radius: 50;
+  -fx-border-radius: 50;
+}
+
+.MakeHost:pressed
+{
+  -fx-background-color: rgba(180,238,238,1);
+  -fx-background-radius: 50;
+  -fx-border-radius: 50;
+}

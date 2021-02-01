@@ -6,23 +6,15 @@ package game.view.reducer;
 import com.taku.util.flux.model.Action;
 import com.taku.util.flux.service.IReducer;
 import com.taku.util.flux.view.ReducerBuilder;
-import com.taku.util.model.Unit;
-import game.store.StoreManager;
+import game.util.ShowPanelUtil;
 import game.view.action.ClientEvent;
-import game.view.action.UIEvent;
 import game.view.state.RoomState;
 import io.game.hub.messageHub.Type;
-import io.game.hub.messageHub.UnitRequest;
-import server.room.Room;
 
-import java.util.Hashtable;
-
-public class FetchReducer implements IReducer<RoomState> {
+public class SelectPanelReducer implements IReducer<RoomState> {
     static Type type = Type.JOIN;
     @Override
     public ReducerBuilder<RoomState> apply(Action<?> action, RoomState init) {
-        UnitRequest unitRequest = UnitRequest.newBuilder().build(); //中身が空のrequest
-        Unit unit = new Unit();
         return ReducerBuilder.Create(action, init)
                 .Case(ClientEvent.CREATE_ROOM, ((state, responseCode) -> {
                     //とりあえず200OKの時に成功
@@ -40,7 +32,7 @@ public class FetchReducer implements IReducer<RoomState> {
                         case JOIN:
                             System.out.println(message.getUser().getName() + "さんが入室しました");
                             state.joined = true; //入室できなかった場合Errorが返ってくるように実装する
-                            StoreManager.Instance.store.Invoke(new Unit(), UIEvent.SHOW_WAIT_ROOM_PANEL.Create(unit));
+                            ShowPanelUtil.ShowWaitRoomPanel();
                             break;
                         case LEAVE:
                             System.out.println(message.getUser().getName() + "さんが退室しました");
