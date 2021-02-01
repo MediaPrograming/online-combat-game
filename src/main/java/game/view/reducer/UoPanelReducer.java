@@ -10,6 +10,7 @@ import com.taku.util.flux.service.IReducer;
 import com.taku.util.flux.view.ReducerBuilder;
 import game.config.Character;
 import game.config.PATH;
+import game.store.StoreManager;
 import game.util.ShowPanelUtil;
 import game.view.action.UoPanelEvent;
 import game.view.state.UoPanelState;
@@ -39,7 +40,7 @@ public class UoPanelReducer implements IReducer<UoPanelState> {
                     AudioPlayer.Play(PATH.HomeBGM);
                     return uoPanelState;
                 })).Case(UoPanelEvent.QUIT, ((uoPanelState, unit) -> {
-                    System.exit(0);
+                    StoreManager.stage.Exit();
                     return uoPanelState;
                 }))
                 .Case(UoPanelEvent.UPDATE_INPUT_PRESSED, ((panelState, key) -> {

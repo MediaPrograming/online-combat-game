@@ -31,7 +31,7 @@ public class WaitRoomReducer implements IReducer<WaitRoomState> {
                     }else if(message.getType() == Type.LEAVE){
                         //HostがLEAVEした場合,もしくは自分が退出した場合はStart画面に移動する
                         if(message.getUser().getId() == roomState.currentRoom.getHostId() || message.getUser().getId() == roomState.self.getId()) {
-                            System.out.println("Start画面の表示");
+                            System.out.println("Start画面の表示---------------------------");
                             StoreManager.getInstance().client.grpcRoom = null;
                             StoreManager.getInstance().client.user = null;
                             ShowPanelUtil.ShowStartPanel();

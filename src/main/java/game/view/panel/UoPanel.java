@@ -46,7 +46,6 @@ public class UoPanel extends BasePanel<UoPanelState, IUoPanel> implements Initia
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         new UoPanelContainer(this);
 
         var props = this.getProps();

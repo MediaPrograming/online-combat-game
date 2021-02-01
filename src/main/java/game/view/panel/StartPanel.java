@@ -5,9 +5,12 @@ package game.view.panel;
  */
 import Animation.Animation;
 import Animation.AnimationHolder;
+import com.taku.util.flux.model.Store;
 import com.taku.util.flux.view.PurePanel;
+import game.store.StoreManager;
 import game.util.ShowPanelUtil;
 import game.util.Time;
+import game.view.stage.MainStage;
 import io.game.hub.messageHub.CharacterType;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
@@ -30,9 +33,13 @@ public class StartPanel extends PurePanel implements Initializable{
     int gura,kiara,ame;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        if(!StoreManager.getInstance().client.IsConnected()) System.exit(0);
+
         showCreateRoomButton.setOnAction(e -> ShowPanelUtil.ShowCreateRoomPanel());
         showSelectionButton.setOnAction(e -> ShowPanelUtil.ShowSelectionPanel());
-        quitButton.setOnAction(e -> System.exit(0));
+        quitButton.setOnAction(e -> {
+            StoreManager.stage.Exit();
+        } );
 
         gc = canvas.getGraphicsContext2D();
         gura = 1280;
