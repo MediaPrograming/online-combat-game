@@ -8,7 +8,6 @@ import java.io.File;
 public final class PATH {
     public static final String root = new File(".").getAbsolutePath();
     public static final String img = "../img";
-    public static final String sounds = root + "/src/main/resources/game/sounds";
     public static final String Back = img + "/Back.jpg";
     public static final String Floor = img + "/floor.png";
     public static final String Kusa = img + "/kusa.png";
@@ -30,10 +29,9 @@ public final class PATH {
     public static final String Amelia_Run = img + "/Amelia/Amerial-Walk-01.png";
     public static final String Amelia_Atk_obj = img + "/Amelia/Amelia-Atk-obj.png";
     public static final String Amelia_Damaged = img + "/Amelia/Amerial-Damaged-01.png";
-    public static final String BattleBGM = sounds + "/BGM/Tanukichi.wav";
-    public static final String HomeBGM = sounds + "/BGM/のんきな日常.wav";
-    public static final String FinishBGM = sounds + "/BGM/Let's!.wav";
+    public static final String BattleBGM = "../sounds/BGM/Tanukichi.wav";
+    public static final String HomeBGM = "../sounds/BGM/のんきな日常.wav";
+    public static final String FinishBGM ="../sounds/BGM/Let's!.wav";
     public static final String TRIDENT = img + "/Gura/Guratrydent-Sheet.png";
-    public static final String Effect_HIT = sounds + "/hit.wav";
     public static final String Hizyousyoku =img +"/hizyousyoku-Sheet .png";
 }
