@@ -33,7 +33,7 @@ public class PlayGura extends PlayCharacter{
     @Override
     public void changedAction(CharacterState state) {
         super.changedAction(state);
-        System.out.println("state.getAX,Y()->"+state.getAx()+","+state.getAy()+"ID:"+state.getId());
+        //System.out.println("state.getAX,Y()->"+state.getAx()+","+state.getAy()+"ID:"+state.getId());
         double rand = Math.random();
         switch (state.getBehavior()){
             case NORMAL:

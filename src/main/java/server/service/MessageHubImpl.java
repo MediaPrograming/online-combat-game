@@ -8,11 +8,14 @@ import game.config.CharaData.*;
 import game.phisics.Character;
 import game.phisics.PhysicsObject;
 import io.game.hub.messageHub.*;
+import io.grpc.Status;
+import io.grpc.StatusRuntimeException;
 import server.core.RoomManager;
 import server.room.Room;
 import io.grpc.stub.StreamObserver;
 import server.room.UserState;
 import game.phisics.Attackplygon;
+
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -31,7 +34,7 @@ public class MessageHubImpl extends MessageHubGrpc.MessageHubImplBase {
      */
     @Override
     public void getRooms(UnitRequest request, StreamObserver<GrpcRoomInfo> responseObserver) {
-        var rooms = RoomManager.Instance.getRooms();
+        var rooms = RoomManager.getInstance().getRooms();
         var builder = GrpcRoomInfo.newBuilder();
 
         //Search for rooms that can be entered
@@ -50,7 +53,7 @@ public class MessageHubImpl extends MessageHubGrpc.MessageHubImplBase {
     @Override
     public void getUsers(User request, StreamObserver<GrpcRoom> responseObserver) {
         var roomName = request.getRoomName();
-        var room = RoomManager.Instance.getRoom(roomName);
+        var room = RoomManager.getInstance().getRoom(roomName);
         var gRoom = GrpcRoom.newBuilder()
                 .setRoomName(room.getRoomName())
                 .setHostName(room.getHostName());
@@ -73,20 +76,31 @@ public class MessageHubImpl extends MessageHubGrpc.MessageHubImplBase {
             responseObserver.onNext(ResponseCode.newBuilder().setCode(400).setMessage("ルームの名前が空です").build()); //エラーのレスポンス
             return;
         }
-        if (RoomManager.Instance.contain(roomName)) {
+        if (RoomManager.getInstance().contain(roomName)) {
             responseObserver.onNext(ResponseCode.newBuilder().setCode(400).setMessage("同じルームが存在しています").build());
             return;
         }
         Room room = new Room(request.getUser(), request.getRoom(), 4);
-        RoomManager.Instance.pushRoom(room);
+        RoomManager.getInstance().pushRoom(room);
         System.out.println("[Room Created]\nhostname = " + request.getRoom().getHostName() + "\nname = " + roomName);
         responseObserver.onNext(ResponseCode.newBuilder().setCode(200).build()); //成功 200 OK
     }
 
 
     @Override
-    public void deleteRoom(RoomMessage request, StreamObserver<ResponseCode> responseObserver) {
-        RoomManager.Instance.deleteRoom(request.getRoom());
+    public void deleteRoomOrLeave(RoomMessage request, StreamObserver<ResponseCode> responseObserver) {
+        var gRoom = request.getRoom();
+        var observer = RoomManager.getInstance().getRoom(gRoom.getRoomName()).getObserver();
+        boolean isHost = gRoom.getHostId() == request.getUser().getId();
+        var room = RoomManager.getInstance().getRoom(gRoom.getRoomName());
+
+        for (var o : observer.entrySet()) {
+            var message = Message.newBuilder().setRoom(gRoom).setType(Type.LEAVE).setUser(request.getUser()).build();
+            o.getValue().eventObserver.onNext(message);
+        }
+        if (isHost) RoomManager.getInstance().deleteRoom(room);
+        else room.removeUser(request.getUser().getId());
+        responseObserver.onNext(ResponseCode.newBuilder().setCode(200).build());
     }
 
     @Override
@@ -94,88 +108,102 @@ public class MessageHubImpl extends MessageHubGrpc.MessageHubImplBase {
         return new StreamObserver<Message>() {
             @Override
             public void onNext(Message value) {
-                var roomName = value.getRoom().getRoomName();
-                if (RoomManager.Instance.contain(roomName)) {
-                    //Case of no existing room
-                    responseObserver.onNext(
-                            Message.newBuilder()
-                                    .setType(Type.ERROR)
-                                    .setUser(value.getUser())
-                                    .setMessage("This room name is invalid")
-                                    .build());
-                    return;
-                }
-                Room room = RoomManager.Instance.getRoom(value.getRoom().getRoomName());
-                //userのput
-                var id = value.getUser().getId();
-                if (!room.getObserver().contains(id)) {
-                    UserState userState = new UserState();
-                    userState.eventObserver = responseObserver;
-                    userState.user = value.getUser();
-                    room.getObserver().put(id, userState);
-                }
+                try {
+                    var roomName = value.getRoom().getRoomName();
+                    if (RoomManager.getInstance().contain(roomName)) {
+                        //Case of no existing room
+                        responseObserver.onNext(
+                                Message.newBuilder()
+                                        .setType(Type.ERROR)
+                                        .setUser(value.getUser())
+                                        .setMessage("This room name is invalid")
+                                        .build());
+                        return;
+                    }
+                    Room room = RoomManager.getInstance().getRoom(value.getRoom().getRoomName());
+                    //userのput
+                    var id = value.getUser().getId();
+                    if (!room.getObserver().contains(id)) {
+                        UserState userState = new UserState();
+                        userState.eventObserver = responseObserver;
+                        userState.user = value.getUser();
+                        room.getObserver().put(id, userState);
+                    }
 
-                var m = Message.newBuilder()
-                        .setRoom(value.getRoom())
-                        .setUser(value.getUser())
-                        .setType(value.getType());
+                    var m = Message.newBuilder()
+                            .setRoom(value.getRoom())
+                            .setUser(value.getUser())
+                            .setType(value.getType());
 
-                switch (value.getType()) {
-                    case JOIN:
-                        System.out.println(roomName + "に参加した");
-                        System.out.println("JOIN");
-                        break;
-                    case LEAVE:
-                        //leaveした場合アカウントの消去が行われる
-                        boolean isHost = room.getHostId() == value.getUser().getId();
-                        if (isHost) RoomManager.Instance.deleteRoom(room);
-                        else room.removeUser(id);
-                        responseObserver.onNext(value);
-                        break;
-                    case MESSAGE:
-                        RoomManager.Instance.getRoom(roomName)
-                                .getObserver()
-                                .values()
-                                .stream()
-                                .map(x -> x.eventObserver)
-                                .forEach(ob -> ob.onNext(value));
-                        break;
-                    case UPDATE:
-                        room.updateRoom(id, value.getUser());
-                        break;
-                    case GAME_START:
-                        String message = "";
-                        //room内の全員がreadyOkか確認する
-                        for (var o : room.getObserver().entrySet()) {
-                            if (!o.getValue().user.getIsReady()) {
-                                message = "全員が準備完了していません";
+                    switch (value.getType()) {
+                        case JOIN:
+                            System.out.println(roomName + "に参加した");
+                            System.out.println("JOIN");
+                            break;
+                        case LEAVE:
+                            //leaveした場合アカウントの消去が行われる
+                            boolean isHost = room.getHostId() == value.getUser().getId();
+                            RoomManager.getInstance().CombatStop(room.getRoomName());
+                            if (isHost) RoomManager.getInstance().deleteRoom(room);
+                            else room.removeUser(id);
+                            responseObserver.onNext(value);
+                            break;
+                        case MESSAGE:
+                            RoomManager.getInstance().getRoom(roomName)
+                                    .getObserver()
+                                    .values()
+                                    .stream()
+                                    .map(x -> x.eventObserver)
+                                    .forEach(ob -> ob.onNext(value));
+                            break;
+                        case UPDATE:
+                            room.updateRoom(id, value.getUser());
+                            break;
+                        case GAME_START:
+                            String message = "";
+                            //room内の全員がreadyOkか確認する
+                            for (var o : room.getObserver().entrySet()) {
+                                if (!o.getValue().user.getIsReady()) {
+                                    message = "全員が準備完了していません";
+                                    m.setType(Type.ERROR);
+                                }
+                            }
+                            //二人いるか確認する
+                            var size = room.getObserver().size();
+                            if (size != 2) {
+                                message = "あなた一人しかいません";
                                 m.setType(Type.ERROR);
                             }
+                            m.setMessage(message);
+                            if (m.getType() == Type.GAME_START) {
+                                System.out.println("GAME_START");
+                                SetUp(room);
+                                RoomManager.getInstance().CombatStart(roomName);
+                            } else if (m.getType() == Type.ERROR) System.out.println(message);
+                            break;
+                        case UNKNOWN:
+                            System.out.println("[UNKNOWN]");
+                            break;
+                        default:
+                            System.out.println("不明なリクエストの送信");
+                            break;
+                    }
+                    m.setRoom(createGrpcRoom(room));
+                    //ルームに所属している場合に通知を送る
+                    for (var r : room.getObserver().entrySet()) {
+                        if(r.getValue() != null) {
+                            if(r.getValue().eventObserver != null) {
+                                r.getValue().eventObserver.onNext(m.build());
+                            }
                         }
-                        //二人いるか確認する
-                        var size = room.getObserver().size();
-                        if (size != 2) {
-                            message = "あなた一人しかいません";
-                            m.setType(Type.ERROR);
-                        }
-                        m.setMessage(message);
-                        if (m.getType() == Type.GAME_START) {
-                            System.out.println("GAME_START");
-                            SetUp(room);
-                            RoomManager.Instance.CombatStart(roomName);
-                        } else if (m.getType() == Type.ERROR) System.out.println(message);
-                        break;
-                    case UNKNOWN:
-                        System.out.println("[UNKNOWN]");
-                        break;
-                    default:
-                        System.out.println("不明なリクエストの送信");
-                        break;
-                }
-                m.setRoom(createGrpcRoom(room));
-                //ルームに所属している場合に通知を送る
-                for (var r : room.getObserver().entrySet()) {
-                    r.getValue().eventObserver.onNext(m.build());
+                    }
+                } catch (Exception e) {
+
+                    StatusRuntimeException exception = Status.INTERNAL
+                            .withDescription(e.getMessage())
+                            .withCause(e)
+                            .asRuntimeException();
+                    //responseObserver.onError(exception);
                 }
             }
 
@@ -213,21 +241,21 @@ public class MessageHubImpl extends MessageHubGrpc.MessageHubImplBase {
         var x = userState.user.getId() == room.getHostId() ? 200 : 1000;
         var y = 50;
         chareattack = new Attackplygon(0, 0, 1, 1);
-        switch (ct){
-            case Gura :
-                character = new Character(x, y, Gura.width, Gura.height,Gura.HP,ct,chareattack);
+        switch (ct) {
+            case Gura:
+                character = new Character(x, y, Gura.width, Gura.height, Gura.HP, ct, chareattack);
                 break;
             case Kiara:
-                character = new Character(x, y, Kiara.width, Kiara.height,Kiara.HP,ct ,chareattack);
+                character = new Character(x, y, Kiara.width, Kiara.height, Kiara.HP, ct, chareattack);
                 break;
             case Amelia:
-                character = new Character(x, y, Ame.width, Ame.height, Ame.HP,ct,chareattack);
+                character = new Character(x, y, Ame.width, Ame.height, Ame.HP, ct, chareattack);
                 break;
             case Inanis:
-                character = new Character(x, y, Ina.width, Ina.height, Ina.HP,ct,chareattack);
+                character = new Character(x, y, Ina.width, Ina.height, Ina.HP, ct, chareattack);
                 break;
             case Calliope:
-                character = new Character(x, y, Calli.width, Calli.height, Calli.HP,ct,chareattack);
+                character = new Character(x, y, Calli.width, Calli.height, Calli.HP, ct, chareattack);
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + ct);

@@ -10,6 +10,7 @@ import Animation.EffectPlayer.EffectManager;
 import Audio.AudioHolder;
 import com.taku.util.flux.view.BasePanel;
 import game.config.PATH;
+import game.store.StoreManager;
 import game.util.Time;
 import game.view.container.WaitRoomContainer;
 import game.view.service.IWaitRoom;
@@ -175,7 +176,7 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
         //ボタンのテキストの更新
         if(state.self == null) {
             System.out.println("User(Self)の初期化が行われていません. Errorが起きていないか確認してください");
-            System.exit(0);
+            StoreManager.stage.Exit();
         }
         var room = state.currentRoom;
         if(room == null) {
