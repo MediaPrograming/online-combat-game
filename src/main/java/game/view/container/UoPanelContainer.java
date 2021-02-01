@@ -57,6 +57,7 @@ public class UoPanelContainer {
         public void ContinueGame() { dispatcher.dispatch(UoPanelEvent.CONTINUE.Create(unit)); }
 
         @Override
-        public void QuitGame() { dispatcher.dispatch(UoPanelEvent.QUIT.Create(unit));}
+        public void QuitGame() {
+            StoreManager.stage.Exit();}
     };
 }
