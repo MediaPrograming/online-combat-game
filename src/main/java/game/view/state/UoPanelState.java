@@ -5,6 +5,7 @@ import Animation.CharacterPlayer.*;
 import Animation.DrawPolygon;
 import game.config.Character;
 import game.config.PATH;
+import game.store.StoreManager;
 import io.game.hub.messageHub.CharacterType;
 import io.game.hub.messageHub.GrpcRoom;
 import io.game.hub.messageHub.User;
@@ -49,12 +50,9 @@ public final class UoPanelState {
         playerTable = new Hashtable<>();
         timer = new Timer();
 
-        Path imagePath = Paths.get(PATH.Back);
-        back  = new Image(getClass().getResourceAsStream(imagePath.toUri().toString()),1280,720,false,false);
-        Path imagPath = Paths.get(PATH.Floor);
-        floor = new Image(getClass().getResourceAsStream(imagPath.toUri().toString()),1280,720,false,false);
-        Path imaPath = Paths.get(PATH.Kusa);
-        kusa = new Image(getClass().getResourceAsStream(imaPath.toUri().toString()),1280,720,false,false);
+        back  = new Image(StoreManager.class.getResourceAsStream(PATH.Back),1280,720,false,false);
+        floor = new Image(StoreManager.class.getResourceAsStream(PATH.Floor),1280,720,false,false);
+        kusa = new Image(StoreManager.class.getResourceAsStream(PATH.Kusa),1280,720,false,false);
     }
 
 

@@ -84,16 +84,14 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
         EffectManager.addGraphicsContext(gc2);
 
 
-        Path imagePath = Paths.get(PATH.img + "\\null.png");
-        selfImg = new Image(getClass().getResourceAsStream(imagePath.toUri().toString()));
+        selfImg = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\null.png"));
         enemyImg = selfVoice = enemyVoice = selfImg;
 
-        imagePath = Paths.get(PATH.img + "\\unlock.png");
-        unlock = new Image(getClass().getResourceAsStream(imagePath.toUri().toString()));
+        unlock = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\unlock.png"));
 
         //Gura
-        var gura = new Image(getClass().getResourceAsStream(Paths.get(PATH.img + "\\Gura\\Gura-Select.png").toUri().toString()));
-        var shaark = new Image(getClass().getResourceAsStream(Paths.get(PATH.img + "\\Gura\\Shaaaark.png").toUri().toString()));
+        var gura = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\Gura\\Gura-Select.png"));
+        var shaark = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\Gura\\Shaaaark.png"));
         characters.add(new DisplayCharacter(
                 CharacterType.Gura,
                 Gura,
@@ -105,8 +103,8 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
                 ));
 
         //Kiara
-        var kiara = new Image(getClass().getResourceAsStream(Paths.get(PATH.img + "\\Kiara\\小鳥遊キアラ-Select.png").toUri().toString()));
-        var kikkeriki = new Image(getClass().getResourceAsStream(Paths.get(PATH.img + "\\Kiara\\Kikkeriki.png").toUri().toString()));
+        var kiara = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\Kiara\\小鳥遊キアラ-Select.png"));
+        var kikkeriki = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\Kiara\\Kikkeriki.png"));
         characters.add(new DisplayCharacter(
                 CharacterType.Kiara,
                 Kiara,
@@ -118,8 +116,8 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
         ));
 
         //Amelia
-        var ame = new Image(getClass().getResourceAsStream(Paths.get(PATH.img + "\\Amelia\\Ameria-Select.png").toUri().toString()));
-        var wartson = new Image(getClass().getResourceAsStream(Paths.get(PATH.img + "\\Amelia\\wartson.png").toUri().toString()));
+        var ame = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\Amelia\\Ameria-Select.png"));
+        var wartson = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\Amelia\\wartson.png"));
         characters.add(new DisplayCharacter(
                 CharacterType.Amelia,
                 Ame,

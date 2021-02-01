@@ -4,6 +4,7 @@ import Animation.AnimationHolder;
 import Animation.CharaAnimationPlayer;
 import game.config.CharaData.Gura;
 import game.config.PATH;
+import game.store.StoreManager;
 import io.game.hub.messageHub.CharacterType;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
@@ -16,7 +17,7 @@ import java.io.File;
 public class PlayAme extends PlayCharacter{
     private boolean flag;
     private Direction direction;
-    Image injector =new Image(getClass().getResourceAsStream(new File(PATH.Amelia_Atk_obj).toURI().toString()));
+    Image injector =new Image(StoreManager.class.getResourceAsStream(PATH.Amelia_Atk_obj));
     public PlayAme(GraphicsContext gc, CharaAnimationPlayer player, CharacterState state){
         super(gc, player, state);
         this.width = this.height = 275;
