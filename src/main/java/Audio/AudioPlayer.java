@@ -18,7 +18,7 @@ public class AudioPlayer{
                 }
                 System.out.println("audio cahnged");
                 p=path;
-                bgm = AudioClip.createClip(new File(path));
+                bgm = AudioClip.createClip(path);
                 ctrl = (FloatControl)bgm.getControl(FloatControl.Type.MASTER_GAIN);
                 bgm.loop(Clip.LOOP_CONTINUOUSLY);
                 ctrl.setValue((float)Math.log10(0.1) * 20);
