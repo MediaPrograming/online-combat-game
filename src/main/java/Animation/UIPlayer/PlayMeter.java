@@ -1,6 +1,7 @@
 package Animation.UIPlayer;
 
 import game.config.PATH;
+import game.store.StoreManager;
 import io.game.hub.positionHub.CharacterState;
 import io.game.hub.positionHub.Direction;
 import javafx.scene.canvas.GraphicsContext;
@@ -20,8 +21,7 @@ public class PlayMeter {
     GraphicsContext gc;
     boolean left;
     int margin1,margin2;
-    private Path imPath = Paths.get(PATH.root + "\\src\\main\\resources\\game\\img\\hpバー.png");
-    private Image BarFrame = new Image(getClass().getResourceAsStream(imPath.toUri().toString()));
+    private Image BarFrame = new Image(StoreManager.class.getResourceAsStream(PATH.img+ "\\hpバー.png"));
     public PlayMeter(GraphicsContext gc, boolean left, int amount){
         this.gc = gc;
         this.amount = this.nowValue = amount;
