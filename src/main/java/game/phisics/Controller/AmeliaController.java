@@ -38,7 +38,7 @@ public class AmeliaController extends CharaController{
         return 50;
      }
      @Override public void jump(){
-             character.vector(0, -10);
+             character.vector(0, -18);
      }
      @Override public void attacking(){
             if(character.getAction()!=Behavior.ATTACK1&&character.getAction()!=Behavior.ATTACK2&&attack.getX()!=-1){
