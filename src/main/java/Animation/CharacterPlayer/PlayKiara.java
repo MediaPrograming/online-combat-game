@@ -3,6 +3,7 @@ package Animation.CharacterPlayer;
 import Animation.AnimationHolder;
 import Animation.CharaAnimationPlayer;
 import Audio.AudioHolder;
+import Audio.AudioPlayer;
 import game.config.CharaData.Gura;
 import io.game.hub.messageHub.CharacterType;
 import io.game.hub.positionHub.Behavior;
@@ -33,8 +34,8 @@ public class PlayKiara extends PlayCharacter{
                 }
                 break;
             case DAMAGE :
-                if(rand>0.4){AudioHolder.Kiarastopit.setFramePosition(0);AudioHolder.Kiarastopit.loop(0);
-                }else {AudioHolder.Kiarayabe.setFramePosition(0);AudioHolder.Kiarayabe.loop(0);
+                if(rand>0.4){AudioPlayer.PlayVoice(AudioHolder.Kiarastopit);
+                }else {      AudioPlayer.PlayVoice(AudioHolder.Kiarayabe);
                 }
                 if(state.getDirection()==Direction.RIGHT){
                     this.offsetX = -150;
@@ -46,21 +47,21 @@ public class PlayKiara extends PlayCharacter{
                 break;
             case ATTACK1:
                 if(rand>0.6){
-                    AudioHolder.Kiarayouwannafight.setFramePosition(0);AudioHolder.Kiarayouwannafight.loop(0);
+                    AudioPlayer.PlayVoice(AudioHolder.Kiarayouwannafight);
                 }else if(rand<=0.6&&rand>0.3){
-                    AudioHolder.Kiarabigbumb.setFramePosition(0);AudioHolder.Kiarabigbumb.loop(0);
+                    AudioPlayer.PlayVoice(AudioHolder.Kiarabigbumb);
                 }
                 break;
             case ATTACK2:
                 if(rand>0.6){
-                    AudioHolder.Kiarayouwannafight.setFramePosition(0);AudioHolder.Kiarayouwannafight.loop(0);
+                    AudioPlayer.PlayVoice(AudioHolder.Kiarayouwannafight);
                 }else if(rand<=0.6&&rand>0.3){
-                    AudioHolder.Kiarabigbumb.setFramePosition(0);AudioHolder.Kiarabigbumb.loop(0);
+                    AudioPlayer.PlayVoice(AudioHolder.Kiarabigbumb);
                 }
                 break;
             case ATTACK4:
                 if(rand>0.7){
-                    AudioHolder.Kiaraeat.setFramePosition(0);AudioHolder.Kiaraeat.loop(0);
+                    AudioPlayer.PlayVoice(AudioHolder.Kiaraeat);
                 }
                 break;
             case JUMP:

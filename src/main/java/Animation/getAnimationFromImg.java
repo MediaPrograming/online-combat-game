@@ -1,5 +1,6 @@
 package Animation;
 
+import game.store.StoreManager;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 
@@ -14,8 +15,7 @@ public class getAnimationFromImg {
     private int width,height,numX,numY;
     public getAnimationFromImg(String url,int pixelX,int pixelY,int numX,int numY){
         q = 2;
-        imagePath = Paths.get(url);
-        Img = new Image(getClass().getResourceAsStream(imagePath.toUri().toString()),pixelX*numX*q,pixelY*numY*q,false,false);
+        Img = new Image(StoreManager.class.getResourceAsStream(url),pixelX*numX*q,pixelY*numY*q,false,false);
         this.width = pixelX;
         this.height = pixelY;
         this.numX = numX;
