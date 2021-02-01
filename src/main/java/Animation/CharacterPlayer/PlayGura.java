@@ -22,7 +22,7 @@ import java.io.File;
 public class PlayGura extends PlayCharacter{
     private boolean flag;
     private Direction trident_dir;
-    Image trident =	new Image(new File(PATH.TRIDENT).toURI().toString());
+    Image trident =	new Image(getClass().getResourceAsStream(new File(PATH.TRIDENT).toURI().toString()));
     public PlayGura(GraphicsContext gc, CharaAnimationPlayer player, CharacterState state){
         super(gc, player, state);
         this.width = this.height = 250;

@@ -18,7 +18,7 @@ public class GuraController extends CharaController{
         attack.setWidth(character.getWidth()/2);
         attack.setHeight(character.getHeight()/2);
         attack.setDamege(40);
-        attack.setVecx(-5);
+        attack.setVecx(-2);
         attack.setVecy(0);
             return 30;
     }
@@ -29,7 +29,7 @@ public class GuraController extends CharaController{
         attack.setWidth(character.getWidth()/2);
         attack.setHeight(character.getHeight()/2);
         attack.setDamege(40);
-        attack.setVecx(5);
+        attack.setVecx(2);
         attack.setVecy(0);
             return 30;
     }

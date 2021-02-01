@@ -50,11 +50,11 @@ public final class UoPanelState {
         timer = new Timer();
 
         Path imagePath = Paths.get(PATH.Back);
-        back  = new Image(imagePath.toUri().toString(),1280,720,false,false);
+        back  = new Image(getClass().getResourceAsStream(imagePath.toUri().toString()),1280,720,false,false);
         Path imagPath = Paths.get(PATH.Floor);
-        floor = new Image(imagPath.toUri().toString(),1280,720,false,false);
+        floor = new Image(getClass().getResourceAsStream(imagPath.toUri().toString()),1280,720,false,false);
         Path imaPath = Paths.get(PATH.Kusa);
-        kusa = new Image(imaPath.toUri().toString(),1280,720,false,false);
+        kusa = new Image(getClass().getResourceAsStream(imaPath.toUri().toString()),1280,720,false,false);
     }
 
 

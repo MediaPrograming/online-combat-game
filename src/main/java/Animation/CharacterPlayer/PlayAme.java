@@ -16,7 +16,7 @@ import java.io.File;
 public class PlayAme extends PlayCharacter{
     private boolean flag;
     private Direction direction;
-    Image injector =new Image(new File(PATH.Amelia_Atk_obj).toURI().toString());
+    Image injector =new Image(getClass().getResourceAsStream(new File(PATH.Amelia_Atk_obj).toURI().toString()));
     public PlayAme(GraphicsContext gc, CharaAnimationPlayer player, CharacterState state){
         super(gc, player, state);
         this.width = this.height = 275;
