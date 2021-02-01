@@ -9,8 +9,6 @@ public final class UoPanelEvent {
     public static final ActionCreator<String> UPDATE_INPUT_PRESSED = new ActionCreator<>("UPDATE_INPUT_PRESSED");
     public static final ActionCreator<String> UPDATE_INPUT_RELEASED = new ActionCreator<>("UPDATE_INPUT_RELEASED");
     public static final ActionCreator<GraphicsContext> UPDATE_CHARACTER_TABLE = new ActionCreator<>("UPDATE_CHARACTER_TABLE");
-    public static final ActionCreator<Unit> START_AUDIO = new ActionCreator("START_AUDIO");
-    public static final ActionCreator<Unit> STOP_AUDIO = new ActionCreator("STOP_AUDIO");
     public static final ActionCreator<PositionHubMessage> STREAM_EVENT = new ActionCreator<>("STREAM_EVENT");
     public static final ActionCreator<Unit> CONTINUE = new ActionCreator<>("CONTINUE_GAME");
     public static final ActionCreator<Unit> QUIT = new ActionCreator<>("QUIT_GAME");

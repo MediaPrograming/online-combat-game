@@ -17,14 +17,14 @@ import java.util.function.Function;
  * @project online-combat-game
  */
 public class RequestUtil {
-    private static MessageHubGrpc.MessageHubStub stub = StoreManager.Instance.client.stub;
+    private static MessageHubGrpc.MessageHubStub stub = StoreManager.getInstance().client.stub;
     public static Function<IDispatcher, StreamObserver<Message>> streamEventCreator = (dispatcher) -> stub.streamEvent(new StreamObserver<Message>() {
         @Override public void onNext(Message value) { dispatcher.dispatch(ClientEvent.STREAM_EVENT.Create(value)); }
         @Override public void onError(Throwable t) { System.out.println(t.toString());}
         @Override public void onCompleted() { }
     });
 
-    private static PositionHubGrpc.PositionHubStub positionHubStub = StoreManager.Instance.client.positionHubStub;
+    private static PositionHubGrpc.PositionHubStub positionHubStub = StoreManager.getInstance().client.positionHubStub;
     public static Function<IDispatcher, StreamObserver<PositionHubMessage>> streamPositionCreator = (dispatcher) -> positionHubStub.streamEvent(new StreamObserver<PositionHubMessage>() {
         @Override public void onNext(PositionHubMessage value) { dispatcher.dispatch(UoPanelEvent.STREAM_EVENT.Create(value)); }
         @Override public void onError(Throwable t) { System.out.println(t.toString());}

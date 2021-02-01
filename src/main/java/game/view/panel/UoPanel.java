@@ -1,54 +1,37 @@
 package game.view.panel;
-import Animation.AnimationHolder;
-import Animation.CharaAnimationPlayer;
-import Animation.CharacterPlayer.*;
-import Animation.DrawPolygon;
-import Animation.EffectAnimationManager;
+import Animation.*;
 import Animation.EffectPlayer.EffectManager;
 import Animation.UIPlayer.PlayUI;
-import Audio.AudioHolder;
 import Audio.AudioPlayer;
 
 import com.taku.util.flux.view.BasePanel;
-import Audio.AudioClip;
-import game.config.Character;
 import game.config.PATH;
 import game.util.Time;
-import game.view.container.CombatContainer;
-import game.view.service.IPositionStream;
+import game.view.container.UoPanelContainer;
+import game.view.service.IUoPanel;
 import game.view.state.UoPanelState;
-import io.game.hub.messageHub.CharacterType;
 import io.game.hub.messageHub.User;
-import io.game.hub.positionHub.Behavior;
-import io.game.hub.positionHub.CharacterState;
-import io.game.hub.positionHub.Input;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 
 import javafx.scene.control.Button;
-import javafx.scene.effect.Bloom;
-import javafx.scene.image.Image;
+import javafx.scene.control.Label;
 
-import java.io.File;
 import java.net.URL;
 import java.util.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.FloatControl;
-
-public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements Initializable {
+public class UoPanel extends BasePanel<UoPanelState, IUoPanel> implements Initializable {
     @FXML
     private Canvas canvas1,canvas2,canvas3;
-
+    @FXML
+    private Label winner,loser;
     @FXML
     private Pane quitPane;
     @FXML
@@ -59,11 +42,11 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
     private int uouo = 0;
     private Text text;
     private boolean debug;
+    private Animation Bloop;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        new CombatContainer(this);
+        new UoPanelContainer(this);
 
         var props = this.getProps();
         var state = this.getState();
@@ -104,6 +87,8 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         EffectManager.addGraphicsContext(gc1);
         EffectManager.addGraphicsContext(gc2);
         EffectManager.addGraphicsContext(gc3);
+
+        Bloop = AnimationHolder.getEffectAnimation("Bloop");
     }
 
     @Override
@@ -129,7 +114,9 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
         var character  = getState().stateBlockingQueue.poll();
         while (character != null) {
 //            System.out.println("ID"+character.getId());
-            if(character.getHP()<=0) {}
+            if(character.getHP()<=0) {
+                ((character.getId() == state.self.getId()) ? winner : loser ).setVisible(false);
+            }
             state.playerTable.get(character.getId()).updateState(character);
             PlayUI.updateState(character);
             state.polyTable.get(character.getId()).updateChara((int)character.getX(),(int)character.getY(),state.charaTable.get(character.getId()));//debug用
@@ -138,6 +125,7 @@ public class UoPanel extends BasePanel<UoPanelState, IPositionStream> implements
 
         gc2.clearRect(0,0,canvas2.getWidth(),canvas2.getHeight());
         gc2.drawImage(state.floor,-20,-20,1320,742.5);
+        gc2.drawImage(Bloop.getAnim()[(int)(Time.Instance.getTotalTime()*Bloop.getSpeed())%Bloop.getAnim().length][(int)(Time.Instance.getTotalTime()/Bloop.getAnim().length*Bloop.getSpeed())%Bloop.getAnim()[0].length],1150,520,50,50);
         state.playerTable.forEach((k,v) -> v.play());
         EffectAnimationManager.play();
 

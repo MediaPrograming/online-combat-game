@@ -9,6 +9,8 @@ import io.game.hub.positionHub.*;
 import io.game.hub.positionHub.CharacterState;
 import io.game.hub.positionHub.Input;
 import io.game.hub.positionHub.PositionHubGrpc;
+import io.grpc.Status;
+import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
 import server.core.RoomManager;
 import server.util.RoomUtil;
@@ -21,21 +23,29 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
         return new StreamObserver<Input>() {
             @Override
             public void onNext(Input value) {
-                var id = value.getId();
-                var user = RoomManager.Instance.getRoom(value.getRoomName());
-                var roomName = user.getRoomName();
-                var room = RoomManager.Instance.getRoom(roomName);
-                if (room == null) {
-                    System.out.println("Room is null");
-                    return;
-                }
-                var observer = room.getObserver();
-                //オブザーバーの追加
-                var state = observer.get(id);
-                state.positionObserver = responseObserver;
-                //物理オブジェクトの取得
-                CharacterUpdate(value, room, observer, id);
+                try {
+                    var id = value.getId();
+                    var user = RoomManager.getInstance().getRoom(value.getRoomName());
+                    var roomName = user.getRoomName();
+                    var room = RoomManager.getInstance().getRoom(roomName);
+                    if (room == null) {
+                        System.out.println("Room is null");
+                        return;
+                    }
+                    var observer = room.getObserver();
+                    //オブザーバーの追加
+                    var state = observer.get(id);
+                    state.positionObserver = responseObserver;
+                    //物理オブジェクトの取得
+                    CharacterUpdate(value, room, observer, id);
+                } catch (Exception e) {
 
+                    StatusRuntimeException exception = Status.INTERNAL
+                            .withDescription(e.getMessage())
+                            .withCause(e)
+                            .asRuntimeException();
+                    responseObserver.onError(exception);
+                }
             }
 
             @Override
@@ -44,7 +54,8 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
             }
 
             @Override
-            public void onCompleted() { }
+            public void onCompleted() {
+            }
         };
     }
 
@@ -53,24 +64,37 @@ public class PositionHubImpl extends PositionHubGrpc.PositionHubImplBase {
         return new StreamObserver<PositionHubMessage>() {
             @Override
             public void onNext(PositionHubMessage value) {
-                var id = value.getUser().getId();
-                var room = RoomManager.Instance.getRoom(value.getUser().getRoomName());
+                try {
+                    var id = value.getUser().getId();
+                    var room = RoomManager.getInstance().getRoom(value.getUser().getRoomName());
 
-                if (room == null) {
-                    System.out.println("Room is null");
-                    return;
-                }
-                var observer = room.getObserver();
-                //オブザーバーの追加
-                var state = observer.get(id);
-                state.positionHubMessageStreamObserver = responseObserver;
+                    if (room == null) {
+                        System.out.println("Room is null");
+                        return;
+                    }
+                    var observer = room.getObserver();
+                    //オブザーバーの追加
+                    var state = observer.get(id);
+                    state.positionHubMessageStreamObserver = responseObserver;
 
-                switch (value.getType()){
-                    case INIT : {break;}
-                    case GAME_FINISH : { break;}
-                    default : {return;}
+                    switch (value.getType()) {
+                        case INIT: {
+                            break;
+                        }
+                        case GAME_FINISH: {
+                            break;
+                        }
+                        default: {
+                            return;
+                        }
+                    }
+                } catch (Exception e) {
 
-
+                    StatusRuntimeException exception = Status.INTERNAL
+                            .withDescription(e.getMessage())
+                            .withCause(e)
+                            .asRuntimeException();
+                    responseObserver.onError(exception);
                 }
             }
 

@@ -9,16 +9,7 @@ import javafx.scene.canvas.GraphicsContext;
  * @project online-combat-game
  * @author Takuya Isaki on 2021/01/20
  */
-public interface IPositionStream{
-    /**
-     * 音楽の再生
-     */
-    void StartAudio();
-
-    /**
-     * 音楽の停止
-     */
-    void StopAudio();
+public interface IUoPanel {
 
     /**
      * サーバーへInputの送信

@@ -57,8 +57,6 @@ public class PositionHubUtil {
                 .map(x -> x.getValue().character)
                 .forEach(x -> PhysicsCalcUtil.isAttackHit(self, self.attack, x, x.attack));
 */
-        System.out.println(array[0]);
-        System.out.println(array[1]);
         PhysicsCalcUtil.isAttackHit(player1,player1.attack,player2,player2.attack);
         //キャラ同士が衝突しないように調整する　
         PhysicsCalcUtil.CharacterCollision(player1,player2);

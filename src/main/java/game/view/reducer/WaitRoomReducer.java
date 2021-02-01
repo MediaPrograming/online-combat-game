@@ -6,37 +6,22 @@ package game.view.reducer;
 
 import Animation.EffectPlayer.EffectManager;
 import com.taku.util.flux.model.Action;
-import com.taku.util.flux.model.Store;
 import com.taku.util.flux.service.IReducer;
 import com.taku.util.flux.view.ReducerBuilder;
-import com.taku.util.model.Unit;
 import game.store.StoreManager;
+import game.util.ShowPanelUtil;
 import game.view.action.ClientEvent;
 import game.view.action.RoomEvent;
-import game.view.action.UIEvent;
-import game.view.panel.WaitRoomPanel;
 import game.view.state.WaitRoomState;
 import io.game.hub.messageHub.Type;
-import io.grpc.BindableService;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.PopupWindow;
-import game.config.PATH;
-
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.FloatControl;
-
-import javax.management.remote.JMXServerErrorException;
-import javax.swing.*;
+import server.room.Room;
 
 public class WaitRoomReducer implements IReducer<WaitRoomState> {
     @Override
     public ReducerBuilder<WaitRoomState> apply(Action<?> action, WaitRoomState init) {
-        var unit = new Unit();
         return ReducerBuilder.Create(action, init)
                 .Case(RoomEvent.START_GAME, ((state, room) -> {
-                    StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_UO_PANEL.Create(unit));
+                    ShowPanelUtil.ShowUoPanel();
                     return state;
                     
                 }))
@@ -46,10 +31,10 @@ public class WaitRoomReducer implements IReducer<WaitRoomState> {
                     }else if(message.getType() == Type.LEAVE){
                         //HostがLEAVEした場合,もしくは自分が退出した場合はStart画面に移動する
                         if(message.getUser().getId() == roomState.currentRoom.getHostId() || message.getUser().getId() == roomState.self.getId()) {
-                            System.out.println("Start画面の表示");
-                            StoreManager.Instance.client.grpcRoom = null;
-                            StoreManager.Instance.client.user = null;
-                            StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_START_PANEL.Create(unit));
+                            System.out.println("Start画面の表示---------------------------");
+                            StoreManager.getInstance().client.grpcRoom = null;
+                            StoreManager.getInstance().client.user = null;
+                            ShowPanelUtil.ShowStartPanel();
                         }else {
                             roomState.currentRoom = message.getRoom();
                         }
@@ -61,14 +46,29 @@ public class WaitRoomReducer implements IReducer<WaitRoomState> {
                         EffectManager.resetGraphicsContext();
                         //UOPanelに移動
                         System.out.println("UOパネルの表示");
-                        StoreManager.Instance.client.user = message.getRoom().getUserList().stream().filter(x->x.getId() == roomState.self.getId()).findFirst().get();
-                        StoreManager.Instance.client.grpcRoom = message.getRoom();
-                        StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_UO_PANEL.Create(unit));
+                        StoreManager.getInstance().client.user = message.getRoom().getUserList().stream().filter(x->x.getId() == roomState.self.getId()).findFirst().get();
+                        StoreManager.getInstance().client.grpcRoom = message.getRoom();
+                        ShowPanelUtil.ShowUoPanel();
                     }
                     else if(message.getType() == Type.ERROR) {
                         System.out.println("[ERROR]" + message.getMessage());
                     }
                     return roomState;
+                }))
+                .Case(RoomEvent.CHANGE_DISPLAY_CHARACTER_BEHAVIOUR, ((state, behavior) -> {
+                    return state;
+                }))
+                .Case(RoomEvent.CHANGE_MOUSEOVER_TYPE, ((state, type) -> {
+                    state.mouseOverCharacter = type;
+                    return state;
+                }))
+                .Case(RoomEvent.CHANGE_BEFORE_CHARACTER, ((state, user) -> {
+                    if(user.getId() == state.self.getId()){
+                        state.beforeSelf = user;
+                    }else{
+                        state.beforeEnemy = user;
+                    }
+                    return state;
                 }));
     }
 }

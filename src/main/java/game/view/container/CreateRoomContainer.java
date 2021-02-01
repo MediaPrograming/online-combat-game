@@ -5,7 +5,7 @@ package game.view.container;
  */
 import com.taku.util.model.Unit;
 import game.store.StoreManager;
-import game.view.action.UIEvent;
+import game.util.ShowPanelUtil;
 import game.view.panel.CreateRoomPanel;
 import game.view.service.ICreateRoom;
 import io.game.hub.messageHub.*;
@@ -15,11 +15,9 @@ import java.util.UUID;
 
 public class CreateRoomContainer {
     public CreateRoomContainer(CreateRoomPanel panel){
-        Unit unit = new Unit();
-        panel.connect(unit, state -> state, dispatcher -> new ICreateRoom() {
-
+        panel.connect(new ICreateRoom() {
             @Override public void CreateRoomRequest(String roomName, String userName) {
-                var client = StoreManager.Instance.client;
+                var client = StoreManager.getInstance().client;
                 var id = UUID.randomUUID().hashCode();
                 User user = User.newBuilder()
                         .setId(id)
@@ -38,9 +36,9 @@ public class CreateRoomContainer {
                 client.stub.createRoom(createRequest, new StreamObserver<ResponseCode>() {
                     @Override public void onNext(ResponseCode value) {
                         if(value.getCode() == 200) {
-                            StoreManager.Instance.client.grpcRoom = room;
-                            StoreManager.Instance.client.user = user;
-                            StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_WAIT_ROOM_PANEL.Create(unit));
+                            StoreManager.getInstance().client.grpcRoom = room;
+                            StoreManager.getInstance().client.user = user;
+                            ShowPanelUtil.ShowWaitRoomPanel();
                         }else{
                             System.out.println("[" + value.getCode() + "]" + value.getMessage());
                         }
@@ -49,11 +47,6 @@ public class CreateRoomContainer {
                     @Override public void onCompleted() { }
                 });
             }
-
-            /**
-             * Start画面に戻れるようにするため
-             */
-            @Override public void ShowStartPanel() {  StoreManager.Instance.store.Invoke(new Unit(), UIEvent.SHOW_START_PANEL.Create(new Unit())); }
         });
     }
 }
