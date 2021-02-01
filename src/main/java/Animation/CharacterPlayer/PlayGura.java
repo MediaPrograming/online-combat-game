@@ -8,6 +8,7 @@ import Animation.EffectPlayer.PlayBloom;
 import Audio.AudioHolder;
 import game.config.CharaData.Gura;
 import game.config.PATH;
+import game.store.StoreManager;
 import game.util.Time;
 import io.game.hub.messageHub.CharacterType;
 import io.game.hub.positionHub.Behavior;
@@ -22,7 +23,7 @@ import java.io.File;
 public class PlayGura extends PlayCharacter{
     private boolean flag;
     private Direction trident_dir;
-    Image trident =	new Image(getClass().getResourceAsStream(new File(PATH.TRIDENT).toURI().toString()));
+    Image trident =	new Image(StoreManager.class.getResourceAsStream(PATH.TRIDENT));
     public PlayGura(GraphicsContext gc, CharaAnimationPlayer player, CharacterState state){
         super(gc, player, state);
         this.width = this.height = 250;
