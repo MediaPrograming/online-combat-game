@@ -7,15 +7,17 @@ import java.io.File;
 
 public final class PATH {
     public static final String root = new File(".").getAbsolutePath();
-    public static final String img = root + "\\src\\main\\resources\\game\\img";
+    public static final String img = "..\\img";
     public static final String sounds = root + "\\src\\main\\resources\\game\\sounds";
     public static final String Back = img + "\\Back.jpg";
     public static final String Floor = img + "\\floor.png";
+    public static final String Kusa = img + "\\kusa.png";
 
     public static final String HIT = img + "\\hiteffect -Sheet.png";
 
     public static final String Gura_Normal = img + "\\Gura\\Gura-02-Sheet.png";
     public static final String Gura_Run = img + "\\Gura\\Gura-03-Sheet.png";
+    public static final String Gura_Attack1 = img + "\\Gura\\Gura-04-Sheet.png";
     public static final String Kiara_Normal = img + "\\Kiara\\小鳥遊キアラ-Sheet - .png";
     public static final String Kiara_Run = img + "\\Kiara\\小鳥遊キアラrun-Sheet.png";
     public static final String Kiara_Attack1 = img + "\\Kiara\\小鳥遊キアラyokoattack-Sheet.png";
@@ -35,7 +37,7 @@ public final class PATH {
     public static final String HomeBGM = sounds + "\\BGM\\のんきな日常.wav";
     public static final String FinishBGM = sounds + "\\BGM\\Let's!.wav";
 
-    public static final String TRIDENT = img + "\\img\\Gura\\Guratrydent-Sheet.png";
+    public static final String TRIDENT = img + "\\Gura\\Guratrydent-Sheet.png";
 
     public static final String Effect_HIT = sounds + "\\hit.wav";
     public static final String Hizyousyoku =img +"\\hizyousyoku-Sheet .png";

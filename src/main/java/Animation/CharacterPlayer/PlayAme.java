@@ -16,7 +16,7 @@ import java.io.File;
 public class PlayAme extends PlayCharacter{
     private boolean flag;
     private Direction direction;
-    Image injector =new Image(new File(PATH.Amelia_Atk_obj).toURI().toString());
+    Image injector =new Image(getClass().getResourceAsStream(new File(PATH.Amelia_Atk_obj).toURI().toString()));
     public PlayAme(GraphicsContext gc, CharaAnimationPlayer player, CharacterState state){
         super(gc, player, state);
         this.width = this.height = 275;
@@ -26,6 +26,7 @@ public class PlayAme extends PlayCharacter{
 
     @Override
     public void changedAction(CharacterState state) {
+        super.changedAction(state);
         switch (state.getBehavior()){
             case NORMAL:
                 if(state.getDirection()==Direction.LEFT){

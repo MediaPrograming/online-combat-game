@@ -28,8 +28,8 @@ public class AnimationHolder {
     private static void addAllAnimations() {
         AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.NORMAL ,PATH.Gura_Normal,128,128,4,2,2,true);
         AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.RUN ,PATH.Gura_Run,128,128,4,2,4,true);
-        AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.ATTACK1 ,PATH.Gura_Normal,128,128,4,2,2,false);
-        AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.ATTACK2 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.ATTACK1 ,PATH.Gura_Attack1,128,128,7,2,12,false);
+        AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.ATTACK2 ,PATH.Gura_Attack1,128,128,7,2,12,false);
         AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.ATTACK3 ,PATH.Gura_Normal,128,128,4,2,2,false);
         AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.ATTACK4 ,PATH.Gura_Normal,128,128,4,2,2,false);
         AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.DEFENCE ,PATH.Gura_Normal,128,128,4,2,2,false);
@@ -78,7 +78,7 @@ public class AnimationHolder {
         AnimationHolder.addCharaAnimation(CharacterType.Amelia, Behavior.SQUAT   ,PATH.Amelia_Normal,128,128,4,3,8,false);
 
         AnimationHolder.addEffectAnimation("HIT",PATH.HIT,100,100,5,1,8,false);
-        AnimationHolder.addEffectAnimation("Bloop", PATH.root+"\\src\\main\\resources\\game\\img\\hizyousyoku-Sheet .png",100,100,2,2,2,true);
+        AnimationHolder.addEffectAnimation("Bloop", PATH.img+"\\hizyousyoku-Sheet .png",100,100,2,2,2,true);
     }
 
 //    public ArrayList<Image[][]> getAnimations(){
