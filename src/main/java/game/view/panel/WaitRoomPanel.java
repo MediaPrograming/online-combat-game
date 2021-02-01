@@ -84,14 +84,14 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
         EffectManager.addGraphicsContext(gc2);
 
 
-        selfImg = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\null.png"));
+        selfImg = new Image(StoreManager.class.getResourceAsStream(PATH.img + "/null.png"));
         enemyImg = selfVoice = enemyVoice = selfImg;
 
-        unlock = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\unlock.png"));
+        unlock = new Image(StoreManager.class.getResourceAsStream(PATH.img + "/unlock.png"));
 
         //Gura
-        var gura = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\Gura\\Gura-Select.png"));
-        var shaark = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\Gura\\Shaaaark.png"));
+        var gura = new Image(StoreManager.class.getResourceAsStream(PATH.img + "/Gura/Gura-Select.png"));
+        var shaark = new Image(StoreManager.class.getResourceAsStream(PATH.img + "/Gura/Shaaaark.png"));
         characters.add(new DisplayCharacter(
                 CharacterType.Gura,
                 Gura,
@@ -103,8 +103,8 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
                 ));
 
         //Kiara
-        var kiara = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\Kiara\\小鳥遊キアラ-Select.png"));
-        var kikkeriki = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\Kiara\\Kikkeriki.png"));
+        var kiara = new Image(StoreManager.class.getResourceAsStream(PATH.img + "/Kiara/小鳥遊キアラ-Select.png"));
+        var kikkeriki = new Image(StoreManager.class.getResourceAsStream(PATH.img + "/Kiara/Kikkeriki.png"));
         characters.add(new DisplayCharacter(
                 CharacterType.Kiara,
                 Kiara,
@@ -116,8 +116,8 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
         ));
 
         //Amelia
-        var ame = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\Amelia\\Ameria-Select.png"));
-        var wartson = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\Amelia\\wartson.png"));
+        var ame = new Image(StoreManager.class.getResourceAsStream(PATH.img + "/Amelia/Ameria-Select.png"));
+        var wartson = new Image(StoreManager.class.getResourceAsStream(PATH.img + "/Amelia/wartson.png"));
         characters.add(new DisplayCharacter(
                 CharacterType.Amelia,
                 Ame,
