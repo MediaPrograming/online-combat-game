@@ -5,48 +5,48 @@
   <nodes>
     <node x="0.0" y="301.0">game.view.action</node>
     <node x="175.0" y="301.0">game.sounds</node>
-    <node x="0.0" y="153.0">game.view.container</node>
-    <node x="364.0" y="227.0">game.store.StoreManager</node>
-    <node x="392.0" y="153.0">game.server.GrpcClientTest</node>
-    <node x="152.0" y="79.0">game.phisics.Character</node>
-    <node x="67.25" y="0.0">game.phisics.PhysicsObject</node>
-    <node x="163.0" y="449.0">game.config.Character</node>
-    <node x="350.0" y="301.0">game.util.RequestUtil</node>
-    <node x="0.0" y="79.0">game.phisics.Attackplygon</node>
-    <node x="0.0" y="375.0">game.view.state</node>
-    <node x="168.0" y="375.0">game.view.panel</node>
     <node x="0.0" y="227.0">game.view.reducer</node>
     <node x="0.0" y="449.0">game.client.GrpcClient</node>
+    <node x="0.0" y="153.0">game.view.container</node>
+    <node x="364.0" y="227.0">game.store.StoreManager</node>
     <node x="308.0" y="0.0">game.phisics.PhysicsCalcUtil</node>
-    <node x="277.0" y="523.0">game.util.Input</node>
-    <node x="336.0" y="375.0">game.view.stage</node>
+    <node x="0.0" y="375.0">game.view.stage</node>
+    <node x="392.0" y="153.0">game.server.GrpcClientTest</node>
     <node x="473.0" y="449.0">game.phisics.Physics</node>
-    <node x="405.0" y="523.0">game.view.Main</node>
+    <node x="0.0" y="79.0">game.phisics.Character</node>
     <node x="182.0" y="227.0">game.view.service</node>
     <node x="142.0" y="523.0">game.config.Config</node>
-    <node x="0.0" y="597.0">game.config.PATH</node>
-    <node x="121.0" y="597.0">game.util.Time</node>
+    <node x="56.75" y="0.0">game.phisics.PhysicsObject</node>
+    <node x="277.0" y="523.0">game.config.PATH</node>
+    <node x="163.0" y="449.0">game.config.Character</node>
+    <node x="350.0" y="301.0">game.util.RequestUtil</node>
+    <node x="131.0" y="79.0">game.phisics.Attackplygon</node>
+    <node x="398.0" y="523.0">game.util.Time</node>
     <node x="196.0" y="153.0">game.config.CharaData</node>
     <node x="319.0" y="449.0">game.img</node>
+    <node x="168.0" y="375.0">game.view.state</node>
+    <node x="336.0" y="375.0">game.view.panel</node>
     <node x="0.0" y="523.0">game.view.MainApp</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="game.phisics.Attackplygon" target="game.phisics.PhysicsObject">
-      <point x="0.0" y="-14.5" />
-      <point x="66.0" y="54.0" />
-      <point x="102.0" y="54.0" />
-      <point x="-34.75" y="14.5" />
-    </edge>
     <edge source="game.phisics.Character" target="game.phisics.PhysicsObject">
       <point x="0.0" y="-14.5" />
-      <point x="207.5" y="54.0" />
-      <point x="171.5" y="54.0" />
+      <point x="55.5" y="54.0" />
+      <point x="91.5" y="54.0" />
+      <point x="-34.75" y="14.5" />
+    </edge>
+    <edge source="game.phisics.Attackplygon" target="game.phisics.PhysicsObject">
+      <point x="0.0" y="-14.5" />
+      <point x="197.0" y="54.0" />
+      <point x="161.0" y="54.0" />
       <point x="34.75" y="14.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="466.40873015873" y="391.0" />
-  <SelectedNodes />
+  <settings layout="Hierarchic Group" zoom="1.0" x="285.0" y="276.0" />
+  <SelectedNodes>
+    <node>game.view.action</node>
+  </SelectedNodes>
   <Categories />
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
