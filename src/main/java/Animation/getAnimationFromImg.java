@@ -15,7 +15,7 @@ public class getAnimationFromImg {
     public getAnimationFromImg(String url,int pixelX,int pixelY,int numX,int numY){
         q = 2;
         imagePath = Paths.get(url);
-        Img = new Image(imagePath.toUri().toString(),pixelX*numX*q,pixelY*numY*q,false,false);
+        Img = new Image(getClass().getResourceAsStream(imagePath.toUri().toString()),pixelX*numX*q,pixelY*numY*q,false,false);
         this.width = pixelX;
         this.height = pixelY;
         this.numX = numX;

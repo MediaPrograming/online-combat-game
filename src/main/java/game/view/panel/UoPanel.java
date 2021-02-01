@@ -47,7 +47,7 @@ public class UoPanel extends BasePanel<UoPanelState, IUoPanel> implements Initia
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         new UoPanelContainer(this);
-
+        System.out.println("-----------------------");
         var props = this.getProps();
         var state = this.getState();
         props.Init(state.self, state.room);
@@ -79,7 +79,7 @@ public class UoPanel extends BasePanel<UoPanelState, IUoPanel> implements Initia
             rightName.setText(getState().room.getUser(0).getName());
         }
         new PlayUI(gc3,host,client);
-        debug = false;
+        debug = true;
         continueButton.setOnAction(e -> {EffectManager.resetGraphicsContext(); props.ContinueGame();});
         quitButton.setOnAction(e -> {EffectManager.resetGraphicsContext(); props.QuitGame();});
 
@@ -131,7 +131,7 @@ public class UoPanel extends BasePanel<UoPanelState, IUoPanel> implements Initia
 
         /*gc3,canvas3*/
         gc3.clearRect(0,0,canvas3.getWidth(),canvas3.getHeight());
-
+        gc3.drawImage(state.kusa,-20,-20,1320,742.5);
         PlayUI.play();
         //PlayUI.debug(hoge);
         if(debug){
