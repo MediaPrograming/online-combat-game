@@ -6,7 +6,6 @@ package game.view.reducer;
 import com.taku.util.flux.model.Action;
 import com.taku.util.flux.service.IReducer;
 import com.taku.util.flux.view.ReducerBuilder;
-import com.taku.util.model.Unit;
 import game.util.ShowPanelUtil;
 import game.view.action.ClientEvent;
 import game.view.state.RoomState;
@@ -16,7 +15,6 @@ public class SelectPanelReducer implements IReducer<RoomState> {
     static Type type = Type.JOIN;
     @Override
     public ReducerBuilder<RoomState> apply(Action<?> action, RoomState init) {
-        Unit unit = new Unit();
         return ReducerBuilder.Create(action, init)
                 .Case(ClientEvent.CREATE_ROOM, ((state, responseCode) -> {
                     //とりあえず200OKの時に成功

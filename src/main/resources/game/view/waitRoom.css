@@ -47,3 +47,29 @@
 .BackPane{
     -fx-background-image: url("../img/SelectBack.png");
 }
+
+.list-cell:odd {
+    -fx-background-color: rgba(200,200,200,0);
+    -fx-font-color: #111111;
+}
+
+.list-cell:even {
+    -fx-background-color: rgba(200,200,200,0);
+    -fx-font-color: #111111;
+}
+
+.list-cell:selected: {
+    -fx-background-color: rgba(200,200,255,0);
+    -fx-font-color: #FF5555;
+}
+
+.list-cell:focused: {
+    -fx-background-color: rgba(200,200,255,0);
+    -fx-font-color: #FF5555;
+}
+
+.list-cell:filled: {
+     -fx-background-color: rgba(200,200,255,0);
+     -fx-font-color: #FF5555;
+ }
+

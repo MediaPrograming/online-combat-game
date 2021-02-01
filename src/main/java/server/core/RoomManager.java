@@ -14,7 +14,12 @@ import java.util.*;
  * This is made by singleton.
  */
 public class RoomManager {
-    public final static RoomManager Instance = new RoomManager();
+    public static RoomManager getInstance() {
+        if(Instance == null) Instance = new RoomManager();
+        return Instance;
+    }
+
+    private static RoomManager Instance = null;
     private ServerTimer timer = new ServerTimer();
     private Hashtable<String, Room> rooms = new Hashtable<>();
     private RoomManager(){

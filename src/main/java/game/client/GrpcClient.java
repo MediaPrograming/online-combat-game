@@ -10,6 +10,7 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import server.core.GrpcServer;
 
+import java.awt.event.ActionListener;
 import java.util.List;
 
 //import java.util.logging.Logger;
@@ -34,6 +35,9 @@ public class GrpcClient {
         positionHubStub = PositionHubGrpc.newStub(channel);
     }
 
+    public boolean IsConnected(){
+        return !channel.isShutdown();
+    }
     public void Close(){
         if(!channel.isShutdown()){
             channel.shutdown();

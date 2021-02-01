@@ -16,8 +16,8 @@ import io.grpc.stub.StreamObserver;
  */
 public class WaitRoomContainer {
     public WaitRoomContainer(WaitRoomPanel panel){
-        var state = new WaitRoomState(StoreManager.Instance.client.user, StoreManager.Instance.client.grpcRoom);
-        var stub = StoreManager.Instance.client.stub;
+        var state = new WaitRoomState(StoreManager.getInstance().client.user, StoreManager.getInstance().client.grpcRoom);
+        var stub = StoreManager.getInstance().client.stub;
         panel.connect(state, roomState -> roomState, dispatcher -> new IWaitRoom() {
             @Override
             public void IsReadyRequest(boolean isOk, User user, GrpcRoom room) {

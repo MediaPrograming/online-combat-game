@@ -1,15 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.panel.CreateRoomPanel">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="BackPane" stylesheets="@waitRoom.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.panel.CreateRoomPanel">
    <children>
-      <Button fx:id="createButton" layoutX="248.0" layoutY="265.0" mnemonicParsing="false" text="作成する" />
-      <TextField fx:id="roomNameField" layoutX="248.0" layoutY="127.0" />
-      <Label layoutX="109.0" layoutY="131.0" prefWidth="49.0" text="ルーム名" />
-      <Label layoutX="109.0" layoutY="200.0" text="YourName" />
-      <TextField fx:id="userNameField" layoutX="248.0" layoutY="205.0" />
-      <Button fx:id="backButton" layoutX="32.0" layoutY="319.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="createButton" alignment="CENTER" layoutX="977.0" layoutY="476.0" mnemonicParsing="false" prefHeight="214.0" prefWidth="255.0" styleClass="MakeHost" stylesheets="@Start.css" text="作成する" textAlignment="CENTER">
+         <font>
+            <Font name="Microsoft Yi Baiti" size="46.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.43777779473198786" centerY="0.3244275027559004" focusAngle="32.88" focusDistance="1.0" radius="0.735981308411215">
+               <stops>
+                  <Stop color="#f5ffb6" />
+                  <Stop color="#ff616f" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill></Button>
+      <Pane layoutX="306.0" layoutY="73.0" prefHeight="540.0" prefWidth="669.0">
+         <children>
+            <TextField fx:id="roomNameField" layoutX="200.0" layoutY="100.0" prefHeight="100.0" prefWidth="400.0" style="-fx-background-radius: 0 100 100 0;">
+               <font>
+                  <Font name="Microsoft New Tai Lue" size="40.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#82d1da" offsetX="10.0" offsetY="10.0" />
+               </effect>
+            </TextField>
+            <Label layoutY="101.0" prefHeight="96.0" prefWidth="201.0" text="RoomName" textFill="#ff8f78">
+               <font>
+                  <Font name="Microsoft Tai Le" size="32.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#50d7d1" offsetX="5.0" offsetY="5.0" spread="0.68" />
+               </effect>
+            </Label>
+            <TextField fx:id="userNameField" layoutX="200.0" layoutY="242.0" prefHeight="100.0" prefWidth="400.0" style="-fx-background-radius: 0 100 100 0;">
+               <font>
+                  <Font name="Microsoft New Tai Lue" size="40.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#7ac3cd" offsetX="10.0" offsetY="10.0" />
+               </effect>
+            </TextField>
+            <Label layoutY="244.0" prefHeight="96.0" prefWidth="201.0" text="YourName" textFill="#7aacff">
+               <font>
+                  <Font name="Microsoft Tai Le" size="32.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#50d7d1" offsetX="5.0" offsetY="5.0" spread="0.68" />
+               </effect>
+            </Label>
+         </children>
+      </Pane>
+      <Button fx:id="backButton" layoutX="63.0" layoutY="566.0" mnemonicParsing="false" prefHeight="128.0" prefWidth="196.0" styleClass="showBackButton" stylesheets="@waitRoom.css" text="戻る" textAlignment="CENTER">
+         <font>
+            <Font name="Yu Gothic Medium" size="48.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.339694685608376" endY="1.0" startX="0.18702290895330997">
+               <stops>
+                  <Stop color="#8ca5ff" />
+                  <Stop color="#52ff3b" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Button>
    </children>
 </AnchorPane>
