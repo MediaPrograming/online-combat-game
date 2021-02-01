@@ -27,7 +27,7 @@
             <Point3D />
          </rotationAxis>
       </Canvas>
-      <Button fx:id="leftName" layoutX="183.0" layoutY="634.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="200.0" styleClass="leftName" stylesheets="@Uo.css" text="You" textAlignment="CENTER">
+      <Button fx:id="leftName" layoutX="183.0" layoutY="634.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="200.0" style="-fx-background-radius: 100 0 100 0;" text="You" textAlignment="CENTER">
          <font>
             <Font size="13.0" />
          </font>
@@ -35,24 +35,24 @@
             <RadialGradient centerX="0.2583642980866273" centerY="0.3730158851260231" focusAngle="-169.73" focusDistance="1.0" radius="0.5077519527701444">
                <stops>
                   <Stop color="#eada9a" />
-                  <Stop color="#eada9a" offset="0.007653061224489797" />
+                  <Stop color="#4d5299" offset="0.007653061224489797" />
                   <Stop color="#c21570" offset="0.9961832061068702" />
                   <Stop color="#c21570" offset="1.0" />
                </stops>
             </RadialGradient>
          </textFill>
          <effect>
-            <InnerShadow choke="0.38" color="#ffe3e9" height="139.6" radius="34.4" width="0.0" />
+            <InnerShadow choke="0.01" color="#ff8ea7" height="83.76" radius="44.8675" width="97.71" />
          </effect>
       </Button>
-      <Button fx:id="rightName" layoutX="930.0" layoutY="634.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="200.0" styleClass="rightName" stylesheets="@Uo.css" text="Enemy" textAlignment="CENTER">
+      <Button fx:id="rightName" layoutX="930.0" layoutY="634.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="200.0" style="-fx-background-radius: 0 100 0 100;" text="Enemy" textAlignment="CENTER">
          <font>
             <Font size="13.0" />
          </font>
          <textFill>
             <RadialGradient centerX="0.6858735563143479" centerY="0.4079364958263579" focusAngle="13.13" focusDistance="1.0" radius="0.5077519527701444">
                <stops>
-                  <Stop color="#91e5ff" />
+                  <Stop color="#0e11d5" />
                   <Stop color="#3a136b" offset="1.0" />
                </stops>
             </RadialGradient>

@@ -26,6 +26,7 @@ public class PlayAme extends PlayCharacter{
 
     @Override
     public void changedAction(CharacterState state) {
+        super.changedAction(state);
         switch (state.getBehavior()){
             case NORMAL:
                 if(state.getDirection()==Direction.LEFT){

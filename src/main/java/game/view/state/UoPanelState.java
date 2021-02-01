@@ -34,7 +34,7 @@ public final class UoPanelState {
     public final Hashtable<Integer, PlayCharacter> playerTable;
     public Timer timer;
     public Clip bgm;
-    public Image floor,back;
+    public Image floor,back,kusa;
     public UoPanelState(User self, GrpcRoom room){
         this.self = self;
         this.room = room;
@@ -53,6 +53,8 @@ public final class UoPanelState {
         back  = new Image(imagePath.toUri().toString(),1280,720,false,false);
         Path imagPath = Paths.get(PATH.Floor);
         floor = new Image(imagPath.toUri().toString(),1280,720,false,false);
+        Path imaPath = Paths.get(PATH.Kusa);
+        kusa = new Image(imaPath.toUri().toString(),1280,720,false,false);
     }
 
 

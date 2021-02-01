@@ -148,7 +148,6 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
                 y.playAudio();
                 selfImg = y.img;
             });
-
             EffectManager.addSelectionWiggle(true,Time.Instance.getTotalTime(),true,(int)Self.getLayoutX(),(int)Self.getLayoutY(),(int)Enemy.getLayoutX(),(int)Enemy.getLayoutY());
         }
 //        var users = state.currentRoom.getUserList().stream().filter(x -> state.self.getId() != x.getId());
