@@ -126,7 +126,7 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
                 ame,
                 wartson,
                 AudioHolder.Watson,
-                AudioHolder.YouAwful
+                AudioHolder.SUS
         ));
         characters.stream().filter(x -> x.type == state.self.getCharacterType()).forEach(y ->{
             y.playAudio();
