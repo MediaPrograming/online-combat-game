@@ -67,6 +67,7 @@ public class PlayGura extends PlayCharacter{
                 if(rand>0.5)AudioPlayer.PlayVoice(AudioHolder.Hydro);
                 else AudioPlayer.PlayVoice(AudioHolder.HUCHA);
                 trident_dir = state.getDirection();
+                EffectManager.addDisplacementMap(Time.Instance.getTotalTime()+0.6,3, 2, 10, true);
                 break;
         }
     }
