@@ -30,8 +30,8 @@ public class AnimationHolder {
         AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.RUN ,PATH.Gura_Run,128,128,4,2,4,true);
         AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.ATTACK1 ,PATH.Gura_Attack1,128,128,7,2,12,false);
         AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.ATTACK2 ,PATH.Gura_Attack1,128,128,7,2,12,false);
-        AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.ATTACK3 ,PATH.Gura_Normal,128,128,4,2,2,false);
-        AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.ATTACK4 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.ATTACK3 ,PATH.Gura_Attack3,128,128,2,1,1,false);
+        AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.ATTACK4 ,PATH.Gura_Attack4,128,128,5,3,10,false);
         AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.DEFENCE ,PATH.Gura_Normal,128,128,4,2,2,false);
         AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.DAMAGE ,PATH.Gura_Normal,128,128,4,2,2,false);
         AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.JUMP ,PATH.Gura_Normal,128,128,4,2,2,false);
@@ -97,12 +97,12 @@ public class AnimationHolder {
     }
 //    public int getImgNum(){return movingImgs.size();}
 
-    public static void addCharaAnimation(CharacterType type, Behavior key, String url, int pixelX, int pixelY, int numX, int numY, int speed, boolean loop){
+    public static void addCharaAnimation(CharacterType type, Behavior key, String url, int pixelX, int pixelY, int numX, int numY, double speed, boolean loop){
         getAnimationFromImg im = new getAnimationFromImg(url, pixelX, pixelY, numX, numY);
         table.get(type).put(key,new Animation(im.createAnimation(),speed,loop));
     }
 
-    public static void addEffectAnimation(String key, String url,int pixelX,int pixelY,int numX,int numY,int speed,boolean loop){
+    public static void addEffectAnimation(String key, String url,int pixelX,int pixelY,int numX,int numY,double speed,boolean loop){
         getAnimationFromImg im = new getAnimationFromImg(url, pixelX, pixelY, numX, numY);
         effects.put(key,new Animation(im.createAnimation(),speed,loop));
     }

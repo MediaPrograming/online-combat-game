@@ -16,6 +16,8 @@ public final class PATH {
     public static final String Gura_Normal = img + "/Gura/Gura-02-Sheet.png";
     public static final String Gura_Run = img + "/Gura/Gura-03-Sheet.png";
     public static final String Gura_Attack1 = img + "/Gura/Gura-04-Sheet.png";
+    public static final String Gura_Attack3 = img + "/Gura/Gura-05-Sheet.png";
+    public static final String Gura_Attack4 = img + "/Gura/Gura-07-Sheet.png";
     public static final String Kiara_Normal = img + "/Kiara/小鳥遊キアラ-Sheet - .png";
     public static final String Kiara_Run = img + "/Kiara/小鳥遊キアラrun-Sheet.png";
     public static final String Kiara_Attack1 = img + "/Kiara/小鳥遊キアラyokoattack-Sheet.png";
