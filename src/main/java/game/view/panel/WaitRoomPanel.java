@@ -8,6 +8,7 @@ import Animation.AnimationHolder;
 import Animation.CharaAnimationPlayer;
 import Animation.EffectPlayer.EffectManager;
 import Audio.AudioHolder;
+import Audio.AudioPlayer;
 import com.taku.util.flux.view.BasePanel;
 import game.config.PATH;
 import game.store.StoreManager;
@@ -124,8 +125,8 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
                 new CharaAnimationPlayer(2, CharacterType.Amelia),
                 ame,
                 wartson,
-                null,
-                null
+                AudioHolder.Watson,
+                AudioHolder.YouAwful
         ));
     }
 
@@ -146,6 +147,7 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
             characters.stream().filter(x -> x.type == state.self.getCharacterType()).forEach(y ->{
                 y.playAudio();
                 selfImg = y.img;
+                selfVoice = y.voiceImg;
             });
             EffectManager.addSelectionWiggle(true,Time.Instance.getTotalTime(),true,(int)Self.getLayoutX(),(int)Self.getLayoutY(),(int)Enemy.getLayoutX(),(int)Enemy.getLayoutY());
         }
@@ -156,6 +158,7 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
                 characters.stream().filter(x -> x.type == enemy.getCharacterType()).forEach(y -> {
                     y.playAudio();
                     enemyImg = y.img;
+                    enemyVoice = y.voiceImg;
                 });
                 EffectManager.addSelectionWiggle(false, Time.Instance.getTotalTime(), true, (int) Self.getLayoutX(), (int) Self.getLayoutY(), (int) Enemy.getLayoutX(), (int) Enemy.getLayoutY());
             }
@@ -214,10 +217,10 @@ class DisplayCharacter {
     public void playAudio(){
         var rand = Math.random();
         if(rand>0.5){
-            if(audioClip1 != null) {audioClip1.setFramePosition(0); audioClip1.loop(0);}
+            if(audioClip1 != null) {AudioPlayer.PlayVoice(audioClip1);}
         }
         else {
-            if(audioClip2 != null){ audioClip2.setFramePosition(0); audioClip2.loop(0);}
+            if(audioClip2 != null){ AudioPlayer.PlayVoice(audioClip2);}
         }
     }
 

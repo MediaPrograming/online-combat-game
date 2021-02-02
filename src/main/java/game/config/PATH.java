@@ -8,7 +8,7 @@ import java.io.File;
 public final class PATH {
     public static final String root = new File(".").getAbsolutePath();
     public static final String img = "../img";
-    public static final String sounds = root + "/src/main/resources/game/sounds";
+    public static final String sounds = "../sounds";
     public static final String Back = img + "/Back.jpg";
     public static final String Floor = img + "/floor.png";
     public static final String Kusa = img + "/kusa.png";
