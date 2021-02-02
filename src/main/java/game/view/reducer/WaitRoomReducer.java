@@ -30,6 +30,7 @@ public class WaitRoomReducer implements IReducer<WaitRoomState> {
                     if(message.getType() == Type.JOIN){
                     }else if(message.getType() == Type.LEAVE){
                         //HostがLEAVEした場合,もしくは自分が退出した場合はStart画面に移動する
+                        EffectManager.resetGraphicsContext();
                         if(message.getUser().getId() == roomState.currentRoom.getHostId() || message.getUser().getId() == roomState.self.getId()) {
                             System.out.println("Start画面の表示---------------------------");
                             StoreManager.getInstance().client.grpcRoom = null;
