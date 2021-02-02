@@ -74,11 +74,11 @@ public class GuraController extends CharaController{
                     switch (character.getDirection()) {
                         case LEFT:
                             attack.setVx(-15);
-                            attack.setVecx(-10);
+                            attack.setVecx(-7);
                             break;
                         case RIGHT:
                             attack.setVx(15);
-                            attack.setVecx(10);
+                            attack.setVecx(7);
                     }
                 }else {if(attack.getX()!=-1)attack.setVy((50-character.getTimetomove())/3);attack.move();}
             }else if(character.getAction()==Behavior.ATTACK4){

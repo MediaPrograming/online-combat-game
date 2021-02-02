@@ -128,6 +128,12 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
                 AudioHolder.Watson,
                 AudioHolder.YouAwful
         ));
+        characters.stream().filter(x -> x.type == state.self.getCharacterType()).forEach(y ->{
+            y.playAudio();
+            selfImg = y.img;
+            selfVoice = y.voiceImg;
+        });
+        EffectManager.addSelectionWiggle(true,Time.Instance.getTotalTime(),true,(int)Self.getLayoutX(),(int)Self.getLayoutY(),(int)Enemy.getLayoutX(),(int)Enemy.getLayoutY());
     }
 
     void draw(){

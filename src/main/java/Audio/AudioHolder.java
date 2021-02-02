@@ -10,7 +10,7 @@ public class AudioHolder {
     public static Clip a;
     public static Clip peti1,peti2,peti3,peti4,peti5;
     public static Clip TRIDENT,MAHIMAHI,SHAAAARK,HUMM,FUTUN,HUCHA;
-    public static Clip AAAA,AHHHFine,AU,AU_UN;
+    public static Clip AAAA,AHHHFine,AU,AU_UN,BOING,SUPERFAST,Hydro;
     public static Clip Kikkeriki,Kiarastopit,Kiarabigbumb,Kiaraeat,Kiarayouwannafight,Kiarayabe;
     public static Clip GYAAA,HIC1,HIC2,HIC3,BYEBYE,YouAwful,FUCKAAA,Watson,LAAAA,AHAHA,SUS,Damn;
     private AudioHolder(){}
@@ -33,6 +33,9 @@ public class AudioHolder {
         AHHHFine = AudioClip.createClip(PATH.sounds+"/Gura/AHHHFine.wav");
         AU = AudioClip.createClip(PATH.sounds+"/Gura/AU.wav");
         AU_UN = AudioClip.createClip(PATH.sounds+"/Gura/AU_UN.wav");
+        BOING = AudioClip.createClip(PATH.sounds+"/Gura/BOING.wav");
+        Hydro = AudioClip.createClip(PATH.sounds+"/Gura/Hydro.wav");
+        SUPERFAST = AudioClip.createClip(PATH.sounds+"/Gura/SUPERFAST.wav");
 
         Kikkeriki = AudioClip.createClip(PATH.sounds +"/Kiara/Kikkeriki---------.wav");
         Kiarastopit = AudioClip.createClip(PATH.sounds +"/Kiara/Kiarastopit.wav");
