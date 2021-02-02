@@ -24,7 +24,7 @@ import java.io.File;
  */
 public class MainStage extends Stage {
     public MainStage(){
-        this.setTitle("Combat Game");
+        this.setTitle("HoloRagnarok - holoMyth Fighting Game -");
 //        this.setWidth(Config.WINDOW_WIDTH);
 //        this.setHeight(Config.WINDOW_HEIGHT);
         this.setOnCloseRequest(e -> {
