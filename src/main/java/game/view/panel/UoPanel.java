@@ -79,7 +79,7 @@ public class UoPanel extends BasePanel<UoPanelState, IUoPanel> implements Initia
             rightName.setText(getState().room.getUser(0).getName());
         }
         new PlayUI(gc3,host,client);
-        debug = true;
+        debug = false;
         continueButton.setOnAction(e -> {EffectManager.resetGraphicsContext(); props.ContinueGame();});
         quitButton.setOnAction(e -> {EffectManager.resetGraphicsContext(); props.QuitGame();});
 

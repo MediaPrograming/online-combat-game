@@ -18,13 +18,13 @@
             <children>
                 <Pane prefHeight="720.0" prefWidth="1280.0">
                     <children>
-                  <Label layoutX="234.0" layoutY="70.0" prefHeight="216.0" prefWidth="835.0" styleClass="Title">
+                  <Label layoutX="234.0" layoutY="70.0" prefHeight="183.0" prefWidth="835.0" styleClass="Title">
                      <effect>
-                        <DropShadow color="#fff2ba" offsetX="10.0" offsetY="10.0" spread="0.72">
+                        <Reflection fraction="0.86" topOffset="-10.0" topOpacity="0.43">
                            <input>
-                              <Reflection fraction="0.74" topOffset="-10.0" topOpacity="0.41" />
+                              <DropShadow color="#f8ff93" height="22.19" offsetX="10.0" offsetY="5.0" radius="10.8925" spread="0.7" width="23.38" />
                            </input>
-                        </DropShadow>
+                        </Reflection>
                      </effect></Label>
                         <Button fx:id="showCreateRoomButton" layoutX="200.0" layoutY="520.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="200.0" styleClass="MakeHost" stylesheets="@Start.css" text="Make Host">
                      <font>

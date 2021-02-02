@@ -47,12 +47,12 @@ public class PlayGura extends PlayCharacter{
                 else if(rand<=0.8 && rand>0.6) {AudioPlayer.PlayVoice(AudioHolder.AU);}
                 else if(rand<=0.6 && rand>0.4) {AudioPlayer.PlayVoice(AudioHolder.AAAA);}
                 else if(rand<=0.4 && rand>0.2) {AudioPlayer.PlayVoice(AudioHolder.AHHHFine);}
-                else {}
+                else {AudioPlayer.PlayVoice(AudioHolder.BOING);}
                 break;
             case ATTACK1,ATTACK2:
 //                EffectManager.addBloom(Time.Instance.getTotalTime(),3,0.5);
                 EffectManager.addDisplacementMap(Time.Instance.getTotalTime(),3, state.getAx(), state.getAy(), true);
-                if(rand>0.8) {                  AudioPlayer.PlayVoice(AudioHolder.peti1);AudioPlayer.PlayVoice(AudioHolder.HUCHA);}
+                if(rand>0.8) {                  AudioPlayer.PlayVoice(AudioHolder.peti1);AudioPlayer.PlayVoice(AudioHolder.SUPERFAST);}
                 else if(rand<=0.8 && rand>0.6) {AudioPlayer.PlayVoice(AudioHolder.peti2);AudioPlayer.PlayVoice(AudioHolder.MAHIMAHI);}
                 else if(rand<=0.6 && rand>0.4) {AudioPlayer.PlayVoice(AudioHolder.peti3);AudioPlayer.PlayVoice(AudioHolder.FUTUN);}
                 else if(rand<=0.4 && rand>0.2) {AudioPlayer.PlayVoice(AudioHolder.peti4);AudioPlayer.PlayVoice(AudioHolder.SHAAAARK);}
@@ -61,6 +61,11 @@ public class PlayGura extends PlayCharacter{
             case ATTACK3:
                 if(rand>0.5)AudioPlayer.PlayVoice(AudioHolder.TRIDENT);
                 else AudioPlayer.PlayVoice(AudioHolder.a);
+                trident_dir = state.getDirection();
+                break;
+            case ATTACK4:
+                if(rand>0.5)AudioPlayer.PlayVoice(AudioHolder.Hydro);
+                else AudioPlayer.PlayVoice(AudioHolder.HUCHA);
                 trident_dir = state.getDirection();
                 break;
         }
@@ -84,8 +89,8 @@ public class PlayGura extends PlayCharacter{
                     }
                     break;
             }
-            gc.setStroke(Color.RED);
-            gc.strokeRect(state.getAtkX(),state.getAtkY(),state.getAtkW(),state.getAtkH());
+//            gc.setStroke(Color.RED);
+//            gc.strokeRect(state.getAtkX(),state.getAtkY(),state.getAtkW(),state.getAtkH());
         }else{
             if(flag) { flag = false;}
         }

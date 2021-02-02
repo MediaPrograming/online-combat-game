@@ -2,6 +2,8 @@ package Animation.CharacterPlayer;
 
 import Animation.AnimationHolder;
 import Animation.CharaAnimationPlayer;
+import Audio.AudioHolder;
+import Audio.AudioPlayer;
 import game.config.CharaData.Gura;
 import game.config.PATH;
 import game.store.StoreManager;
@@ -28,6 +30,7 @@ public class PlayAme extends PlayCharacter{
     @Override
     public void changedAction(CharacterState state) {
         super.changedAction(state);
+        double rand = Math.random();
         switch (state.getBehavior()){
             case NORMAL:
                 if(state.getDirection()==Direction.LEFT){
@@ -40,7 +43,22 @@ public class PlayAme extends PlayCharacter{
             break;
             case ATTACK1, ATTACK2:
                 direction = state.getDirection();
+                if(rand>0.7) AudioPlayer.PlayVoice(AudioHolder.BYEBYE);
+                else if(rand>0.3) AudioPlayer.PlayVoice(AudioHolder.AHAHA);
+                else AudioPlayer.PlayVoice(AudioHolder.GYAAA);
             break;
+            case ATTACK3:
+                if(rand>0.5) AudioPlayer.PlayVoice(AudioHolder.SUS);
+                else AudioPlayer.PlayVoice(AudioHolder.YouAwful);
+                break;
+            case ATTACK4:
+                if(rand>0.5) AudioPlayer.PlayVoice(AudioHolder.AHAHA);
+                else AudioPlayer.PlayVoice(AudioHolder.HIC1);
+                break;
+            case DAMAGE:
+                if(rand>0.5) AudioPlayer.PlayVoice(AudioHolder.FUCKAAA);
+                else AudioPlayer.PlayVoice(AudioHolder.Damn);
+                break;
         }
     }
 
@@ -60,7 +78,6 @@ public class PlayAme extends PlayCharacter{
                         case LEFT: gc.drawImage(injector,state.getAtkX()+AtkW, state.getAtkY(),-AtkW,AtkH);
                             break;
                     }
-                    break;
             }
 //            gc.strokeRect(state.getAtkX(),state.getAtkY(),state.getAtkW(),state.getAtkH());
         }else{
@@ -72,6 +89,12 @@ public class PlayAme extends PlayCharacter{
     public void play() {
         drawShadow(gc, CharacterType.Amelia);
         ShowAttackPolygon(state);
+        if(Math.random()<0.001)
+        {double hic = Math.random();
+        if(hic>0.7) AudioPlayer.PlayVoice(AudioHolder.HIC1);
+        else if(hic>0.3) AudioPlayer.PlayVoice(AudioHolder.HIC2);
+        else AudioPlayer.PlayVoice(AudioHolder.HIC3);
+        }
         super.play();
     }
 }
