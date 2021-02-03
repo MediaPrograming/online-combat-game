@@ -1,5 +1,7 @@
 package Audio;
 
+import game.store.StoreManager;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -16,9 +18,9 @@ public class AudioClip {
 
     public AudioClip(){}
 
-    public static Clip createClip(File path) {
+    public static Clip createClip(String path) {
         //指定されたURLのオーディオ入力ストリームを取得
-        try (AudioInputStream ais = AudioSystem.getAudioInputStream(path)){
+        try (AudioInputStream ais = AudioSystem.getAudioInputStream(StoreManager.class.getResource(path))){
 
             //ファイルの形式取得
             AudioFormat af = ais.getFormat();

@@ -70,7 +70,7 @@
       </SplitPane>
       <Button fx:id="showCombatButton" alignment="CENTER" contentDisplay="CENTER" layoutX="793.0" layoutY="590.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="474.0" rotate="-3.4" style="-fx-background-radius: 100;" styleClass="showCombatButton" stylesheets="@waitRoom.css">
          <effect>
-            <DropShadow color="#557ecf" />
+            <DropShadow blurType="GAUSSIAN" color="#8cd0d2" offsetX="10.0" offsetY="10.0" radius="9.405000000000001" width="18.62" />
          </effect></Button>
    </children>
 </AnchorPane>

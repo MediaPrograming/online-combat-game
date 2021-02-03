@@ -21,7 +21,7 @@ public class PlayMeter {
     GraphicsContext gc;
     boolean left;
     int margin1,margin2;
-    private Image BarFrame = new Image(StoreManager.class.getResourceAsStream(PATH.img+ "\\hpバー.png"));
+    private Image BarFrame = new Image(StoreManager.class.getResourceAsStream(PATH.img+ "/hpバー.png"));
     public PlayMeter(GraphicsContext gc, boolean left, int amount){
         this.gc = gc;
         this.amount = this.nowValue = amount;

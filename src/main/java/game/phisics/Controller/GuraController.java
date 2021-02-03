@@ -41,12 +41,9 @@ public class GuraController extends CharaController{
      }
 
      @Override public int attack4(){
-         attack.setX(character.getX()-character.getWidth()/4);
-         attack.setY(character.getY()+character.getHeight()/4*3);
-         attack.setWidth(character.getWidth()*1.5);
-         attack.setHeight(character.getHeight()/2);
          attack.setDamege(50);
          character.setVx(0);
+         character.vector(0,-5);
          attack.setVecy(10);
          return 50;
      }
@@ -77,19 +74,26 @@ public class GuraController extends CharaController{
                     switch (character.getDirection()) {
                         case LEFT:
                             attack.setVx(-15);
-                            attack.setVecx(-10);
+                            attack.setVecx(-7);
                             break;
                         case RIGHT:
                             attack.setVx(15);
-                            attack.setVecx(10);
+                            attack.setVecx(7);
                     }
                 }else {if(attack.getX()!=-1)attack.setVy((50-character.getTimetomove())/3);attack.move();}
             }else if(character.getAction()==Behavior.ATTACK4){
-                if(attack.getRanded()) character.setVy(0);
-                else character.setVy(30);
-                attack.setVx(character.getVx());
-                attack.setVy(character.getVy());
-                attack.move();
+                if(character.getTimetomove()==30){
+                    attack.setX(character.getX()-character.getWidth()/4);
+                    attack.setY(character.getY()+character.getHeight()/4*3);
+                    attack.setWidth(character.getWidth()*1.5);
+                    attack.setHeight(character.getHeight()/2);
+                    if (attack.getRanded()) character.setVy(0);
+                    else character.setVy(30);
+                } else if(character.getTimetomove()<30){
+                    attack.setVx(character.getVx());
+                    attack.setVy(character.getVy());
+                    attack.move();
+                }
             }
      }
 }

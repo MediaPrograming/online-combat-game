@@ -30,11 +30,11 @@ public class AnimationHolder {
         AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.RUN ,PATH.Gura_Run,128,128,4,2,4,true);
         AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.ATTACK1 ,PATH.Gura_Attack1,128,128,7,2,12,false);
         AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.ATTACK2 ,PATH.Gura_Attack1,128,128,7,2,12,false);
-        AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.ATTACK3 ,PATH.Gura_Normal,128,128,4,2,2,false);
-        AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.ATTACK4 ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.ATTACK3 ,PATH.Gura_Attack3,128,128,2,1,1,false);
+        AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.ATTACK4 ,PATH.Gura_Attack4,128,128,5,3,10,false);
         AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.DEFENCE ,PATH.Gura_Normal,128,128,4,2,2,false);
-        AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.DAMAGE ,PATH.Gura_Normal,128,128,4,2,2,false);
-        AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.JUMP ,PATH.Gura_Normal,128,128,4,2,2,false);
+        AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.DAMAGE ,PATH.Gura_Damage,128,128,2,1,2,true);
+        AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.JUMP ,PATH.Gura_Jump,128,128,3,1,1.5,false);
         AnimationHolder.addCharaAnimation(CharacterType.Gura, Behavior.SQUAT ,PATH.Gura_Normal,128,128,4,2,2, true);
         AnimationHolder.addCharaAnimation(CharacterType.Kiara, Behavior.NORMAL  ,PATH.Kiara_Normal,200,200,5,5,8,true );
         AnimationHolder.addCharaAnimation(CharacterType.Kiara, Behavior.RUN     ,PATH.Kiara_Run,   160,160,8,1,8,true );
@@ -78,7 +78,7 @@ public class AnimationHolder {
         AnimationHolder.addCharaAnimation(CharacterType.Amelia, Behavior.SQUAT   ,PATH.Amelia_Normal,128,128,4,3,8,false);
 
         AnimationHolder.addEffectAnimation("HIT",PATH.HIT,100,100,5,1,8,false);
-        AnimationHolder.addEffectAnimation("Bloop", PATH.img+"\\hizyousyoku-Sheet .png",100,100,2,2,2,true);
+        AnimationHolder.addEffectAnimation("Bloop", PATH.img+"/hizyousyoku-Sheet .png",100,100,2,2,2,true);
     }
 
 //    public ArrayList<Image[][]> getAnimations(){
@@ -97,12 +97,12 @@ public class AnimationHolder {
     }
 //    public int getImgNum(){return movingImgs.size();}
 
-    public static void addCharaAnimation(CharacterType type, Behavior key, String url, int pixelX, int pixelY, int numX, int numY, int speed, boolean loop){
+    public static void addCharaAnimation(CharacterType type, Behavior key, String url, int pixelX, int pixelY, int numX, int numY, double speed, boolean loop){
         getAnimationFromImg im = new getAnimationFromImg(url, pixelX, pixelY, numX, numY);
         table.get(type).put(key,new Animation(im.createAnimation(),speed,loop));
     }
 
-    public static void addEffectAnimation(String key, String url,int pixelX,int pixelY,int numX,int numY,int speed,boolean loop){
+    public static void addEffectAnimation(String key, String url,int pixelX,int pixelY,int numX,int numY,double speed,boolean loop){
         getAnimationFromImg im = new getAnimationFromImg(url, pixelX, pixelY, numX, numY);
         effects.put(key,new Animation(im.createAnimation(),speed,loop));
     }

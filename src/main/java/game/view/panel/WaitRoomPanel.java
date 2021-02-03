@@ -8,6 +8,7 @@ import Animation.AnimationHolder;
 import Animation.CharaAnimationPlayer;
 import Animation.EffectPlayer.EffectManager;
 import Audio.AudioHolder;
+import Audio.AudioPlayer;
 import com.taku.util.flux.view.BasePanel;
 import game.config.PATH;
 import game.store.StoreManager;
@@ -84,14 +85,14 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
         EffectManager.addGraphicsContext(gc2);
 
 
-        selfImg = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\null.png"));
+        selfImg = new Image(StoreManager.class.getResourceAsStream(PATH.img + "/null.png"));
         enemyImg = selfVoice = enemyVoice = selfImg;
 
-        unlock = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\unlock.png"));
+        unlock = new Image(StoreManager.class.getResourceAsStream(PATH.img + "/unlock.png"));
 
         //Gura
-        var gura = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\Gura\\Gura-Select.png"));
-        var shaark = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\Gura\\Shaaaark.png"));
+        var gura = new Image(StoreManager.class.getResourceAsStream(PATH.img + "/Gura/Gura-Select.png"));
+        var shaark = new Image(StoreManager.class.getResourceAsStream(PATH.img + "/Gura/Shaaaark.png"));
         characters.add(new DisplayCharacter(
                 CharacterType.Gura,
                 Gura,
@@ -103,8 +104,8 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
                 ));
 
         //Kiara
-        var kiara = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\Kiara\\小鳥遊キアラ-Select.png"));
-        var kikkeriki = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\Kiara\\Kikkeriki.png"));
+        var kiara = new Image(StoreManager.class.getResourceAsStream(PATH.img + "/Kiara/小鳥遊キアラ-Select.png"));
+        var kikkeriki = new Image(StoreManager.class.getResourceAsStream(PATH.img + "/Kiara/Kikkeriki.png"));
         characters.add(new DisplayCharacter(
                 CharacterType.Kiara,
                 Kiara,
@@ -116,17 +117,23 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
         ));
 
         //Amelia
-        var ame = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\Amelia\\Ameria-Select.png"));
-        var wartson = new Image(StoreManager.class.getResourceAsStream(PATH.img + "\\Amelia\\wartson.png"));
+        var ame = new Image(StoreManager.class.getResourceAsStream(PATH.img + "/Amelia/Ameria-Select.png"));
+        var wartson = new Image(StoreManager.class.getResourceAsStream(PATH.img + "/Amelia/wartson.png"));
         characters.add(new DisplayCharacter(
                 CharacterType.Amelia,
                 Ame,
                 new CharaAnimationPlayer(2, CharacterType.Amelia),
                 ame,
                 wartson,
-                null,
-                null
+                AudioHolder.Watson,
+                AudioHolder.SUS
         ));
+        characters.stream().filter(x -> x.type == state.self.getCharacterType()).forEach(y ->{
+            y.playAudio();
+            selfImg = y.img;
+            selfVoice = y.voiceImg;
+        });
+        EffectManager.addSelectionWiggle(true,Time.Instance.getTotalTime(),true,(int)Self.getLayoutX(),(int)Self.getLayoutY(),(int)Enemy.getLayoutX(),(int)Enemy.getLayoutY());
     }
 
     void draw(){
@@ -146,6 +153,7 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
             characters.stream().filter(x -> x.type == state.self.getCharacterType()).forEach(y ->{
                 y.playAudio();
                 selfImg = y.img;
+                selfVoice = y.voiceImg;
             });
             EffectManager.addSelectionWiggle(true,Time.Instance.getTotalTime(),true,(int)Self.getLayoutX(),(int)Self.getLayoutY(),(int)Enemy.getLayoutX(),(int)Enemy.getLayoutY());
         }
@@ -156,6 +164,7 @@ public class WaitRoomPanel extends BasePanel<WaitRoomState, IWaitRoom> implement
                 characters.stream().filter(x -> x.type == enemy.getCharacterType()).forEach(y -> {
                     y.playAudio();
                     enemyImg = y.img;
+                    enemyVoice = y.voiceImg;
                 });
                 EffectManager.addSelectionWiggle(false, Time.Instance.getTotalTime(), true, (int) Self.getLayoutX(), (int) Self.getLayoutY(), (int) Enemy.getLayoutX(), (int) Enemy.getLayoutY());
             }
@@ -214,10 +223,10 @@ class DisplayCharacter {
     public void playAudio(){
         var rand = Math.random();
         if(rand>0.5){
-            if(audioClip1 != null) {audioClip1.setFramePosition(0); audioClip1.loop(0);}
+            if(audioClip1 != null) {AudioPlayer.PlayVoice(audioClip1);}
         }
         else {
-            if(audioClip2 != null){ audioClip2.setFramePosition(0); audioClip2.loop(0);}
+            if(audioClip2 != null){ AudioPlayer.PlayVoice(audioClip2);}
         }
     }
 
