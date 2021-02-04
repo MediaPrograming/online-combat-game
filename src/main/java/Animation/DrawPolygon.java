@@ -1,9 +1,7 @@
 package Animation;
 
 import game.config.CharaData.*;
-import game.config.Character;
 import io.game.hub.messageHub.CharacterType;
-import io.game.hub.positionHub.CharacterState;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 

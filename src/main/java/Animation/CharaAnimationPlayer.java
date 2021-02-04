@@ -6,8 +6,6 @@ import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
 import javafx.scene.image.Image;
 
-import java.awt.*;
-
 public class CharaAnimationPlayer {
     private Integer ID;
     private CharacterType Chara;
