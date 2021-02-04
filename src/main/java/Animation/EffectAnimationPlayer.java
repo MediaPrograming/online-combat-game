@@ -1,7 +1,6 @@
 package Animation;
 
 import game.util.Time;
-import io.game.hub.positionHub.CharacterState;
 import javafx.scene.image.Image;
 
 public class EffectAnimationPlayer {

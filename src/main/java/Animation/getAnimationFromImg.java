@@ -5,7 +5,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 /*画像から連番Imageを作成するクラス*/
 public class getAnimationFromImg {

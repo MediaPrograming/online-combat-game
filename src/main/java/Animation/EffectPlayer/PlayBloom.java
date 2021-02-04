@@ -1,6 +1,5 @@
 package Animation.EffectPlayer;
 
-import game.util.Time;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.effect.Bloom;
 

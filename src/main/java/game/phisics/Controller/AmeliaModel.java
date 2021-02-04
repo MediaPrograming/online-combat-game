@@ -1,13 +1,12 @@
 package game.phisics.Controller;
 
-import game.phisics.Controller.*;
 import game.phisics.Character;
 import game.phisics.*;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.Direction;
 
-public class AmeliaController extends CharaController{
-    public AmeliaController(Character c, Attackplygon a){        
+public class AmeliaModel extends CharaModel {
+    public AmeliaModel(Character c, Attackplygon a){
      attack=a;
      character=c;
     }

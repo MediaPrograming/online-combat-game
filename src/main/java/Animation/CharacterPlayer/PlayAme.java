@@ -1,20 +1,15 @@
 package Animation.CharacterPlayer;
 
-import Animation.AnimationHolder;
 import Animation.CharaAnimationPlayer;
 import Audio.AudioHolder;
 import Audio.AudioPlayer;
-import game.config.CharaData.Gura;
 import game.config.PATH;
 import game.store.StoreManager;
 import io.game.hub.messageHub.CharacterType;
-import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
 import io.game.hub.positionHub.Direction;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-
-import java.io.File;
 
 public class PlayAme extends PlayCharacter{
     private boolean flag;

@@ -1,13 +1,12 @@
 package game.phisics.Controller;
 
 import game.config.CharaData.Gura;
-import game.phisics.Controller.*;
 import game.phisics.Attackplygon;
 import game.phisics.Character;
 import io.game.hub.positionHub.Behavior;
 
-public class GuraController extends CharaController{
-    public GuraController(Character c, Attackplygon a){        
+public class GuraModel extends CharaModel {
+    public GuraModel(Character c, Attackplygon a){
      attack=a;
      character=c;
     }
