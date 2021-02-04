@@ -2,12 +2,11 @@ package game.phisics.Controller;
 
 import game.phisics.Attackplygon;
 import game.phisics.Character;
-import game.phisics.Controller.*;
 import io.game.hub.positionHub.Behavior;
 import game.config.CharaData.Kiara;
 
-public class KiaraController extends CharaController{
-    public KiaraController(Character c, Attackplygon a){        
+public class KiaraModel extends CharaModel {
+    public KiaraModel(Character c, Attackplygon a){
      attack=a;
      character=c;
     }

@@ -3,14 +3,11 @@ package Animation.CharacterPlayer;
 import Animation.CharaAnimationPlayer;
 import Animation.EffectAnimationManager;
 import Animation.EffectPlayer.*;
-import Animation.CharaAnimationPlayer;
 import Audio.AudioHolder;
 import Audio.AudioPlayer;
 import game.config.CharaData.*;
-import game.config.Character;
 import game.util.Time;
 import io.game.hub.messageHub.CharacterType;
-import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.CharacterState;
 import io.game.hub.positionHub.Direction;
 import javafx.scene.canvas.GraphicsContext;
@@ -25,13 +22,6 @@ public class PlayCharacter {
     protected CharaAnimationPlayer player;
     protected CharacterState state;
     protected boolean changed;
-
-    protected PlayColorAdjust colorAdjust;
-    protected PlayDisplacementMap displacementMap;
-    protected PlayBloom bloom;
-    protected PlayDropShadow dropShadow;
-    protected PlayMotionBlur motionBlur;
-    protected PlayGaussianBlur gaussianBlur;
 
     public PlayCharacter(GraphicsContext gc,CharaAnimationPlayer player, CharacterState state){
         this.gc = gc;

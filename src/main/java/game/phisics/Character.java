@@ -2,7 +2,6 @@ package game.phisics;
 import io.game.hub.positionHub.Behavior;
 import io.game.hub.positionHub.Direction;
 import io.game.hub.messageHub.CharacterType;
-import game.phisics.Attackplygon;
 import game.phisics.Controller.*;
 
 public class Character extends PhysicsObject {
@@ -11,7 +10,7 @@ public class Character extends PhysicsObject {
     protected int timetomove=0/*0の時キー入力を受け付ける*/,HP=100;
     protected Behavior action= Behavior.NORMAL;
     protected Direction muki=Direction.LEFT;
-    protected CharaController controller;
+    protected CharaModel controller;
     Character(double x, double y, double w, double h){
         super(x,y,w,h);
     }
@@ -30,19 +29,19 @@ public class Character extends PhysicsObject {
         attack=a;
         switch (ct){
             case Gura:
-                controller=new GuraController(this,a);
+                controller=new GuraModel(this,a);
                 break;
             case Kiara:
-                controller=new KiaraController(this,a);
+                controller=new KiaraModel(this,a);
                 break;
             case Amelia:
-                controller=new AmeliaController(this,a);
+                controller=new AmeliaModel(this,a);
                 break;
             case Inanis:
-                controller=new InanisController(this,a);
+                controller=new InanisModel(this,a);
                 break;
             case Calliope:
-                controller=new CalliopeController(this,a);
+                controller=new CalliopeModel(this,a);
                 break;
         }
     }

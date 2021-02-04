@@ -1,7 +1,5 @@
 package Animation;
 
-
-import Animation.EffectPlayer.PlayEffect;
 import io.game.hub.positionHub.CharacterState;
 import javafx.scene.canvas.GraphicsContext;
 

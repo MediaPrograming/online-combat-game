@@ -2,14 +2,9 @@ package Animation.UIPlayer;
 
 import game.config.PATH;
 import game.store.StoreManager;
-import io.game.hub.positionHub.CharacterState;
-import io.game.hub.positionHub.Direction;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
-
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class PlayMeter {
     int amount;

@@ -2,12 +2,6 @@ package Audio;
 
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
-import game.config.PATH;
-import Audio.AudioClip;
-
-import game.view.state.UoPanelState;
-import game.view.state.*;
-import java.io.File;
 public class AudioPlayer{
         static Clip bgm;
         static FloatControl ctrl ;

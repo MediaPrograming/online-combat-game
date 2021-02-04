@@ -4,7 +4,7 @@ package game.phisics.Controller;
 import game.phisics.Attackplygon;
 import game.phisics.Character;
 
-public abstract class CharaController{
+public abstract class CharaModel {
         Attackplygon attack;
         Character character;
         public int attack1(){return 0;}//硬直時間を返す
