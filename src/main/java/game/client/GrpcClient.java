@@ -4,6 +4,7 @@ package game.client;
  * @project online-combat-game
  */
 import game.config.Config;
+import game.config.PATH;
 import io.game.hub.messageHub.*;
 import io.game.hub.positionHub.PositionHubGrpc;
 import io.grpc.ManagedChannel;
@@ -11,6 +12,9 @@ import io.grpc.ManagedChannelBuilder;
 import server.core.GrpcServer;
 
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Path;
 import java.util.List;
 
 //import java.util.logging.Logger;
@@ -27,12 +31,17 @@ public class GrpcClient {
     private final ManagedChannel channel;
     public GrpcClient(){
         //クライアントの起動
-        channel = ManagedChannelBuilder.forAddress(Config.HOST, Config.PORT)
-                .usePlaintext() //証明書なし
-                .build();
-        //stubの作成
-        stub = MessageHubGrpc.newStub(channel);
-        positionHubStub = PositionHubGrpc.newStub(channel);
+
+            var endpoint = Config.GetIPEndPoint();
+            channel = ManagedChannelBuilder.forAddress(endpoint.getIp(), endpoint.getPort())
+                    .usePlaintext() //証明書なし
+                    .build();
+            //stubの作成
+            stub = MessageHubGrpc.newStub(channel);
+            positionHubStub = PositionHubGrpc.newStub(channel);
+
+
+
     }
 
     public boolean IsConnected(){
