@@ -15,6 +15,7 @@ import javafx.scene.Scene;
  * パネル表示用静的関数クラス
  */
 public final class ShowPanelUtil {
+    static Scene panel;
     public static void ShowStartPanel() {
         Platform.runLater(() ->{
         try {
