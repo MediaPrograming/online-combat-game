@@ -1,0 +1,74 @@
+.showCombatButton
+{
+    -fx-background-image: url("../img/gameStart.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+}
+
+.showCombatButton:hover
+{
+    -fx-background-image: url("../img/gameStart.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: rgba(255,100,100,1);
+}
+
+.showCombatButton:pressed
+{
+    -fx-background-image: url("../img/gameStart.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: rgba(230,90,90,1);
+}
+
+.showBackButton
+{
+  -fx-background-color: rgba(200,255,255,0.8);
+  -fx-background-radius: 50;
+  -fx-border-radius: 50;
+}
+
+.showBackButton:hover
+{
+  -fx-background-color: rgba(200,255,255,1);
+  -fx-background-radius: 50;
+  -fx-border-radius: 50;
+}
+
+.showBackButton:pressed
+{
+  -fx-background-color: rgba(100,100,255,0.8);
+  -fx-background-radius: 50;
+  -fx-border-radius: 50;
+}
+
+.characterButton{
+    -fx-background-color: transparent;
+}
+
+.BackPane{
+    -fx-background-image: url("../img/SelectBack.png");
+}
+
+.list-cell:odd {
+    -fx-background-color: rgba(200,200,200,0);
+    -fx-font-color: #111111;
+}
+
+.list-cell:even {
+    -fx-background-color: rgba(200,200,200,0);
+    -fx-font-color: #111111;
+}
+
+.list-cell:selected: {
+    -fx-background-color: rgba(200,200,255,0);
+    -fx-font-color: #FF5555;
+}
+.list-cell:focused: {
+    -fx-background-color: rgba(200,200,255,0);
+    -fx-font-color: #FF5555;
+}
+
+.list-cell:filled: {
+     -fx-background-color: rgba(200,200,255,0);
+     -fx-font-color: #FF5555;
+ }
+

@@ -7,8 +7,10 @@ import com.taku.util.flux.service.IDispatchable;
 import com.taku.util.flux.service.IReducer;
 import com.taku.util.flux.view.BasePanel;
 import com.taku.util.flux.view.ReducerBuilder;
+import game.store.StoreManager;
+import javafx.collections.ObservableArray;
+import javafx.scene.input.KeyEvent;
 import javafx.util.Pair;
-
 import java.util.*;
 
 public class Store implements IDispatchable {
@@ -16,31 +18,31 @@ public class Store implements IDispatchable {
     private final List<BasePanel> panels = new ArrayList<>();
 
     @SafeVarargs
-    private Store(Pair<Class<? >, IReducer>... pairs){
+    private Store(Pair<Class<?>, IReducer>... pairs) {
         this.pairs = pairs;
     }
 
-    public void addView(BasePanel dispatcher){
+    public void addView(BasePanel dispatcher) {
         panels.add(dispatcher);
     }
+    public void clearView(){panels.clear();}
 
     @SafeVarargs
-    public static Store CreateStore(Pair<Class<?>, IReducer>... pairs){
+    public static Store CreateStore(Pair<Class<?>, IReducer>... pairs) {
         return new Store(pairs);
     }
+
     @Override
     public <TState, TPayload> void Invoke(TState state, Action<TPayload> action) {
-        var pairStream= Arrays.stream(pairs)
+        var pairStream = Arrays.stream(pairs)
                 .filter(pair -> pair.getKey() == state.getClass())
                 .map(p -> p.getValue().apply(action, state))
                 .map(ReducerBuilder::getState);
 
-
         pairStream.forEach(newState -> {
             panels.stream()
                     .filter(dispatcher -> state == dispatcher.getState().getClass())
-                    .forEach(l-> l.Update(newState));
+                    .forEach(l -> l.Update(newState));
         });
     }
 }
-

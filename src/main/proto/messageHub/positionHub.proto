@@ -10,11 +10,66 @@ option java_outer_classname = "PositionHubProto";
 option objc_class_prefix = "HLW";
 
 package positionHub;
-message Position{
+
+import "messageHub/messageHub.proto";
+
+message CharacterState{
   int32 id = 1;
-  float x = 2;
-  float y = 3;
+  double time = 2;
+  double x = 3;
+  double y = 4;
+  double ax = 5;
+  double ay = 6;
+  double atkX = 7;
+  double atkY = 8;
+  int32 HP = 9;
+  Behavior behavior = 10;
+  Direction direction= 11;
+  double atkW = 12;
+  double atkH = 13;
 }
+
+enum Direction{
+  LEFT = 0;
+  RIGHT = 1;
+}
+
+enum Behavior{
+  NORMAL = 0;
+  ATTACK1 = 1;//左攻撃
+  ATTACK2 = 2;//右攻撃
+  ATTACK3 = 3;//上攻撃
+  ATTACK4 = 4;//下攻撃
+  DEFENCE = 5;
+  DAMAGE = 6;
+  JUMP = 7;
+  SQUAT = 8;
+  RUN = 9;
+}
+
+message Input{
+  int32 id = 1;
+  bool w = 2;
+  bool a = 3;
+  bool s = 4;
+  bool d = 5;
+  bool k = 6;
+  string roomName = 7;
+}
+
+message PositionHubMessage{
+  .messageHub.User user = 1;
+  .messageHub.GrpcRoom room = 2;
+  Type type = 3;
+  string message = 4;
+}
+
+enum Type{
+  INIT = 0;
+  GAME_FINISH = 1;
+}
+
 service PositionHub {
-  rpc SendPosition(stream Position) returns (stream Position);
+  rpc SendInput(stream Input) returns (stream CharacterState);
+  rpc StreamEvent(stream PositionHubMessage) returns (stream PositionHubMessage);
 }

@@ -4,12 +4,16 @@ package game.view;
  * @project online-combat-game
  */
 
+import Animation.AnimationHolder;
 import com.taku.util.model.Unit;
-import game.store.StoreManager;
+import game.util.ShowPanelUtil;
 import game.util.Time;
-import game.view.action.UIEvent;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.stage.Stage;
+import Audio.AudioPlayer;
+import Audio.AudioHolder;
+import game.config.PATH;
 
 /**
  * This class is entry point
@@ -17,7 +21,8 @@ import javafx.stage.Stage;
 public class MainApp extends Application {
 
     public static void main(String[] args) {
-       launch(args);
+
+        launch(args);
     }
 
     /**
@@ -26,9 +31,11 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.close(); //このwindowは使わん
-        var unit = new Unit();
-        StoreManager.Instance.store.Invoke(unit, UIEvent.SHOW_START_PANEL.Create(unit));
-        Thread thread = new Thread(Time.Instance);
+        AnimationHolder.Initialize();
+        AudioHolder.Initialize();
+        AudioPlayer.Play(PATH.HomeBGM);
+        ShowPanelUtil.ShowStartPanel();
+        Thread thread = new Thread(() -> Platform.runLater(Time.Instance));
         thread.start();
     }
 }

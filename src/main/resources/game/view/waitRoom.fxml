@@ -1,11 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.panel.WaitRoomPanel">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="BackPane" stylesheets="@waitRoom.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.panel.WaitRoomPanel">
    <children>
-      <Button fx:id="showCombatButton" layoutX="493.0" layoutY="290.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="66.0" text="Start" />
-      <ListView fx:id="listView" layoutX="98.0" layoutY="58.0" prefHeight="284.0" prefWidth="328.0" />
+      <ListView fx:id="listView" layoutX="354.0" layoutY="569.0" prefHeight="122.0" prefWidth="426.0" style="-fx-font-size: 24px; -fx-background-color: transparent; -fx-control-inner-background: #AAFFFF; -fx-border-color: #FFFF88; -fx-border-radius: 20;" />
+      <Button fx:id="showBackButton" layoutX="53.0" layoutY="556.0" mnemonicParsing="false" prefHeight="128.0" prefWidth="196.0" styleClass="showBackButton" stylesheets="@waitRoom.css" text="戻る" textAlignment="CENTER">
+         <font>
+            <Font name="Yu Gothic Medium" size="48.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.339694685608376" endY="1.0" startX="0.18702290895330997">
+               <stops>
+                  <Stop color="#8ca5ff" />
+                  <Stop color="#52ff3b" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill></Button>
+      <Canvas fx:id="Self" height="550.0" layoutX="-45.0" layoutY="-81.0" rotate="-10.0" width="680.0">
+         <effect>
+            <DropShadow blurType="ONE_PASS_BOX" color="#fffd87bd" offsetX="10.0" offsetY="10.0" />
+         </effect></Canvas>
+      <Canvas fx:id="Enemy" height="550.0" layoutX="650.0" layoutY="25.0" rotate="10.0" width="680.0">
+         <effect>
+            <DropShadow color="#ff66c9cc" offsetX="10.0" offsetY="10.0" />
+         </effect></Canvas>
+      <SplitPane dividerPositions="0.19259962049335863, 0.40037950664136623, 0.611954459203036, 0.8026565464895635" layoutX="259.0" layoutY="412.0" prefHeight="143.0" prefWidth="763.0" style="-fx-background-color: rgba(255, 200, 200, 0.2); -fx-background-radius: 20; -fx-border-color: #FEFEFE; -fx-border-width: 4; -fx-border-radius: 20;">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="239.0" style="-fx-border-color: #FFFFFF;">
+               <children>
+                  <ImageView fx:id="Gura" fitHeight="146.0" fitWidth="150.0" layoutX="-4.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="Gr" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="146.0" prefWidth="151.0" styleClass="characterButton" stylesheets="@waitRoom.css" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="869.0">
+               <children>
+                  <ImageView fx:id="Kiara" fitHeight="207.0" fitWidth="203.0" layoutX="-18.0" layoutY="-36.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="Kr" mnemonicParsing="false" prefHeight="142.0" prefWidth="152.0" styleClass="characterButton" stylesheets="@waitRoom.css" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="869.0">
+               <children>
+                  <ImageView fx:id="Ame" fitHeight="137.0" fitWidth="141.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="Am" mnemonicParsing="false" prefHeight="145.0" prefWidth="158.0" styleClass="characterButton" stylesheets="@waitRoom.css" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="869.0" style="-fx-background-color: rgba(200, 200, 200, 0.5);">
+               <children>
+                  <ImageView fx:id="Ina" fitHeight="73.0" fitWidth="79.0" layoutX="35.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="In" mnemonicParsing="false" prefHeight="143.0" prefWidth="142.0" styleClass="characterButton" stylesheets="@waitRoom.css" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="321.0" style="-fx-background-color: rgba(200, 200, 200, 0.5);;">
+               <children>
+                  <ImageView fx:id="Calli" fitHeight="73.0" fitWidth="79.0" layoutX="37.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="Cl" mnemonicParsing="false" prefHeight="143.0" prefWidth="153.0" styleClass="characterButton" stylesheets="@waitRoom.css" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <Button fx:id="showCombatButton" alignment="CENTER" contentDisplay="CENTER" layoutX="793.0" layoutY="590.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="474.0" rotate="-3.4" style="-fx-background-radius: 100;" styleClass="showCombatButton" stylesheets="@waitRoom.css">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#8cd0d2" offsetX="10.0" offsetY="10.0" radius="9.405000000000001" width="18.62" />
+         </effect></Button>
    </children>
 </AnchorPane>

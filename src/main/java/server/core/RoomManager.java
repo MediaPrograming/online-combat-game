@@ -14,9 +14,23 @@ import java.util.*;
  * This is made by singleton.
  */
 public class RoomManager {
-    public final static RoomManager Instance = new RoomManager();
+    public static RoomManager getInstance() {
+        if(Instance == null) Instance = new RoomManager();
+        return Instance;
+    }
+
+    private static RoomManager Instance = null;
+    private ServerTimer timer = new ServerTimer();
     private Hashtable<String, Room> rooms = new Hashtable<>();
     private RoomManager(){
+    }
+
+    public void CombatStart(String roomName){
+        timer.addRoom(rooms.get(roomName));
+    }
+
+    public void CombatStop(String roomName){
+        timer.deleteRoom(rooms.get(roomName));
     }
 
     /**
@@ -38,7 +52,7 @@ public class RoomManager {
         rooms.put(room.getRoomName(), room);
     }
 
-    public boolean containe(String name){
+    public boolean contain(String name){
         return rooms.contains(name);
     }
 
@@ -70,6 +84,8 @@ public class RoomManager {
         System.out.println("削除するRoomが存在しません"); //Debug print
     }
 
+    public void deleteRoom(Room room) { rooms.remove(room.getRoomName()); }
+    public void deleteRoom(String roomName){ rooms.remove(roomName); }
     /**
      * Roomの数を返す
      * @return

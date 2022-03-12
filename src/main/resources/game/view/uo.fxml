@@ -1,14 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Point3D?>
 <?import javafx.scene.canvas.Canvas?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.panel.UoPanel">
+<AnchorPane maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.view.panel.UoPanel">
    <children>
-      <Canvas fx:id="canvas" height="720.0" layoutY="-5.0" width="1280.0" AnchorPane.leftAnchor="0.0" />
-      <Pane layoutX="592.0" layoutY="421.0" prefHeight="200.0" prefWidth="200.0" />
-      <ImageView id="imgv" fitHeight="219.0" fitWidth="475.0" layoutX="342.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true" />
+      <Canvas fx:id="canvas1" height="720.0" width="1280.0">
+         <rotationAxis>
+            <Point3D />
+         </rotationAxis></Canvas>
+      <Canvas fx:id="canvas2" height="720.0" width="1280.0">
+         <rotationAxis>
+            <Point3D />
+         </rotationAxis></Canvas>
+      <Canvas fx:id="canvas3" height="720.0" width="1280.0">
+         <rotationAxis>
+            <Point3D />
+         </rotationAxis>
+      </Canvas>
+      <Button fx:id="leftName" layoutX="183.0" layoutY="634.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="200.0" style="-fx-background-radius: 100 0 100 0;" text="You" textAlignment="CENTER">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.2583642980866273" centerY="0.3730158851260231" focusAngle="-169.73" focusDistance="1.0" radius="0.5077519527701444">
+               <stops>
+                  <Stop color="#eada9a" />
+                  <Stop color="#4d5299" offset="0.007653061224489797" />
+                  <Stop color="#c21570" offset="0.9961832061068702" />
+                  <Stop color="#c21570" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+         <effect>
+            <InnerShadow choke="0.01" color="#ff8ea7" height="83.76" radius="44.8675" width="97.71" />
+         </effect>
+      </Button>
+      <Button fx:id="rightName" layoutX="930.0" layoutY="634.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="200.0" style="-fx-background-radius: 0 100 0 100;" text="Enemy" textAlignment="CENTER">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.6858735563143479" centerY="0.4079364958263579" focusAngle="13.13" focusDistance="1.0" radius="0.5077519527701444">
+               <stops>
+                  <Stop color="#0e11d5" />
+                  <Stop color="#3a136b" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+         <effect>
+            <InnerShadow choke="0.5" color="#c8c7ff" height="115.88" radius="31.7425" width="13.09" />
+         </effect>
+      </Button>
+      <Pane fx:id="quitPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: rgba(200,200,255,0.2);">
+         <children>
+            <Button fx:id="continueButton" layoutX="541.0" layoutY="383.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="220.0" stylesheets="@Uo.css" text="Continue" textFill="#6f81e5">
+               <font>
+                  <Font name="Microsoft New Tai Lue" size="18.0" />
+               </font></Button>
+            <Button fx:id="quitButton" layoutX="543.0" layoutY="513.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="220.0" styleClass="button2" stylesheets="@Uo.css" text="Quit" textFill="#81b7a1">
+               <font>
+                  <Font name="Microsoft New Tai Lue" size="18.0" />
+               </font></Button>
+            <Label fx:id="winner" alignment="CENTER" layoutX="290.0" layoutY="50.0" prefHeight="200.0" prefWidth="700.0" style="-fx-background-color: #FFAAAA; -fx-background-radius: 100 0 0 100;" text="You Win!!">
+               <font>
+                  <Font name="Segoe UI Semibold Italic" size="92.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#91e5ff" />
+                        <Stop color="#f03f3f" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill></Label>
+            <Label fx:id="loser" alignment="CENTER" layoutX="290.0" layoutY="50.0" prefHeight="200.0" prefWidth="700.0" style="-fx-background-color: #AAAAFF; -fx-background-radius: 0 100 100 0;" text="You Lose...">
+               <font>
+                  <Font name="Segoe UI Semibold Italic" size="92.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#91e5ff" />
+                        <Stop color="#3e3f78" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+         </children></Pane>
    </children>
 </AnchorPane>

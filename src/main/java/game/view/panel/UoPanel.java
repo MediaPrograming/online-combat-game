@@ -1,106 +1,167 @@
 package game.view.panel;
-import Animation.animationHolder;
-import Animation.animationKeyHolder;
+import Animation.*;
+import Animation.EffectPlayer.EffectManager;
+import Animation.UIPlayer.PlayUI;
+import Audio.AudioPlayer;
+
 import com.taku.util.flux.view.BasePanel;
 import game.config.PATH;
 import game.util.Time;
-import game.view.container.CharacterContainer;
-import game.view.service.ICharacter;
-import game.view.state.CharacterState;
+import game.view.container.UoPanelContainer;
+import game.view.service.IUoPanel;
+import game.view.state.UoPanelState;
+import io.game.hub.messageHub.User;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import java.awt.*;
-import javafx.scene.image.Image;
 
-import java.io.File;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
 
-import javafx.scene.image.ImageView;
-import javafx.scene.image.WritableImage;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
-public class UoPanel extends BasePanel<CharacterState, ICharacter> implements Initializable {
+public class UoPanel extends BasePanel<UoPanelState, IUoPanel> implements Initializable {
     @FXML
-    private Label ground;
+    private Canvas canvas1,canvas2,canvas3;
     @FXML
-    private Canvas canvas;
-    GraphicsContext gc;
+    private Label winner,loser;
+    @FXML
+    private Pane quitPane;
+    @FXML
+    private Button continueButton, quitButton ,leftName,rightName;
+    GraphicsContext gc1,gc2,gc3;
     double initTime;
-
     //test
-    private int uouo;
+    private int uouo = 0;
     private Text text;
-    private animationHolder anim;
-    private Image[][] Gura;
-    @FXML
-    private ImageView imgv;
-
-    private Image clip;
-    private WritableImage wclip;
-
+    private boolean debug;
+    private Animation Bloop;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        new CharacterContainer(this);
-
+        new UoPanelContainer(this);
+        System.out.println("-----------------------");
         var props = this.getProps();
         var state = this.getState();
+        props.Init(state.self, state.room);
+        gc1 = canvas1.getGraphicsContext2D();
+        gc2 = canvas2.getGraphicsContext2D();
+        gc3 = canvas3.getGraphicsContext2D();
 
-        gc = canvas.getGraphicsContext2D();
-
-        Time.Instance.run();
         initTime = Time.Instance.getTotalTime();
-        uouo = 0;
-
-//        this.draw();
-        text = new Text (String.valueOf(initTime));
+        text = new Text(String.valueOf(initTime));
         text.setStroke(Color.BLACK);
+        this.getProps().UpdateCharacterTable(gc2);
+        state.timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                getProps().SendInput(state.input);
+            }
+        }, 1000, 30);
 
+        AudioPlayer.Play(PATH.BattleBGM);
+        
+        User host,client;
+        if(getState().room.getUser(0).getId() == getState().room.getHostId()){
+            host = getState().room.getUser(0); client = getState().room.getUser(1);
+            leftName.setText(getState().room.getUser(0).getName());
+            rightName.setText(getState().room.getUser(1).getName());
+        }else{
+            host = getState().room.getUser(1); client = getState().room.getUser(0);
+            leftName.setText(getState().room.getUser(1).getName());
+            rightName.setText(getState().room.getUser(0).getName());
+        }
+        new PlayUI(gc3,host,client);
+        debug = false;
+        continueButton.setOnAction(e -> {EffectManager.resetGraphicsContext(); props.ContinueGame();});
+        quitButton.setOnAction(e -> {EffectManager.resetGraphicsContext(); props.QuitGame();});
 
-//        imgv = new ImageView(new File(PATH.Gura).toURI().toString());
+        EffectAnimationManager.setGc(gc2);
+        EffectManager.addGraphicsContext(gc1);
+        EffectManager.addGraphicsContext(gc2);
+        EffectManager.addGraphicsContext(gc3);
 
-        Gura = new Image[5][2];
+        Bloop = AnimationHolder.getEffectAnimation("Bloop");
+    }
 
-        anim = new animationHolder();
-        anim.addAnimation(PATH.Gura,120,120,5,2,new String("gura"));
-        Gura = anim.getAnimation("gura");
+    @Override
+    public void KeyPressed(KeyEvent key) {
+        String keycode = key.getCode().toString();
+        this.getProps().ChangeInputPressed(keycode);
+    }
 
-//        clip = new Image(new File(PATH.Gura).toURI().toString());
-//        Gura[0][0] = new WritableImage(clip.getPixelReader(),0,0 , 120, 120);
-
+    @Override
+    public void KeyReleased(KeyEvent key) {
+        String keycode= key.getCode().toString();
+        this.getProps().ChangeInputReleased(keycode);
     }
 
     void draw(){
-        gc.clearRect(0,0,canvas.getWidth(),canvas.getHeight());
+        var state = getState();
+        var props = getProps();
 
-        Image earth = new Image(new File(PATH.Img3).toURI().toString());
-        gc.setFill(Color.RED);
-        gc.setStroke(Color.BLUE);
-        gc.fillRect(uouo, 50, 150, 150);
-        gc.strokeOval(uouo, 300, 50, 50);
+        gc1.clearRect(0,0,canvas1.getWidth(),canvas1.getHeight());
 
-//        imgv.setImage(earth);
-        gc.drawImage(Gura[1][0], 100,500,100,100);
+        gc1.drawImage(state.back,-20,-20,1320,742.5);
 
-        gc.setFill(Color.RED);
-        gc.fillText(""+text, 300, 100);
+        var character  = getState().stateBlockingQueue.poll();
+        while (character != null) {
+//            System.out.println("ID"+character.getId());
+            if(character.getHP()<=0) {
+                ((character.getId() == state.self.getId()) ? winner : loser ).setVisible(false);
+            }
+            state.playerTable.get(character.getId()).updateState(character);
+            PlayUI.updateState(character);
+            state.polyTable.get(character.getId()).updateChara((int)character.getX(),(int)character.getY(),state.charaTable.get(character.getId()));//debug用
+            character  = getState().stateBlockingQueue.poll();
+        }
 
+        gc2.clearRect(0,0,canvas2.getWidth(),canvas2.getHeight());
+        gc2.drawImage(state.floor,-20,-20,1320,742.5);
+        gc2.drawImage(Bloop.getAnim()[(int)(Time.Instance.getTotalTime()*Bloop.getSpeed())%Bloop.getAnim().length][(int)(Time.Instance.getTotalTime()/Bloop.getAnim().length*Bloop.getSpeed())%Bloop.getAnim()[0].length],1150,520,50,50);
+        state.playerTable.forEach((k,v) -> v.play());
+        EffectAnimationManager.play();
+
+        /*gc3,canvas3*/
+        gc3.clearRect(0,0,canvas3.getWidth(),canvas3.getHeight());
+        gc3.drawImage(state.kusa,-20,-20,1320,742.5);
+        PlayUI.play();
+        //PlayUI.debug(hoge);
+        if(debug){
+            state.polyTable.forEach((k,v) -> v.play(gc3));
+            gc3.setFill(Color.WHITE);
+            gc3.fillText(""+text, 300, 100);
+        }
+        EffectManager.play();
     }
 
     @Override
     public void EveryFrameUpdate(){
-        System.out.println("fps"+Time.Instance.getFrameRate()+"uouo"+uouo);
+        var state = getState();
         uouo++;
-        gc.setStroke(Color.RED);
-//        gc.strokeText("Total Time : " + (Time.Instance.getTotalTime()-initTime)+ "\n delta Time : " + Time.Instance.getDeltaTime(), 250, 200);
-
-        text.setText(""+uouo+"init"+initTime);
+        //#region debug text
+        if(debug) {
+//            System.out.println("fps" + Time.Instance.getFrameRate() + "uouo" + uouo);
+            //gc.strokeText("Total Time : " + (Time.Instance.getTotalTime() - initTime) + "\n delta Time : " + Time.Instance.getDeltaTime(), 250, 200);
+        }
+        //#endregion
+        if(text == null) return;
+        text.setText("uouo->"+uouo+"FPS->"+Time.Instance.getFrameRate());
         draw();
+        quitPane.setVisible(state.quitPaneVisible);
+        if(state.quitPaneVisible){
+            state.timer.cancel();
+            //System.out.println("finishbgm");
+            if(AudioPlayer.getBGM()!=PATH.FinishBGM){
+                AudioPlayer.Play(PATH.FinishBGM);
+            }
+        }
     }
 }

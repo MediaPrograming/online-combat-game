@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Implementation-Title: grpc-netty-shaded
+Main-Class: game.view.Main
+Target-Compatibility: 1.7
+Implementation-Version: 1.34.1
+Built-By: root
+Source-Compatibility: 1.7
+Class-Path: grpc-core-1.34.1.jar grpc-api-1.34.1.jar gson-2.8.6.jar anno
+ tations-4.1.1.4.jar animal-sniffer-annotations-1.18.jar error_prone_ann
+ otations-2.3.4.jar guava-29.0-android.jar perfmark-api-0.19.0.jar jsr30
+ 5-3.0.2.jar grpc-context-1.34.1.jar failureaccess-1.0.1.jar listenablef
+ uture-9999.0-empty-to-avoid-conflict-with-guava.jar checker-compat-qual
+ -2.5.5.jar j2objc-annotations-1.3.jar java.base javafx.base javafx.controls
+Built-JDK: 1.8.0_272
+
